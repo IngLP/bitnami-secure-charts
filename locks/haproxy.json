@@ -1,0 +1,19 @@
+{
+  "chart": "haproxy",
+  "images": [
+    {
+      "app_version": "3.2.18",
+      "image_revision": "0",
+      "name": "haproxy",
+      "os_flavour": "photon-5",
+      "source_digest": "sha256:63eeaa664aaccbc75a648028f2916a0e003ad9f8d5ba6eb591918204ee22f9d1",
+      "source_image": "registry-1.docker.io/bitnamisecure/haproxy:latest",
+      "target_digest": "sha256:63eeaa664aaccbc75a648028f2916a0e003ad9f8d5ba6eb591918204ee22f9d1",
+      "target_registry": "docker.io",
+      "target_repository": "inglp/bitnami-secure-haproxy",
+      "target_tag": "3.2.18-photon-5-r0"
+    }
+  ],
+  "source_digest": "sha256:21c4dea872409090d3d3154c7033e8e0f91f39a5763bf7c5d6e530ff1e9f184e",
+  "version": "3.5.1"
+}

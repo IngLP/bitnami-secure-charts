@@ -1,0 +1,12 @@
+dependencies:
+- name: memcached
+  repository: oci://registry-1.docker.io/inglp
+  version: 8.5.1
+- name: mariadb
+  repository: oci://registry-1.docker.io/inglp
+  version: 25.1.1
+- name: common
+  repository: oci://registry-1.docker.io/inglp
+  version: 2.39.0
+digest: sha256:05581a6aa0dc85132f5c5cdc13ba3bba62a76257e9848f39ffaede8f3822cb83
+generated: "2026-05-07T17:27:45.597677042Z"

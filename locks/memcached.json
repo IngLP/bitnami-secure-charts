@@ -1,0 +1,43 @@
+{
+  "chart": "memcached",
+  "images": [
+    {
+      "app_version": "1.6.41",
+      "image_revision": "17",
+      "name": "memcached",
+      "os_flavour": "photon-5",
+      "source_digest": "sha256:f9a33838952d7b86d1db9729604edba992025b7499deca0e6abe8ff2b01eaa1a",
+      "source_image": "registry-1.docker.io/bitnamisecure/memcached:latest",
+      "target_digest": "sha256:f9a33838952d7b86d1db9729604edba992025b7499deca0e6abe8ff2b01eaa1a",
+      "target_registry": "docker.io",
+      "target_repository": "inglp/bitnami-secure-memcached",
+      "target_tag": "1.6.41-photon-5-r17"
+    },
+    {
+      "app_version": "0.16.0",
+      "image_revision": "0",
+      "name": "memcached-exporter",
+      "os_flavour": "linux",
+      "source_digest": "sha256:a6d9015e43f82a98d182f2320348d7120d5befe9700aed9ad23babcd5ebe1613",
+      "source_image": "registry-1.docker.io/bitnamisecure/memcached-exporter:latest",
+      "target_digest": "sha256:a6d9015e43f82a98d182f2320348d7120d5befe9700aed9ad23babcd5ebe1613",
+      "target_registry": "docker.io",
+      "target_repository": "inglp/bitnami-secure-memcached-exporter",
+      "target_tag": "0.16.0-linux-r0"
+    },
+    {
+      "app_version": "5",
+      "image_revision": "82",
+      "name": "os-shell",
+      "os_flavour": "photon-5",
+      "source_digest": "sha256:85cd536585c25c4bb689c5510cfa8480acc947d7b7e62529816770be3df68d5c",
+      "source_image": "registry-1.docker.io/bitnamisecure/os-shell:latest",
+      "target_digest": "sha256:85cd536585c25c4bb689c5510cfa8480acc947d7b7e62529816770be3df68d5c",
+      "target_registry": "docker.io",
+      "target_repository": "inglp/bitnami-secure-os-shell",
+      "target_tag": "5-photon-5-r82"
+    }
+  ],
+  "source_digest": "sha256:c560911fc8af6fa4e0d214d3e69abed3e1063bba9e388c850b3d7053fc744493",
+  "version": "8.5.1"
+}

@@ -1,0 +1,188 @@
+global:
+  imageRegistry: ''
+  imagePullSecrets: []
+  defaultStorageClass: ''
+  storageClass: ''
+  security:
+    allowInsecureImages: true
+  compatibility:
+    openshift:
+      adaptSecurityContext: auto
+  defaultFips: restricted
+kubeVersion: ''
+nameOverride: ''
+fullnameOverride: ''
+commonLabels: {}
+commonAnnotations: {}
+clusterDomain: cluster.local
+extraDeploy: []
+deploymentAnnotations: {}
+diagnosticMode:
+  enabled: false
+  command:
+  - sleep
+  args:
+  - infinity
+service:
+  type: LoadBalancer
+  ports:
+  - name: http
+    protocol: TCP
+    port: 80
+    targetPort: http
+  clusterIP: ''
+  loadBalancerIP: ''
+  loadBalancerSourceRanges: []
+  externalIPs: []
+  externalTrafficPolicy: Cluster
+  annotations: {}
+  sessionAffinity: None
+  sessionAffinityConfig: {}
+  labels: {}
+  ipFamilyPolicy: ''
+  ipFamilies: []
+networkPolicy:
+  enabled: true
+  allowExternal: true
+  allowExternalEgress: true
+  extraIngress: []
+  extraEgress: []
+  ingressNSMatchLabels: {}
+  ingressNSPodMatchLabels: {}
+httpRoute:
+  enabled: false
+  annotations: {}
+  labels: {}
+  parentRefs: []
+  hostnames:
+  - haproxy.local
+  matches:
+  - path:
+      type: PathPrefix
+      value: /
+  filters: []
+  extraRules: []
+ingress:
+  enabled: false
+  pathType: ImplementationSpecific
+  apiVersion: ''
+  hostname: haproxy.local
+  path: /
+  annotations: {}
+  tls: false
+  selfSigned: false
+  extraHosts: []
+  extraPaths: []
+  extraTls: []
+  secrets: []
+  ingressClassName: ''
+  extraRules: []
+terminationGracePeriodSeconds: ''
+image:
+  registry: docker.io
+  repository: inglp/bitnami-secure-haproxy
+  tag: 3.2.18-photon-5-r0
+  digest: sha256:63eeaa664aaccbc75a648028f2916a0e003ad9f8d5ba6eb591918204ee22f9d1
+  pullPolicy: IfNotPresent
+  pullSecrets: []
+replicaCount: 1
+startupProbe:
+  enabled: false
+  failureThreshold: 5
+  initialDelaySeconds: 15
+  periodSeconds: 10
+  successThreshold: 1
+  timeoutSeconds: 5
+livenessProbe:
+  enabled: true
+  failureThreshold: 5
+  initialDelaySeconds: 15
+  periodSeconds: 10
+  successThreshold: 1
+  timeoutSeconds: 5
+readinessProbe:
+  enabled: true
+  failureThreshold: 5
+  initialDelaySeconds: 15
+  periodSeconds: 10
+  successThreshold: 1
+  timeoutSeconds: 5
+customStartupProbe: {}
+customLivenessProbe: {}
+customReadinessProbe: {}
+resourcesPreset: nano
+resources: {}
+podSecurityContext:
+  enabled: true
+  fsGroupChangePolicy: Always
+  sysctls: []
+  supplementalGroups: []
+  fsGroup: 1001
+containerSecurityContext:
+  enabled: true
+  seLinuxOptions: {}
+  runAsUser: 1001
+  runAsGroup: 1001
+  runAsNonRoot: true
+  privileged: false
+  readOnlyRootFilesystem: true
+  allowPrivilegeEscalation: false
+  capabilities:
+    drop:
+    - ALL
+  seccompProfile:
+    type: RuntimeDefault
+pdb:
+  create: true
+  minAvailable: ''
+  maxUnavailable: ''
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 11
+  targetCPU: 50
+  targetMemory: 50
+command: []
+args: []
+automountServiceAccountToken: false
+hostAliases: []
+podLabels: {}
+podAnnotations: {}
+podAffinityPreset: ''
+podAntiAffinityPreset: soft
+nodeAffinityPreset:
+  type: ''
+  key: ''
+  values: []
+configuration: "global\n  log stdout format raw local0\n  maxconn 1024\ndefaults\n\
+  \  log global\n  timeout client 60s\n  timeout connect 60s\n  timeout server 60s\n\
+  frontend fe_main\n  bind :8080\n  default_backend be_main\nbackend be_main\n  server\
+  \ web1 10.0.0.1:8080 check\n"
+containerPorts:
+- name: http
+  containerPort: 8080
+existingConfigmap: ''
+affinity: {}
+nodeSelector: {}
+tolerations: []
+schedulerName: ''
+topologySpreadConstraints: []
+updateStrategy:
+  type: RollingUpdate
+priorityClassName: ''
+lifecycleHooks: {}
+extraEnvVars: []
+extraEnvVarsCM: ''
+extraEnvVarsSecret: ''
+extraVolumes: []
+extraVolumeMounts: []
+sidecars: []
+initContainers: []
+fips:
+  openssl: ''
+serviceAccount:
+  create: true
+  name: ''
+  automountServiceAccountToken: false
+  annotations: {}
+enableServiceLinks: true

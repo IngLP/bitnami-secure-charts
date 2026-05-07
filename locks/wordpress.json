@@ -1,0 +1,43 @@
+{
+  "chart": "wordpress",
+  "images": [
+    {
+      "app_version": "1.0.12",
+      "image_revision": "19",
+      "name": "apache-exporter",
+      "os_flavour": "photon-5",
+      "source_digest": "sha256:9a8985627464d12ece90185a2f5fa8ca64c5031781bdaa750cd61bf9b60c8f22",
+      "source_image": "registry-1.docker.io/bitnamisecure/apache-exporter:latest",
+      "target_digest": "sha256:9a8985627464d12ece90185a2f5fa8ca64c5031781bdaa750cd61bf9b60c8f22",
+      "target_registry": "docker.io",
+      "target_repository": "inglp/bitnami-secure-apache-exporter",
+      "target_tag": "1.0.12-photon-5-r19"
+    },
+    {
+      "app_version": "5",
+      "image_revision": "82",
+      "name": "os-shell",
+      "os_flavour": "photon-5",
+      "source_digest": "sha256:85cd536585c25c4bb689c5510cfa8480acc947d7b7e62529816770be3df68d5c",
+      "source_image": "registry-1.docker.io/bitnamisecure/os-shell:latest",
+      "target_digest": "sha256:85cd536585c25c4bb689c5510cfa8480acc947d7b7e62529816770be3df68d5c",
+      "target_registry": "docker.io",
+      "target_repository": "inglp/bitnami-secure-os-shell",
+      "target_tag": "5-photon-5-r82"
+    },
+    {
+      "app_version": "6.9.4",
+      "image_revision": "22",
+      "name": "wordpress",
+      "os_flavour": "photon-5",
+      "source_digest": "sha256:54cd8b51a9d98587fbb55271bd9a841dc73a8d336b514ca746a58befd729a8f3",
+      "source_image": "registry-1.docker.io/bitnamisecure/wordpress:latest",
+      "target_digest": "sha256:54cd8b51a9d98587fbb55271bd9a841dc73a8d336b514ca746a58befd729a8f3",
+      "target_registry": "docker.io",
+      "target_repository": "inglp/bitnami-secure-wordpress",
+      "target_tag": "6.9.4-photon-5-r22"
+    }
+  ],
+  "source_digest": "sha256:01dad444ca63f05f0043d97fc9270c42e7e3990cc28d54dc9b3ff598b79faf19",
+  "version": "30.1.1"
+}
