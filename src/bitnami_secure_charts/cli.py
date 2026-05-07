@@ -9,6 +9,7 @@ import subprocess
 import sys
 import urllib.request
 from dataclasses import asdict, dataclass
+from functools import lru_cache
 from pathlib import Path
 from typing import Any, Callable
 
@@ -156,8 +157,9 @@ def sync(config: MirrorConfig, requested_charts: tuple[str, ...], push: bool) ->
 
     initial_selection = tuple(ChartSelection(name, chart_version(name)) for name in selected_names)
     selected = dependency_closure_order(config, initial_selection, load_dependencies)
+    copied_images: set[str] = set()
     for selection in selected:
-        sync_chart(config, selection.name, selection.version, charts_dir, locks_dir, package_dir, push)
+        sync_chart(config, selection.name, selection.version, charts_dir, locks_dir, package_dir, push, copied_images)
 
 
 def sync_chart(
@@ -168,6 +170,7 @@ def sync_chart(
     locks_dir: Path,
     package_dir: Path,
     push: bool,
+    copied_images: set[str],
 ) -> None:
     chart_ref = f"oci://{config.upstream_chart_registry}/{config.upstream_chart_namespace}/{chart_name}"
     source_digest = dockerhub_tag_digest(config.upstream_chart_namespace, chart_name, version)
@@ -213,7 +216,7 @@ def sync_chart(
     if publish_chart:
         update_dependencies(chart_dir)
         for mirror in mirrors:
-            copy_mirrored_image(config, mirror)
+            copy_mirrored_image(config, mirror, copied_images)
         package_path = package_chart(chart_dir, package_dir)
         run(["helm", "push", str(package_path), f"oci://{config.upstream_chart_registry}/{config.dockerhub_namespace}"])
     else:
@@ -241,6 +244,7 @@ def latest_chart_version(config: MirrorConfig, chart_name: str) -> str:
     raise SyncError(f"No Helm semver tag found for {config.upstream_chart_namespace}/{chart_name}")
 
 
+@lru_cache(maxsize=None)
 def upstream_chart_metadata(config: MirrorConfig, chart_name: str, version: str) -> dict[str, Any]:
     chart_ref = f"oci://{config.upstream_chart_registry}/{config.upstream_chart_namespace}/{chart_name}"
     return yaml.safe_load(run_stdout(["helm", "show", "chart", chart_ref, "--version", version])) or {}
@@ -315,10 +319,14 @@ def inspect_image(
     )
 
 
-def copy_mirrored_image(config: MirrorConfig, mirror: MirroredImage) -> None:
+def copy_mirrored_image(config: MirrorConfig, mirror: MirroredImage, copied_images: set[str]) -> None:
     source_repository = strip_tag(mirror.source_image)
     target_image = f"{config.upstream_chart_registry}/{mirror.target_repository}:{mirror.target_tag}"
+    copy_key = f"{source_repository}@{mirror.source_digest}->{target_image}"
+    if copy_key in copied_images:
+        return
     run(["skopeo", "copy", "--all", f"docker://{source_repository}@{mirror.source_digest}", f"docker://{target_image}"])
+    copied_images.add(copy_key)
 
 
 def normalize_source_image(config: MirrorConfig, image: str) -> str:
@@ -644,6 +652,7 @@ def dockerhub_tag_digest(namespace: str, repository: str, tag: str) -> str:
     raise SyncError(f"Docker Hub tag not found: {namespace}/{repository}:{tag}")
 
 
+@lru_cache(maxsize=None)
 def dockerhub_tags(namespace: str, repository: str) -> list[dict[str, Any]]:
     tags: list[dict[str, Any]] = []
     url = f"https://hub.docker.com/v2/namespaces/{namespace}/repositories/{repository}/tags?page_size=100"
@@ -666,6 +675,7 @@ def list_available_repositories(namespace: str, content_type: str | None = None)
     return sorted(repositories)
 
 
+@lru_cache(maxsize=None)
 def skopeo_digest(image: str) -> str:
     return run_stdout([
         "skopeo",
@@ -680,6 +690,7 @@ def skopeo_digest(image: str) -> str:
     ]).strip()
 
 
+@lru_cache(maxsize=None)
 def skopeo_config(image: str) -> dict[str, Any]:
     return json.loads(run_stdout([
         "skopeo",
