@@ -3,10 +3,13 @@ from __future__ import annotations
 import pytest
 
 from bitnami_secure_charts.cli import (
+    ChartImage,
     MirroredImage,
+    MirrorConfig,
     SyncError,
     build_target_tag,
     find_repository_mirror,
+    inspect_and_optionally_copy_image,
     parse_chart_images,
     parse_env,
     patch_chart_yaml,
@@ -14,7 +17,6 @@ from bitnami_secure_charts.cli import (
     require_env,
     strip_tag,
 )
-from bitnami_secure_charts.cli import MirrorConfig
 
 
 class TestChartImages:
@@ -50,6 +52,42 @@ class TestImageTags:
         assert strip_tag("registry-1.docker.io/bitnamisecure/redis:latest") == (
             "registry-1.docker.io/bitnamisecure/redis"
         )
+
+    def test_exporter_without_os_or_revision_gets_stable_digest_tag(
+        self,
+        monkeypatch: pytest.MonkeyPatch,
+    ) -> None:
+        config = MirrorConfig(
+            dockerhub_namespace="inglp",
+            upstream_chart_registry="registry-1.docker.io",
+            upstream_chart_namespace="bitnamichartssecure",
+            upstream_image_registry="registry-1.docker.io",
+            upstream_image_namespace="bitnamisecure",
+            target_image_prefix="bitnami-secure-",
+            chart_names=("memcached",),
+        )
+        monkeypatch.setattr(
+            "bitnami_secure_charts.cli.skopeo_digest",
+            lambda image: "sha256:abcdef1234567890",
+        )
+        monkeypatch.setattr(
+            "bitnami_secure_charts.cli.skopeo_config",
+            lambda image: {"config": {"Env": ["APP_VERSION=0.15.3"]}},
+        )
+
+        image = inspect_and_optionally_copy_image(
+            config,
+            ChartImage(
+                name="memcached-exporter",
+                version="0.15.3",
+                image="registry-1.docker.io/bitnamisecure/memcached-exporter:latest",
+            ),
+            push=False,
+        )
+
+        assert image.target_tag == "0.15.3-linux-rdigest-abcdef123456"
+        assert image.os_flavour == "linux"
+        assert image.image_revision == "digest-abcdef123456"
 
 
 class TestPatchValues:

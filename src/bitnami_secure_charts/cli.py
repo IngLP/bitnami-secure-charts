@@ -193,9 +193,9 @@ def inspect_and_optionally_copy_image(
     source_repository = strip_tag(source_image)
     image_config = skopeo_config(f"{source_repository}@{source_digest}")
     env = parse_env(image_config["config"]["Env"])
-    app_version = require_env(env, "APP_VERSION", source_image)
-    os_flavour = require_env(env, "OS_FLAVOUR", source_image)
-    image_revision = require_env(env, "IMAGE_REVISION", source_image)
+    app_version = env.get("APP_VERSION") or chart_image.version
+    os_flavour = env.get("OS_FLAVOUR") or "linux"
+    image_revision = env.get("IMAGE_REVISION") or f"digest-{source_digest.removeprefix('sha256:')[:12]}"
     target_tag = build_target_tag(app_version, os_flavour, image_revision)
     image_name = source_image.rsplit("/", maxsplit=1)[1].split(":", maxsplit=1)[0]
     target_repository = f"{config.dockerhub_namespace}/{config.target_image_prefix}{image_name}"
