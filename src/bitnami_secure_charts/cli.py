@@ -148,7 +148,9 @@ def sync(config: MirrorConfig, requested_charts: tuple[str, ...], push: bool) ->
         return versions[chart_name]
 
     def load_dependencies(selection: ChartSelection) -> tuple[ChartSelection, ...]:
-        metadata = upstream_chart_metadata(config, selection.name, selection.version)
+        metadata = local_chart_metadata(charts_dir, selection.name, selection.version)
+        if metadata is None:
+            metadata = upstream_chart_metadata(config, selection.name, selection.version)
         return tuple(
             ChartSelection(dependency["name"], str(dependency["version"]))
             for dependency in metadata.get("dependencies", [])
@@ -175,10 +177,13 @@ def sync_chart(
     chart_ref = f"oci://{config.upstream_chart_registry}/{config.upstream_chart_namespace}/{chart_name}"
     source_digest = dockerhub_tag_digest(config.upstream_chart_namespace, chart_name, version)
     chart_dir = charts_dir / chart_name
-    if chart_dir.exists():
+    legacy_lock = reusable_legacy_lock(locks_dir, chart_name, version, source_digest)
+    reuse_local_chart = legacy_lock is not None and local_chart_metadata(charts_dir, chart_name, version) is not None
+    if chart_dir.exists() and not reuse_local_chart:
         shutil.rmtree(chart_dir)
 
-    run(["helm", "pull", chart_ref, "--version", version, "--untar", "--untardir", str(charts_dir)])
+    if not reuse_local_chart:
+        run(["helm", "pull", chart_ref, "--version", version, "--untar", "--untardir", str(charts_dir)])
 
     chart_yaml_path = chart_dir / "Chart.yaml"
     values_yaml_path = chart_dir / "values.yaml"
@@ -186,7 +191,9 @@ def sync_chart(
     values_yaml = read_yaml(values_yaml_path) if values_yaml_path.exists() else {}
 
     chart_images = parse_chart_images(chart_yaml.get("annotations", {}).get("images", "[]"))
-    mirrors = [inspect_image(config, chart_image) for chart_image in chart_images]
+    mirrors = legacy_mirrors(legacy_lock) if reuse_local_chart else [
+        inspect_image(config, chart_image) for chart_image in chart_images
+    ]
     dependency_versions = load_dependency_versions(locks_dir)
     mirrored_dependencies = resolve_mirrored_dependencies(config, chart_yaml, dependency_versions)
     content_fingerprint = build_content_fingerprint(source_digest, mirrors, mirrored_dependencies)
@@ -215,8 +222,9 @@ def sync_chart(
     publish_chart = should_publish_chart(push, content_changed, previous_lock)
     if publish_chart:
         update_dependencies(chart_dir)
-        for mirror in mirrors:
-            copy_mirrored_image(config, mirror, copied_images)
+        if not reuse_local_chart:
+            for mirror in mirrors:
+                copy_mirrored_image(config, mirror, copied_images)
         package_path = package_chart(chart_dir, package_dir)
         run(["helm", "push", str(package_path), f"oci://{config.upstream_chart_registry}/{config.dockerhub_namespace}"])
     else:
@@ -248,6 +256,19 @@ def latest_chart_version(config: MirrorConfig, chart_name: str) -> str:
 def upstream_chart_metadata(config: MirrorConfig, chart_name: str, version: str) -> dict[str, Any]:
     chart_ref = f"oci://{config.upstream_chart_registry}/{config.upstream_chart_namespace}/{chart_name}"
     return yaml.safe_load(run_stdout(["helm", "show", "chart", chart_ref, "--version", version])) or {}
+
+
+def local_chart_metadata(charts_dir: Path, chart_name: str, upstream_version: str) -> dict[str, Any] | None:
+    chart_yaml_path = charts_dir / chart_name / "Chart.yaml"
+    if not chart_yaml_path.exists():
+        return None
+    chart_yaml = read_yaml(chart_yaml_path)
+    annotations = chart_yaml.get("annotations", {})
+    if chart_yaml.get("version") == upstream_version:
+        return chart_yaml
+    if isinstance(annotations, dict) and annotations.get("inglp.bitnami-secure-mirror/upstream-version") == upstream_version:
+        return chart_yaml
+    return None
 
 
 def dependency_closure_order(
@@ -471,12 +492,13 @@ def resolve_mirrored_dependencies(
 ) -> list[MirroredDependency]:
     upstream_repository = f"oci://{config.upstream_chart_registry}/{config.upstream_chart_namespace}"
     target_repository = f"oci://{config.upstream_chart_registry}/{config.dockerhub_namespace}"
+    accepted_repositories = {upstream_repository, target_repository}
     mirrored_dependencies: list[MirroredDependency] = []
     for dependency in chart_yaml.get("dependencies", []):
         dependency_name = dependency.get("name")
         if not isinstance(dependency_name, str):
             continue
-        if dependency.get("repository") != upstream_repository:
+        if dependency.get("repository") not in accepted_repositories:
             continue
         required_version = dependency.get("version")
         if not isinstance(required_version, str):
@@ -592,6 +614,34 @@ def read_lock(path: Path) -> dict[str, Any] | None:
     if not path.exists():
         return None
     return json.loads(path.read_text(encoding="utf-8"))
+
+
+def reusable_legacy_lock(
+    locks_dir: Path,
+    chart_name: str,
+    upstream_version: str,
+    source_digest: str,
+) -> dict[str, Any] | None:
+    legacy_lock = read_lock(locks_dir / f"{chart_name}.json")
+    if legacy_lock is None:
+        return None
+    if legacy_lock.get("mirror_revision") is not None:
+        return None
+    if legacy_lock.get("chart") != chart_name:
+        return None
+    if legacy_lock.get("version") != upstream_version:
+        return None
+    if legacy_lock.get("source_digest") != source_digest:
+        return None
+    if not isinstance(legacy_lock.get("images"), list):
+        return None
+    return legacy_lock
+
+
+def legacy_mirrors(lock: dict[str, Any] | None) -> list[MirroredImage]:
+    if lock is None:
+        return []
+    return [MirroredImage(**image) for image in lock["images"]]
 
 
 def chart_lock_path(locks_dir: Path, chart_name: str, upstream_version: str) -> Path:
