@@ -9,10 +9,17 @@ This repository tracks selected charts from `registry-1.docker.io/bitnamichartss
 Configured in `charts.yaml`:
 
 - `common`
+- `haproxy`
+- `mariadb`
+- `memcached`
+- `mongodb`
+- `nginx`
+- `postgresql`
 - `redis`
 - `valkey`
-- `mariadb`
-- `postgresql`
+- `wordpress`
+
+`postgres` is tracked as `postgresql`, which is the upstream Bitnami chart name.
 
 ## Available Upstream Secure Charts
 

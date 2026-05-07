@@ -6,8 +6,12 @@ upstream_image_namespace: bitnamisecure
 target_image_prefix: bitnami-secure-
 charts:
   - name: common
+  - name: haproxy
+  - name: mariadb
+  - name: memcached
+  - name: mongodb
+  - name: nginx
+  - name: postgresql
   - name: redis
   - name: valkey
-  - name: mariadb
-  - name: postgresql
-
+  - name: wordpress
