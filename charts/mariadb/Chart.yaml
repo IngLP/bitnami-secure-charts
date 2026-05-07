@@ -7,14 +7,15 @@ annotations:
   tanzuCategory: service
   inglp.bitnami-secure-mirror/source-chart: registry-1.docker.io/bitnamichartssecure/mariadb:25.1.1
   inglp.bitnami-secure-mirror/source-digest: sha256:d98d875b623e151eb5eb8af9769743e9a49586f37a218449b1354aef4feacd0d
+  inglp.bitnami-secure-mirror/upstream-version: 25.1.1
 apiVersion: v2
 appVersion: 12.2.2
 dependencies:
 - name: common
-  repository: oci://registry-1.docker.io/inglp
+  repository: https://inglp.github.io/bitnami-secure-charts
   tags:
   - bitnami-common
-  version: 2.39.0
+  version: 2.39.0-inglp.r0
 description: MariaDB is an open source, community-developed SQL database server that
   is widely in use around the world due to its enterprise features, flexibility, and
   collaboration with leading tech firms.
@@ -32,4 +33,4 @@ maintainers:
 name: mariadb
 sources:
 - https://github.com/bitnami/charts/tree/main/bitnami/mariadb
-version: 25.1.1
+version: 25.1.1-inglp.r0

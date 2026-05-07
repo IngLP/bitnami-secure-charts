@@ -7,14 +7,15 @@ annotations:
   tanzuCategory: clusterUtility
   inglp.bitnami-secure-mirror/source-chart: registry-1.docker.io/bitnamichartssecure/nginx:23.0.4
   inglp.bitnami-secure-mirror/source-digest: sha256:7e78e3266d88e37711c099e88c602194e226a67915c9821b92b81a36a94cecc1
+  inglp.bitnami-secure-mirror/upstream-version: 23.0.4
 apiVersion: v2
 appVersion: 1.30.0
 dependencies:
 - name: common
-  repository: oci://registry-1.docker.io/inglp
+  repository: https://inglp.github.io/bitnami-secure-charts
   tags:
   - bitnami-common
-  version: 2.39.0
+  version: 2.39.0-inglp.r0
 description: NGINX Open Source is a web server that can be also used as a reverse
   proxy, load balancer, and HTTP cache. Recommended for high-demanding sites due to
   its ability to provide faster content.
@@ -32,4 +33,4 @@ maintainers:
 name: nginx
 sources:
 - https://github.com/bitnami/charts/tree/main/bitnami/nginx
-version: 23.0.4
+version: 23.0.4-inglp.r0

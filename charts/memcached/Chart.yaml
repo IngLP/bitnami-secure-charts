@@ -7,14 +7,15 @@ annotations:
   tanzuCategory: service
   inglp.bitnami-secure-mirror/source-chart: registry-1.docker.io/bitnamichartssecure/memcached:8.5.1
   inglp.bitnami-secure-mirror/source-digest: sha256:c560911fc8af6fa4e0d214d3e69abed3e1063bba9e388c850b3d7053fc744493
+  inglp.bitnami-secure-mirror/upstream-version: 8.5.1
 apiVersion: v2
 appVersion: 1.6.41
 dependencies:
 - name: common
-  repository: oci://registry-1.docker.io/inglp
+  repository: https://inglp.github.io/bitnami-secure-charts
   tags:
   - bitnami-common
-  version: 2.39.0
+  version: 2.39.0-inglp.r0
 description: Memcached is an high-performance, distributed memory object caching system,
   generic in nature, but intended for use in speeding up dynamic web applications
   by alleviating database load.
@@ -29,4 +30,4 @@ maintainers:
 name: memcached
 sources:
 - https://github.com/bitnami/charts/tree/main/bitnami/memcached
-version: 8.5.1
+version: 8.5.1-inglp.r0

@@ -9,14 +9,15 @@ annotations:
   tanzuCategory: service
   inglp.bitnami-secure-mirror/source-chart: registry-1.docker.io/bitnamichartssecure/redis:25.5.2
   inglp.bitnami-secure-mirror/source-digest: sha256:51f3e71f298d7c30969cc13b9eb336006a51dc23c1af10f9783fb3ff4754aeb0
+  inglp.bitnami-secure-mirror/upstream-version: 25.5.2
 apiVersion: v2
 appVersion: 8.6.3
 dependencies:
 - name: common
-  repository: oci://registry-1.docker.io/inglp
+  repository: https://inglp.github.io/bitnami-secure-charts
   tags:
   - bitnami-common
-  version: 2.39.0
+  version: 2.39.0-inglp.r0
 description: Redis(R) is an open source, advanced key-value store. It is often referred
   to as a data structure server since keys can contain strings, hashes, lists, sets
   and sorted sets.
@@ -32,4 +33,4 @@ maintainers:
 name: redis
 sources:
 - https://github.com/bitnami/charts/tree/main/bitnami/redis
-version: 25.5.2
+version: 25.5.2-inglp.r0

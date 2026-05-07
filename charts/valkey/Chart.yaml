@@ -9,14 +9,15 @@ annotations:
   tanzuCategory: service
   inglp.bitnami-secure-mirror/source-chart: registry-1.docker.io/bitnamichartssecure/valkey:5.6.2
   inglp.bitnami-secure-mirror/source-digest: sha256:9a81189eb8b41922bc1e1b42f477799d8b9234885879d254b48d053675a6fdc8
+  inglp.bitnami-secure-mirror/upstream-version: 5.6.2
 apiVersion: v2
 appVersion: 9.0.4
 dependencies:
 - name: common
-  repository: oci://registry-1.docker.io/inglp
+  repository: https://inglp.github.io/bitnami-secure-charts
   tags:
   - bitnami-common
-  version: 2.39.0
+  version: 2.39.0-inglp.r0
 description: Valkey is an open source (BSD) high-performance key/value datastore that
   supports a variety workloads such as caching, message queues, and can act as a primary
   database.
@@ -32,4 +33,4 @@ maintainers:
 name: valkey
 sources:
 - https://github.com/bitnami/charts/tree/main/bitnami/valkey
-version: 5.6.2
+version: 5.6.2-inglp.r0
