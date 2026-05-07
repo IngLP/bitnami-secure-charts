@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import re
 import shutil
@@ -9,7 +10,7 @@ import sys
 import urllib.request
 from dataclasses import asdict, dataclass
 from pathlib import Path
-from typing import Any
+from typing import Any, Callable
 
 import yaml
 
@@ -40,6 +41,12 @@ class ChartImage:
 
 
 @dataclass(frozen=True)
+class ChartSelection:
+    name: str
+    version: str
+
+
+@dataclass(frozen=True)
 class MirroredImage:
     name: str
     source_image: str
@@ -51,6 +58,20 @@ class MirroredImage:
     target_repository: str
     target_tag: str
     target_digest: str
+
+
+@dataclass(frozen=True)
+class MirroredDependency:
+    name: str
+    repository: str
+    upstream_version: str
+    version: str
+
+
+@dataclass(frozen=True)
+class MirroredChartVersion:
+    upstream_version: str
+    version: str
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -105,12 +126,10 @@ def load_config(path: Path) -> MirrorConfig:
 
 
 def sync(config: MirrorConfig, requested_charts: tuple[str, ...], push: bool) -> None:
-    selected = requested_charts or config.chart_names
-    unknown = sorted(set(selected) - set(config.chart_names))
+    selected_names = requested_charts or config.chart_names
+    unknown = sorted(set(selected_names) - set(config.chart_names))
     if unknown:
         raise SyncError(f"Requested chart not present in charts.yaml: {', '.join(unknown)}")
-    if requested_charts and "common" in config.chart_names and "common" not in selected:
-        selected = ("common", *selected)
 
     root = Path.cwd()
     charts_dir = root / "charts"
@@ -120,9 +139,25 @@ def sync(config: MirrorConfig, requested_charts: tuple[str, ...], push: bool) ->
     locks_dir.mkdir(exist_ok=True)
     package_dir.mkdir(exist_ok=True)
 
-    for chart_name in selected:
-        version = latest_chart_version(config, chart_name)
-        sync_chart(config, chart_name, version, charts_dir, locks_dir, package_dir, push)
+    versions: dict[str, str] = {}
+
+    def chart_version(chart_name: str) -> str:
+        if chart_name not in versions:
+            versions[chart_name] = latest_chart_version(config, chart_name)
+        return versions[chart_name]
+
+    def load_dependencies(selection: ChartSelection) -> tuple[ChartSelection, ...]:
+        metadata = upstream_chart_metadata(config, selection.name, selection.version)
+        return tuple(
+            ChartSelection(dependency["name"], str(dependency["version"]))
+            for dependency in metadata.get("dependencies", [])
+            if dependency.get("name") in config.chart_names and "version" in dependency
+        )
+
+    initial_selection = tuple(ChartSelection(name, chart_version(name)) for name in selected_names)
+    selected = dependency_closure_order(config, initial_selection, load_dependencies)
+    for selection in selected:
+        sync_chart(config, selection.name, selection.version, charts_dir, locks_dir, package_dir, push)
 
 
 def sync_chart(
@@ -148,23 +183,54 @@ def sync_chart(
     values_yaml = read_yaml(values_yaml_path) if values_yaml_path.exists() else {}
 
     chart_images = parse_chart_images(chart_yaml.get("annotations", {}).get("images", "[]"))
-    mirrors = [
-        inspect_and_optionally_copy_image(config, chart_image, push)
-        for chart_image in chart_images
-    ]
+    mirrors = [inspect_image(config, chart_image) for chart_image in chart_images]
+    dependency_versions = load_dependency_versions(locks_dir)
+    mirrored_dependencies = resolve_mirrored_dependencies(config, chart_yaml, dependency_versions)
+    content_fingerprint = build_content_fingerprint(source_digest, mirrors, mirrored_dependencies)
+    lock_path = chart_lock_path(locks_dir, chart_name, version)
+    previous_lock = read_lock(lock_path)
+    mirror_version, mirror_revision, content_changed = compute_mirror_version(
+        upstream_version=version,
+        content_fingerprint=content_fingerprint,
+        previous_lock=previous_lock,
+    )
 
-    patch_chart_yaml(config, chart_yaml, chart_name, version, source_digest)
+    patch_chart_yaml(
+        config=config,
+        chart_yaml=chart_yaml,
+        chart_name=chart_name,
+        upstream_version=version,
+        source_digest=source_digest,
+        mirror_version=mirror_version,
+        mirrored_dependencies=mirrored_dependencies,
+    )
     patch_values_yaml(values_yaml, mirrors)
     write_yaml(chart_yaml_path, chart_yaml)
     if values_yaml_path.exists():
         write_yaml(values_yaml_path, values_yaml)
 
-    if push:
-        build_dependencies(chart_dir)
+    publish_chart = should_publish_chart(push, content_changed, previous_lock)
+    if publish_chart:
+        update_dependencies(chart_dir)
+        for mirror in mirrors:
+            copy_mirrored_image(config, mirror)
         package_path = package_chart(chart_dir, package_dir)
         run(["helm", "push", str(package_path), f"oci://{config.upstream_chart_registry}/{config.dockerhub_namespace}"])
+    else:
+        remove_chart_lock(chart_dir)
 
-    write_lock(locks_dir / f"{chart_name}.json", chart_name, version, source_digest, mirrors)
+    write_lock(
+        path=lock_path,
+        chart_name=chart_name,
+        upstream_version=version,
+        mirror_version=mirror_version,
+        mirror_revision=mirror_revision,
+        content_fingerprint=content_fingerprint,
+        source_digest=source_digest,
+        published=compute_lock_published(push, content_changed, previous_lock),
+        mirrored_dependencies=mirrored_dependencies,
+        mirrors=mirrors,
+    )
 
 
 def latest_chart_version(config: MirrorConfig, chart_name: str) -> str:
@@ -175,6 +241,42 @@ def latest_chart_version(config: MirrorConfig, chart_name: str) -> str:
     raise SyncError(f"No Helm semver tag found for {config.upstream_chart_namespace}/{chart_name}")
 
 
+def upstream_chart_metadata(config: MirrorConfig, chart_name: str, version: str) -> dict[str, Any]:
+    chart_ref = f"oci://{config.upstream_chart_registry}/{config.upstream_chart_namespace}/{chart_name}"
+    return yaml.safe_load(run_stdout(["helm", "show", "chart", chart_ref, "--version", version])) or {}
+
+
+def dependency_closure_order(
+    config: MirrorConfig,
+    requested_charts: tuple[ChartSelection, ...],
+    dependency_loader: Callable[[ChartSelection], tuple[ChartSelection, ...]],
+) -> tuple[ChartSelection, ...]:
+    configured_charts = set(config.chart_names)
+    ordered: list[ChartSelection] = []
+    permanent: set[str] = set()
+    visiting: set[str] = set()
+
+    def visit(selection: ChartSelection) -> None:
+        if selection.name not in configured_charts:
+            return
+        selection_key = dependency_lock_key(selection.name, selection.version)
+
+        if selection_key in permanent:
+            return
+        if selection_key in visiting:
+            raise SyncError(f"Chart dependency cycle detected at {selection.name} {selection.version}")
+        visiting.add(selection_key)
+        for dependency in dependency_loader(selection):
+            visit(dependency)
+        visiting.remove(selection_key)
+        permanent.add(selection_key)
+        ordered.append(selection)
+
+    for selection in requested_charts:
+        visit(selection)
+    return tuple(ordered)
+
+
 def parse_chart_images(raw_annotation: str) -> list[ChartImage]:
     parsed = yaml.safe_load(raw_annotation) or []
     return [
@@ -183,10 +285,9 @@ def parse_chart_images(raw_annotation: str) -> list[ChartImage]:
     ]
 
 
-def inspect_and_optionally_copy_image(
+def inspect_image(
     config: MirrorConfig,
     chart_image: ChartImage,
-    push: bool,
 ) -> MirroredImage:
     source_image = normalize_source_image(config, chart_image.image)
     source_digest = skopeo_digest(source_image)
@@ -199,10 +300,6 @@ def inspect_and_optionally_copy_image(
     target_tag = build_target_tag(app_version, os_flavour, image_revision)
     image_name = source_image.rsplit("/", maxsplit=1)[1].split(":", maxsplit=1)[0]
     target_repository = f"{config.dockerhub_namespace}/{config.target_image_prefix}{image_name}"
-    target_image = f"{config.upstream_chart_registry}/{target_repository}:{target_tag}"
-
-    if push:
-        run(["skopeo", "copy", "--all", f"docker://{source_repository}@{source_digest}", f"docker://{target_image}"])
 
     return MirroredImage(
         name=image_name,
@@ -216,6 +313,12 @@ def inspect_and_optionally_copy_image(
         target_tag=target_tag,
         target_digest=source_digest,
     )
+
+
+def copy_mirrored_image(config: MirrorConfig, mirror: MirroredImage) -> None:
+    source_repository = strip_tag(mirror.source_image)
+    target_image = f"{config.upstream_chart_registry}/{mirror.target_repository}:{mirror.target_tag}"
+    run(["skopeo", "copy", "--all", f"docker://{source_repository}@{mirror.source_digest}", f"docker://{target_image}"])
 
 
 def normalize_source_image(config: MirrorConfig, image: str) -> str:
@@ -254,18 +357,27 @@ def patch_chart_yaml(
     config: MirrorConfig,
     chart_yaml: dict[str, Any],
     chart_name: str,
-    version: str,
+    upstream_version: str,
     source_digest: str,
+    mirror_version: str,
+    mirrored_dependencies: list[MirroredDependency],
 ) -> None:
+    chart_yaml["version"] = mirror_version
+    dependency_by_name = {dependency.name: dependency for dependency in mirrored_dependencies}
     for dependency in chart_yaml.get("dependencies", []):
         if dependency.get("repository") == f"oci://{config.upstream_chart_registry}/{config.upstream_chart_namespace}":
             dependency["repository"] = f"oci://{config.upstream_chart_registry}/{config.dockerhub_namespace}"
+        dependency_name = dependency.get("name")
+        if dependency_name in dependency_by_name:
+            dependency["repository"] = dependency_by_name[dependency_name].repository
+            dependency["version"] = dependency_by_name[dependency_name].version
 
     annotations = chart_yaml.setdefault("annotations", {})
     annotations["inglp.bitnami-secure-mirror/source-chart"] = (
-        f"{config.upstream_chart_registry}/{config.upstream_chart_namespace}/{chart_name}:{version}"
+        f"{config.upstream_chart_registry}/{config.upstream_chart_namespace}/{chart_name}:{upstream_version}"
     )
     annotations["inglp.bitnami-secure-mirror/source-digest"] = source_digest
+    annotations["inglp.bitnami-secure-mirror/upstream-version"] = upstream_version
 
 
 def patch_values_yaml(values: Any, mirrors: list[MirroredImage]) -> None:
@@ -325,10 +437,14 @@ def normalize_repository(repository: str) -> str:
     return "/".join(parts)
 
 
-def build_dependencies(chart_dir: Path) -> None:
+def update_dependencies(chart_dir: Path) -> None:
     chart_yaml = read_yaml(chart_dir / "Chart.yaml")
     if chart_yaml.get("dependencies"):
-        run(["helm", "dependency", "build", str(chart_dir)])
+        run(["helm", "dependency", "update", str(chart_dir)])
+
+
+def remove_chart_lock(chart_dir: Path) -> None:
+    (chart_dir / "Chart.lock").unlink(missing_ok=True)
 
 
 def package_chart(chart_dir: Path, destination: Path) -> Path:
@@ -340,17 +456,182 @@ def package_chart(chart_dir: Path, destination: Path) -> Path:
     raise SyncError(f"Could not parse helm package output: {output}")
 
 
+def resolve_mirrored_dependencies(
+    config: MirrorConfig,
+    chart_yaml: dict[str, Any],
+    dependency_versions: dict[str, MirroredChartVersion],
+) -> list[MirroredDependency]:
+    upstream_repository = f"oci://{config.upstream_chart_registry}/{config.upstream_chart_namespace}"
+    target_repository = f"oci://{config.upstream_chart_registry}/{config.dockerhub_namespace}"
+    mirrored_dependencies: list[MirroredDependency] = []
+    for dependency in chart_yaml.get("dependencies", []):
+        dependency_name = dependency.get("name")
+        if not isinstance(dependency_name, str):
+            continue
+        if dependency.get("repository") != upstream_repository:
+            continue
+        required_version = dependency.get("version")
+        if not isinstance(required_version, str):
+            chart_name = chart_yaml.get("name", "<unknown>")
+            raise SyncError(f"{chart_name} dependency {dependency_name} is missing an upstream version")
+        mirrored_version = dependency_versions.get(dependency_lock_key(dependency_name, required_version))
+        if mirrored_version is None:
+            chart_name = chart_yaml.get("name", "<unknown>")
+            raise SyncError(
+                f"{chart_name} depends on {dependency_name} {required_version}, but no mirrored lock exists. "
+                f"Add {dependency_name} earlier in charts.yaml or sync it before {chart_name}."
+            )
+        if mirrored_version.upstream_version != required_version:
+            chart_name = chart_yaml.get("name", "<unknown>")
+            raise SyncError(
+                f"{chart_name} depends on {dependency_name} {required_version}, "
+                f"but lock has upstream {mirrored_version.upstream_version}."
+            )
+        mirrored_dependencies.append(MirroredDependency(
+            name=dependency_name,
+            repository=target_repository,
+            upstream_version=required_version,
+            version=mirrored_version.version,
+        ))
+    return mirrored_dependencies
+
+
+def dependency_lock_key(chart_name: str, upstream_version: str) -> str:
+    return f"{chart_name}@{upstream_version}"
+
+
+def build_content_fingerprint(
+    source_digest: str,
+    mirrors: list[MirroredImage],
+    mirrored_dependencies: list[MirroredDependency],
+) -> str:
+    payload = {
+        "source_digest": source_digest,
+        "dependencies": [
+            asdict(dependency)
+            for dependency in sorted(mirrored_dependencies, key=lambda item: item.name)
+        ],
+        "images": [
+            {
+                "name": image.name,
+                "source_image": image.source_image,
+                "source_digest": image.source_digest,
+                "target_registry": image.target_registry,
+                "target_repository": image.target_repository,
+                "target_tag": image.target_tag,
+                "target_digest": image.target_digest,
+            }
+            for image in sorted(mirrors, key=lambda item: item.name)
+        ],
+    }
+    serialized = json.dumps(payload, sort_keys=True, separators=(",", ":"))
+    return f"sha256:{hashlib.sha256(serialized.encode('utf-8')).hexdigest()}"
+
+
+def compute_mirror_version(
+    upstream_version: str,
+    content_fingerprint: str,
+    previous_lock: dict[str, Any] | None,
+) -> tuple[str, int, bool]:
+    previous_upstream_version = previous_lock.get("upstream_version") if previous_lock else None
+    previous_fingerprint = previous_lock.get("content_fingerprint") if previous_lock else None
+    previous_revision = previous_lock.get("mirror_revision") if previous_lock else None
+    previous_mirror_version = previous_lock.get("version") if previous_lock else None
+
+    if (
+        previous_upstream_version == upstream_version
+        and previous_fingerprint == content_fingerprint
+        and isinstance(previous_mirror_version, str)
+        and isinstance(previous_revision, int)
+    ):
+        return previous_mirror_version, previous_revision, False
+
+    if previous_upstream_version == upstream_version and isinstance(previous_revision, int):
+        mirror_revision = previous_revision + 1
+    else:
+        mirror_revision = 0
+
+    mirror_version = build_mirror_chart_version(upstream_version, mirror_revision)
+    return mirror_version, mirror_revision, True
+
+
+def should_publish_chart(push: bool, content_changed: bool, previous_lock: dict[str, Any] | None) -> bool:
+    if not push:
+        return False
+    return content_changed or previous_lock is None or previous_lock.get("published") is not True
+
+
+def compute_lock_published(push: bool, content_changed: bool, previous_lock: dict[str, Any] | None) -> bool:
+    if push:
+        return True
+    return previous_lock is not None and previous_lock.get("published") is True and not content_changed
+
+
+def build_mirror_chart_version(upstream_version: str, mirror_revision: int) -> str:
+    base_version, _, build_metadata = upstream_version.partition("+")
+    separator = "." if "-" in base_version else "-"
+    metadata_suffix = ""
+    if build_metadata:
+        metadata_identifiers = [
+            re.sub(r"[^0-9A-Za-z-]+", "-", identifier)
+            for identifier in build_metadata.split(".")
+        ]
+        metadata_suffix = ".meta." + ".".join(metadata_identifiers)
+    return f"{base_version}{separator}inglp{metadata_suffix}.r{mirror_revision}"
+
+
+def read_lock(path: Path) -> dict[str, Any] | None:
+    if not path.exists():
+        return None
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def chart_lock_path(locks_dir: Path, chart_name: str, upstream_version: str) -> Path:
+    return locks_dir / f"{chart_name}-{safe_lock_version(upstream_version)}.json"
+
+
+def safe_lock_version(upstream_version: str) -> str:
+    return re.sub(r"[^0-9A-Za-z_.-]+", "-", upstream_version)
+
+
+def load_dependency_versions(locks_dir: Path) -> dict[str, MirroredChartVersion]:
+    versions: dict[str, MirroredChartVersion] = {}
+    for lock_path in sorted(locks_dir.glob("*.json")):
+        lock = read_lock(lock_path)
+        if lock is None:
+            continue
+        if "mirror_revision" not in lock:
+            continue
+        chart = lock["chart"]
+        upstream_version = lock["upstream_version"]
+        versions[f"{chart}@{upstream_version}"] = MirroredChartVersion(
+            upstream_version=lock["upstream_version"],
+            version=lock["version"],
+        )
+    return versions
+
+
 def write_lock(
     path: Path,
     chart_name: str,
-    version: str,
+    upstream_version: str,
+    mirror_version: str,
+    mirror_revision: int,
+    content_fingerprint: str,
     source_digest: str,
+    published: bool,
+    mirrored_dependencies: list[MirroredDependency],
     mirrors: list[MirroredImage],
 ) -> None:
     payload = {
         "chart": chart_name,
-        "version": version,
+        "version": mirror_version,
+        "upstream_version": upstream_version,
+        "mirror_revision": mirror_revision,
+        "content_fingerprint": content_fingerprint,
         "source_digest": source_digest,
+        "published": published,
+        "dependencies": [asdict(dependency) for dependency in mirrored_dependencies],
         "images": [asdict(image) for image in mirrors],
     }
     path.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
@@ -386,7 +667,7 @@ def list_available_repositories(namespace: str, content_type: str | None = None)
 
 
 def skopeo_digest(image: str) -> str:
-    return run([
+    return run_stdout([
         "skopeo",
         "inspect",
         "--override-os",
@@ -400,7 +681,7 @@ def skopeo_digest(image: str) -> str:
 
 
 def skopeo_config(image: str) -> dict[str, Any]:
-    return json.loads(run([
+    return json.loads(run_stdout([
         "skopeo",
         "inspect",
         "--override-os",
@@ -434,6 +715,17 @@ def run(args: list[str]) -> str:
             f"stderr:\n{completed.stderr}"
         )
     return completed.stdout + completed.stderr
+
+
+def run_stdout(args: list[str]) -> str:
+    completed = subprocess.run(args, check=False, text=True, capture_output=True)
+    if completed.returncode != 0:
+        raise SyncError(
+            f"Command failed ({completed.returncode}): {' '.join(args)}\n"
+            f"stdout:\n{completed.stdout}\n"
+            f"stderr:\n{completed.stderr}"
+        )
+    return completed.stdout
 
 
 if __name__ == "__main__":

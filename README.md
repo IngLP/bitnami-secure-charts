@@ -63,8 +63,16 @@ The sync job:
 6. copies each image into Docker Hub as `inglp/bitnami-secure-<image>:<app-version>-<os-flavour>-r<revision>`;
 7. patches chart default image values to the mirrored repository, human-readable tag, and immutable digest;
 8. patches chart dependencies from `bitnamichartssecure` to `inglp`;
-9. packages and pushes the chart to `oci://registry-1.docker.io/inglp`;
+9. publishes the chart with an immutable mirror version such as `25.5.2-inglp.r0`;
 10. commits generated `charts/` and `locks/` updates.
+
+If Bitnami changes an image digest without changing the upstream chart version, this mirror increments the chart revision instead of overwriting the previous chart content:
+
+- first mirror of upstream `25.5.2` -> `25.5.2-inglp.r0`
+- same upstream chart version with changed image digest -> `25.5.2-inglp.r1`
+- next upstream chart version `25.5.3` -> `25.5.3-inglp.r0`
+
+The lock file keeps `upstream_version`, the published mirror `version`, mirrored dependency versions, and a content fingerprint built from the upstream chart digest, mirrored dependency versions, and referenced image digests.
 
 ## Required GitHub Secrets
 
@@ -108,6 +116,12 @@ Sync and publish one chart:
 
 ```sh
 uv run bitnami-secure-charts sync --push --chart redis
+```
+
+Pull a mirrored chart:
+
+```sh
+helm pull oci://registry-1.docker.io/inglp/redis --version 25.5.2-inglp.r0
 ```
 
 ## Scope
