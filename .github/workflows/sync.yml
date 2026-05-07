@@ -62,6 +62,10 @@ jobs:
       - name: Install dependencies
         run: uv sync --dev
 
+      - name: Load Helm repository URL
+        run: |
+          uv run python -c 'import pathlib, yaml; print("HELM_REPOSITORY_URL=" + yaml.safe_load(pathlib.Path("charts.yaml").read_text(encoding="utf-8"))["chart_repository_url"])' >> "$GITHUB_ENV"
+
       - name: Sync charts
         run: |
           if [ -n "${{ inputs.chart }}" ]; then
@@ -70,15 +74,72 @@ jobs:
             uv run bitnami-secure-charts sync --push
           fi
 
+      - name: Publish Helm repository
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          if ! compgen -G "dist/publish/*.tgz" > /dev/null; then
+            echo "No new chart packages to publish."
+            exit 0
+          fi
+
+          rm -rf helm-repo
+          if git ls-remote --exit-code --heads origin gh-pages > /dev/null 2>&1; then
+            git clone --branch gh-pages --single-branch "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" helm-repo
+          else
+            mkdir helm-repo
+            git -C helm-repo init
+            git -C helm-repo checkout --orphan gh-pages
+            git -C helm-repo remote add origin "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          fi
+
+          copied_any=false
+          for package in dist/publish/*.tgz; do
+            target="helm-repo/$(basename "$package")"
+            if [ -e "$target" ]; then
+              if cmp -s "$package" "$target"; then
+                echo "Chart package already published with identical content: $target"
+                continue
+              fi
+              echo "Refusing to overwrite immutable chart package with different content: $target"
+              exit 1
+            fi
+            cp "$package" "$target"
+            copied_any=true
+          done
+
+          if [ "$copied_any" != "true" ]; then
+            echo "All staged chart packages were already present."
+            exit 0
+          fi
+
+          touch helm-repo/.nojekyll
+          helm repo index helm-repo --url "$HELM_REPOSITORY_URL"
+
+          git -C helm-repo config user.name github-actions
+          git -C helm-repo config user.email github-actions@github.com
+          git -C helm-repo add .
+          if git -C helm-repo diff --cached --quiet --exit-code; then
+            echo "No Helm repository changes to publish."
+            exit 0
+          fi
+
+          git -C helm-repo commit -m "Chore: Publish Helm charts"
+          git -C helm-repo push origin HEAD:gh-pages
+
+      - name: Confirm chart packages published
+        run: uv run bitnami-secure-charts confirm-published
+
       - name: Commit lock and chart updates
         run: |
-          if git diff --quiet --exit-code; then
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add charts locks
+
+          if git diff --cached --quiet --exit-code; then
             echo "No repository changes to commit."
             exit 0
           fi
 
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-          git add charts locks
           git commit -m "Chore: Sync Bitnami Secure charts"
           git push

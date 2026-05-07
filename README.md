@@ -1,8 +1,8 @@
 # Bitnami Secure Charts Mirror
 
-Unofficial mirror of the free Bitnami Secure OCI charts and images.
+Unofficial mirror of the free Bitnami Secure charts and images.
 
-This repository tracks selected charts from `registry-1.docker.io/bitnamichartssecure`, mirrors the `bitnamisecure/*:latest` images referenced by each chart into Docker Hub namespace `inglp`, pins them by digest, and publishes patched Helm OCI charts.
+This repository tracks selected charts from `registry-1.docker.io/bitnamichartssecure`, mirrors the `bitnamisecure/*:latest` images referenced by each chart into Docker Hub namespace `inglp`, pins them by digest, and publishes patched charts through a classic Helm repository on GitHub Pages.
 
 ## Enabled Charts
 
@@ -62,8 +62,8 @@ The sync job:
 5. inspects each referenced `bitnamisecure/*:latest` image;
 6. copies each image into Docker Hub as `inglp/bitnami-secure-<image>:<app-version>-<os-flavour>-r<revision>`;
 7. patches chart default image values to the mirrored repository, human-readable tag, and immutable digest;
-8. patches chart dependencies from `bitnamichartssecure` to `inglp`;
-9. publishes the chart with an immutable mirror version such as `25.5.2-inglp.r0`;
+8. patches chart dependencies from `bitnamichartssecure` to `https://inglp.github.io/bitnami-secure-charts`;
+9. packages the chart with an immutable mirror version such as `25.5.2-inglp.r0`;
 10. commits generated `charts/` and `locks/` updates.
 
 If Bitnami changes an image digest without changing the upstream chart version, this mirror increments the chart revision instead of overwriting the previous chart content:
@@ -112,16 +112,24 @@ Run a local dry sync without pushing images or charts:
 uv run bitnami-secure-charts sync
 ```
 
-Sync and publish one chart:
+Stage one chart locally, including mirrored images and publishable chart packages under `dist/publish`:
 
 ```sh
 uv run bitnami-secure-charts sync --push --chart redis
 ```
 
+The GitHub Actions workflow performs the actual GitHub Pages publish and then runs `confirm-published` before committing generated locks. For manual publishing, only commit generated `charts/` and `locks/` after publishing `dist/publish/*.tgz` to the Helm repository and running:
+
+```sh
+uv run bitnami-secure-charts confirm-published
+```
+
 Pull a mirrored chart:
 
 ```sh
-helm pull oci://registry-1.docker.io/inglp/redis --version 25.5.2-inglp.r0
+helm repo add inglp-bitnami-secure https://inglp.github.io/bitnami-secure-charts
+helm repo update
+helm pull inglp-bitnami-secure/redis --version 25.5.2-inglp.r0
 ```
 
 ## Scope
