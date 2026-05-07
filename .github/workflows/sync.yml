@@ -1,0 +1,70 @@
+name: Sync Bitnami Secure charts
+
+on:
+  workflow_dispatch:
+    inputs:
+      chart:
+        description: Optional single chart name from charts.yaml
+        required: false
+        type: string
+  schedule:
+    - cron: "17 3 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    env:
+      DOCKERHUB_NAMESPACE: inglp
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v7
+        with:
+          enable-cache: true
+
+      - name: Install Helm
+        uses: azure/setup-helm@v4
+        with:
+          version: latest
+
+      - name: Install skopeo
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y skopeo
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Install dependencies
+        run: uv sync --dev
+
+      - name: Sync charts
+        run: |
+          if [ -n "${{ inputs.chart }}" ]; then
+            uv run bitnami-secure-charts sync --push --chart "${{ inputs.chart }}"
+          else
+            uv run bitnami-secure-charts sync --push
+          fi
+
+      - name: Commit lock and chart updates
+        run: |
+          if git diff --quiet --exit-code; then
+            echo "No repository changes to commit."
+            exit 0
+          fi
+
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add charts locks
+          git commit -m "Chore: Sync Bitnami Secure charts"
+          git push

@@ -1,0 +1,41 @@
+annotations:
+  fips: "true"
+  images: |
+    - name: os-shell
+      version: "5"
+      image: registry-1.docker.io/bitnamisecure/os-shell:latest
+    - name: postgres-exporter
+      version: 0.19.1
+      image: registry-1.docker.io/bitnamisecure/postgres-exporter:latest
+    - name: postgresql
+      version: 18.3.0
+      image: registry-1.docker.io/bitnamisecure/postgresql:latest
+  licenses: Apache-2.0
+  tanzuCategory: service
+  inglp.bitnami-secure-mirror/source-chart: registry-1.docker.io/bitnamichartssecure/postgresql:18.6.3
+  inglp.bitnami-secure-mirror/source-digest: sha256:81017563ae9f864d522c903834e9625acc779d594b21ca8b7ec9fa0ec5c8bb79
+apiVersion: v2
+appVersion: 18.3.0
+dependencies:
+- name: common
+  repository: oci://registry-1.docker.io/inglp
+  tags:
+  - bitnami-common
+  version: 2.39.0
+description: "PostgreSQL (Postgres) is an open source object-relational database known for reliability and data integrity. ACID-compliant, it supports foreign keys, joins, views, triggers and stored procedures."
+home: https://bitnami.com
+icon: https://dyltqmyl993wv.cloudfront.net/assets/stacks/postgresql/img/postgresql-stack-220x234.png
+keywords:
+- postgresql
+- postgres
+- database
+- sql
+- replication
+- cluster
+maintainers:
+- name: "Broadcom, Inc. All Rights Reserved."
+  url: https://github.com/bitnami/charts
+name: postgresql
+sources:
+- https://github.com/bitnami/charts/tree/main/bitnami/postgresql
+version: 18.6.3

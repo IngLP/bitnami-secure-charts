@@ -1,0 +1,13 @@
+dockerhub_namespace: inglp
+upstream_chart_registry: registry-1.docker.io
+upstream_chart_namespace: bitnamichartssecure
+upstream_image_registry: registry-1.docker.io
+upstream_image_namespace: bitnamisecure
+target_image_prefix: bitnami-secure-
+charts:
+  - name: common
+  - name: redis
+  - name: valkey
+  - name: mariadb
+  - name: postgresql
+

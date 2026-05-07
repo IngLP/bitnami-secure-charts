@@ -1,0 +1,9 @@
+.venv/
+.pytest_cache/
+.tmp/
+__pycache__/
+*.pyc
+dist/
+*.egg-info/
+charts/**/*.tgz
+charts/*/charts/
