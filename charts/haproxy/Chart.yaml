@@ -3,9 +3,9 @@ annotations:
   images: "- name: haproxy\n  version: 3.2.18\n  image: registry-1.docker.io/bitnamisecure/haproxy:latest\n"
   licenses: Apache-2.0
   tanzuCategory: clusterUtility
-  inglp.bitnami-secure-mirror/source-chart: registry-1.docker.io/bitnamichartssecure/haproxy:3.5.1
-  inglp.bitnami-secure-mirror/source-digest: sha256:21c4dea872409090d3d3154c7033e8e0f91f39a5763bf7c5d6e530ff1e9f184e
-  inglp.bitnami-secure-mirror/upstream-version: 3.5.1
+  inglp.bitnami-secure-mirror/source-chart: registry-1.docker.io/bitnamichartssecure/haproxy:3.5.2
+  inglp.bitnami-secure-mirror/source-digest: sha256:fa6345e70f0e01df0318d31628c5367bc1dc399f14574dfdb0651ea7cdf6abe3
+  inglp.bitnami-secure-mirror/upstream-version: 3.5.2
 apiVersion: v2
 appVersion: 3.2.18
 dependencies:
@@ -29,4 +29,4 @@ maintainers:
 name: haproxy
 sources:
 - https://github.com/bitnami/charts/tree/main/bitnami/haproxy
-version: 3.5.1-inglp.r0
+version: 3.5.2-inglp.r0
