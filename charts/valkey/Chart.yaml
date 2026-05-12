@@ -7,9 +7,9 @@ annotations:
     - name: valkey-sentinel\n  version: 9.0.4\n  image: registry-1.docker.io/bitnamisecure/valkey-sentinel:latest\n"
   licenses: Apache-2.0
   tanzuCategory: service
-  inglp.bitnami-secure-mirror/source-chart: registry-1.docker.io/bitnamichartssecure/valkey:5.6.2
-  inglp.bitnami-secure-mirror/source-digest: sha256:9a81189eb8b41922bc1e1b42f477799d8b9234885879d254b48d053675a6fdc8
-  inglp.bitnami-secure-mirror/upstream-version: 5.6.2
+  inglp.bitnami-secure-mirror/source-chart: registry-1.docker.io/bitnamichartssecure/valkey:5.6.4
+  inglp.bitnami-secure-mirror/source-digest: sha256:66d57fbb5237560a6a6eb3010704a2b1a17be750a062bcbbd81e1e5092f975d1
+  inglp.bitnami-secure-mirror/upstream-version: 5.6.4
 apiVersion: v2
 appVersion: 9.0.4
 dependencies:
@@ -33,4 +33,4 @@ maintainers:
 name: valkey
 sources:
 - https://github.com/bitnami/charts/tree/main/bitnami/valkey
-version: 5.6.2-inglp.r0
+version: 5.6.4-inglp.r0

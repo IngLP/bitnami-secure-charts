@@ -215,8 +215,8 @@ externalAccess:
     image:
       registry: docker.io
       repository: inglp/bitnami-secure-kubectl
-      tag: 1.36.0-photon-5-r3
-      digest: sha256:3220dcc839f55be732a29548043a1ddf635a0dd6c8781b0f2a0bcdc19029c7d3
+      tag: 1.36.0-photon-5-r4
+      digest: sha256:a8373525af6a362dd256fd70ddd2492c6ac273eb745942dd0a22d318869269ee
       pullPolicy: IfNotPresent
       pullSecrets: []
     resourcesPreset: nano
