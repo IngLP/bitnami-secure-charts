@@ -241,8 +241,8 @@ volumePermissions:
   image:
     registry: docker.io
     repository: inglp/bitnami-secure-os-shell
-    tag: 5-photon-5-r82
-    digest: sha256:85cd536585c25c4bb689c5510cfa8480acc947d7b7e62529816770be3df68d5c
+    tag: 5-photon-5-r83
+    digest: sha256:adae21f6ed170911d03d2cfc2c719f6767ba7c0b6a8d9476051940d55ed39244
     pullPolicy: IfNotPresent
     pullSecrets: []
   resourcesPreset: nano
