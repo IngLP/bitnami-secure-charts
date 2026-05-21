@@ -5,9 +5,9 @@ annotations:
     - name: nginx-exporter\n  version: 1.5.1\n  image: registry-1.docker.io/bitnamisecure/nginx-exporter:latest\n"
   licenses: Apache-2.0
   tanzuCategory: clusterUtility
-  inglp.bitnami-secure-mirror/source-chart: registry-1.docker.io/bitnamichartssecure/nginx:24.0.0
-  inglp.bitnami-secure-mirror/source-digest: sha256:8f8e807f5c294dfb3c4197a6d2805699b802fa05a8489c9b784cdc033df1f024
-  inglp.bitnami-secure-mirror/upstream-version: 24.0.0
+  inglp.bitnami-secure-mirror/source-chart: registry-1.docker.io/bitnamichartssecure/nginx:24.0.1
+  inglp.bitnami-secure-mirror/source-digest: sha256:a358ad6fedad77cadfae8233ebe57da2bea0fa9ec740c658f812187955aabb6c
+  inglp.bitnami-secure-mirror/upstream-version: 24.0.1
 apiVersion: v2
 appVersion: 1.31.0
 dependencies:
@@ -15,7 +15,7 @@ dependencies:
   repository: https://inglp.github.io/bitnami-secure-charts
   tags:
   - bitnami-common
-  version: 2.39.0-inglp.r0
+  version: 2.40.0-inglp.r0
 description: NGINX Open Source is a web server that can be also used as a reverse
   proxy, load balancer, and HTTP cache. Recommended for high-demanding sites due to
   its ability to provide faster content.
@@ -33,4 +33,4 @@ maintainers:
 name: nginx
 sources:
 - https://github.com/bitnami/charts/tree/main/bitnami/nginx
-version: 24.0.0-inglp.r0
+version: 24.0.1-inglp.r0

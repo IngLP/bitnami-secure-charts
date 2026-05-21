@@ -1,0 +1,55 @@
+{
+  "chart": "nginx",
+  "content_fingerprint": "sha256:64ff65fa7fcdf4d57254fa34bc1b021b3988000911a0a08df1789672542a29b0",
+  "dependencies": [
+    {
+      "name": "common",
+      "repository": "https://inglp.github.io/bitnami-secure-charts",
+      "upstream_version": "2.40.0",
+      "version": "2.40.0-inglp.r0"
+    }
+  ],
+  "images": [
+    {
+      "app_version": "2.54.0",
+      "image_revision": "4",
+      "name": "git",
+      "os_flavour": "photon-5",
+      "source_digest": "sha256:d44c19c2a64697be1f88e1115a16b38684b636ab1ceb8315071d236a1aaf02a6",
+      "source_image": "registry-1.docker.io/bitnamisecure/git:latest",
+      "target_digest": "sha256:d44c19c2a64697be1f88e1115a16b38684b636ab1ceb8315071d236a1aaf02a6",
+      "target_registry": "docker.io",
+      "target_repository": "inglp/bitnami-secure-git",
+      "target_tag": "2.54.0-photon-5-r4"
+    },
+    {
+      "app_version": "1.31.0",
+      "image_revision": "1",
+      "name": "nginx",
+      "os_flavour": "photon-5",
+      "source_digest": "sha256:7209b7c2da6fec5a510a4f307b6353bf4784b98c55e979d3c6dffddf54abaafa",
+      "source_image": "registry-1.docker.io/bitnamisecure/nginx:latest",
+      "target_digest": "sha256:7209b7c2da6fec5a510a4f307b6353bf4784b98c55e979d3c6dffddf54abaafa",
+      "target_registry": "docker.io",
+      "target_repository": "inglp/bitnami-secure-nginx",
+      "target_tag": "1.31.0-photon-5-r1"
+    },
+    {
+      "app_version": "1.5.1",
+      "image_revision": "29",
+      "name": "nginx-exporter",
+      "os_flavour": "photon-5",
+      "source_digest": "sha256:ba079c1b63f45c7d288c7e03ab680e58ee592d75c7e15160e13a465f12935c55",
+      "source_image": "registry-1.docker.io/bitnamisecure/nginx-exporter:latest",
+      "target_digest": "sha256:ba079c1b63f45c7d288c7e03ab680e58ee592d75c7e15160e13a465f12935c55",
+      "target_registry": "docker.io",
+      "target_repository": "inglp/bitnami-secure-nginx-exporter",
+      "target_tag": "1.5.1-photon-5-r29"
+    }
+  ],
+  "mirror_revision": 0,
+  "published": true,
+  "source_digest": "sha256:a358ad6fedad77cadfae8233ebe57da2bea0fa9ec740c658f812187955aabb6c",
+  "upstream_version": "24.0.1",
+  "version": "24.0.1-inglp.r0"
+}

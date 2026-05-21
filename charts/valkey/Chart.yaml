@@ -1,23 +1,23 @@
 annotations:
   fips: 'true'
-  images: "- name: kubectl\n  version: 1.36.0\n  image: registry-1.docker.io/bitnamisecure/kubectl:latest\n\
+  images: "- name: kubectl\n  version: 1.36.1\n  image: registry-1.docker.io/bitnamisecure/kubectl:latest\n\
     - name: os-shell\n  version: \"5\"\n  image: registry-1.docker.io/bitnamisecure/os-shell:latest\n\
     - name: redis-exporter\n  version: 1.83.0\n  image: registry-1.docker.io/bitnamisecure/redis-exporter:latest\n\
-    - name: valkey\n  version: 9.0.4\n  image: registry-1.docker.io/bitnamisecure/valkey:latest\n\
-    - name: valkey-sentinel\n  version: 9.0.4\n  image: registry-1.docker.io/bitnamisecure/valkey-sentinel:latest\n"
+    - name: valkey\n  version: 9.1.0\n  image: registry-1.docker.io/bitnamisecure/valkey:latest\n\
+    - name: valkey-sentinel\n  version: 9.1.0\n  image: registry-1.docker.io/bitnamisecure/valkey-sentinel:latest\n"
   licenses: Apache-2.0
   tanzuCategory: service
-  inglp.bitnami-secure-mirror/source-chart: registry-1.docker.io/bitnamichartssecure/valkey:5.6.5
-  inglp.bitnami-secure-mirror/source-digest: sha256:5e4a8646374da021ffd92e9b0af0bac3e0f88d1e791e4cd445e8ce6ecc6f860e
-  inglp.bitnami-secure-mirror/upstream-version: 5.6.5
+  inglp.bitnami-secure-mirror/source-chart: registry-1.docker.io/bitnamichartssecure/valkey:6.0.0
+  inglp.bitnami-secure-mirror/source-digest: sha256:3bf183415f12d7d5ba34148cef52892239cb1e9a7047284cc776e393d13a32c4
+  inglp.bitnami-secure-mirror/upstream-version: 6.0.0
 apiVersion: v2
-appVersion: 9.0.4
+appVersion: 9.1.0
 dependencies:
 - name: common
   repository: https://inglp.github.io/bitnami-secure-charts
   tags:
   - bitnami-common
-  version: 2.39.0-inglp.r0
+  version: 2.40.0-inglp.r0
 description: Valkey is an open source (BSD) high-performance key/value datastore that
   supports a variety workloads such as caching, message queues, and can act as a primary
   database.
@@ -33,4 +33,4 @@ maintainers:
 name: valkey
 sources:
 - https://github.com/bitnami/charts/tree/main/bitnami/valkey
-version: 5.6.5-inglp.r0
+version: 6.0.0-inglp.r0
