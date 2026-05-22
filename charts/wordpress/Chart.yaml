@@ -2,19 +2,19 @@ annotations:
   fips: 'true'
   images: "- name: apache-exporter\n  version: 1.0.12\n  image: registry-1.docker.io/bitnamisecure/apache-exporter:latest\n\
     - name: os-shell\n  version: \"5\"\n  image: registry-1.docker.io/bitnamisecure/os-shell:latest\n\
-    - name: wordpress\n  version: 6.9.4\n  image: registry-1.docker.io/bitnamisecure/wordpress:latest\n"
+    - name: wordpress\n  version: 7.0.0\n  image: registry-1.docker.io/bitnamisecure/wordpress:latest\n"
   licenses: Apache-2.0
   tanzuCategory: application
-  inglp.bitnami-secure-mirror/source-chart: registry-1.docker.io/bitnamichartssecure/wordpress:30.1.8
-  inglp.bitnami-secure-mirror/source-digest: sha256:b286981d8e74553d0d129b72c9b6f540d42a7f2da3f1a48ff44b3976f9172505
-  inglp.bitnami-secure-mirror/upstream-version: 30.1.8
+  inglp.bitnami-secure-mirror/source-chart: registry-1.docker.io/bitnamichartssecure/wordpress:31.0.0
+  inglp.bitnami-secure-mirror/source-digest: sha256:59419ddb8135ccc525649cd2af02ea64d0e601239e5e69bcef24029527d127b1
+  inglp.bitnami-secure-mirror/upstream-version: 31.0.0
 apiVersion: v2
-appVersion: 6.9.4
+appVersion: 7.0.0
 dependencies:
 - condition: memcached.enabled
   name: memcached
   repository: https://inglp.github.io/bitnami-secure-charts
-  version: 8.5.4-inglp.r0
+  version: 8.5.5-inglp.r0
 - condition: mariadb.enabled
   name: mariadb
   repository: https://inglp.github.io/bitnami-secure-charts
@@ -23,7 +23,7 @@ dependencies:
   repository: https://inglp.github.io/bitnami-secure-charts
   tags:
   - bitnami-common
-  version: 2.39.0-inglp.r0
+  version: 2.40.0-inglp.r0
 description: WordPress is the world's most popular blogging and content management
   platform. Powerful yet simple, everyone from students to global corporations use
   it to build beautiful, functional websites.
@@ -43,4 +43,4 @@ maintainers:
 name: wordpress
 sources:
 - https://github.com/bitnami/charts/tree/main/bitnami/wordpress
-version: 30.1.8-inglp.r0
+version: 31.0.0-inglp.r0

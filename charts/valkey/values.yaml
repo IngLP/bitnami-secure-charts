@@ -33,8 +33,8 @@ diagnosticMode:
 image:
   registry: docker.io
   repository: inglp/bitnami-secure-valkey
-  tag: 9.1.0-photon-5-r0
-  digest: sha256:8d0475809efbcdfcd645d637dff06d7baf44ba73ff0e88face745dfee6a05ac9
+  tag: 9.1.0-photon-5-r1
+  digest: sha256:a3c580c005e12c3e0f97a3d6d703ca2d361c917457a35b080880de18b0fcd8d3
   pullPolicy: IfNotPresent
   pullSecrets: []
   debug: false
