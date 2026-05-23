@@ -25,8 +25,8 @@ diagnosticMode:
 image:
   registry: docker.io
   repository: inglp/bitnami-secure-nginx
-  tag: 1.31.0-photon-5-r1
-  digest: sha256:7209b7c2da6fec5a510a4f307b6353bf4784b98c55e979d3c6dffddf54abaafa
+  tag: 1.31.1-photon-5-r0
+  digest: sha256:c1691dbe301d6ff308ecf0fc3d44c044bde1ecb581174ef74ea2266fbfd0f0af
   pullPolicy: IfNotPresent
   pullSecrets: []
   debug: false

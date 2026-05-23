@@ -3,9 +3,9 @@ annotations:
   images: "- name: haproxy\n  version: 3.2.19\n  image: registry-1.docker.io/bitnamisecure/haproxy:latest\n"
   licenses: Apache-2.0
   tanzuCategory: clusterUtility
-  inglp.bitnami-secure-mirror/source-chart: registry-1.docker.io/bitnamichartssecure/haproxy:3.5.3
-  inglp.bitnami-secure-mirror/source-digest: sha256:94302fcfe20b79dd564a19afdd2074cec8c2caf7440bbc81b34f9744d5f2f304
-  inglp.bitnami-secure-mirror/upstream-version: 3.5.3
+  inglp.bitnami-secure-mirror/source-chart: registry-1.docker.io/bitnamichartssecure/haproxy:3.5.4
+  inglp.bitnami-secure-mirror/source-digest: sha256:d596c45ce88739c70c623930f1b2f1869495f7a16e1f29f3bbdb3142b72c55c0
+  inglp.bitnami-secure-mirror/upstream-version: 3.5.4
 apiVersion: v2
 appVersion: 3.2.19
 dependencies:
@@ -13,7 +13,7 @@ dependencies:
   repository: https://inglp.github.io/bitnami-secure-charts
   tags:
   - bitnami-common
-  version: 2.39.0-inglp.r0
+  version: 2.40.0-inglp.r0
 description: HAProxy is a TCP proxy and a HTTP reverse proxy. It supports SSL termination
   and offloading, TCP and HTTP normalization, traffic regulation, caching and protection
   against DDoS attacks.
@@ -29,4 +29,4 @@ maintainers:
 name: haproxy
 sources:
 - https://github.com/bitnami/charts/tree/main/bitnami/haproxy
-version: 3.5.3-inglp.r0
+version: 3.5.4-inglp.r0
