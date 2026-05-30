@@ -548,8 +548,8 @@ metrics:
   image:
     registry: docker.io
     repository: inglp/bitnami-secure-redis-exporter
-    tag: 1.84.0-photon-5-r0
-    digest: sha256:3326f940f59cd06f0a96aeca2ab78c02b1dd2fd209a8d52b0317c4c3a24530b1
+    tag: 1.84.0-photon-5-r1
+    digest: sha256:ac57a310fd6b4fcb9dc59d1d499eb0e47f1a34e5c57225a9dbf65101e50fe19d
     pullPolicy: IfNotPresent
     pullSecrets: []
   containerPorts:
@@ -660,8 +660,8 @@ volumePermissions:
   image:
     registry: docker.io
     repository: inglp/bitnami-secure-os-shell
-    tag: 5-photon-5-r83
-    digest: sha256:adae21f6ed170911d03d2cfc2c719f6767ba7c0b6a8d9476051940d55ed39244
+    tag: 5-photon-5-r84
+    digest: sha256:2b5612b6ee09aa480a4a4dc72b7955d694bd02d3b1ad688932f91d5a53950781
     pullPolicy: IfNotPresent
     pullSecrets: []
   resourcesPreset: nano
@@ -676,8 +676,8 @@ kubectl:
   image:
     registry: docker.io
     repository: inglp/bitnami-secure-kubectl
-    tag: 1.36.1-photon-5-r0
-    digest: sha256:e2b97dde9666986c61c56d49aae85a714b89b69392baa531438e74ec34096fb4
+    tag: 1.36.1-photon-5-r1
+    digest: sha256:bc37f11268208ce646cc91aadc482eb9a2b3f291c4576318772f164a13033f9e
     pullPolicy: IfNotPresent
     pullSecrets: []
   command:
@@ -706,8 +706,8 @@ sysctl:
   image:
     registry: docker.io
     repository: inglp/bitnami-secure-os-shell
-    tag: 5-photon-5-r83
-    digest: sha256:adae21f6ed170911d03d2cfc2c719f6767ba7c0b6a8d9476051940d55ed39244
+    tag: 5-photon-5-r84
+    digest: sha256:2b5612b6ee09aa480a4a4dc72b7955d694bd02d3b1ad688932f91d5a53950781
     pullPolicy: IfNotPresent
     pullSecrets: []
   command: []

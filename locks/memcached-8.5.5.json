@@ -1,6 +1,6 @@
 {
   "chart": "memcached",
-  "content_fingerprint": "sha256:8354f7c731837b87644aee44574c3e7ef91d364953324ec363d9e6a08b52fe10",
+  "content_fingerprint": "sha256:8b027a6414d19e7f38de63860d0c0f244bb870704c03ad060222c7ef4b30f572",
   "dependencies": [
     {
       "name": "common",
@@ -12,15 +12,15 @@
   "images": [
     {
       "app_version": "1.6.42",
-      "image_revision": "0",
+      "image_revision": "1",
       "name": "memcached",
       "os_flavour": "photon-5",
-      "source_digest": "sha256:38ee766a5d88b634022e6e06e8894506d62186dcc44092de25af78404e4e1d2e",
+      "source_digest": "sha256:59e621d626c8300f627998ac8f95d13a63aaae6899fc35e20e84efb9875d18da",
       "source_image": "registry-1.docker.io/bitnamisecure/memcached:latest",
-      "target_digest": "sha256:38ee766a5d88b634022e6e06e8894506d62186dcc44092de25af78404e4e1d2e",
+      "target_digest": "sha256:59e621d626c8300f627998ac8f95d13a63aaae6899fc35e20e84efb9875d18da",
       "target_registry": "docker.io",
       "target_repository": "inglp/bitnami-secure-memcached",
-      "target_tag": "1.6.42-photon-5-r0"
+      "target_tag": "1.6.42-photon-5-r1"
     },
     {
       "app_version": "0.16.0",
@@ -36,20 +36,20 @@
     },
     {
       "app_version": "5",
-      "image_revision": "83",
+      "image_revision": "84",
       "name": "os-shell",
       "os_flavour": "photon-5",
-      "source_digest": "sha256:adae21f6ed170911d03d2cfc2c719f6767ba7c0b6a8d9476051940d55ed39244",
+      "source_digest": "sha256:2b5612b6ee09aa480a4a4dc72b7955d694bd02d3b1ad688932f91d5a53950781",
       "source_image": "registry-1.docker.io/bitnamisecure/os-shell:latest",
-      "target_digest": "sha256:adae21f6ed170911d03d2cfc2c719f6767ba7c0b6a8d9476051940d55ed39244",
+      "target_digest": "sha256:2b5612b6ee09aa480a4a4dc72b7955d694bd02d3b1ad688932f91d5a53950781",
       "target_registry": "docker.io",
       "target_repository": "inglp/bitnami-secure-os-shell",
-      "target_tag": "5-photon-5-r83"
+      "target_tag": "5-photon-5-r84"
     }
   ],
-  "mirror_revision": 0,
+  "mirror_revision": 1,
   "published": true,
   "source_digest": "sha256:0de88140f52b6d85e774b93e2c13a2eef3827c1b4a2066e97f2f827156e07374",
   "upstream_version": "8.5.5",
-  "version": "8.5.5-inglp.r0"
+  "version": "8.5.5-inglp.r1"
 }
