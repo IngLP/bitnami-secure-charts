@@ -110,6 +110,7 @@ tls:
   certKeyFilename: ''
   certCAFilename: ''
   crlFilename: ''
+  sslMode: verify-ca
 primary:
   name: primary
   configuration: ''
@@ -125,6 +126,8 @@ primary:
     scriptsSecret: ''
     user: ''
     password: ''
+    existingSecret: ''
+    existingSecretKey: initdb-password
   preInitDb:
     scripts: {}
     scriptsConfigMap: ''

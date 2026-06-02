@@ -476,6 +476,7 @@ If you already have data in it, you will fail to sync to standby nodes for all c
 | `tls.certKeyFilename`                    | Certificate key filename                                                                                                                                                                                                                                                                                                                      | `""`                         |
 | `tls.certCAFilename`                     | CA Certificate filename                                                                                                                                                                                                                                                                                                                       | `""`                         |
 | `tls.crlFilename`                        | File containing a Certificate Revocation List                                                                                                                                                                                                                                                                                                 | `""`                         |
+| `tls.sslMode`                            | SSL mode to use when connecting to PostgreSQL. Applied to backup CronJob and password-update Job.                                                                                                                                                                                                                                             | `verify-ca`                  |
 
 ### PostgreSQL Primary parameters
 
@@ -494,6 +495,8 @@ If you already have data in it, you will fail to sync to standby nodes for all c
 | `primary.initdb.scriptsSecret`                              | Secret with scripts to be run at first boot (in case it contains sensitive information)                                                                                                                                           | `""`                  |
 | `primary.initdb.user`                                       | Specify the PostgreSQL username to execute the initdb scripts                                                                                                                                                                     | `""`                  |
 | `primary.initdb.password`                                   | Specify the PostgreSQL password to execute the initdb scripts                                                                                                                                                                     | `""`                  |
+| `primary.initdb.existingSecret`                             | Name of an existing Secret containing the initdb password. The key must be specified via existingSecretKey.                                                                                                                       | `""`                  |
+| `primary.initdb.existingSecretKey`                          | Key in the existing Secret containing the initdb password.                                                                                                                                                                        | `initdb-password`     |
 | `primary.preInitDb.scripts`                                 | Dictionary of pre-init scripts                                                                                                                                                                                                    | `{}`                  |
 | `primary.preInitDb.scriptsConfigMap`                        | ConfigMap with pre-init scripts to be run                                                                                                                                                                                         | `""`                  |
 | `primary.preInitDb.scriptsSecret`                           | Secret with pre-init scripts to be run                                                                                                                                                                                            | `""`                  |
@@ -961,6 +964,11 @@ Find more information about how to deal with common errors related to Bitnami's 
 ## Upgrading
 
 The following subsections describe notable changes when upgrading.
+
+### To 18.7.0
+
+- When `tls.enabled=true`, the backup CronJob and password-update Job now enforce TLS via `PGSSLMODE`. The SSL mode defaults to `verify-ca` and is configurable via `tls.sslMode`.
+- When `primary.initdb.password` is set, the credential is stored in the chart Secret and injected via `secretKeyRef` instead of a plaintext env `value:`. No action required for existing deployments.
 
 ### To 16.3.0
 

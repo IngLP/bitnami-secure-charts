@@ -35,7 +35,7 @@ spec:
       {{- if or .Values.passwordUpdateJob.enabled (include "postgresql.v1.readReplicas.createExtendedConfigmap" .) .Values.readReplicas.podAnnotations }}
       annotations:
         {{- if (include "postgresql.v1.readReplicas.createExtendedConfigmap" .) }}
-        checksum/extended-configuration: {{ pick (include (print $.Template.BasePath "/primary/extended-configmap.yaml") . | fromYaml) "data" | toYaml | sha256sum }}
+        checksum/extended-configuration: {{ pick (include (print $.Template.BasePath "/read/extended-configmap.yaml") . | fromYaml) "data" | toYaml | sha256sum }}
         {{- end }}
         {{- if .Values.passwordUpdateJob.enabled }}
         charts.bitnami.com/password-last-update: {{ now | date "20060102150405" | quote }}

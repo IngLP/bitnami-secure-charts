@@ -323,7 +323,10 @@ spec:
             {{- end }}
             {{- if .Values.primary.initdb.password }}
             - name: POSTGRES_INITSCRIPTS_PASSWORD
-              value: {{ .Values.primary.initdb.password | quote }}
+              valueFrom:
+                secretKeyRef:
+                  name: {{ default (include "postgresql.v1.chart.fullname" .) .Values.primary.initdb.existingSecret | quote }}
+                  key: {{ default "initdb-password" .Values.primary.initdb.existingSecretKey | quote }}
             {{- end }}
             {{- if .Values.primary.standby.enabled }}
             # Standby
