@@ -1,6 +1,6 @@
 {
   "chart": "postgresql",
-  "content_fingerprint": "sha256:a411ecb01fcc87d3a09d52ca167b33d1944aa5517df162fa512fe43071e2b0a9",
+  "content_fingerprint": "sha256:99886bf1977eef1d81b7137c0de33031678aa75eafee5c9e921ce941a7bdd3ae",
   "dependencies": [
     {
       "name": "common",
@@ -24,15 +24,15 @@
     },
     {
       "app_version": "0.19.1",
-      "image_revision": "15",
+      "image_revision": "16",
       "name": "postgres-exporter",
       "os_flavour": "photon-5",
-      "source_digest": "sha256:0099bf85863827f1a5341a16e2d1a1d1bfce9bbc39639a1df2abd68a1ebfe57f",
+      "source_digest": "sha256:825e985c30c18009243a6ce07286c6213a55453aec4b3b7cf10c3b1ab92b2331",
       "source_image": "registry-1.docker.io/bitnamisecure/postgres-exporter:latest",
-      "target_digest": "sha256:0099bf85863827f1a5341a16e2d1a1d1bfce9bbc39639a1df2abd68a1ebfe57f",
+      "target_digest": "sha256:825e985c30c18009243a6ce07286c6213a55453aec4b3b7cf10c3b1ab92b2331",
       "target_registry": "docker.io",
       "target_repository": "inglp/bitnami-secure-postgres-exporter",
-      "target_tag": "0.19.1-photon-5-r15"
+      "target_tag": "0.19.1-photon-5-r16"
     },
     {
       "app_version": "18.4.0",
@@ -47,9 +47,9 @@
       "target_tag": "18.4.0-photon-5-r3"
     }
   ],
-  "mirror_revision": 0,
+  "mirror_revision": 1,
   "published": true,
   "source_digest": "sha256:29fcc4ae804bc27cbff3943dd7417a08c4f95f5f4b828fa5be8193e2927bb5f0",
   "upstream_version": "18.7.0",
-  "version": "18.7.0-inglp.r0"
+  "version": "18.7.0-inglp.r1"
 }

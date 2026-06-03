@@ -195,6 +195,18 @@ To connect to your database from outside the cluster execute the following comma
 
 {{- end }}
 {{- end }}
+{{- if .Values.sysctl.enabled }}
+
+WARNING: The sysctl init container is enabled and runs as privileged root (UID 0). This is required for
+    kernel tuning but grants broad host-level capabilities. Ensure the sysctl.command and the os-shell
+    image are trusted. Do not enable sysctl.mountHostSys unless absolutely necessary.
+{{- end }}
+{{- if and .Values.auth.acl.sentinel .Values.auth.acl.users }}
+
+NOTE: Sentinel ACL credentials are stored in the Secret "{{ printf "%s-acl" (include "common.names.fullname" .) }}"
+    (keys: sentinel-users.acl, sentinel-sentinel-user, sentinel-sentinel-pass). The ACL user definitions are
+    injected at pod startup via an aclfile, keeping credentials out of the ConfigMap.
+{{- end }}
 {{- include "redis.checkRollingTags" . }}
 {{- include "common.warnings.rollingTag" .Values.volumePermissions.image }}
 {{- include "common.warnings.rollingTag" .Values.sysctl.image }}

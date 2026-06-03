@@ -4,9 +4,9 @@ annotations:
 
     '
   licenses: Apache-2.0
-  inglp.bitnami-secure-mirror/source-chart: registry-1.docker.io/bitnamichartssecure/common:2.39.0
-  inglp.bitnami-secure-mirror/source-digest: sha256:21671fb204c1006634a4f11e0f909cf20656c292a5d4d89649207126eefe75ee
-  inglp.bitnami-secure-mirror/upstream-version: 2.39.0
+  inglp.bitnami-secure-mirror/source-chart: registry-1.docker.io/bitnamichartssecure/common:2.40.0
+  inglp.bitnami-secure-mirror/source-digest: sha256:40940d84279803fc03384bf5271686438152d790b558ddf5258b6a0e7966021a
+  inglp.bitnami-secure-mirror/upstream-version: 2.40.0
 apiVersion: v2
 appVersion: 2.39.0
 description: A Library Helm Chart for grouping common logic between bitnami charts.
@@ -26,4 +26,4 @@ name: common
 sources:
 - https://github.com/bitnami/charts/tree/main/bitnami/common
 type: library
-version: 2.39.0-inglp.r0
+version: 2.40.0-inglp.r0

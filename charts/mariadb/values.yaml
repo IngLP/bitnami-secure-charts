@@ -567,11 +567,15 @@ volumePermissions:
     openssl: ''
 metrics:
   enabled: false
+  auth:
+    username: exporter
+    password: ''
+    existingSecret: ''
   image:
     registry: docker.io
     repository: inglp/bitnami-secure-mysqld-exporter
-    tag: 0.19.0-photon-5-r13
-    digest: sha256:954ec0cc8e90bf9148736264aeedb430715b8b0a4dc1c23c106006ae7cf818e1
+    tag: 0.19.0-photon-5-r14
+    digest: sha256:79a6db42ce1e7708736025921e63f9a397858c86f7561b0584e5b9e6316fdc26
     pullPolicy: IfNotPresent
     pullSecrets: []
   annotations:
@@ -586,7 +590,7 @@ metrics:
   containerPorts:
     http: 9104
   containerSecurityContext:
-    enabled: false
+    enabled: true
     privileged: false
     runAsNonRoot: true
     seLinuxOptions: {}

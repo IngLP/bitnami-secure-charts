@@ -152,8 +152,8 @@ cloneStaticSiteFromGit:
   image:
     registry: docker.io
     repository: inglp/bitnami-secure-git
-    tag: 2.54.0-photon-5-r6
-    digest: sha256:5adeb15c2acbf5c3e3e2e947f7323836b4f765f9ab8f22030c1b020cc4db5082
+    tag: 2.54.0-photon-5-r7
+    digest: sha256:091f62228f7e52677efef96ec02a53e82f56d2570f4a21bc1c32cb0ee12d44ff
     pullPolicy: IfNotPresent
     pullSecrets: []
   repository: ''
@@ -267,8 +267,8 @@ metrics:
   image:
     registry: docker.io
     repository: inglp/bitnami-secure-nginx-exporter
-    tag: 1.5.1-photon-5-r31
-    digest: sha256:1702f12e1026ff3d3f8e5af6f1abed1bb290709d348d64e90984a660a8af51ee
+    tag: 1.5.1-photon-5-r32
+    digest: sha256:dac3145861a48837484a26b2080291cadf6ae5140351dc68182b5ce9f4aba270
     pullPolicy: IfNotPresent
     pullSecrets: []
   port: ''
@@ -277,9 +277,19 @@ metrics:
     metrics: 9113
   podAnnotations: {}
   securityContext:
-    enabled: false
+    enabled: true
     seLinuxOptions: {}
     runAsUser: 1001
+    runAsGroup: 1001
+    runAsNonRoot: true
+    privileged: false
+    readOnlyRootFilesystem: true
+    allowPrivilegeEscalation: false
+    capabilities:
+      drop:
+      - ALL
+    seccompProfile:
+      type: RuntimeDefault
   service:
     port: 9113
     annotations:

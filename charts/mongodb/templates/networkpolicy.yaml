@@ -20,7 +20,6 @@ spec:
   {{- $podLabels := include "common.tplvalues.merge" ( dict "values" ( list .Values.podLabels .Values.commonLabels ) "context" . ) }}
   podSelector:
     matchLabels: {{- include "common.labels.matchLabels" ( dict "customLabels" $podLabels "context" $ ) | nindent 6 }}
-      app.kubernetes.io/component: mongodb
   policyTypes:
     - Ingress
     - Egress
@@ -70,7 +69,6 @@ spec:
       from:
         - podSelector:
             matchLabels: {{- include "common.labels.matchLabels" ( dict "customLabels" .Values.commonLabels "context" $ ) | nindent 14 }}
-              app.kubernetes.io/component: mongodb
         {{- if .Values.networkPolicy.addExternalClientAccess }}
         - podSelector:
             matchLabels: 

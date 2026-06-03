@@ -26,7 +26,14 @@ rules:
   {{- if and .Values.sentinel.enabled (or .Values.sentinel.masterService.enabled .Values.sentinel.service.createMaster) }}
   - apiGroups: [""]
     resources: ["pods"]
-    verbs: ["list", "patch"]
+    verbs: ["list"]
+  - apiGroups: [""]
+    resources: ["pods"]
+    verbs: ["patch"]
+    resourceNames:
+      {{- range $i := until (.Values.replica.replicaCount | int) }}
+      - {{ printf "%s-node-%d" (include "common.names.fullname" $) $i }}
+      {{- end }}
   {{- end -}}
   {{- if .Values.rbac.rules }}
   {{- include "common.tplvalues.render" ( dict "value" .Values.rbac.rules "context" $ ) | nindent 2 }}

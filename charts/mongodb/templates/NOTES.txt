@@ -221,6 +221,14 @@ Then, open the obtained URL in a browser.
 {{- if .Values.mcp.auth.enabled }}
 {{- include "common.warnings.rollingTag" .Values.mcp.auth.image }}
 {{- end }}
+{{- if .Values.mcp.useRootCredentials }}
+
+WARNING: The MCP server is connecting to MongoDB using the root credential.
+    It is strongly recommended to create a dedicated MongoDB user with the minimum
+    required permissions and configure the MCP server to use it instead:
+      - Set mcp.useRootCredentials=false
+      - Provide MONGODB_USERNAME, MONGODB_PASSWORD and MONGODB_DATABASE via mcp.extraEnvVars or mcp.extraEnvVarsSecret
+{{- end }}
 {{- end }}
 {{- include "mongodb.validateValues" . }}
 {{- include "common.warnings.resources" (dict "sections" (list "arbiter" "externalAccess.autoDiscovery" "hidden" "metrics" "" "tls" "volumePermissions" "mcp" "mcp.auth") "context" $) }}

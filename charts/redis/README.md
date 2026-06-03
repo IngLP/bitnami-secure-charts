@@ -1164,6 +1164,12 @@ Find more information about how to deal with common errors related to Bitnami's 
 
 The following subsections describe notable changes when upgrading.
 
+### To 26.0.0
+
+- **Sentinel ACL now uses an `aclfile`**: When `auth.acl.sentinel=true` and `auth.acl.users` is set, Sentinel ACL credentials are no longer written inline in the `sentinel.conf` ConfigMap. They are stored in the `<release>-acl` Secret and loaded via an `aclfile` directive. The `sentinel.conf` ConfigMap no longer contains any plaintext passwords.
+- **Consolidated ACL Secret**: Both Redis (`users.acl`) and Sentinel (`sentinel-users.acl`) ACL rules are stored in a single `<release>-acl` Secret. The separate `<release>-sentinel-acl` Secret introduced in earlier pre-releases has been removed.
+- **ACL password format**: ACL user entries now use the `>password` cleartext format instead of `#<sha256hash>`. Existing installations storing hashed passwords must update their `auth.acl.users[*].password` values accordingly.
+
 ### To 20.5.0
 
 This version introduces image verification for security purposes. To disable it, set `global.security.allowInsecureImages` to `true`. More details at [GitHub issue](https://github.com/bitnami/charts/issues/30850).

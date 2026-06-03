@@ -727,6 +727,10 @@ To enable the new features, it is not possible to do it by upgrading an existing
 
 The following subsections describe notable changes when upgrading.
 
+### To 32.0.0
+
+This major release bumps the MariaDB version to 12.3. Follow the [upstream instructions](https://mariadb.com/docs/server/server-management/install-and-upgrade-mariadb/upgrading) for upgrading from MariaDB 12.2 to 12.3. No major issues are expected during the upgrade.
+
 ### To 30.0.0
 
 This major updates the `memcached` subchart to its newest major, 8.x.x. For more information on this subchart's major, please refer to Memcached upgrade notes.

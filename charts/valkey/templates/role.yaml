@@ -27,7 +27,12 @@ rules:
   {{- if and .Values.sentinel.enabled .Values.sentinel.service.createPrimary}}
   - apiGroups: [""]
     resources: ["pods"]
-    verbs: ["list", "patch"]
+    verbs: ["patch"]
+    resourceNames:
+    {{- $fullname := include "common.names.fullname" . }}
+    {{- range $i, $e := until (int .Values.replica.replicaCount) }}
+    - {{ printf "%s-node-%d" $fullname $i | quote }}
+    {{- end }}
   {{- end -}}
   {{- if .Values.rbac.rules }}
   {{- include "common.tplvalues.render" ( dict "value" .Values.rbac.rules "context" $ ) | nindent 2 }}

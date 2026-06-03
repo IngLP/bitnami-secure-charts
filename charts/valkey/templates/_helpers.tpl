@@ -197,7 +197,7 @@ Return Valkey password
 */}}
 {{- define "valkey.password" -}}
 {{- if or .Values.auth.enabled .Values.global.valkey.password -}}
-    {{- $password_tmp := include "common.secrets.passwords.manage" (dict "secret" (include "valkey.secretName" .) "key" (include "valkey.secretPasswordKey" .) "providedValues" (list "global.valkey.password" "auth.password") "length" 10 "skipB64enc" true "skipQuote" true "honorProvidedValues" true "context" $) -}}
+    {{- $password_tmp := include "common.secrets.passwords.manage" (dict "secret" (include "valkey.secretName" .) "key" (include "valkey.secretPasswordKey" .) "providedValues" (list "global.valkey.password" "auth.password") "length" 32 "skipB64enc" true "skipQuote" true "honorProvidedValues" true "context" $) -}}
     {{- $_ := set .Values.global.valkey "password" $password_tmp -}}
     {{- .Values.global.valkey.password -}}
 {{- end }}

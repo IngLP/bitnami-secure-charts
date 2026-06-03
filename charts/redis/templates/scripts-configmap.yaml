@@ -446,6 +446,18 @@ data:
     printf "\nrequirepass %s" "$REDIS_PASSWORD" >> /opt/bitnami/redis-sentinel/etc/prepare-sentinel.conf
     {{- end }}
     {{- end }}
+    {{- if and .Values.auth.acl.sentinel .Values.auth.acl.users }}
+    if [[ -f /opt/bitnami/redis-sentinel/mounted-acl/sentinel-users.acl ]]; then
+        cp /opt/bitnami/redis-sentinel/mounted-acl/sentinel-users.acl /opt/bitnami/redis-sentinel/etc/sentinel-users.acl
+        printf "\naclfile /opt/bitnami/redis-sentinel/etc/sentinel-users.acl" >> /opt/bitnami/redis-sentinel/etc/prepare-sentinel.conf
+    fi
+    {{- if not (contains "sentinel sentinel-user" (.Values.sentinel.configuration | default "")) }}
+    printf "\nsentinel sentinel-user %s" "$SENTINEL_ACL_USERNAME" >> /opt/bitnami/redis-sentinel/etc/prepare-sentinel.conf
+    {{- end }}
+    {{- if not (contains "sentinel sentinel-pass" (.Values.sentinel.configuration | default "")) }}
+    printf "\nsentinel sentinel-pass %s" "$SENTINEL_ACL_PASSWORD" >> /opt/bitnami/redis-sentinel/etc/prepare-sentinel.conf
+    {{- end }}
+    {{- end }}
     printf "\nsentinel myid %s" "$(host_id "$HOSTNAME")" >> /opt/bitnami/redis-sentinel/etc/prepare-sentinel.conf
 
     if [[ -z "$REDIS_MASTER_HOST" ]] || [[ -z "$REDIS_MASTER_PORT_NUMBER" ]]

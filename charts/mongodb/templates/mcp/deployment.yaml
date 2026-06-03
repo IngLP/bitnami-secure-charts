@@ -110,7 +110,7 @@ spec:
               exec mongodb-mcp-server \
                 --connectionString "mongodb://${MONGODB_USERNAME}:${MONGODB_PASSWORD}@${MONGODB_HOST}/${MONGODB_DATABASE}" \
                 --transport http \
-                --httpHost 0.0.0.0 \
+                --httpHost {{ ternary "127.0.0.1" "0.0.0.0" .Values.mcp.auth.enabled }} \
                 --httpPort {{ .Values.mcp.containerPorts.http }} \
                 --loggers stderr \
                 {{- if .Values.mcp.readOnly }}
@@ -175,15 +175,23 @@ spec:
           readinessProbe: {{- include "common.tplvalues.render" (dict "value" .Values.mcp.customReadinessProbe "context" $) | nindent 12 }}
           {{- else if .Values.mcp.readinessProbe.enabled }}
           readinessProbe: {{- include "common.tplvalues.render" (dict "value" (omit .Values.mcp.readinessProbe "enabled") "context" $) | nindent 12 }}
-            tcpSocket:
-              port: http
+            exec:
+              command:
+                - node
+                - -e
+                - |
+                  const c=require('net').createConnection({host:'127.0.0.1',port:{{ .Values.mcp.containerPorts.http }}},()=>{c.end();process.exit(0)});c.on('error',()=>process.exit(1));
           {{- end }}
           {{- if .Values.mcp.customStartupProbe }}
           startupProbe: {{- include "common.tplvalues.render" (dict "value" .Values.mcp.customStartupProbe "context" $) | nindent 12 }}
           {{- else if .Values.mcp.startupProbe.enabled }}
           startupProbe: {{- include "common.tplvalues.render" (dict "value" (omit .Values.mcp.startupProbe "enabled") "context" $) | nindent 12 }}
-            tcpSocket:
-              port: http
+            exec:
+              command:
+                - node
+                - -e
+                - |
+                  const c=require('net').createConnection({host:'127.0.0.1',port:{{ .Values.mcp.containerPorts.http }}},()=>{c.end();process.exit(0)});c.on('error',()=>process.exit(1));
           {{- end }}
           {{- if .Values.mcp.lifecycleHooks }}
           lifecycle: {{- include "common.tplvalues.render" (dict "value" .Values.mcp.lifecycleHooks "context" $) | nindent 12 }}
@@ -211,7 +219,7 @@ spec:
             - --secure-listen-address=0.0.0.0:{{ .Values.mcp.auth.containerPorts.https }}
             - --upstream=http://127.0.0.1:{{ .Values.mcp.containerPorts.http }}/
             - --proxy-endpoints-port={{ .Values.mcp.auth.containerPorts.health }}
-            - --v=10
+            - --v=0
             - --tls-cert-file=/certs/tls.crt
             - --tls-private-key-file=/certs/tls.key
             {{- if .Values.mcp.auth.extraArgs  }}

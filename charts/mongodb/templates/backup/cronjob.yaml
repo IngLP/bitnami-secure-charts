@@ -166,7 +166,12 @@ spec:
                 {{- if and .Values.auth.enabled .Values.usePasswordFiles }}
                 export MONGODB_ROOT_PASSWORD="$(< $MONGODB_ROOT_PASSWORD_FILE)"
                 {{- end }}
-                mongodump {{- if .Values.auth.enabled }} --username=${MONGODB_ROOT_USER} --password=${MONGODB_ROOT_PASSWORD} --authenticationDatabase=admin {{- end }} --host=${MONGODB_SERVICE_NAME} --port=${MONGODB_PORT_NUMBER} ${MONGODB_CLIENT_EXTRA_FLAGS} {{- if (eq $.Values.architecture "replicaset") }}--oplog{{- end }} --gzip --archive=${MONGODUMP_DIR}/mongodump-$(date '+%Y-%m-%d-%H-%M').gz
+                {{- if .Values.auth.enabled }}
+                export MONGODUMP_URI="mongodb://${MONGODB_ROOT_USER}:${MONGODB_ROOT_PASSWORD}@${MONGODB_SERVICE_NAME}:${MONGODB_PORT_NUMBER}/admin"
+                mongodump --uri="${MONGODUMP_URI}" ${MONGODB_CLIENT_EXTRA_FLAGS} {{- if (eq $.Values.architecture "replicaset") }}--oplog{{- end }} --gzip --archive=${MONGODUMP_DIR}/mongodump-$(date '+%Y-%m-%d-%H-%M').gz
+                {{- else }}
+                mongodump --host=${MONGODB_SERVICE_NAME} --port=${MONGODB_PORT_NUMBER} ${MONGODB_CLIENT_EXTRA_FLAGS} {{- if (eq $.Values.architecture "replicaset") }}--oplog{{- end }} --gzip --archive=${MONGODUMP_DIR}/mongodump-$(date '+%Y-%m-%d-%H-%M').gz
+                {{- end }}
             {{- end }}
             {{- if .Values.backup.cronjob.resources }}
             resources: {{- include "common.tplvalues.render" (dict "value" .Values.backup.cronjob.resources "context" $) | nindent 14 }}
@@ -222,9 +227,6 @@ spec:
                 items:
                 - key: mongodb-ca-cert
                   path: mongodb-ca-cert
-                  mode: 0600
-                - key: mongodb-ca-key
-                  path: mongodb-ca-key
                   mode: 0600
             {{- else }}
             - name: mongodb-certs-0

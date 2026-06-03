@@ -285,6 +285,12 @@ spec:
               {{- end }}
             - name: config
               mountPath: /opt/bitnami/redis/mounted-etc
+            {{- if .Values.auth.acl.enabled }}
+            - name: redis-acl
+              mountPath: /opt/bitnami/redis/mounted-etc/users.acl
+              subPath: users.acl
+              readOnly: true
+            {{- end }}
             {{- if and .Values.replica.containerSecurityContext.enabled .Values.replica.containerSecurityContext.readOnlyRootFilesystem }}
             - name: empty-dir
               mountPath: /opt/bitnami/redis/etc
@@ -518,6 +524,11 @@ spec:
         - name: config
           configMap:
             name: {{ include "redis.configmapName" . }}
+        {{- if .Values.auth.acl.enabled }}
+        - name: redis-acl
+          secret:
+            secretName: {{ printf "%s-acl" (include "common.names.fullname" .) }}
+        {{- end }}
         {{- if .Values.sysctl.mountHostSys }}
         - name: host-sys
           hostPath:

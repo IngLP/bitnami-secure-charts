@@ -14,9 +14,6 @@ metadata:
     {{- $annotations := include "common.tplvalues.merge" ( dict "values" ( list .Values.service.annotations .Values.commonAnnotations ) "context" . ) }}
     {{- include "common.tplvalues.render" ( dict "value" $annotations "context" $) | nindent 4 }}
     {{- end }}
-    {{- if and .Values.metrics.enabled .Values.metrics.service.annotations }}
-    {{- include "common.tplvalues.render" ( dict "value" .Values.metrics.service.annotations "context" $) | nindent 4 }}
-    {{- end }}
 spec:
   type: {{ .Values.service.type }}
   {{- if and .Values.service.clusterIP (eq .Values.service.type "ClusterIP") }}
@@ -56,11 +53,6 @@ spec:
       {{- if and (or (eq .Values.service.type "NodePort") (eq .Values.service.type "LoadBalancer")) (not (empty .Values.service.nodePorts.https)) }}
       nodePort: {{ .Values.service.nodePorts.https }}
       {{- end }}
-    {{- end }}
-    {{- if .Values.metrics.enabled }}
-    - name: metrics
-      port: {{ .Values.metrics.service.port }}
-      targetPort: metrics
     {{- end }}
     {{- if .Values.service.extraPorts }}
     {{- include "common.tplvalues.render" (dict "value" .Values.service.extraPorts "context" $) | nindent 4 }}

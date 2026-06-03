@@ -324,6 +324,12 @@ spec:
               {{- end }}
             - name: config
               mountPath: /opt/bitnami/redis/mounted-etc
+            {{- if .Values.auth.acl.enabled }}
+            - name: redis-acl
+              mountPath: /opt/bitnami/redis/mounted-etc/users.acl
+              subPath: users.acl
+              readOnly: true
+            {{- end }}
             {{- if and .Values.replica.containerSecurityContext.enabled .Values.replica.containerSecurityContext.readOnlyRootFilesystem }}
             - name: empty-dir
               mountPath: /opt/bitnami/redis/etc
@@ -404,6 +410,15 @@ spec:
             {{- else }}
             - name: ALLOW_EMPTY_PASSWORD
               value: "yes"
+            {{- end }}
+            {{- if and .Values.auth.acl.sentinel .Values.auth.acl.users }}
+            - name: SENTINEL_ACL_USERNAME
+              value: {{ (first .Values.auth.acl.users).username | quote }}
+            - name: SENTINEL_ACL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ printf "%s-acl" (include "common.names.fullname" .) }}
+                  key: sentinel-sentinel-pass
             {{- end }}
             {{- if include "common.fips.enabled" . }}
             - name: OPENSSL_FIPS
@@ -533,6 +548,11 @@ spec:
               {{- end }}
             - name: config
               mountPath: /opt/bitnami/redis-sentinel/mounted-etc
+            {{- if and .Values.auth.acl.sentinel .Values.auth.acl.users }}
+            - name: sentinel-acl
+              mountPath: /opt/bitnami/redis-sentinel/mounted-acl
+              readOnly: true
+            {{- end }}
             {{- if .Values.tls.enabled }}
             - name: redis-certificates
               mountPath: /opt/bitnami/redis/certs
@@ -789,6 +809,16 @@ spec:
         - name: config
           configMap:
             name: {{ include "redis.configmapName" . }}
+        {{- if .Values.auth.acl.enabled }}
+        - name: redis-acl
+          secret:
+            secretName: {{ printf "%s-acl" (include "common.names.fullname" .) }}
+        {{- end }}
+        {{- if and .Values.auth.acl.sentinel .Values.auth.acl.users }}
+        - name: sentinel-acl
+          secret:
+            secretName: {{ printf "%s-acl" (include "common.names.fullname" .) }}
+        {{- end }}
         {{- if .Values.sysctl.mountHostSys }}
         - name: host-sys
           hostPath:
