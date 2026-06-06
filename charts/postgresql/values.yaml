@@ -43,8 +43,8 @@ diagnosticMode:
 image:
   registry: docker.io
   repository: inglp/bitnami-secure-postgresql
-  tag: 18.4.0-photon-5-r3
-  digest: sha256:7651d7f24aad83fe68a222f7f20eded10d325c96ebee285ca5bf8162eddcba64
+  tag: 18.4.0-photon-5-r4
+  digest: sha256:28327180686b37b9079fec351bb4a378bb29c11d3562776c757a4acd5d764151
   pullPolicy: IfNotPresent
   pullSecrets: []
   debug: false
@@ -521,8 +521,8 @@ volumePermissions:
   image:
     registry: docker.io
     repository: inglp/bitnami-secure-os-shell
-    tag: 5-photon-5-r85
-    digest: sha256:b3127f9a517345911cac917d60fb133f65c7bcebb361111dcbb410f0c97c7d65
+    tag: 5-photon-5-r86
+    digest: sha256:05fb76571cfd18c4f5c57da9d01c6c7fa01450306d44fa93e484d17b4b43e975
     pullPolicy: IfNotPresent
     pullSecrets: []
   resourcesPreset: nano
@@ -553,8 +553,8 @@ metrics:
   image:
     registry: docker.io
     repository: inglp/bitnami-secure-postgres-exporter
-    tag: 0.19.1-photon-5-r16
-    digest: sha256:825e985c30c18009243a6ce07286c6213a55453aec4b3b7cf10c3b1ab92b2331
+    tag: 0.19.1-photon-5-r17
+    digest: sha256:1bfd64c3db49e224d5191f499bfcd26dcd67450f6ef01dccb1ba66588ff6defc
     pullPolicy: IfNotPresent
     pullSecrets: []
   collectors: {}

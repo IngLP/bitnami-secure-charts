@@ -1,0 +1,55 @@
+{
+  "chart": "mariadb",
+  "content_fingerprint": "sha256:1b2c18a37303882457ae235b10994697c693919abb45b7c7a638cfa11410f2b4",
+  "dependencies": [
+    {
+      "name": "common",
+      "repository": "https://inglp.github.io/bitnami-secure-charts",
+      "upstream_version": "2.40.0",
+      "version": "2.40.0-inglp.r0"
+    }
+  ],
+  "images": [
+    {
+      "app_version": "12.3.2",
+      "image_revision": "1",
+      "name": "mariadb",
+      "os_flavour": "photon-5",
+      "source_digest": "sha256:09ef3a56ea22f72f801a1f83b89f0a63d6135dd5e1b25bf1019a13c352eb55a4",
+      "source_image": "registry-1.docker.io/bitnamisecure/mariadb:latest",
+      "target_digest": "sha256:09ef3a56ea22f72f801a1f83b89f0a63d6135dd5e1b25bf1019a13c352eb55a4",
+      "target_registry": "docker.io",
+      "target_repository": "inglp/bitnami-secure-mariadb",
+      "target_tag": "12.3.2-photon-5-r1"
+    },
+    {
+      "app_version": "0.19.0",
+      "image_revision": "15",
+      "name": "mysqld-exporter",
+      "os_flavour": "photon-5",
+      "source_digest": "sha256:c3f01d45e9075eaa2066075b9e54669fd5af4ae9e4a6870a1fcf41a63111bc0b",
+      "source_image": "registry-1.docker.io/bitnamisecure/mysqld-exporter:latest",
+      "target_digest": "sha256:c3f01d45e9075eaa2066075b9e54669fd5af4ae9e4a6870a1fcf41a63111bc0b",
+      "target_registry": "docker.io",
+      "target_repository": "inglp/bitnami-secure-mysqld-exporter",
+      "target_tag": "0.19.0-photon-5-r15"
+    },
+    {
+      "app_version": "5",
+      "image_revision": "86",
+      "name": "os-shell",
+      "os_flavour": "photon-5",
+      "source_digest": "sha256:05fb76571cfd18c4f5c57da9d01c6c7fa01450306d44fa93e484d17b4b43e975",
+      "source_image": "registry-1.docker.io/bitnamisecure/os-shell:latest",
+      "target_digest": "sha256:05fb76571cfd18c4f5c57da9d01c6c7fa01450306d44fa93e484d17b4b43e975",
+      "target_registry": "docker.io",
+      "target_repository": "inglp/bitnami-secure-os-shell",
+      "target_tag": "5-photon-5-r86"
+    }
+  ],
+  "mirror_revision": 0,
+  "published": true,
+  "source_digest": "sha256:090336bb5ac4807b5bdc25ea06dab248c006b51d5d9c4bdc034704102e7d38d9",
+  "upstream_version": "26.1.1",
+  "version": "26.1.1-inglp.r0"
+}
