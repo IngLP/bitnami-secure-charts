@@ -5,9 +5,9 @@ annotations:
     - name: wordpress\n  version: 7.0.0\n  image: registry-1.docker.io/bitnamisecure/wordpress:latest\n"
   licenses: Apache-2.0
   tanzuCategory: application
-  inglp.bitnami-secure-mirror/source-chart: registry-1.docker.io/bitnamichartssecure/wordpress:32.0.1
-  inglp.bitnami-secure-mirror/source-digest: sha256:1ab4647a381ae05d3318016177606ce9d43672bef6f1fbc409c035e2e6e4c6eb
-  inglp.bitnami-secure-mirror/upstream-version: 32.0.1
+  inglp.bitnami-secure-mirror/source-chart: registry-1.docker.io/bitnamichartssecure/wordpress:32.1.1
+  inglp.bitnami-secure-mirror/source-digest: sha256:40b1f139aa102fbbbd281edf40add06e446c0bba5db5586037f6db77a37f19dd
+  inglp.bitnami-secure-mirror/upstream-version: 32.1.1
 apiVersion: v2
 appVersion: 7.0.0
 dependencies:
@@ -43,4 +43,4 @@ maintainers:
 name: wordpress
 sources:
 - https://github.com/bitnami/charts/tree/main/bitnami/wordpress
-version: 32.0.1-inglp.r0
+version: 32.1.1-inglp.r0

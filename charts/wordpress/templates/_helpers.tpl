@@ -61,6 +61,19 @@ Return the proper Docker Image Registry Secret Names
 {{- end -}}
 
 {{/*
+Gets the host to be used for WordPress
+*/}}
+{{- define "wordpress.host" -}}
+{{- if not (empty .Values.wordpressHost) -}}
+    {{- print .Values.wordpressHost -}}
+{{- else if .Values.httpRoute.enabled }}
+    {{- printf "%s/" (.Values.httpRoute.hostnames | first) | default "" -}}
+{{- else if .Values.ingress.enabled }}
+    {{- printf "%s%s" .Values.ingress.hostname .Values.ingress.path | default "" -}}
+{{- end }}
+{{- end }}
+
+{{/*
 Create chart name and version as used by the chart label.
 */}}
 {{- define "wordpress.customHTAccessCM" -}}

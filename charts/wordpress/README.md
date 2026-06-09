@@ -363,6 +363,7 @@ As an alternative, use one of the preset configurations for pod affinity, pod an
 | `wordpressBlogName`                    | Blog name                                                                             | `User's Blog!`     |
 | `wordpressTablePrefix`                 | Prefix to use for WordPress database tables                                           | `wp_`              |
 | `wordpressScheme`                      | Scheme to use to generate WordPress URLs                                              | `http`             |
+| `wordpressHost`                        | Hostname to use to generate WordPress URLs                                            | `""`               |
 | `wordpressSkipInstall`                 | Skip wizard installation                                                              | `false`            |
 | `wordpressExtraConfigContent`          | Add extra content to the default wp-config.php file                                   | `""`               |
 | `wordpressConfiguration`               | The content for your custom wp-config.php file (advanced feature)                     | `""`               |

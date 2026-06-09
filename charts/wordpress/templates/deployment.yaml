@@ -239,6 +239,10 @@ spec:
               value: {{ .Values.wordpressFirstName | quote }}
             - name: WORDPRESS_LAST_NAME
               value: {{ .Values.wordpressLastName | quote }}
+            {{- if include "wordpress.host" . }}
+            - name: WORDPRESS_HOSTNAME
+              value: {{ include "wordpress.host" . | quote }}
+            {{- end }}
             - name: WORDPRESS_HTACCESS_OVERRIDE_NONE
               value: {{ ternary "yes" "no" .Values.allowOverrideNone | quote }}
             - name: WORDPRESS_ENABLE_HTACCESS_PERSISTENCE

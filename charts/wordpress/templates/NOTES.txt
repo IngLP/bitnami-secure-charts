@@ -103,6 +103,15 @@ You can access Apache Prometheus metrics following the steps below:
 {{- end }}
 {{- end }}
 
+{{- if empty (include "wordpress.host" .) }}
+
+WARNING: no WordPress hostname provided and WordPress isn't exposed through Gateway API nor Ingress.
+  As a consequence, site URL will be constructed based on HTTP_HOST header which opens up vulnerability
+  to password-reset poisoning attacks. This is not recommended for production environments.
+  Set the hostname via 'wordpressHost' or exposed WordPress via Gateway API / Ingress.
+
+{{- end }}
+
 {{- include "wordpress.validateValues" . }}
 {{- include "common.warnings.rollingTag" .Values.image }}
 {{- include "common.warnings.rollingTag" .Values.metrics.image }}
