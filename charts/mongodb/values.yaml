@@ -32,8 +32,8 @@ diagnosticMode:
 image:
   registry: docker.io
   repository: inglp/bitnami-secure-mongodb
-  tag: 8.3.2-photon-5-r4
-  digest: sha256:594309a857f5254bc2ee6b5e538f680696f9c7e2bf20279ca3fec49f682de44e
+  tag: 8.3.3-photon-5-r0
+  digest: sha256:9effa7a9868ee1eadb9724c1b2cff91ef21feca71b9c414c8765b8d7df07d3cc
   pullPolicy: IfNotPresent
   pullSecrets: []
   debug: false
@@ -72,8 +72,8 @@ tls:
   image:
     registry: docker.io
     repository: inglp/bitnami-secure-nginx
-    tag: 1.31.1-photon-5-r3
-    digest: sha256:805bcc863fc3f602589fc75cae91eeedebad234d5ce5a476c96b03a747821e7f
+    tag: 1.31.1-photon-5-r4
+    digest: sha256:864ea13296dd856c5ecc330ef0c2ca997f2ec72856cab3094a9d196c1f75ebdd
     pullPolicy: IfNotPresent
     pullSecrets: []
   extraDnsNames: []
