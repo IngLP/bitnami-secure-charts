@@ -1,6 +1,6 @@
 {
   "chart": "mongodb",
-  "content_fingerprint": "sha256:90add4e18700ddbe9edf70c8f8e97b0384cf812cf2e015ae5f0609b3440b5269",
+  "content_fingerprint": "sha256:ede1f2a7f5e4cb8346db61a4096089785843e8ef9c9132dbe30e7c6ed30ad551",
   "dependencies": [
     {
       "name": "common",
@@ -12,15 +12,15 @@
   "images": [
     {
       "app_version": "0.22.0",
-      "image_revision": "3",
+      "image_revision": "4",
       "name": "kube-rbac-proxy",
       "os_flavour": "linux",
-      "source_digest": "sha256:42781f55ed4c259e1b23c1cf386b3bfee842cb0676fe620454cd9ff1cb920596",
+      "source_digest": "sha256:93e0c15576482e1474b08a24be278ba13ff7b1c813a2676458a267e1d17a04ca",
       "source_image": "registry-1.docker.io/bitnamisecure/kube-rbac-proxy:latest",
-      "target_digest": "sha256:42781f55ed4c259e1b23c1cf386b3bfee842cb0676fe620454cd9ff1cb920596",
+      "target_digest": "sha256:93e0c15576482e1474b08a24be278ba13ff7b1c813a2676458a267e1d17a04ca",
       "target_registry": "docker.io",
       "target_repository": "inglp/bitnami-secure-kube-rbac-proxy",
-      "target_tag": "0.22.0-linux-r3"
+      "target_tag": "0.22.0-linux-r4"
     },
     {
       "app_version": "1.36.1",
@@ -36,15 +36,15 @@
     },
     {
       "app_version": "1.12.0",
-      "image_revision": "0",
+      "image_revision": "1",
       "name": "mcp-mongodb",
       "os_flavour": "photon-5",
-      "source_digest": "sha256:bc3aea7b7a9c8db3a31d2029473f9db8d1b316faa3520bec1020a43adcf237dd",
+      "source_digest": "sha256:3ed79ad13bcc9b8bebd227c6e5dcfae6e7abafad4548ea0147e3289b3974273c",
       "source_image": "registry-1.docker.io/bitnamisecure/mcp-mongodb:latest",
-      "target_digest": "sha256:bc3aea7b7a9c8db3a31d2029473f9db8d1b316faa3520bec1020a43adcf237dd",
+      "target_digest": "sha256:3ed79ad13bcc9b8bebd227c6e5dcfae6e7abafad4548ea0147e3289b3974273c",
       "target_registry": "docker.io",
       "target_repository": "inglp/bitnami-secure-mcp-mongodb",
-      "target_tag": "1.12.0-photon-5-r0"
+      "target_tag": "1.12.0-photon-5-r1"
     },
     {
       "app_version": "8.3.3",
@@ -60,27 +60,27 @@
     },
     {
       "app_version": "0.51.0",
-      "image_revision": "6",
+      "image_revision": "7",
       "name": "mongodb-exporter",
       "os_flavour": "photon-5",
-      "source_digest": "sha256:d48a2f388d68208f9bed80bece077acdfba2e51bf6488124e7dd4c0bf13b17e1",
+      "source_digest": "sha256:49d849630b9f58baa4728b34e67a60218d79ca1021cc79dc0a746aba0aa5cd69",
       "source_image": "registry-1.docker.io/bitnamisecure/mongodb-exporter:latest",
-      "target_digest": "sha256:d48a2f388d68208f9bed80bece077acdfba2e51bf6488124e7dd4c0bf13b17e1",
+      "target_digest": "sha256:49d849630b9f58baa4728b34e67a60218d79ca1021cc79dc0a746aba0aa5cd69",
       "target_registry": "docker.io",
       "target_repository": "inglp/bitnami-secure-mongodb-exporter",
-      "target_tag": "0.51.0-photon-5-r6"
+      "target_tag": "0.51.0-photon-5-r7"
     },
     {
       "app_version": "1.31.1",
-      "image_revision": "4",
+      "image_revision": "5",
       "name": "nginx",
       "os_flavour": "photon-5",
-      "source_digest": "sha256:864ea13296dd856c5ecc330ef0c2ca997f2ec72856cab3094a9d196c1f75ebdd",
+      "source_digest": "sha256:557f2c565fe20763a47f49afe103a92bdf59cb0354f2370843dcd55553d9649b",
       "source_image": "registry-1.docker.io/bitnamisecure/nginx:latest",
-      "target_digest": "sha256:864ea13296dd856c5ecc330ef0c2ca997f2ec72856cab3094a9d196c1f75ebdd",
+      "target_digest": "sha256:557f2c565fe20763a47f49afe103a92bdf59cb0354f2370843dcd55553d9649b",
       "target_registry": "docker.io",
       "target_repository": "inglp/bitnami-secure-nginx",
-      "target_tag": "1.31.1-photon-5-r4"
+      "target_tag": "1.31.1-photon-5-r5"
     },
     {
       "app_version": "5",
@@ -95,9 +95,9 @@
       "target_tag": "5-photon-5-r86"
     }
   ],
-  "mirror_revision": 0,
+  "mirror_revision": 1,
   "published": true,
   "source_digest": "sha256:51d2356db91fa2136c81923037415a92fb066db6824aa14c811db4b09cb44ac6",
   "upstream_version": "19.1.6",
-  "version": "19.1.6-inglp.r0"
+  "version": "19.1.6-inglp.r1"
 }

@@ -1,6 +1,6 @@
 {
   "chart": "memcached",
-  "content_fingerprint": "sha256:4af95b7ad0499a93f2c73436dafa1bdfbe802606ea785ef7c94447e0abf23592",
+  "content_fingerprint": "sha256:cfdef81ac879e573c4858de500648f0469755be6eff6543785cd68aab2d6d037",
   "dependencies": [
     {
       "name": "common",
@@ -24,15 +24,15 @@
     },
     {
       "app_version": "0.16.0",
-      "image_revision": "2",
+      "image_revision": "3",
       "name": "memcached-exporter",
       "os_flavour": "linux",
-      "source_digest": "sha256:ad3424147a020ab61b20c79e0e8584e7abd5ac00f7451a4bb7c0d1bddb20b00a",
+      "source_digest": "sha256:6448fec9494f46185a88289c42bd1416cf2f10d15cfb1202682e5b941bd94420",
       "source_image": "registry-1.docker.io/bitnamisecure/memcached-exporter:latest",
-      "target_digest": "sha256:ad3424147a020ab61b20c79e0e8584e7abd5ac00f7451a4bb7c0d1bddb20b00a",
+      "target_digest": "sha256:6448fec9494f46185a88289c42bd1416cf2f10d15cfb1202682e5b941bd94420",
       "target_registry": "docker.io",
       "target_repository": "inglp/bitnami-secure-memcached-exporter",
-      "target_tag": "0.16.0-linux-r2"
+      "target_tag": "0.16.0-linux-r3"
     },
     {
       "app_version": "5",
@@ -47,9 +47,9 @@
       "target_tag": "5-photon-5-r86"
     }
   ],
-  "mirror_revision": 0,
+  "mirror_revision": 1,
   "published": true,
   "source_digest": "sha256:0ba2a440b4481be2f0b39306cfc619ef25d4d44f62b2b9262c4c67c0cc79ca41",
   "upstream_version": "8.6.1",
-  "version": "8.6.1-inglp.r0"
+  "version": "8.6.1-inglp.r1"
 }

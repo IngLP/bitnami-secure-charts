@@ -25,8 +25,8 @@ diagnosticMode:
 image:
   registry: docker.io
   repository: inglp/bitnami-secure-nginx
-  tag: 1.31.1-photon-5-r4
-  digest: sha256:864ea13296dd856c5ecc330ef0c2ca997f2ec72856cab3094a9d196c1f75ebdd
+  tag: 1.31.1-photon-5-r5
+  digest: sha256:557f2c565fe20763a47f49afe103a92bdf59cb0354f2370843dcd55553d9649b
   pullPolicy: IfNotPresent
   pullSecrets: []
   debug: false
@@ -152,8 +152,8 @@ cloneStaticSiteFromGit:
   image:
     registry: docker.io
     repository: inglp/bitnami-secure-git
-    tag: 2.54.0-photon-5-r8
-    digest: sha256:eab307b134183e41d43d56b962028a588ab28693d36df7644e0d3acfe0f3f5da
+    tag: 2.54.0-photon-5-r9
+    digest: sha256:3f098eada7034577a0f3a55a7deca6d60efc9c4f63af5db6538bb03df6393a8f
     pullPolicy: IfNotPresent
     pullSecrets: []
   repository: ''
@@ -267,8 +267,8 @@ metrics:
   image:
     registry: docker.io
     repository: inglp/bitnami-secure-nginx-exporter
-    tag: 1.5.1-photon-5-r33
-    digest: sha256:50409a379dbd0f8c3450fb302d201a90b6448df504f33bf66c3addc9bb834c9c
+    tag: 1.5.1-photon-5-r34
+    digest: sha256:cdd763fc1a9f3d7e2244c3df9f9454c8792d313f3d140d350e58d1bd42112e2e
     pullPolicy: IfNotPresent
     pullSecrets: []
   port: ''

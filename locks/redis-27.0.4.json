@@ -1,6 +1,6 @@
 {
   "chart": "redis",
-  "content_fingerprint": "sha256:e2eb6984c983ff3d0628849d9a999d90a792c2fa82626ea42dd36af1f51e2393",
+  "content_fingerprint": "sha256:4cd0d64222515e4b97f13a3780ddc1305a425c9e5b2086015e066ecf26085c08",
   "dependencies": [
     {
       "name": "common",
@@ -48,32 +48,32 @@
     },
     {
       "app_version": "1.86.0",
-      "image_revision": "0",
+      "image_revision": "1",
       "name": "redis-exporter",
       "os_flavour": "photon-5",
-      "source_digest": "sha256:2642b99f28260354ea4ec7b18244496a55e5e09d9c425cfc564f690da191dc47",
+      "source_digest": "sha256:b676c89be04f0859cd8b52933146b0c3222b994fc9737fa9f8ca08a929deea2e",
       "source_image": "registry-1.docker.io/bitnamisecure/redis-exporter:latest",
-      "target_digest": "sha256:2642b99f28260354ea4ec7b18244496a55e5e09d9c425cfc564f690da191dc47",
+      "target_digest": "sha256:b676c89be04f0859cd8b52933146b0c3222b994fc9737fa9f8ca08a929deea2e",
       "target_registry": "docker.io",
       "target_repository": "inglp/bitnami-secure-redis-exporter",
-      "target_tag": "1.86.0-photon-5-r0"
+      "target_tag": "1.86.0-photon-5-r1"
     },
     {
       "app_version": "8.8.0",
-      "image_revision": "1",
+      "image_revision": "2",
       "name": "redis-sentinel",
       "os_flavour": "photon-5",
-      "source_digest": "sha256:094a0a9e9b22c7d553ea0df9ad51db04562f88daae354ac7cccbea9d2e532f87",
+      "source_digest": "sha256:eaf106336a4e8b1eb5c11efa9cf5315387c42129669c88f3653351617e703229",
       "source_image": "registry-1.docker.io/bitnamisecure/redis-sentinel:latest",
-      "target_digest": "sha256:094a0a9e9b22c7d553ea0df9ad51db04562f88daae354ac7cccbea9d2e532f87",
+      "target_digest": "sha256:eaf106336a4e8b1eb5c11efa9cf5315387c42129669c88f3653351617e703229",
       "target_registry": "docker.io",
       "target_repository": "inglp/bitnami-secure-redis-sentinel",
-      "target_tag": "8.8.0-photon-5-r1"
+      "target_tag": "8.8.0-photon-5-r2"
     }
   ],
-  "mirror_revision": 1,
+  "mirror_revision": 2,
   "published": true,
   "source_digest": "sha256:1f2e373aec1205aeb2a9454b32aa187404a06d371b2de091879b3be235f07bb9",
   "upstream_version": "27.0.4",
-  "version": "27.0.4-inglp.r1"
+  "version": "27.0.4-inglp.r2"
 }
