@@ -1,0 +1,103 @@
+{
+  "chart": "mongodb",
+  "content_fingerprint": "sha256:d692a1cd8e8a95bb507bd2e10052991e636624ddeb9b412128a81848c28d0852",
+  "dependencies": [
+    {
+      "name": "common",
+      "repository": "https://inglp.github.io/bitnami-secure-charts",
+      "upstream_version": "2.40.0",
+      "version": "2.40.0-inglp.r0"
+    }
+  ],
+  "images": [
+    {
+      "app_version": "0.22.0",
+      "image_revision": "4",
+      "name": "kube-rbac-proxy",
+      "os_flavour": "linux",
+      "source_digest": "sha256:93e0c15576482e1474b08a24be278ba13ff7b1c813a2676458a267e1d17a04ca",
+      "source_image": "registry-1.docker.io/bitnamisecure/kube-rbac-proxy:latest",
+      "target_digest": "sha256:93e0c15576482e1474b08a24be278ba13ff7b1c813a2676458a267e1d17a04ca",
+      "target_registry": "docker.io",
+      "target_repository": "inglp/bitnami-secure-kube-rbac-proxy",
+      "target_tag": "0.22.0-linux-r4"
+    },
+    {
+      "app_version": "1.36.1",
+      "image_revision": "5",
+      "name": "kubectl",
+      "os_flavour": "photon-5",
+      "source_digest": "sha256:ef0cb6e89dde92f693f6c71eba338966082e7f795e215d03c3cf1c557ace0973",
+      "source_image": "registry-1.docker.io/bitnamisecure/kubectl:latest",
+      "target_digest": "sha256:ef0cb6e89dde92f693f6c71eba338966082e7f795e215d03c3cf1c557ace0973",
+      "target_registry": "docker.io",
+      "target_repository": "inglp/bitnami-secure-kubectl",
+      "target_tag": "1.36.1-photon-5-r5"
+    },
+    {
+      "app_version": "1.12.0",
+      "image_revision": "1",
+      "name": "mcp-mongodb",
+      "os_flavour": "photon-5",
+      "source_digest": "sha256:3ed79ad13bcc9b8bebd227c6e5dcfae6e7abafad4548ea0147e3289b3974273c",
+      "source_image": "registry-1.docker.io/bitnamisecure/mcp-mongodb:latest",
+      "target_digest": "sha256:3ed79ad13bcc9b8bebd227c6e5dcfae6e7abafad4548ea0147e3289b3974273c",
+      "target_registry": "docker.io",
+      "target_repository": "inglp/bitnami-secure-mcp-mongodb",
+      "target_tag": "1.12.0-photon-5-r1"
+    },
+    {
+      "app_version": "8.3.4",
+      "image_revision": "0",
+      "name": "mongodb",
+      "os_flavour": "photon-5",
+      "source_digest": "sha256:82a5d670c3cf9fb96e63ec413b6934537aa303a2c1c676a93ff13d772d7451a0",
+      "source_image": "registry-1.docker.io/bitnamisecure/mongodb:latest",
+      "target_digest": "sha256:82a5d670c3cf9fb96e63ec413b6934537aa303a2c1c676a93ff13d772d7451a0",
+      "target_registry": "docker.io",
+      "target_repository": "inglp/bitnami-secure-mongodb",
+      "target_tag": "8.3.4-photon-5-r0"
+    },
+    {
+      "app_version": "0.51.0",
+      "image_revision": "7",
+      "name": "mongodb-exporter",
+      "os_flavour": "photon-5",
+      "source_digest": "sha256:49d849630b9f58baa4728b34e67a60218d79ca1021cc79dc0a746aba0aa5cd69",
+      "source_image": "registry-1.docker.io/bitnamisecure/mongodb-exporter:latest",
+      "target_digest": "sha256:49d849630b9f58baa4728b34e67a60218d79ca1021cc79dc0a746aba0aa5cd69",
+      "target_registry": "docker.io",
+      "target_repository": "inglp/bitnami-secure-mongodb-exporter",
+      "target_tag": "0.51.0-photon-5-r7"
+    },
+    {
+      "app_version": "1.31.1",
+      "image_revision": "5",
+      "name": "nginx",
+      "os_flavour": "photon-5",
+      "source_digest": "sha256:557f2c565fe20763a47f49afe103a92bdf59cb0354f2370843dcd55553d9649b",
+      "source_image": "registry-1.docker.io/bitnamisecure/nginx:latest",
+      "target_digest": "sha256:557f2c565fe20763a47f49afe103a92bdf59cb0354f2370843dcd55553d9649b",
+      "target_registry": "docker.io",
+      "target_repository": "inglp/bitnami-secure-nginx",
+      "target_tag": "1.31.1-photon-5-r5"
+    },
+    {
+      "app_version": "5",
+      "image_revision": "86",
+      "name": "os-shell",
+      "os_flavour": "photon-5",
+      "source_digest": "sha256:05fb76571cfd18c4f5c57da9d01c6c7fa01450306d44fa93e484d17b4b43e975",
+      "source_image": "registry-1.docker.io/bitnamisecure/os-shell:latest",
+      "target_digest": "sha256:05fb76571cfd18c4f5c57da9d01c6c7fa01450306d44fa93e484d17b4b43e975",
+      "target_registry": "docker.io",
+      "target_repository": "inglp/bitnami-secure-os-shell",
+      "target_tag": "5-photon-5-r86"
+    }
+  ],
+  "mirror_revision": 0,
+  "published": true,
+  "source_digest": "sha256:0ee8f222a001d35bf7cdeac54418ca52b7777bda311a8dbff477bf9918bdd4d4",
+  "upstream_version": "19.1.10",
+  "version": "19.1.10-inglp.r0"
+}
