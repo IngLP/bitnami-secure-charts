@@ -1,6 +1,6 @@
 {
   "chart": "mariadb",
-  "content_fingerprint": "sha256:11bb22480a2916dd1b109a457b1ec4f2da9c459319a98e2946e68b750996f99c",
+  "content_fingerprint": "sha256:0a8870abf3c2c80266b9cb581dc4fd4d7db9c144864fd9e7d57a4d68d253ffb0",
   "dependencies": [
     {
       "name": "common",
@@ -24,32 +24,32 @@
     },
     {
       "app_version": "0.19.0",
-      "image_revision": "16",
+      "image_revision": "17",
       "name": "mysqld-exporter",
       "os_flavour": "photon-5",
-      "source_digest": "sha256:27b86f1c006d1e9a0aa4d8bf90d9f5e510df00e04243de3874e068914ca2f1fd",
+      "source_digest": "sha256:62ebcb49d9b229b05bd0ff0394e984820aaa7dba129a81d40f848ea2354386b1",
       "source_image": "registry-1.docker.io/bitnamisecure/mysqld-exporter:latest",
-      "target_digest": "sha256:27b86f1c006d1e9a0aa4d8bf90d9f5e510df00e04243de3874e068914ca2f1fd",
+      "target_digest": "sha256:62ebcb49d9b229b05bd0ff0394e984820aaa7dba129a81d40f848ea2354386b1",
       "target_registry": "docker.io",
       "target_repository": "inglp/bitnami-secure-mysqld-exporter",
-      "target_tag": "0.19.0-photon-5-r16"
+      "target_tag": "0.19.0-photon-5-r17"
     },
     {
       "app_version": "5",
-      "image_revision": "86",
+      "image_revision": "87",
       "name": "os-shell",
       "os_flavour": "photon-5",
-      "source_digest": "sha256:05fb76571cfd18c4f5c57da9d01c6c7fa01450306d44fa93e484d17b4b43e975",
+      "source_digest": "sha256:6b315d78dc23577e0106c71203f4df4da2cc8b1ffe8b65ac9d76bb78620c4890",
       "source_image": "registry-1.docker.io/bitnamisecure/os-shell:latest",
-      "target_digest": "sha256:05fb76571cfd18c4f5c57da9d01c6c7fa01450306d44fa93e484d17b4b43e975",
+      "target_digest": "sha256:6b315d78dc23577e0106c71203f4df4da2cc8b1ffe8b65ac9d76bb78620c4890",
       "target_registry": "docker.io",
       "target_repository": "inglp/bitnami-secure-os-shell",
-      "target_tag": "5-photon-5-r86"
+      "target_tag": "5-photon-5-r87"
     }
   ],
-  "mirror_revision": 1,
+  "mirror_revision": 2,
   "published": true,
   "source_digest": "sha256:090336bb5ac4807b5bdc25ea06dab248c006b51d5d9c4bdc034704102e7d38d9",
   "upstream_version": "26.1.1",
-  "version": "26.1.1-inglp.r1"
+  "version": "26.1.1-inglp.r2"
 }

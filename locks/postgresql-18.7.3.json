@@ -1,6 +1,6 @@
 {
   "chart": "postgresql",
-  "content_fingerprint": "sha256:fdeb797e65879226497f00fe933628171f5a7698afcd536d3964bddc203eb912",
+  "content_fingerprint": "sha256:bb84fe08c944a7bde479b7574d335c3be449bf180aa868bc5b4721e6f4dbbba0",
   "dependencies": [
     {
       "name": "common",
@@ -12,27 +12,27 @@
   "images": [
     {
       "app_version": "5",
-      "image_revision": "86",
+      "image_revision": "87",
       "name": "os-shell",
       "os_flavour": "photon-5",
-      "source_digest": "sha256:05fb76571cfd18c4f5c57da9d01c6c7fa01450306d44fa93e484d17b4b43e975",
+      "source_digest": "sha256:6b315d78dc23577e0106c71203f4df4da2cc8b1ffe8b65ac9d76bb78620c4890",
       "source_image": "registry-1.docker.io/bitnamisecure/os-shell:latest",
-      "target_digest": "sha256:05fb76571cfd18c4f5c57da9d01c6c7fa01450306d44fa93e484d17b4b43e975",
+      "target_digest": "sha256:6b315d78dc23577e0106c71203f4df4da2cc8b1ffe8b65ac9d76bb78620c4890",
       "target_registry": "docker.io",
       "target_repository": "inglp/bitnami-secure-os-shell",
-      "target_tag": "5-photon-5-r86"
+      "target_tag": "5-photon-5-r87"
     },
     {
       "app_version": "0.19.1",
-      "image_revision": "18",
+      "image_revision": "19",
       "name": "postgres-exporter",
       "os_flavour": "photon-5",
-      "source_digest": "sha256:d0872d43bd680bff3b3b7429a7d162c7c56e4c172c9d5094a75e5d46fb9b0f2b",
+      "source_digest": "sha256:99c452704e9be75e75869c447281825c59731768b5f554f22504ba0746c82390",
       "source_image": "registry-1.docker.io/bitnamisecure/postgres-exporter:latest",
-      "target_digest": "sha256:d0872d43bd680bff3b3b7429a7d162c7c56e4c172c9d5094a75e5d46fb9b0f2b",
+      "target_digest": "sha256:99c452704e9be75e75869c447281825c59731768b5f554f22504ba0746c82390",
       "target_registry": "docker.io",
       "target_repository": "inglp/bitnami-secure-postgres-exporter",
-      "target_tag": "0.19.1-photon-5-r18"
+      "target_tag": "0.19.1-photon-5-r19"
     },
     {
       "app_version": "18.4.0",
@@ -47,9 +47,9 @@
       "target_tag": "18.4.0-photon-5-r6"
     }
   ],
-  "mirror_revision": 1,
+  "mirror_revision": 2,
   "published": true,
   "source_digest": "sha256:e6b443c593f49d18cb1799e4473ad1e662f258a2fa74840172b5b9b8cab56710",
   "upstream_version": "18.7.3",
-  "version": "18.7.3-inglp.r1"
+  "version": "18.7.3-inglp.r2"
 }
