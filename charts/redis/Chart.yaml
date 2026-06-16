@@ -1,15 +1,15 @@
 annotations:
   fips: 'true'
-  images: "- name: kubectl\n  version: 1.36.1\n  image: registry-1.docker.io/bitnamisecure/kubectl:latest\n\
+  images: "- name: kubectl\n  version: 1.36.2\n  image: registry-1.docker.io/bitnamisecure/kubectl:latest\n\
     - name: os-shell\n  version: \"5\"\n  image: registry-1.docker.io/bitnamisecure/os-shell:latest\n\
     - name: redis\n  version: 8.8.0\n  image: registry-1.docker.io/bitnamisecure/redis:latest\n\
     - name: redis-exporter\n  version: 1.86.0\n  image: registry-1.docker.io/bitnamisecure/redis-exporter:latest\n\
     - name: redis-sentinel\n  version: 8.8.0\n  image: registry-1.docker.io/bitnamisecure/redis-sentinel:latest\n"
   licenses: Apache-2.0
   tanzuCategory: service
-  inglp.bitnami-secure-mirror/source-chart: registry-1.docker.io/bitnamichartssecure/redis:27.0.8
-  inglp.bitnami-secure-mirror/source-digest: sha256:d646f6f334c73eb4d89e4d5bbd7741d412d79a55c92ed2d18852047881da364f
-  inglp.bitnami-secure-mirror/upstream-version: 27.0.8
+  inglp.bitnami-secure-mirror/source-chart: registry-1.docker.io/bitnamichartssecure/redis:27.0.10
+  inglp.bitnami-secure-mirror/source-digest: sha256:a1488b8297a717e0e275681d47e3c78c86b44633f0cb59aaf4039bc2f142719a
+  inglp.bitnami-secure-mirror/upstream-version: 27.0.10
 apiVersion: v2
 appVersion: 8.8.0
 dependencies:
@@ -33,4 +33,4 @@ maintainers:
 name: redis
 sources:
 - https://github.com/bitnami/charts/tree/main/bitnami/redis
-version: 27.0.8-inglp.r2
+version: 27.0.10-inglp.r0
