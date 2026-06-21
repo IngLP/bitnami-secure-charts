@@ -152,8 +152,8 @@ cloneStaticSiteFromGit:
   image:
     registry: docker.io
     repository: inglp/bitnami-secure-git
-    tag: 2.54.0-photon-5-r11
-    digest: sha256:2193670ad49283305b88c18f4eb8ea012bb5a157fd492bc236a198ff41cb312c
+    tag: 2.54.0-photon-5-r12
+    digest: sha256:88f7f711acc93afaf5b7b24c5fe88000b8b8f1e103b7be8b268501a39ac7b0ef
     pullPolicy: IfNotPresent
     pullSecrets: []
   repository: ''
