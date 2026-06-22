@@ -34,8 +34,8 @@ diagnosticMode:
 image:
   registry: docker.io
   repository: inglp/bitnami-secure-redis
-  tag: 8.8.0-photon-5-r5
-  digest: sha256:d842c434ff617b84f954700b60fd99ac8b567ce16292daccb18cfc214cdcc2ec
+  tag: 8.8.0-photon-5-r6
+  digest: sha256:fd38fa6130f6e62b5a791928d62b7cd830ce94adf9df2c78c603124169a51f2d
   pullPolicy: IfNotPresent
   pullSecrets: []
   debug: false
@@ -368,8 +368,8 @@ sentinel:
   image:
     registry: docker.io
     repository: inglp/bitnami-secure-redis-sentinel
-    tag: 8.8.0-photon-5-r4
-    digest: sha256:e8b1009557a1dcd0b9a70998e636be02043df3584bb17a22d2cb05378773273f
+    tag: 8.8.0-photon-5-r5
+    digest: sha256:6c930ae40e1f4483dac03ffe922ee16017f6f6699653a9219e4b24bc644682cf
     pullPolicy: IfNotPresent
     pullSecrets: []
     debug: false
@@ -548,8 +548,8 @@ metrics:
   image:
     registry: docker.io
     repository: inglp/bitnami-secure-redis-exporter
-    tag: 1.86.0-photon-5-r3
-    digest: sha256:ebd0b87cf0f67d01888f215ebff892d2a77fbc5a6627955ed4cfb3753b5218d8
+    tag: 1.86.0-photon-5-r4
+    digest: sha256:5e9fc3d3980126802dab2b4e88ea69913a8ad5dc32385d542cc52c2cc40fa5c4
     pullPolicy: IfNotPresent
     pullSecrets: []
   containerPorts:

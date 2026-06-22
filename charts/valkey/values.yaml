@@ -505,8 +505,8 @@ metrics:
   image:
     registry: docker.io
     repository: inglp/bitnami-secure-redis-exporter
-    tag: 1.86.0-photon-5-r3
-    digest: sha256:ebd0b87cf0f67d01888f215ebff892d2a77fbc5a6627955ed4cfb3753b5218d8
+    tag: 1.86.0-photon-5-r4
+    digest: sha256:5e9fc3d3980126802dab2b4e88ea69913a8ad5dc32385d542cc52c2cc40fa5c4
     pullPolicy: IfNotPresent
     pullSecrets: []
   containerPorts:
