@@ -25,8 +25,8 @@ diagnosticMode:
 image:
   registry: docker.io
   repository: inglp/bitnami-secure-wordpress
-  tag: 7.0.0-photon-5-r7
-  digest: sha256:17408e3004b20518597bd4b1188a05f047ee206f416b14c9bd999c5eda0b38ce
+  tag: 7.0.0-photon-5-r8
+  digest: sha256:9db722f44ec071af9827af89986ed459f72dc43d469c3b7a5703ce817ab9e5a6
   pullPolicy: IfNotPresent
   pullSecrets: []
   debug: false
@@ -242,8 +242,8 @@ volumePermissions:
   image:
     registry: docker.io
     repository: inglp/bitnami-secure-os-shell
-    tag: 5-photon-5-r87
-    digest: sha256:6b315d78dc23577e0106c71203f4df4da2cc8b1ffe8b65ac9d76bb78620c4890
+    tag: 5-photon-5-r88
+    digest: sha256:719887d7c2f40c44cce98ab4d89c179de90daa27e87c7de6e1fcce22be870ab8
     pullPolicy: IfNotPresent
     pullSecrets: []
   resourcesPreset: nano
@@ -273,8 +273,8 @@ metrics:
   image:
     registry: docker.io
     repository: inglp/bitnami-secure-apache-exporter
-    tag: 1.1.0-photon-5-r1
-    digest: sha256:6c8f18d1e828d675c04dc3582021d86047e405e3dabd2f8618dc81be2d98d54b
+    tag: 1.1.1-photon-5-r0
+    digest: sha256:17df5622ccf774211bf0484c0d389fbd0f4b0e19a5b9ea9bb98bed80cb4dbcdb
     pullPolicy: IfNotPresent
     pullSecrets: []
   containerPorts:

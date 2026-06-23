@@ -7,9 +7,9 @@ annotations:
     - name: redis-sentinel\n  version: 8.8.0\n  image: registry-1.docker.io/bitnamisecure/redis-sentinel:latest\n"
   licenses: Apache-2.0
   tanzuCategory: service
-  inglp.bitnami-secure-mirror/source-chart: registry-1.docker.io/bitnamichartssecure/redis:27.0.10
-  inglp.bitnami-secure-mirror/source-digest: sha256:a1488b8297a717e0e275681d47e3c78c86b44633f0cb59aaf4039bc2f142719a
-  inglp.bitnami-secure-mirror/upstream-version: 27.0.10
+  inglp.bitnami-secure-mirror/source-chart: registry-1.docker.io/bitnamichartssecure/redis:27.0.12
+  inglp.bitnami-secure-mirror/source-digest: sha256:8afefea3cd6782c2f596401c8cc0549f11c6626b0dd0539581888df869a0a47e
+  inglp.bitnami-secure-mirror/upstream-version: 27.0.12
 apiVersion: v2
 appVersion: 8.8.0
 dependencies:
@@ -33,4 +33,4 @@ maintainers:
 name: redis
 sources:
 - https://github.com/bitnami/charts/tree/main/bitnami/redis
-version: 27.0.10-inglp.r1
+version: 27.0.12-inglp.r0
