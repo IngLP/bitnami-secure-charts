@@ -7,9 +7,9 @@ annotations:
     - name: redis-sentinel\n  version: 8.8.0\n  image: registry-1.docker.io/bitnamisecure/redis-sentinel:latest\n"
   licenses: Apache-2.0
   tanzuCategory: service
-  inglp.bitnami-secure-mirror/source-chart: registry-1.docker.io/bitnamichartssecure/redis:27.0.12
-  inglp.bitnami-secure-mirror/source-digest: sha256:8afefea3cd6782c2f596401c8cc0549f11c6626b0dd0539581888df869a0a47e
-  inglp.bitnami-secure-mirror/upstream-version: 27.0.12
+  inglp.bitnami-secure-mirror/source-chart: registry-1.docker.io/bitnamichartssecure/redis:27.0.13
+  inglp.bitnami-secure-mirror/source-digest: sha256:922c6ebbceffe0f5f4db0e51e351dbba1bfd7b8db623343252c333f4eba4276f
+  inglp.bitnami-secure-mirror/upstream-version: 27.0.13
 apiVersion: v2
 appVersion: 8.8.0
 dependencies:
@@ -17,7 +17,7 @@ dependencies:
   repository: https://inglp.github.io/bitnami-secure-charts
   tags:
   - bitnami-common
-  version: 2.40.0-inglp.r0
+  version: 2.41.0-inglp.r0
 description: Redis(R) is an open source, advanced key-value store. It is often referred
   to as a data structure server since keys can contain strings, hashes, lists, sets
   and sorted sets.
@@ -33,4 +33,4 @@ maintainers:
 name: redis
 sources:
 - https://github.com/bitnami/charts/tree/main/bitnami/redis
-version: 27.0.12-inglp.r0
+version: 27.0.13-inglp.r0

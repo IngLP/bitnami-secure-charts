@@ -5,9 +5,9 @@ annotations:
     - name: postgresql\n  version: 18.4.0\n  image: registry-1.docker.io/bitnamisecure/postgresql:latest\n"
   licenses: Apache-2.0
   tanzuCategory: service
-  inglp.bitnami-secure-mirror/source-chart: registry-1.docker.io/bitnamichartssecure/postgresql:18.7.8
-  inglp.bitnami-secure-mirror/source-digest: sha256:f1736e96f068f554c20f8518c2141a294334857045fd9bd4c130679cd747cf85
-  inglp.bitnami-secure-mirror/upstream-version: 18.7.8
+  inglp.bitnami-secure-mirror/source-chart: registry-1.docker.io/bitnamichartssecure/postgresql:18.7.9
+  inglp.bitnami-secure-mirror/source-digest: sha256:896eca7aa4ea7da925b28f1d425c82d64d5bfb6b7656d081806488290c495a2b
+  inglp.bitnami-secure-mirror/upstream-version: 18.7.9
 apiVersion: v2
 appVersion: 18.4.0
 dependencies:
@@ -15,7 +15,7 @@ dependencies:
   repository: https://inglp.github.io/bitnami-secure-charts
   tags:
   - bitnami-common
-  version: 2.40.0-inglp.r0
+  version: 2.41.0-inglp.r0
 description: PostgreSQL (Postgres) is an open source object-relational database known
   for reliability and data integrity. ACID-compliant, it supports foreign keys, joins,
   views, triggers and stored procedures.
@@ -34,4 +34,4 @@ maintainers:
 name: postgresql
 sources:
 - https://github.com/bitnami/charts/tree/main/bitnami/postgresql
-version: 18.7.8-inglp.r0
+version: 18.7.9-inglp.r0
