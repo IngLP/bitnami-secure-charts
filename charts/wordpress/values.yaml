@@ -25,8 +25,8 @@ diagnosticMode:
 image:
   registry: docker.io
   repository: inglp/bitnami-secure-wordpress
-  tag: 7.0.0-photon-5-r8
-  digest: sha256:9db722f44ec071af9827af89986ed459f72dc43d469c3b7a5703ce817ab9e5a6
+  tag: 7.0.0-photon-5-r9
+  digest: sha256:39d337946920c27adea7b0495692ab7c11734a2bd32564edb5a415d5ecf137bd
   pullPolicy: IfNotPresent
   pullSecrets: []
   debug: false
