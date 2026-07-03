@@ -5,9 +5,9 @@ annotations:
     - name: postgresql\n  version: 18.4.0\n  image: registry-1.docker.io/bitnamisecure/postgresql:latest\n"
   licenses: Apache-2.0
   tanzuCategory: service
-  inglp.bitnami-secure-mirror/source-chart: registry-1.docker.io/bitnamichartssecure/postgresql:18.7.10
-  inglp.bitnami-secure-mirror/source-digest: sha256:acc77b6b9a0f9c4ebb935c197ff6ecfb0901f5cdf1b184484a7131d0a47e316d
-  inglp.bitnami-secure-mirror/upstream-version: 18.7.10
+  inglp.bitnami-secure-mirror/source-chart: registry-1.docker.io/bitnamichartssecure/postgresql:18.7.11
+  inglp.bitnami-secure-mirror/source-digest: sha256:520c7205b7c1c66e44d1a65409cdbe1b85b9754ca4a569e939137de477d596f6
+  inglp.bitnami-secure-mirror/upstream-version: 18.7.11
 apiVersion: v2
 appVersion: 18.4.0
 dependencies:
@@ -34,4 +34,4 @@ maintainers:
 name: postgresql
 sources:
 - https://github.com/bitnami/charts/tree/main/bitnami/postgresql
-version: 18.7.10-inglp.r0
+version: 18.7.11-inglp.r0

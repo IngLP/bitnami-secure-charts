@@ -14,11 +14,11 @@ dependencies:
 - condition: memcached.enabled
   name: memcached
   repository: https://inglp.github.io/bitnami-secure-charts
-  version: 8.6.4-inglp.r0
+  version: 8.6.4-inglp.r1
 - condition: mariadb.enabled
   name: mariadb
   repository: https://inglp.github.io/bitnami-secure-charts
-  version: 26.1.7-inglp.r0
+  version: 26.1.7-inglp.r1
 - name: common
   repository: https://inglp.github.io/bitnami-secure-charts
   tags:
@@ -43,4 +43,4 @@ maintainers:
 name: wordpress
 sources:
 - https://github.com/bitnami/charts/tree/main/bitnami/wordpress
-version: 32.1.10-inglp.r0
+version: 32.1.10-inglp.r1

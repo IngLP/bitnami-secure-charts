@@ -1,6 +1,6 @@
 {
   "chart": "memcached",
-  "content_fingerprint": "sha256:736943642e30a21e265ab43853d12569c8492797b38554fae7d111b7198aec0b",
+  "content_fingerprint": "sha256:53ac7fd976cdb1e05386fac340b1b022775ddc042be5f2d6503a36ed5341d7a0",
   "dependencies": [
     {
       "name": "common",
@@ -47,9 +47,9 @@
       "target_tag": "5-photon-5-r90"
     }
   ],
-  "mirror_revision": 1,
+  "mirror_revision": 0,
   "published": true,
-  "source_digest": "sha256:5a30f071fa86f265aaec154619e541b5ab052236f439450268b34753d0ba2e6a",
-  "upstream_version": "8.6.4",
-  "version": "8.6.4-inglp.r1"
+  "source_digest": "sha256:6417ac0edfed8eee605b38e041c9464e6dd516e11e543ee1ed22e78490d4b580",
+  "upstream_version": "8.6.5",
+  "version": "8.6.5-inglp.r0"
 }
