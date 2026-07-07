@@ -1,15 +1,15 @@
 annotations:
   fips: 'true'
-  images: "- name: memcached\n  version: 1.6.42\n  image: registry-1.docker.io/bitnamisecure/memcached:latest\n\
+  images: "- name: memcached\n  version: 1.6.43\n  image: registry-1.docker.io/bitnamisecure/memcached:latest\n\
     - name: memcached-exporter\n  version: 0.16.0\n  image: registry-1.docker.io/bitnamisecure/memcached-exporter:latest\n\
     - name: os-shell\n  version: \"5\"\n  image: registry-1.docker.io/bitnamisecure/os-shell:latest\n"
   licenses: Apache-2.0
   tanzuCategory: service
-  inglp.bitnami-secure-mirror/source-chart: registry-1.docker.io/bitnamichartssecure/memcached:8.6.4
-  inglp.bitnami-secure-mirror/source-digest: sha256:5a30f071fa86f265aaec154619e541b5ab052236f439450268b34753d0ba2e6a
-  inglp.bitnami-secure-mirror/upstream-version: 8.6.4
+  inglp.bitnami-secure-mirror/source-chart: registry-1.docker.io/bitnamichartssecure/memcached:8.6.8
+  inglp.bitnami-secure-mirror/source-digest: sha256:d4539fedf83f85350e3fb184d92648b22d2ffb68a5f49898f186fef70a2526c8
+  inglp.bitnami-secure-mirror/upstream-version: 8.6.8
 apiVersion: v2
-appVersion: 1.6.42
+appVersion: 1.6.43
 dependencies:
 - name: common
   repository: https://inglp.github.io/bitnami-secure-charts
@@ -30,4 +30,4 @@ maintainers:
 name: memcached
 sources:
 - https://github.com/bitnami/charts/tree/main/bitnami/memcached
-version: 8.6.4-inglp.r2
+version: 8.6.8-inglp.r0

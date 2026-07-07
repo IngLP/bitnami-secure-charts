@@ -25,8 +25,8 @@ diagnosticMode:
 image:
   registry: docker.io
   repository: inglp/bitnami-secure-memcached
-  tag: 1.6.43-photon-5-r2
-  digest: sha256:19fe9b9387fa678418979b58c3924d54762a2a91f65f027d6daf531dc800091f
+  tag: 1.6.44-photon-5-r0
+  digest: sha256:17ac45257e000d72e065390cc75bd7f1b8050c77279b6e0c314ca431d8d3fbfe
   pullPolicy: IfNotPresent
   pullSecrets: []
   debug: false
@@ -178,8 +178,8 @@ volumePermissions:
   image:
     registry: docker.io
     repository: inglp/bitnami-secure-os-shell
-    tag: 5-photon-5-r90
-    digest: sha256:d53b4b7950bca9a11a1fced0f3ea677e953c303b72e7fc07ab3cdec3774e120e
+    tag: 5-photon-5-r91
+    digest: sha256:d38549182ca4924d9c55bc430d3636e0680b6a327087004c73f73b23d80f0d77
     pullPolicy: IfNotPresent
     pullSecrets: []
   resourcesPreset: nano

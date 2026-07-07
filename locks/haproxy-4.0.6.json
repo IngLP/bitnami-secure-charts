@@ -1,0 +1,31 @@
+{
+  "chart": "haproxy",
+  "content_fingerprint": "sha256:95349014e0e7e985339df3936671037a3b56e397b93968122346a5b64a88d2c7",
+  "dependencies": [
+    {
+      "name": "common",
+      "repository": "https://inglp.github.io/bitnami-secure-charts",
+      "upstream_version": "2.41.0",
+      "version": "2.41.0-inglp.r0"
+    }
+  ],
+  "images": [
+    {
+      "app_version": "3.4.2",
+      "image_revision": "1",
+      "name": "haproxy",
+      "os_flavour": "photon-5",
+      "source_digest": "sha256:e7cbc1174e02ca5317d9b3e418a16707764b851f6901464e93094ecd830eeb1c",
+      "source_image": "registry-1.docker.io/bitnamisecure/haproxy:latest",
+      "target_digest": "sha256:e7cbc1174e02ca5317d9b3e418a16707764b851f6901464e93094ecd830eeb1c",
+      "target_registry": "docker.io",
+      "target_repository": "inglp/bitnami-secure-haproxy",
+      "target_tag": "3.4.2-photon-5-r1"
+    }
+  ],
+  "mirror_revision": 0,
+  "published": true,
+  "source_digest": "sha256:d993a71cec9e9c3b756aec8daae194ee9dde8df0736007e9bdba1b4a09597fe4",
+  "upstream_version": "4.0.6",
+  "version": "4.0.6-inglp.r0"
+}

@@ -5,9 +5,9 @@ annotations:
     - name: os-shell\n  version: \"5\"\n  image: registry-1.docker.io/bitnamisecure/os-shell:latest\n"
   licenses: Apache-2.0
   tanzuCategory: service
-  inglp.bitnami-secure-mirror/source-chart: registry-1.docker.io/bitnamichartssecure/mariadb:26.1.7
-  inglp.bitnami-secure-mirror/source-digest: sha256:4dc33e400666ef451fe3fe370193d8166f08550fcc57d2394bd67379d03981f0
-  inglp.bitnami-secure-mirror/upstream-version: 26.1.7
+  inglp.bitnami-secure-mirror/source-chart: registry-1.docker.io/bitnamichartssecure/mariadb:26.1.8
+  inglp.bitnami-secure-mirror/source-digest: sha256:88c62338cb6e39e203fe5bb0fd2313114da9ef9d6d6f1afdb4e73c1b5accaa1c
+  inglp.bitnami-secure-mirror/upstream-version: 26.1.8
 apiVersion: v2
 appVersion: 12.3.2
 dependencies:
@@ -33,4 +33,4 @@ maintainers:
 name: mariadb
 sources:
 - https://github.com/bitnami/charts/tree/main/bitnami/mariadb
-version: 26.1.7-inglp.r1
+version: 26.1.8-inglp.r0
