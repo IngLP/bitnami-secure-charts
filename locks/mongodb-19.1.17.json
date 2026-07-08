@@ -1,6 +1,6 @@
 {
   "chart": "mongodb",
-  "content_fingerprint": "sha256:e0f93d29a855bbe4ecb570beac6fb8a4504e96252a42443242e573dac9da348c",
+  "content_fingerprint": "sha256:0a6b72170629a6a8bab9b42734c9c12d5860f2cc519e701737c269f0feadf336",
   "dependencies": [
     {
       "name": "common",
@@ -12,15 +12,15 @@
   "images": [
     {
       "app_version": "0.22.0",
-      "image_revision": "6",
+      "image_revision": "7",
       "name": "kube-rbac-proxy",
       "os_flavour": "linux",
-      "source_digest": "sha256:e81ba3ffbc17047f017bc77d2ff47e8a218da9c2bf2c5241dede5b667ff9c0a5",
+      "source_digest": "sha256:02f60eb22765c3b8184da7838c927289fb5ec9b928342fddd21ed56ef3163a6d",
       "source_image": "registry-1.docker.io/bitnamisecure/kube-rbac-proxy:latest",
-      "target_digest": "sha256:e81ba3ffbc17047f017bc77d2ff47e8a218da9c2bf2c5241dede5b667ff9c0a5",
+      "target_digest": "sha256:02f60eb22765c3b8184da7838c927289fb5ec9b928342fddd21ed56ef3163a6d",
       "target_registry": "docker.io",
       "target_repository": "inglp/bitnami-secure-kube-rbac-proxy",
-      "target_tag": "0.22.0-linux-r6"
+      "target_tag": "0.22.0-linux-r7"
     },
     {
       "app_version": "1.36.2",
@@ -36,15 +36,15 @@
     },
     {
       "app_version": "1.13.0",
-      "image_revision": "5",
+      "image_revision": "6",
       "name": "mcp-mongodb",
       "os_flavour": "photon-5",
-      "source_digest": "sha256:b8e3368f9c6261c1e6d4520976b297f071d02a7d3f035f36924ce681bb358c00",
+      "source_digest": "sha256:da5ade7970ecede91a93de778768dadc762a3d2cfcae75485954c6945ee44763",
       "source_image": "registry-1.docker.io/bitnamisecure/mcp-mongodb:latest",
-      "target_digest": "sha256:b8e3368f9c6261c1e6d4520976b297f071d02a7d3f035f36924ce681bb358c00",
+      "target_digest": "sha256:da5ade7970ecede91a93de778768dadc762a3d2cfcae75485954c6945ee44763",
       "target_registry": "docker.io",
       "target_repository": "inglp/bitnami-secure-mcp-mongodb",
-      "target_tag": "1.13.0-photon-5-r5"
+      "target_tag": "1.13.0-photon-5-r6"
     },
     {
       "app_version": "8.3.4",
@@ -60,15 +60,15 @@
     },
     {
       "app_version": "0.51.0",
-      "image_revision": "13",
+      "image_revision": "14",
       "name": "mongodb-exporter",
       "os_flavour": "photon-5",
-      "source_digest": "sha256:7bd639fe9ecf763d30d9d0ea473d4d44defc91fe081b33c13a3f130fdf1536dc",
+      "source_digest": "sha256:c4d9b2dc918fc53ccef374010ecb1104b0bf16909ad39554400749a53da7598f",
       "source_image": "registry-1.docker.io/bitnamisecure/mongodb-exporter:latest",
-      "target_digest": "sha256:7bd639fe9ecf763d30d9d0ea473d4d44defc91fe081b33c13a3f130fdf1536dc",
+      "target_digest": "sha256:c4d9b2dc918fc53ccef374010ecb1104b0bf16909ad39554400749a53da7598f",
       "target_registry": "docker.io",
       "target_repository": "inglp/bitnami-secure-mongodb-exporter",
-      "target_tag": "0.51.0-photon-5-r13"
+      "target_tag": "0.51.0-photon-5-r14"
     },
     {
       "app_version": "1.31.2",
@@ -95,9 +95,9 @@
       "target_tag": "5-photon-5-r91"
     }
   ],
-  "mirror_revision": 0,
+  "mirror_revision": 1,
   "published": true,
   "source_digest": "sha256:56d1be5ce5a304a1703a0e3390329c541b8555956209389f08920f6b9a95ff10",
   "upstream_version": "19.1.17",
-  "version": "19.1.17-inglp.r0"
+  "version": "19.1.17-inglp.r1"
 }
