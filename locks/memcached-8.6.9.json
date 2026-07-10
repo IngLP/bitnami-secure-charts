@@ -1,6 +1,6 @@
 {
   "chart": "memcached",
-  "content_fingerprint": "sha256:2b036b812c3d922be662e6388849ec97b83852f77805241a1244e4015d8d5e94",
+  "content_fingerprint": "sha256:9f86c3f55c94f58e0b30e7a1df05a773ad520bcc3d7b0349e03b3ac341568e19",
   "dependencies": [
     {
       "name": "common",
@@ -11,16 +11,16 @@
   ],
   "images": [
     {
-      "app_version": "1.6.44",
+      "app_version": "1.6.45",
       "image_revision": "0",
       "name": "memcached",
       "os_flavour": "photon-5",
-      "source_digest": "sha256:17ac45257e000d72e065390cc75bd7f1b8050c77279b6e0c314ca431d8d3fbfe",
+      "source_digest": "sha256:107f7d1533426b5b3687716abc5a89abe6579504334731302dc526b001f5049e",
       "source_image": "registry-1.docker.io/bitnamisecure/memcached:latest",
-      "target_digest": "sha256:17ac45257e000d72e065390cc75bd7f1b8050c77279b6e0c314ca431d8d3fbfe",
+      "target_digest": "sha256:107f7d1533426b5b3687716abc5a89abe6579504334731302dc526b001f5049e",
       "target_registry": "docker.io",
       "target_repository": "inglp/bitnami-secure-memcached",
-      "target_tag": "1.6.44-photon-5-r0"
+      "target_tag": "1.6.45-photon-5-r0"
     },
     {
       "app_version": "0.16.0",
@@ -47,9 +47,9 @@
       "target_tag": "5-photon-5-r91"
     }
   ],
-  "mirror_revision": 0,
+  "mirror_revision": 1,
   "published": true,
   "source_digest": "sha256:ca4fe0df2983f5f6d3fd64a25ac2f624fab27ec717026ab2e53d43ffeaa966e7",
   "upstream_version": "8.6.9",
-  "version": "8.6.9-inglp.r0"
+  "version": "8.6.9-inglp.r1"
 }

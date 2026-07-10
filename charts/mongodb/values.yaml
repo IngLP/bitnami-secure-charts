@@ -914,8 +914,8 @@ mcp:
     image:
       registry: docker.io
       repository: inglp/bitnami-secure-kube-rbac-proxy
-      tag: 0.22.0-linux-r7
-      digest: sha256:02f60eb22765c3b8184da7838c927289fb5ec9b928342fddd21ed56ef3163a6d
+      tag: 0.22.1-linux-r0
+      digest: sha256:b7e25b5c57d9b3bfaabf4a9aa173d126344698d097ac44b943096dbe7a21fc05
       pullPolicy: IfNotPresent
       pullSecrets: []
     extraArgs: []
