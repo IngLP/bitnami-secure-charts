@@ -34,8 +34,8 @@ diagnosticMode:
 image:
   registry: docker.io
   repository: inglp/bitnami-secure-redis
-  tag: 8.8.0-photon-5-r10
-  digest: sha256:533fba5ad7b6398820fa4e3c96096b9715094e8d835978f4e14992af5d0fb115
+  tag: 8.8.0-photon-5-r11
+  digest: sha256:341edafd5622a1e47e4b3ab379913de84ea4a50d534f40aaa903a3825e0e1cf1
   pullPolicy: IfNotPresent
   pullSecrets: []
   debug: false
@@ -368,8 +368,8 @@ sentinel:
   image:
     registry: docker.io
     repository: inglp/bitnami-secure-redis-sentinel
-    tag: 8.8.0-photon-5-r9
-    digest: sha256:631ee4fb68fc394eeabd42e3e0ba1c278c6650919fd1c1c64d3f467703b3e1b4
+    tag: 8.8.0-photon-5-r10
+    digest: sha256:ab4951733cbc8cd8d27257a1db4d0449df3cc0a22d58136630c4ad1ac42eea0c
     pullPolicy: IfNotPresent
     pullSecrets: []
     debug: false
