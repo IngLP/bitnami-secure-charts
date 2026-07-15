@@ -1,12 +1,12 @@
 {
   "chart": "wordpress",
-  "content_fingerprint": "sha256:0d8fd1da2381d259af9aea89331266e64993503acacb493a0e629444c1fc2277",
+  "content_fingerprint": "sha256:ab4c2fa10abb466ff9240704bbf53a6e34effca90c7fabc4c952158c3f636f4f",
   "dependencies": [
     {
       "name": "memcached",
       "repository": "https://inglp.github.io/bitnami-secure-charts",
       "upstream_version": "8.6.9",
-      "version": "8.6.9-inglp.r1"
+      "version": "8.6.9-inglp.r2"
     },
     {
       "name": "mariadb",
@@ -59,9 +59,9 @@
       "target_tag": "7.0.1-photon-5-r0"
     }
   ],
-  "mirror_revision": 0,
+  "mirror_revision": 1,
   "published": true,
   "source_digest": "sha256:48767ef5bc90fef372cadd297212c0017a1958fb8e387cb9be93c7b3a8bc578d",
   "upstream_version": "32.1.12",
-  "version": "32.1.12-inglp.r0"
+  "version": "32.1.12-inglp.r1"
 }

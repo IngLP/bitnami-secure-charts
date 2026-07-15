@@ -27,7 +27,7 @@ rules:
   {{- if and .Values.sentinel.enabled .Values.sentinel.service.createPrimary}}
   - apiGroups: [""]
     resources: ["pods"]
-    verbs: ["patch"]
+    verbs: ["get", "patch"]
     resourceNames:
     {{- $fullname := include "common.names.fullname" . }}
     {{- range $i, $e := until (int .Values.replica.replicaCount) }}
