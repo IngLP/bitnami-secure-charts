@@ -60,7 +60,7 @@ spec:
                 value: {{ $customUser | quote }}
               {{- end }}
               {{- if .Values.auth.usePasswordFiles }}
-              - name:  PGPASSWORD_FILE
+              - name: PGPASSWORD_FILE
                 value: {{ printf "/opt/bitnami/postgresql/secrets/%s" (include "postgresql.v1.adminPasswordKey" .) }}
               {{- else }}
               - name: PGPASSWORD

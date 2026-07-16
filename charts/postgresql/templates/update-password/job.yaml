@@ -98,13 +98,13 @@ spec:
                   info "Replication password already updated. Skipping"
               else
                   info "Updating replication password"
-                  echo "ALTER USER $POSTGRESQL_REPLICATION_USER WITH PASSWORD '$POSTGRESQL_NEW_REPLICATION_PASSWORD';" | postgresql_remote_execute $primary_host {{ .Values.containerPorts.postgresql }} "{{ $customDatabase }}" $POSTGRESQL_REPLICATION_USER  $POSTGRESQL_PREVIOUS_REPLICATION_PASSWORD
+                  echo "ALTER USER $POSTGRESQL_REPLICATION_USER WITH PASSWORD '$POSTGRESQL_NEW_REPLICATION_PASSWORD';" | postgresql_remote_execute $primary_host {{ .Values.containerPorts.postgresql }} "{{ $customDatabase }}" $POSTGRESQL_REPLICATION_USER $POSTGRESQL_PREVIOUS_REPLICATION_PASSWORD
                   touch /job-status/replication-password-changed
                   info "Replication password successfully updated"
               fi
               {{- end }}
               {{- if .Values.passwordUpdateJob.extraCommands }}
-              info "Running extra commmands"
+              info "Running extra commands"
               {{- include "common.tplvalues.render" (dict "value" .Values.passwordUpdateJob.extraCommands "context" $) | nindent 14 }}
               {{- end }}
               info "Password update job finished successfully"

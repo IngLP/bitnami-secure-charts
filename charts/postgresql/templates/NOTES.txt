@@ -3,10 +3,6 @@ CHART NAME: {{ .Chart.Name }}
 CHART VERSION: {{ .Chart.Version }}
 APP VERSION: {{ .Chart.AppVersion }}
 
-⚠ WARNING: Since August 28th, 2025, only a limited subset of images/charts are available for free.
-    Subscribe to Bitnami Secure Images to receive continued support and security updates.
-    More info at https://bitnami.com and https://github.com/bitnami/containers/issues/83267
-
 ** Please be patient while the chart is being deployed **
 
 {{- if .Values.diagnosticMode.enabled }}
@@ -30,7 +26,7 @@ In order to replicate the container startup scripts execute this command:
 {{- else }}
 
 {{- $customUser := include "postgresql.v1.username" . }}
-{{- $postgresPassword := include "common.secrets.lookup" (dict "secret" (include "postgresql.v1.chart.fullname" .) "key" .Values.auth.secretKeys.adminPasswordKey "defaultValue" (ternary .Values.auth.postgresPassword .Values.auth.password  (eq $customUser "postgres")) "context" $) -}}
+{{- $postgresPassword := include "common.secrets.lookup" (dict "secret" (include "postgresql.v1.chart.fullname" .) "key" .Values.auth.secretKeys.adminPasswordKey "defaultValue" (ternary .Values.auth.postgresPassword .Values.auth.password (eq $customUser "postgres")) "context" $) -}}
 {{- $authEnabled := and (not (or .Values.global.postgresql.auth.existingSecret .Values.auth.existingSecret)) (or $postgresPassword .Values.auth.enablePostgresUser (and (not (empty $customUser)) (ne $customUser "postgres"))) }}
 {{- if not $authEnabled }}
 
@@ -63,7 +59,7 @@ To get the password for "{{ $customUser }}" run:
 
 To get the password for "{{ default "postgres" $customUser }}" run:
 
-    export POSTGRES_PASSWORD=$(kubectl get secret --namespace {{ $releaseNamespace }} {{ include "postgresql.v1.secretName" . }} -o jsonpath="{.data.{{ ternary "password" (include "postgresql.v1.adminPasswordKey" .)  (and (not (empty $customUser)) (ne $customUser "postgres")) }}}" | base64 -d)
+    export POSTGRES_PASSWORD=$(kubectl get secret --namespace {{ $releaseNamespace }} {{ include "postgresql.v1.secretName" . }} -o jsonpath="{.data.{{ ternary "password" (include "postgresql.v1.adminPasswordKey" .) (and (not (empty $customUser)) (ne $customUser "postgres")) }}}" | base64 -d)
 {{- end }}
 {{- end }}
 
@@ -78,7 +74,7 @@ To connect to your database run the following command:
       --command -- psql --host {{ include "postgresql.v1.primary.fullname" . }} -d {{- if include "postgresql.v1.database" . }} {{ include "postgresql.v1.database" . }}{{- else }} postgres{{- end }} -p {{ include "postgresql.v1.service.port" . }}
     {{- end }}
 
-    > NOTE: If you access the container using bash, make sure that you execute "/opt/bitnami/scripts/postgresql/entrypoint.sh /bin/bash" in order to avoid the error "psql: local user with ID {{ .Values.primary.containerSecurityContext.runAsUser }}} does not exist"
+    > NOTE: If you access the container using bash, make sure that you execute "/opt/bitnami/scripts/postgresql/entrypoint.sh /bin/bash" in order to avoid the error "psql: local user with ID {{ .Values.primary.containerSecurityContext.runAsUser }} does not exist"
 
 To connect to your database from outside the cluster execute the following commands:
 
@@ -113,11 +109,8 @@ To connect to your database from outside the cluster execute the following comma
 {{- end }}
 {{- end }}
 
-WARNING: The configured password will be ignored on new installation in case when previous PostgreSQL release was deleted through the helm command. In that case, old PVC will have an old password, and setting it through helm won't take effect. Deleting persistent volumes (PVs) will solve the issue.
-
-{{- include "postgresql.v1.validateValues" . -}}
-{{- include "common.warnings.rollingTag" .Values.image -}}
-{{- include "common.warnings.rollingTag" .Values.volumePermissions.image }}
+{{- include "postgresql.v1.checkRollingTags" . }}
+{{- include "postgresql.v1.validateValues" . }}
 {{- include "common.warnings.resources" (dict "sections" (list "metrics" "primary" "readReplicas" "volumePermissions") "context" $) }}
 {{- include "common.warnings.modifiedImages" (dict "images" (list .Values.image .Values.volumePermissions.image .Values.metrics.image) "context" $) }}
 {{- include "common.errors.insecureImages" (dict "images" (list .Values.image .Values.volumePermissions.image .Values.metrics.image) "context" $) }}
