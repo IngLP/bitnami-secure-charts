@@ -29,7 +29,7 @@ spec:
   {{- end }}
   {{- if and (eq .Values.primary.service.type "LoadBalancer") .Values.primary.service.loadBalancerSourceRanges }}
   loadBalancerSourceRanges: {{- toYaml .Values.primary.service.loadBalancerSourceRanges | nindent 4 }}
-  {{ end }}
+  {{- end }}
   {{- if (and (eq .Values.primary.service.type "LoadBalancer") (not (empty .Values.primary.service.loadBalancerIP))) }}
   loadBalancerIP: {{ .Values.primary.service.loadBalancerIP }}
   {{- end }}

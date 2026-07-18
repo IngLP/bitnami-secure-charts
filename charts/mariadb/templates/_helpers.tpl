@@ -7,9 +7,9 @@ SPDX-License-Identifier: APACHE-2.0
 
 {{- define "mariadb.primary.fullname" -}}
 {{- if eq .Values.architecture "replication" }}
-{{- printf "%s-%s" (include "common.names.fullname" .) .Values.primary.name | trunc 63 | trimSuffix "-" -}}
+    {{- printf "%s-%s" (include "common.names.fullname" .) .Values.primary.name | trunc 63 | trimSuffix "-" -}}
 {{- else -}}
-{{- include "common.names.fullname" . -}}
+    {{- include "common.names.fullname" . -}}
 {{- end -}}
 {{- end -}}
 
@@ -45,15 +45,14 @@ Return the proper Docker Image Registry Secret Names
 {{ include "common.images.renderPullSecrets" (dict "images" (list .Values.image .Values.metrics.image .Values.volumePermissions.image) "context" .) }}
 {{- end -}}
 
-{{ template "mariadb.initdbScriptsCM" . }}
 {{/*
 Get the initialization scripts ConfigMap name.
 */}}
 {{- define "mariadb.initdbScriptsCM" -}}
 {{- if .Values.initdbScriptsConfigMap -}}
-{{- printf "%s" (tpl .Values.initdbScriptsConfigMap $) -}}
+    {{- tpl .Values.initdbScriptsConfigMap . -}}
 {{- else -}}
-{{- printf "%s-init-scripts" (include "mariadb.primary.fullname" .) -}}
+    {{- printf "%s-init-scripts" (include "mariadb.primary.fullname" .) -}}
 {{- end -}}
 {{- end -}}
 
@@ -84,14 +83,14 @@ Return the configmap with the MariaDB Primary configuration
 */}}
 {{- define "mariadb.primary.configmapName" -}}
 {{- if .Values.primary.existingConfigmap -}}
-    {{- printf "%s" (tpl .Values.primary.existingConfigmap $) -}}
+    {{- tpl .Values.primary.existingConfigmap . -}}
 {{- else -}}
-    {{- printf "%s" (include "mariadb.primary.fullname" .) -}}
+    {{- include "mariadb.primary.fullname" . -}}
 {{- end -}}
 {{- end -}}
 
 {{/*
-Return true if a configmap object should be created for MariaDB Secondary
+Return true if a configmap object should be created for MariaDB Primary
 */}}
 {{- define "mariadb.primary.createConfigmap" -}}
 {{- if and .Values.primary.configuration (not .Values.primary.existingConfigmap) }}
@@ -101,13 +100,13 @@ Return true if a configmap object should be created for MariaDB Secondary
 {{- end -}}
 
 {{/*
-Return the configmap with the MariaDB Primary configuration
+Return the configmap with the MariaDB Secondary configuration
 */}}
 {{- define "mariadb.secondary.configmapName" -}}
 {{- if .Values.secondary.existingConfigmap -}}
-    {{- printf "%s" (tpl .Values.secondary.existingConfigmap $) -}}
+    {{- tpl .Values.secondary.existingConfigmap . -}}
 {{- else -}}
-    {{- printf "%s" (include "mariadb.secondary.fullname" .) -}}
+    {{- include "mariadb.secondary.fullname" . -}}
 {{- end -}}
 {{- end -}}
 
@@ -125,40 +124,40 @@ Return true if a configmap object should be created for MariaDB Secondary
 Return the secret with MariaDB credentials
 */}}
 {{- define "mariadb.secretName" -}}
-    {{- if .Values.auth.existingSecret -}}
-        {{- printf "%s" (tpl .Values.auth.existingSecret $) -}}
-    {{- else -}}
-        {{- include "common.names.fullname" . -}}
-    {{- end -}}
+{{- if .Values.auth.existingSecret -}}
+    {{- printf "%s" (tpl .Values.auth.existingSecret $) -}}
+{{- else -}}
+    {{- include "common.names.fullname" . -}}
+{{- end -}}
 {{- end -}}
 
 {{/*
 Return the secret with previous MariaDB credentials
 */}}
 {{- define "mariadb.update-job.previousSecretName" -}}
-    {{- if .Values.passwordUpdateJob.previousPasswords.existingSecret -}}
-        {{- /* The secret with the new password is managed externally */ -}}
-        {{- tpl .Values.passwordUpdateJob.previousPasswords.existingSecret $ -}}
-    {{- else if .Values.passwordUpdateJob.previousPasswords.rootPassword -}}
-        {{- /* The secret with the new password is managed externally */ -}}
-        {{- printf "%s-previous-secret" (include "common.names.fullname" .) | trunc 63 | trimSuffix "-" -}}
-    {{- else -}}
-        {{- /* The secret with the new password is managed by the helm chart. We use the current secret name as it has the old password */ -}}
-        {{- include "common.names.fullname" . -}}
-    {{- end -}}
+{{- if .Values.passwordUpdateJob.previousPasswords.existingSecret -}}
+    {{- /* The secret with the new password is managed externally */ -}}
+    {{- tpl .Values.passwordUpdateJob.previousPasswords.existingSecret $ -}}
+{{- else if .Values.passwordUpdateJob.previousPasswords.rootPassword -}}
+    {{- /* The secret with the new password is managed externally */ -}}
+    {{- printf "%s-previous-secret" (include "common.names.fullname" .) | trunc 63 | trimSuffix "-" -}}
+{{- else -}}
+    {{- /* The secret with the new password is managed by the helm chart. We use the current secret name as it has the old password */ -}}
+    {{- include "common.names.fullname" . -}}
+{{- end -}}
 {{- end -}}
 
 {{/*
 Return the secret with new MariaDB credentials
 */}}
 {{- define "mariadb.update-job.newSecretName" -}}
-    {{- if and (not .Values.passwordUpdateJob.previousPasswords.existingSecret) (not .Values.passwordUpdateJob.previousPasswords.rootPassword) -}}
-        {{- /* The secret with the new password is managed by the helm chart. We create a new secret as the current one has the old password */ -}}
-        {{- printf "%s-new-secret" (include "common.names.fullname" .) | trunc 63 | trimSuffix "-" -}}
-    {{- else -}}
-        {{- /* The secret with the new password is managed externally */ -}}
-        {{- include "mariadb.secretName" . -}}
-    {{- end -}}
+{{- if and (not .Values.passwordUpdateJob.previousPasswords.existingSecret) (not .Values.passwordUpdateJob.previousPasswords.rootPassword) -}}
+    {{- /* The secret with the new password is managed by the helm chart. We create a new secret as the current one has the old password */ -}}
+    {{- printf "%s-new-secret" (include "common.names.fullname" .) | trunc 63 | trimSuffix "-" -}}
+{{- else -}}
+    {{- /* The secret with the new password is managed externally */ -}}
+    {{- include "mariadb.secretName" . -}}
+{{- end -}}
 {{- end -}}
 
 {{/*
@@ -180,6 +179,22 @@ Return true if a secret object should be created for MariaDB
 {{- end -}}
 
 {{/*
+Generate TDE secretProviderClass custom resource name
+*/}}
+{{- define "mariadb.tde.secretProviderClassName" -}}
+{{- printf "%s-spc-tde" (include "common.names.fullname" .) | trunc 63 | trimSuffix "-" -}}
+{{- end -}}
+
+{{/*
+Check if there are rolling tags in the images
+*/}}
+{{- define "mariadb.checkRollingTags" -}}
+{{- range (list .Values.image .Values.metrics.image .Values.volumePermissions.image) -}}
+{{- include "common.warnings.rollingTag" . -}}
+{{- end -}}
+{{- end -}}
+
+{{/*
 Compile all warnings into a single message, and call fail.
 */}}
 {{- define "mariadb.validateValues" -}}
@@ -189,7 +204,7 @@ Compile all warnings into a single message, and call fail.
 {{- $message := join "\n" $messages -}}
 
 {{- if $message -}}
-{{-   printf "\nVALUES VALIDATION:\n%s" $message | fail -}}
+    {{- printf "\nVALUES VALIDATION:\n%s" $message | fail -}}
 {{- end -}}
 {{- end -}}
 
@@ -200,21 +215,4 @@ mariadb: architecture
     Invalid architecture selected. Valid values are "standalone" and
     "replication". Please set a valid architecture (--set architecture="xxxx")
 {{- end -}}
-{{- end -}}
-
-{{/*
-Get existing password to access MariaDB
-*/}}
-{{- define "mariadb.secret.existPassword" -}}
-{{- $secret := (lookup "v1" "Secret" .Release.Namespace (include "mariadb.secretName" .)).data -}}
-{{- if hasKey $secret "mariadb-password" }}
-    {{- true -}}
-{{- end -}}
-{{- end -}}
-
-{{/*
-Generate TDE secretProviderClass custom resource name
-*/}}
-{{- define "mariadb.tde.secretProviderClassName" -}}
-{{- printf "%s-spc-tde" (include "common.names.fullname" .) | trunc 63 | trimSuffix "-" -}}
 {{- end -}}

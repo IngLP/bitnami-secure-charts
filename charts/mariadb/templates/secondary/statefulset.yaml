@@ -93,7 +93,7 @@ spec:
           image: {{ include "mariadb.image" . }}
           imagePullPolicy: {{ .Values.image.pullPolicy | quote }}
           {{- if .Values.secondary.containerSecurityContext.enabled }}
-          securityContext: {{- include "common.compatibility.renderSecurityContext" (dict "secContext" .Values.primary.containerSecurityContext "context" $) | nindent 12 }}
+          securityContext: {{- include "common.compatibility.renderSecurityContext" (dict "secContext" .Values.secondary.containerSecurityContext "context" $) | nindent 12 }}
           {{- end }}
           {{- if .Values.secondary.resources }}
           resources: {{ toYaml .Values.secondary.resources | nindent 12 }}
@@ -115,7 +115,7 @@ spec:
           {{- if include "common.fips.enabled" . }}
           env:
             - name: OPENSSL_FIPS
-              value: {{ include "common.fips.config" (dict "tech" "openssl" "fips" .Values.volumePermissions.fips "global" .Values.global) | quote }}
+              value: {{ include "common.fips.config" (dict "tech" "openssl" "fips" .Values.secondary.fips "global" .Values.global) | quote }}
           {{- end }}
           volumeMounts:
             - name: empty-dir
@@ -402,7 +402,7 @@ spec:
           {{- end }}
             - name: empty-dir
               mountPath: /tmp
-              subPath: app-tmp-dir
+              subPath: tmp-dir
           {{- if .Values.metrics.extraVolumeMounts.secondary }}
           {{- include "common.tplvalues.render" (dict "value" .Values.metrics.extraVolumeMounts.secondary "context" $) | nindent 12 }}
           {{- end }}

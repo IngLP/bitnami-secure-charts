@@ -743,7 +743,7 @@ As an alternative, this chart supports using an initContainer to change the owne
 | `networkPolicy.allowExternal`           | The Policy model to apply                                       | `true` |
 | `networkPolicy.allowExternalEgress`     | Allow the pod to access any range of port and all destinations. | `true` |
 | `networkPolicy.extraIngress`            | Add extra ingress rules to the NetworkPolicy                    | `[]`   |
-| `networkPolicy.extraEgress`             | Add extra ingress rules to the NetworkPolicy                    | `[]`   |
+| `networkPolicy.extraEgress`             | Add extra egress rules to the NetworkPolicy                     | `[]`   |
 | `networkPolicy.ingressNSMatchLabels`    | Labels to match to allow traffic from other namespaces          | `{}`   |
 | `networkPolicy.ingressNSPodMatchLabels` | Pod labels to match to allow traffic from other namespaces      | `{}`   |
 
@@ -926,7 +926,7 @@ kubectl delete statefulset opencart-mariadb --cascade=false
 
 ## License
 
-Copyright &copy; 2025 Broadcom. The term "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
+Copyright &copy; 2026 Broadcom. The term "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

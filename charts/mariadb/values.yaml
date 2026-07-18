@@ -333,6 +333,8 @@ secondary:
 
     datadir=/bitnami/mariadb/data
 
+    plugin_dir=/opt/bitnami/mariadb/plugin
+
     port={{ .Values.secondary.containerPorts.mysql }}
 
     socket=/opt/bitnami/mariadb/tmp/mysql.sock
@@ -380,6 +382,8 @@ secondary:
     socket=/opt/bitnami/mariadb/tmp/mysql.sock
 
     default-character-set=UTF8
+
+    plugin_dir=/opt/bitnami/mariadb/plugin
 
 
     [manager]

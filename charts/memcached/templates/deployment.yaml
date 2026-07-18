@@ -116,6 +116,20 @@ spec:
                   key: memcached-password
             {{- end }}
             {{- end }}
+            {{- if .Values.tls.enabled }}
+            - name: MEMCACHED_TLS_ENABLED
+              value: "yes"
+            - name: MEMCACHED_TLS_CERT_FILE
+              value: {{ printf "%s/%s" .Values.tls.mountPath .Values.tls.certFilename | quote }}
+            - name: MEMCACHED_TLS_KEY_FILE
+              value: {{ printf "%s/%s" .Values.tls.mountPath .Values.tls.certKeyFilename | quote }}
+            {{- if .Values.tls.certCAFilename }}
+            - name: MEMCACHED_TLS_CA_FILE
+              value: {{ printf "%s/%s" .Values.tls.mountPath .Values.tls.certCAFilename | quote }}
+            {{- end }}
+            - name: MEMCACHED_TLS_VERIFY_MODE
+              value: {{ .Values.tls.verifyMode | quote }}
+            {{- end }}
             {{- if include "common.fips.enabled" . }}
             - name: OPENSSL_FIPS
               value: {{ include "common.fips.config" (dict "tech" "openssl" "fips" .Values.fips "global" .Values.global) | quote }}
@@ -180,6 +194,11 @@ spec:
             {{- if and .Values.auth.enabled .Values.auth.usePasswordFiles }}
             - name: memcached-secrets
               mountPath: /opt/bitnami/memcached/secrets
+            {{- end }}
+            {{- if .Values.tls.enabled }}
+            - name: memcached-tls-certs
+              mountPath: {{ .Values.tls.mountPath }}
+              readOnly: true
             {{- end }}
             {{- if .Values.extraVolumeMounts }}
             {{- include "common.tplvalues.render" ( dict "value" .Values.extraVolumeMounts "context" $ ) | nindent 12 }}
@@ -254,6 +273,11 @@ spec:
             sources:
               - secret:
                   name:  {{ include "memcached.secretPasswordName" . }}
+        {{- end }}
+        {{- if .Values.tls.enabled }}
+        - name: memcached-tls-certs
+          secret:
+            secretName: {{ include "memcached.tls.secretName" . }}
         {{- end }}
         {{- if .Values.extraVolumes }}
         {{- include "common.tplvalues.render" (dict "value" .Values.extraVolumes "context" $) | nindent 8 }}

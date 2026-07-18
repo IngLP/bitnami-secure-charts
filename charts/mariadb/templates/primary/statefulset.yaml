@@ -68,9 +68,6 @@ spec:
       {{- if .Values.primary.tolerations }}
       tolerations: {{- include "common.tplvalues.render" (dict "value" .Values.primary.tolerations "context" $) | nindent 8 }}
       {{- end }}
-      {{- if .Values.primary.schedulerName }}
-      schedulerName: {{ .Values.primary.schedulerName }}
-      {{- end }}
       {{- if .Values.primary.topologySpreadConstraints }}
       topologySpreadConstraints: {{- include "common.tplvalues.render" (dict "value" .Values.primary.topologySpreadConstraints "context" $) | nindent 8 }}
       {{- end }}
@@ -117,11 +114,11 @@ spec:
           {{- if include "common.fips.enabled" . }}
           env:
             - name: OPENSSL_FIPS
-              value: {{ include "common.fips.config" (dict "tech" "openssl" "fips" .Values.volumePermissions.fips "global" .Values.global) | quote }}
+              value: {{ include "common.fips.config" (dict "tech" "openssl" "fips" .Values.primary.fips "global" .Values.global) | quote }}
           {{- end }}
           volumeMounts:
-           - name: empty-dir
-             mountPath: /emptydir
+            - name: empty-dir
+              mountPath: /emptydir
         {{- if and .Values.primary.podSecurityContext.enabled .Values.volumePermissions.enabled .Values.primary.persistence.enabled }}
         - name: volume-permissions
           image: {{ include "mariadb.volumePermissions.image" . }}
