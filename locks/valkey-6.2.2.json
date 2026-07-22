@@ -1,0 +1,79 @@
+{
+  "chart": "valkey",
+  "content_fingerprint": "sha256:efd485155297290226c1db5e526293737b44adc94ca6b2d4d243d4c96699cf6b",
+  "dependencies": [
+    {
+      "name": "common",
+      "repository": "https://inglp.github.io/bitnami-secure-charts",
+      "upstream_version": "2.41.0",
+      "version": "2.41.0-inglp.r0"
+    }
+  ],
+  "images": [
+    {
+      "app_version": "1.36.2",
+      "image_revision": "7",
+      "name": "kubectl",
+      "os_flavour": "photon-5",
+      "source_digest": "sha256:558420daf32bbc382e3e9af4537f4073085b336ddd47399a3b70e70087115978",
+      "source_image": "registry-1.docker.io/bitnamisecure/kubectl:latest",
+      "target_digest": "sha256:558420daf32bbc382e3e9af4537f4073085b336ddd47399a3b70e70087115978",
+      "target_registry": "docker.io",
+      "target_repository": "inglp/bitnami-secure-kubectl",
+      "target_tag": "1.36.2-photon-5-r7"
+    },
+    {
+      "app_version": "5",
+      "image_revision": "91",
+      "name": "os-shell",
+      "os_flavour": "photon-5",
+      "source_digest": "sha256:d38549182ca4924d9c55bc430d3636e0680b6a327087004c73f73b23d80f0d77",
+      "source_image": "registry-1.docker.io/bitnamisecure/os-shell:latest",
+      "target_digest": "sha256:d38549182ca4924d9c55bc430d3636e0680b6a327087004c73f73b23d80f0d77",
+      "target_registry": "docker.io",
+      "target_repository": "inglp/bitnami-secure-os-shell",
+      "target_tag": "5-photon-5-r91"
+    },
+    {
+      "app_version": "1.87.0",
+      "image_revision": "0",
+      "name": "redis-exporter",
+      "os_flavour": "photon-5",
+      "source_digest": "sha256:b02609346badd6b6c13d8f3d111c0264a6068ec96ce1a68853dc51c018668a4f",
+      "source_image": "registry-1.docker.io/bitnamisecure/redis-exporter:latest",
+      "target_digest": "sha256:b02609346badd6b6c13d8f3d111c0264a6068ec96ce1a68853dc51c018668a4f",
+      "target_registry": "docker.io",
+      "target_repository": "inglp/bitnami-secure-redis-exporter",
+      "target_tag": "1.87.0-photon-5-r0"
+    },
+    {
+      "app_version": "9.1.1",
+      "image_revision": "0",
+      "name": "valkey",
+      "os_flavour": "photon-5",
+      "source_digest": "sha256:5d43ca8bb57aa263ef78d1684dbf1e4b4f63844727eafdd5ea2b0e102a25b141",
+      "source_image": "registry-1.docker.io/bitnamisecure/valkey:latest",
+      "target_digest": "sha256:5d43ca8bb57aa263ef78d1684dbf1e4b4f63844727eafdd5ea2b0e102a25b141",
+      "target_registry": "docker.io",
+      "target_repository": "inglp/bitnami-secure-valkey",
+      "target_tag": "9.1.1-photon-5-r0"
+    },
+    {
+      "app_version": "9.1.1",
+      "image_revision": "0",
+      "name": "valkey-sentinel",
+      "os_flavour": "photon-5",
+      "source_digest": "sha256:85f00718bf8bd8d2510dcbd4ba4e87e34519461a595054b8ae8f6c96b3ddc31f",
+      "source_image": "registry-1.docker.io/bitnamisecure/valkey-sentinel:latest",
+      "target_digest": "sha256:85f00718bf8bd8d2510dcbd4ba4e87e34519461a595054b8ae8f6c96b3ddc31f",
+      "target_registry": "docker.io",
+      "target_repository": "inglp/bitnami-secure-valkey-sentinel",
+      "target_tag": "9.1.1-photon-5-r0"
+    }
+  ],
+  "mirror_revision": 0,
+  "published": true,
+  "source_digest": "sha256:114fa3f91d5fb3221dd653db46d97000dae955e88e6a2b10677a9b3ff540ca87",
+  "upstream_version": "6.2.2",
+  "version": "6.2.2-inglp.r0"
+}
