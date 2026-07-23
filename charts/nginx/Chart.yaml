@@ -5,9 +5,9 @@ annotations:
     - name: nginx-exporter\n  version: 1.5.1\n  image: registry-1.docker.io/bitnamisecure/nginx-exporter:latest\n"
   licenses: Apache-2.0
   tanzuCategory: clusterUtility
-  inglp.bitnami-secure-mirror/source-chart: registry-1.docker.io/bitnamichartssecure/nginx:25.0.14
-  inglp.bitnami-secure-mirror/source-digest: sha256:a33d8f34af7dd2aea0a966a39badd110763d066ddc43a93a23f32ec0910074ae
-  inglp.bitnami-secure-mirror/upstream-version: 25.0.14
+  inglp.bitnami-secure-mirror/source-chart: registry-1.docker.io/bitnamichartssecure/nginx:25.0.15
+  inglp.bitnami-secure-mirror/source-digest: sha256:ccd4dbb45f23a10a4cae156ad89b20f16399188ab89a08d87a6eb96e7f166c6f
+  inglp.bitnami-secure-mirror/upstream-version: 25.0.15
 apiVersion: v2
 appVersion: 1.31.3
 dependencies:
@@ -33,4 +33,4 @@ maintainers:
 name: nginx
 sources:
 - https://github.com/bitnami/charts/tree/main/bitnami/nginx
-version: 25.0.14-inglp.r0
+version: 25.0.15-inglp.r0

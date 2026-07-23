@@ -1,19 +1,19 @@
 annotations:
   fips: 'true'
-  images: "- name: kube-rbac-proxy\n  version: 0.22.0\n  image: registry-1.docker.io/bitnamisecure/kube-rbac-proxy:latest\n\
-    - name: kubectl\n  version: 1.36.2\n  image: registry-1.docker.io/bitnamisecure/kubectl:latest\n\
-    - name: mcp-mongodb\n  version: 1.13.0\n  image: registry-1.docker.io/bitnamisecure/mcp-mongodb:latest\n\
-    - name: mongodb\n  version: 8.3.4\n  image: registry-1.docker.io/bitnamisecure/mongodb:latest\n\
+  images: "- name: kube-rbac-proxy\n  version: 0.22.1\n  image: registry-1.docker.io/bitnamisecure/kube-rbac-proxy:latest\n\
+    - name: kubectl\n  version: 1.36.3\n  image: registry-1.docker.io/bitnamisecure/kubectl:latest\n\
+    - name: mcp-mongodb\n  version: 1.14.0\n  image: registry-1.docker.io/bitnamisecure/mcp-mongodb:latest\n\
+    - name: mongodb\n  version: 8.3.7\n  image: registry-1.docker.io/bitnamisecure/mongodb:latest\n\
     - name: mongodb-exporter\n  version: 0.51.0\n  image: registry-1.docker.io/bitnamisecure/mongodb-exporter:latest\n\
-    - name: nginx\n  version: 1.31.2\n  image: registry-1.docker.io/bitnamisecure/nginx:latest\n\
+    - name: nginx\n  version: 1.31.3\n  image: registry-1.docker.io/bitnamisecure/nginx:latest\n\
     - name: os-shell\n  version: \"5\"\n  image: registry-1.docker.io/bitnamisecure/os-shell:latest\n"
   licenses: Apache-2.0
   tanzuCategory: service
-  inglp.bitnami-secure-mirror/source-chart: registry-1.docker.io/bitnamichartssecure/mongodb:19.1.17
-  inglp.bitnami-secure-mirror/source-digest: sha256:56d1be5ce5a304a1703a0e3390329c541b8555956209389f08920f6b9a95ff10
-  inglp.bitnami-secure-mirror/upstream-version: 19.1.17
+  inglp.bitnami-secure-mirror/source-chart: registry-1.docker.io/bitnamichartssecure/mongodb:19.1.20
+  inglp.bitnami-secure-mirror/source-digest: sha256:ca33a9e2de02d9b5ac472e881eb7c365789a764db21bf585c1e56447b9f3b0b0
+  inglp.bitnami-secure-mirror/upstream-version: 19.1.20
 apiVersion: v2
-appVersion: 8.3.4
+appVersion: 8.3.7
 dependencies:
 - name: common
   repository: https://inglp.github.io/bitnami-secure-charts
@@ -38,4 +38,4 @@ maintainers:
 name: mongodb
 sources:
 - https://github.com/bitnami/charts/tree/main/bitnami/mongodb
-version: 19.1.17-inglp.r5
+version: 19.1.20-inglp.r0
