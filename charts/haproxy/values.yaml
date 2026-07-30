@@ -81,8 +81,8 @@ terminationGracePeriodSeconds: ''
 image:
   registry: docker.io
   repository: inglp/bitnami-secure-haproxy
-  tag: 3.4.2-photon-5-r2
-  digest: sha256:fab9a3bc0725f181a2b0922938c4f63178b35db82cc64630e8b098f16d2ec4d7
+  tag: 3.4.3-photon-5-r0
+  digest: sha256:ea0c5cb6d571d20a6690cd8b08b3d9edcfb8195da61067efd2619d02d967a83c
   pullPolicy: IfNotPresent
   pullSecrets: []
 replicaCount: 1

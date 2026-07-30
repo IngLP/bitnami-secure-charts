@@ -404,8 +404,6 @@ For more information on this new support, please refer to the [FIPS Compliance s
 | `serviceAccount.name`                         | Name of the service account to use. If not set and create is true, a name is generated using the fullname template. | `""`    |
 | `serviceAccount.automountServiceAccountToken` | Automount service account token for the server service account                                                      | `false` |
 | `serviceAccount.annotations`                  | Annotations for service account. Evaluated as a template. Only used if `create` is `true`.                          | `{}`    |
-| `serviceAccount.create`                       | Specifies whether a ServiceAccount should be created                                                                | `true`  |
-| `serviceAccount.name`                         | The name of the ServiceAccount to use.                                                                              | `""`    |
 | `enableServiceLinks`                          | If set to false, disable Kubernetes service links in the pod spec                                                   | `true`  |
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`. For example,
@@ -456,7 +454,7 @@ This could potentially break any customization or init scripts used in your depl
 
 ## License
 
-Copyright &copy; 2025 Broadcom. The term "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
+Copyright &copy; 2026 Broadcom. The term "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
