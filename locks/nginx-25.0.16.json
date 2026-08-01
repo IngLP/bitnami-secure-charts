@@ -1,6 +1,6 @@
 {
   "chart": "nginx",
-  "content_fingerprint": "sha256:272091015a38ee0105d16b04892e90a3d0f90f494e73528f110acb168202343e",
+  "content_fingerprint": "sha256:1aae99a4f464bf43cfda1c2f1b338a7e951e6ed0fff4700c2fe2872966f695bc",
   "dependencies": [
     {
       "name": "common",
@@ -12,15 +12,15 @@
   "images": [
     {
       "app_version": "2.55.0",
-      "image_revision": "3",
+      "image_revision": "4",
       "name": "git",
       "os_flavour": "photon-5",
-      "source_digest": "sha256:c02bdac0976e9edc06f5f4b262686b7c93192431d6eeffb7484ec664467a0c2f",
+      "source_digest": "sha256:8b74a9a08b82f22cbc9a8a0698d545e53bf7e6efeed38ccec62b7f27ba4f97fd",
       "source_image": "registry-1.docker.io/bitnamisecure/git:latest",
-      "target_digest": "sha256:c02bdac0976e9edc06f5f4b262686b7c93192431d6eeffb7484ec664467a0c2f",
+      "target_digest": "sha256:8b74a9a08b82f22cbc9a8a0698d545e53bf7e6efeed38ccec62b7f27ba4f97fd",
       "target_registry": "docker.io",
       "target_repository": "inglp/bitnami-secure-git",
-      "target_tag": "2.55.0-photon-5-r3"
+      "target_tag": "2.55.0-photon-5-r4"
     },
     {
       "app_version": "1.31.3",
@@ -36,20 +36,20 @@
     },
     {
       "app_version": "1.5.1",
-      "image_revision": "42",
+      "image_revision": "43",
       "name": "nginx-exporter",
       "os_flavour": "photon-5",
-      "source_digest": "sha256:069f2ca55b715da8cc8788005f822f08dd275e1a60458139ff5c624eb390e7fa",
+      "source_digest": "sha256:d463fa63982d79bd4be2101a3fa1c2fb95f19e92bda89f116ea60834b2fabbc4",
       "source_image": "registry-1.docker.io/bitnamisecure/nginx-exporter:latest",
-      "target_digest": "sha256:069f2ca55b715da8cc8788005f822f08dd275e1a60458139ff5c624eb390e7fa",
+      "target_digest": "sha256:d463fa63982d79bd4be2101a3fa1c2fb95f19e92bda89f116ea60834b2fabbc4",
       "target_registry": "docker.io",
       "target_repository": "inglp/bitnami-secure-nginx-exporter",
-      "target_tag": "1.5.1-photon-5-r42"
+      "target_tag": "1.5.1-photon-5-r43"
     }
   ],
-  "mirror_revision": 0,
+  "mirror_revision": 1,
   "published": true,
   "source_digest": "sha256:b5c207aa2ca2df34ce4c1cac3712e3a517267edff98c826228c86a12a2b6df23",
   "upstream_version": "25.0.16",
-  "version": "25.0.16-inglp.r0"
+  "version": "25.0.16-inglp.r1"
 }

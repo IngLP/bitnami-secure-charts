@@ -32,8 +32,8 @@ diagnosticMode:
 image:
   registry: docker.io
   repository: inglp/bitnami-secure-mongodb
-  tag: 8.3.7-photon-5-r0
-  digest: sha256:127db7f492afa5f6952f954d50da536a378784d689ac23d80b359811909596ae
+  tag: 8.3.7-photon-5-r1
+  digest: sha256:6b25f1600ac5576d7ee45c0c76bc28dbb28a61ded80ebf75baaa226a431fe57d
   pullPolicy: IfNotPresent
   pullSecrets: []
   debug: false
@@ -215,8 +215,8 @@ externalAccess:
     image:
       registry: docker.io
       repository: inglp/bitnami-secure-kubectl
-      tag: 1.36.3-photon-5-r0
-      digest: sha256:95de17e6eb92da83a58c90a9df0c4cede634f898d2e6b92ea04f4a6ee6ace08d
+      tag: 1.36.3-photon-5-r1
+      digest: sha256:9e369df7ab3386b736d162348f167bcc02cb4ba3f5203e9151be854437d6e0af
       pullPolicy: IfNotPresent
       pullSecrets: []
     resourcesPreset: nano
@@ -227,8 +227,8 @@ externalAccess:
     image:
       registry: docker.io
       repository: inglp/bitnami-secure-os-shell
-      tag: 5-photon-5-r92
-      digest: sha256:d04e870ded6c79c1703165f14f741a346c164fcd3e01f1100373ec60c9ac6bd8
+      tag: 5-photon-5-r93
+      digest: sha256:ca81e0d0f07b18cfbef939dbf5dfc09254a8bd571f67d41f352ede348be352c8
       pullPolicy: IfNotPresent
       pullSecrets: []
     resourcesPreset: nano
@@ -417,8 +417,8 @@ volumePermissions:
   image:
     registry: docker.io
     repository: inglp/bitnami-secure-os-shell
-    tag: 5-photon-5-r92
-    digest: sha256:d04e870ded6c79c1703165f14f741a346c164fcd3e01f1100373ec60c9ac6bd8
+    tag: 5-photon-5-r93
+    digest: sha256:ca81e0d0f07b18cfbef939dbf5dfc09254a8bd571f67d41f352ede348be352c8
     pullPolicy: IfNotPresent
     pullSecrets: []
   resourcesPreset: nano
@@ -734,8 +734,8 @@ mcp:
   image:
     registry: docker.io
     repository: inglp/bitnami-secure-mcp-mongodb
-    tag: 1.14.0-photon-5-r0
-    digest: sha256:736f795aaf58b2d9c7b594896aef06ccf3b63cd3009cfa7000105425218067ec
+    tag: 1.14.0-photon-5-r1
+    digest: sha256:4f7c15ac5ba7c019613a2d4611c6e7eb4e729a25bb76f32ec79196530c759cc1
     pullPolicy: IfNotPresent
     pullSecrets: []
   containerPorts:
