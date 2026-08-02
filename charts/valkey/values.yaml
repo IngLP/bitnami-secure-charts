@@ -33,8 +33,8 @@ diagnosticMode:
 image:
   registry: docker.io
   repository: inglp/bitnami-secure-valkey
-  tag: 9.1.1-photon-5-r0
-  digest: sha256:5d43ca8bb57aa263ef78d1684dbf1e4b4f63844727eafdd5ea2b0e102a25b141
+  tag: 9.1.1-photon-5-r1
+  digest: sha256:4a1c16ea2ece2baea6c1d7a116c00060f5bfbf1d2807b703a552ba840c87956e
   pullPolicy: IfNotPresent
   pullSecrets: []
   debug: false
@@ -355,8 +355,8 @@ sentinel:
   image:
     registry: docker.io
     repository: inglp/bitnami-secure-valkey-sentinel
-    tag: 9.1.1-photon-5-r0
-    digest: sha256:85f00718bf8bd8d2510dcbd4ba4e87e34519461a595054b8ae8f6c96b3ddc31f
+    tag: 9.1.1-photon-5-r1
+    digest: sha256:6c46d9c90175f9e444184056d6831a78f586970bd2ef4872707cfd9ff9b91056
     pullPolicy: IfNotPresent
     pullSecrets: []
     debug: false
