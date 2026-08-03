@@ -18,7 +18,7 @@ dependencies:
 - condition: mariadb.enabled
   name: mariadb
   repository: https://inglp.github.io/bitnami-secure-charts
-  version: 26.2.0-inglp.r2
+  version: 26.2.0-inglp.r3
 - name: common
   repository: https://inglp.github.io/bitnami-secure-charts
   tags:
@@ -43,4 +43,4 @@ maintainers:
 name: wordpress
 sources:
 - https://github.com/bitnami/charts/tree/main/bitnami/wordpress
-version: 32.1.14-inglp.r2
+version: 32.1.14-inglp.r3

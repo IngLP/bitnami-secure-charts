@@ -1,6 +1,6 @@
 {
   "chart": "mariadb",
-  "content_fingerprint": "sha256:125b0665ff7848f7def3de535ef0534e8d30eed592423d002bb13656189adb19",
+  "content_fingerprint": "sha256:8a2f437ff2134dea751002378e31ca047b06457fbb996de5b1d0981e28e29ee4",
   "dependencies": [
     {
       "name": "common",
@@ -12,15 +12,15 @@
   "images": [
     {
       "app_version": "13.0.1",
-      "image_revision": "0",
+      "image_revision": "1",
       "name": "mariadb",
       "os_flavour": "photon-5",
-      "source_digest": "sha256:a2c90dd0a7587acf1690b98e35122fe71d3b0d365596cd866e302d7f18f19424",
+      "source_digest": "sha256:7ab9d8b20b9cb528f0a1eaad8ec4d965e51936a70026178f0dc2e53bc498705c",
       "source_image": "registry-1.docker.io/bitnamisecure/mariadb:latest",
-      "target_digest": "sha256:a2c90dd0a7587acf1690b98e35122fe71d3b0d365596cd866e302d7f18f19424",
+      "target_digest": "sha256:7ab9d8b20b9cb528f0a1eaad8ec4d965e51936a70026178f0dc2e53bc498705c",
       "target_registry": "docker.io",
       "target_repository": "inglp/bitnami-secure-mariadb",
-      "target_tag": "13.0.1-photon-5-r0"
+      "target_tag": "13.0.1-photon-5-r1"
     },
     {
       "app_version": "0.19.0",
@@ -47,9 +47,9 @@
       "target_tag": "5-photon-5-r93"
     }
   ],
-  "mirror_revision": 2,
+  "mirror_revision": 3,
   "published": true,
   "source_digest": "sha256:2bac2aa133fa5effb89d1742fecfb62aa4b2d933b3234bc675c7c2bcc361eb6d",
   "upstream_version": "26.2.0",
-  "version": "26.2.0-inglp.r2"
+  "version": "26.2.0-inglp.r3"
 }

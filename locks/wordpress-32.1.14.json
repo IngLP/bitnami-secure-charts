@@ -1,6 +1,6 @@
 {
   "chart": "wordpress",
-  "content_fingerprint": "sha256:050869d38339bdc9a8182c5b0733197e74be44ac216ae7f5ee012ace9759c4e3",
+  "content_fingerprint": "sha256:86e7e5630c2380a2b79740d01cbee8d1f6cede9bc01cf6bd343649dd698b5613",
   "dependencies": [
     {
       "name": "memcached",
@@ -12,7 +12,7 @@
       "name": "mariadb",
       "repository": "https://inglp.github.io/bitnami-secure-charts",
       "upstream_version": "26.2.0",
-      "version": "26.2.0-inglp.r2"
+      "version": "26.2.0-inglp.r3"
     },
     {
       "name": "common",
@@ -48,20 +48,20 @@
     },
     {
       "app_version": "7.0.2",
-      "image_revision": "1",
+      "image_revision": "2",
       "name": "wordpress",
       "os_flavour": "photon-5",
-      "source_digest": "sha256:4a70606af740f23f5cd8ac86b13e66adffca022526953c68de1307418a1186a8",
+      "source_digest": "sha256:6a57515360c6aa26ceba038a0e736cc42aef9424fc63c2830595e854198d358d",
       "source_image": "registry-1.docker.io/bitnamisecure/wordpress:latest",
-      "target_digest": "sha256:4a70606af740f23f5cd8ac86b13e66adffca022526953c68de1307418a1186a8",
+      "target_digest": "sha256:6a57515360c6aa26ceba038a0e736cc42aef9424fc63c2830595e854198d358d",
       "target_registry": "docker.io",
       "target_repository": "inglp/bitnami-secure-wordpress",
-      "target_tag": "7.0.2-photon-5-r1"
+      "target_tag": "7.0.2-photon-5-r2"
     }
   ],
-  "mirror_revision": 2,
+  "mirror_revision": 3,
   "published": true,
   "source_digest": "sha256:b36da1d260601275e5db9f2ab864e7a66bd603994c20df39a508704253108b2a",
   "upstream_version": "32.1.14",
-  "version": "32.1.14-inglp.r2"
+  "version": "32.1.14-inglp.r3"
 }
