@@ -649,8 +649,8 @@ metrics:
   image:
     registry: docker.io
     repository: inglp/bitnami-secure-mongodb-exporter
-    tag: 0.52.0-photon-5-r0
-    digest: sha256:245bb14c9fd457430197f72445b04595d37643ee1de034117082ed1e5decc173
+    tag: 0.52.0-photon-5-r1
+    digest: sha256:fab49cc7c2e578f34284602509c6c56a3671d2598a9eddc43f0d3551d1d86c8d
     pullPolicy: IfNotPresent
     pullSecrets: []
   username: ''
