@@ -72,8 +72,8 @@ tls:
   image:
     registry: docker.io
     repository: inglp/bitnami-secure-nginx
-    tag: 1.31.3-photon-5-r4
-    digest: sha256:fc870d2b414182321c3a7a81611106f80f226dc263261cf8ca1b406710d830ab
+    tag: 1.31.3-photon-5-r5
+    digest: sha256:a02b60c6ced3326221a8978d3e317f8a13f8a70959934d5b110b25b7c8ef1973
     pullPolicy: IfNotPresent
     pullSecrets: []
   extraDnsNames: []
@@ -734,8 +734,8 @@ mcp:
   image:
     registry: docker.io
     repository: inglp/bitnami-secure-mcp-mongodb
-    tag: 2.0.0-photon-5-r2
-    digest: sha256:03261a101cb67a30311b62498acc2cf28e9081e14cb5aca2d853206ce8b6502f
+    tag: 2.1.0-photon-5-r0
+    digest: sha256:b0b8ddd2990a0122c0d483613acbb84aee48a0848e1bfc32983205ea222ef6f5
     pullPolicy: IfNotPresent
     pullSecrets: []
   containerPorts:
