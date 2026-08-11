@@ -16,8 +16,6 @@ permissions:
 jobs:
   sync:
     runs-on: ubuntu-latest
-    env:
-      DOCKERHUB_NAMESPACE: inglp
     steps:
       - name: Checkout
         uses: actions/checkout@v4
