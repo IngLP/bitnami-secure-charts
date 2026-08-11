@@ -49,7 +49,7 @@ The free `bitnamisecure` namespace is larger than the secure chart catalog. Use:
 uv run bitnami-secure-charts available-images
 ```
 
-to list the current public image repositories.
+to list the current public image repositories. See [Manual Commands](#manual-commands) for the credentials this needs.
 
 ## How It Works
 
@@ -99,6 +99,13 @@ Create the Docker Hub token from:
 The token value is shown only once. Store that value as `DOCKERHUB_TOKEN`.
 
 ## Manual Commands
+
+The commands that query the Docker Hub API — `available-charts`, `available-images` and `sync` — need Docker Hub credentials. Listing repository tags is the call Docker Hub rejects when unauthenticated; this mirror authenticates every Hub API call, including the ones Hub would still serve anonymously. Export the same credentials the workflow uses:
+
+```sh
+export DOCKERHUB_USERNAME=inglp
+export DOCKERHUB_TOKEN=dckr_pat_...
+```
 
 List available secure charts:
 

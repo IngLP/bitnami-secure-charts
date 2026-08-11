@@ -3,12 +3,18 @@ from __future__ import annotations
 import io
 import json
 import tarfile
+import urllib.error
+import urllib.request
+from collections.abc import Iterator
+from contextlib import AbstractContextManager, nullcontext
+from typing import Any
 
 import pytest
 
 from bitnami_secure_charts.cli import (
     ChartImage,
     ChartSelection,
+    DockerHubRedirectHandler,
     MirroredDependency,
     MirroredChartVersion,
     MirroredImage,
@@ -24,8 +30,13 @@ from bitnami_secure_charts.cli import (
     compute_mirror_version,
     dependency_closure_order,
     dependency_lock_key,
+    dockerhub_access_token,
+    dockerhub_get_json,
+    dockerhub_opener,
+    dockerhub_tags,
     find_repository_mirror,
     inspect_image,
+    list_available_repositories,
     load_chart_dependency_selections,
     normalize_chart_package_mtimes,
     parse_chart_images,
@@ -994,6 +1005,292 @@ class TestConfirmPublished:
 
         with pytest.raises(SyncError, match="No lock found"):
             confirm_published(locks_dir, package_dir)
+
+
+class TestDockerHubApi:
+    @pytest.fixture(autouse=True)
+    def clear_cached_token(self) -> Iterator[None]:
+        dockerhub_access_token.cache_clear()
+        dockerhub_tags.cache_clear()
+        yield
+        dockerhub_access_token.cache_clear()
+        dockerhub_tags.cache_clear()
+
+    def test_access_token_posts_credentials(self, monkeypatch: pytest.MonkeyPatch) -> None:
+        monkeypatch.setenv("DOCKERHUB_USERNAME", "inglp")
+        monkeypatch.setenv("DOCKERHUB_TOKEN", "dckr_pat_secret")
+        requests = record_urlopen(monkeypatch, [{"access_token": "jwt-first"}])
+
+        assert dockerhub_access_token() == "jwt-first"
+        assert requests[0].full_url == TOKEN_URL
+        assert requests[0].get_method() == "POST"
+        assert json.loads(requests[0].data.decode("utf-8")) == {
+            "identifier": "inglp",
+            "secret": "dckr_pat_secret",
+        }
+        assert requests[0].get_header("Content-type") == "application/json"
+
+    @pytest.mark.parametrize(
+        ("username", "token"),
+        [("", "dckr_pat_secret"), ("inglp", ""), ("", "")],
+    )
+    def test_access_token_fails_fast_without_credentials(
+        self,
+        monkeypatch: pytest.MonkeyPatch,
+        username: str,
+        token: str,
+    ) -> None:
+        monkeypatch.setenv("DOCKERHUB_USERNAME", username)
+        monkeypatch.setenv("DOCKERHUB_TOKEN", token)
+
+        with pytest.raises(SyncError, match="set DOCKERHUB_USERNAME and DOCKERHUB_TOKEN"):
+            dockerhub_access_token()
+
+    def test_tag_pages_are_all_fetched_with_the_bearer_token(
+        self,
+        monkeypatch: pytest.MonkeyPatch,
+    ) -> None:
+        monkeypatch.setenv("DOCKERHUB_USERNAME", "inglp")
+        monkeypatch.setenv("DOCKERHUB_TOKEN", "dckr_pat_secret")
+        second_page = "https://hub.docker.com/v2/namespaces/bitnamichartssecure/repositories/redis/tags?page=2&page_size=100"
+        requests = record_urlopen(
+            monkeypatch,
+            [
+                {"access_token": "jwt-first"},
+                {"results": [{"name": "28.0.2", "content_type": "helm"}], "next": second_page},
+                {"results": [{"name": "28.0.1", "content_type": "helm"}], "next": None},
+            ],
+        )
+
+        assert dockerhub_tags("bitnamichartssecure", "redis") == [
+            {"name": "28.0.2", "content_type": "helm"},
+            {"name": "28.0.1", "content_type": "helm"},
+        ]
+        assert [request.full_url for request in requests] == [TOKEN_URL, TAGS_URL, second_page]
+        assert requests[1].get_header("Authorization") == "Bearer jwt-first"
+        assert requests[2].get_header("Authorization") == "Bearer jwt-first"
+
+    def test_repository_pages_are_all_fetched_with_the_bearer_token(
+        self,
+        monkeypatch: pytest.MonkeyPatch,
+    ) -> None:
+        monkeypatch.setenv("DOCKERHUB_USERNAME", "inglp")
+        monkeypatch.setenv("DOCKERHUB_TOKEN", "dckr_pat_secret")
+        first_page = "https://hub.docker.com/v2/namespaces/bitnamichartssecure/repositories?page_size=100"
+        second_page = "https://hub.docker.com/v2/namespaces/bitnamichartssecure/repositories?page=2&page_size=100"
+        requests = record_urlopen(
+            monkeypatch,
+            [
+                {"access_token": "jwt-first"},
+                {
+                    "results": [
+                        {"name": "redis", "content_types": ["helm"]},
+                        {"name": "charts-index", "content_types": ["image"]},
+                    ],
+                    "next": second_page,
+                },
+                {"results": [{"name": "common", "content_types": ["helm"]}], "next": None},
+            ],
+        )
+
+        assert list_available_repositories("bitnamichartssecure", content_type="helm") == [
+            "common",
+            "redis",
+        ]
+        assert [request.full_url for request in requests] == [TOKEN_URL, first_page, second_page]
+        assert requests[2].get_header("Authorization") == "Bearer jwt-first"
+
+    @pytest.mark.parametrize(
+        "hostile_next",
+        [
+            "https://evil.example.com/v2/namespaces/bitnamichartssecure/repositories/redis/tags",
+            "http://hub.docker.com/v2/namespaces/bitnamichartssecure/repositories/redis/tags",
+            "https://hub.docker.com.evil.example.com/v2/tags",
+        ],
+    )
+    def test_paginated_next_off_the_api_origin_never_gets_the_token(
+        self,
+        monkeypatch: pytest.MonkeyPatch,
+        hostile_next: str,
+    ) -> None:
+        monkeypatch.setenv("DOCKERHUB_USERNAME", "inglp")
+        monkeypatch.setenv("DOCKERHUB_TOKEN", "dckr_pat_secret")
+        requests = record_urlopen(
+            monkeypatch,
+            [
+                {"access_token": "jwt-first"},
+                {"results": [{"name": "28.0.2"}], "next": hostile_next},
+            ],
+        )
+
+        with pytest.raises(SyncError, match="Refusing to send Docker Hub credentials"):
+            dockerhub_tags("bitnamichartssecure", "redis")
+
+        assert [request.full_url for request in requests] == [TOKEN_URL, TAGS_URL]
+
+    def test_opener_replaces_the_permissive_redirect_handler(self) -> None:
+        """The guard only bites if the real opener carries it and nothing else."""
+        redirect_handlers = [
+            handler
+            for handler in dockerhub_opener().handlers
+            if isinstance(handler, urllib.request.HTTPRedirectHandler)
+        ]
+
+        assert [type(handler) for handler in redirect_handlers] == [DockerHubRedirectHandler]
+
+    def test_redirect_off_the_api_origin_is_refused(self) -> None:
+        handler = DockerHubRedirectHandler()
+        request = urllib.request.Request(TAGS_URL, headers={"Authorization": "Bearer jwt-first"})
+
+        with pytest.raises(SyncError, match="Refusing to send Docker Hub credentials"):
+            handler.redirect_request(
+                request, None, 302, "Found", {}, "https://evil.example.com/v2/tags"
+            )
+
+    def test_redirect_inside_the_api_origin_keeps_the_bearer_token(self) -> None:
+        handler = DockerHubRedirectHandler()
+        request = urllib.request.Request(TAGS_URL, headers={"Authorization": "Bearer jwt-first"})
+        redirected = "https://hub.docker.com/v2/namespaces/bitnamichartssecure/repositories/redis/tags?page=2"
+
+        followed = handler.redirect_request(request, None, 302, "Found", {}, redirected)
+
+        assert followed is not None
+        assert followed.full_url == redirected
+        assert followed.get_header("Authorization") == "Bearer jwt-first"
+
+    def test_get_json_sends_bearer_token(self, monkeypatch: pytest.MonkeyPatch) -> None:
+        monkeypatch.setenv("DOCKERHUB_USERNAME", "inglp")
+        monkeypatch.setenv("DOCKERHUB_TOKEN", "dckr_pat_secret")
+        requests = record_urlopen(
+            monkeypatch,
+            [{"access_token": "jwt-first"}, {"results": [{"name": "25.5.2"}], "next": None}],
+        )
+
+        assert dockerhub_get_json(TAGS_URL) == {"results": [{"name": "25.5.2"}], "next": None}
+        assert requests[1].full_url == TAGS_URL
+        assert requests[1].get_header("Authorization") == "Bearer jwt-first"
+
+    def test_expired_token_is_refreshed_once(self, monkeypatch: pytest.MonkeyPatch) -> None:
+        monkeypatch.setenv("DOCKERHUB_USERNAME", "inglp")
+        monkeypatch.setenv("DOCKERHUB_TOKEN", "dckr_pat_secret")
+        requests = record_urlopen(
+            monkeypatch,
+            [
+                {"access_token": "jwt-expired"},
+                http_error(401),
+                {"access_token": "jwt-fresh"},
+                {"results": [{"name": "25.5.2"}], "next": None},
+            ],
+        )
+
+        assert dockerhub_get_json(TAGS_URL) == {"results": [{"name": "25.5.2"}], "next": None}
+        assert [request.full_url for request in requests] == [
+            TOKEN_URL,
+            TAGS_URL,
+            TOKEN_URL,
+            TAGS_URL,
+        ]
+        assert requests[1].get_header("Authorization") == "Bearer jwt-expired"
+        assert requests[3].get_header("Authorization") == "Bearer jwt-fresh"
+
+    def test_rejected_credentials_are_not_retried(self, monkeypatch: pytest.MonkeyPatch) -> None:
+        """A token endpoint that rejects the PAT is a dead end, not an expired token."""
+        monkeypatch.setenv("DOCKERHUB_USERNAME", "inglp")
+        monkeypatch.setenv("DOCKERHUB_TOKEN", "dckr_pat_revoked")
+        requests = record_urlopen(monkeypatch, [http_error(401, TOKEN_URL)])
+
+        with pytest.raises(urllib.error.HTTPError) as raised:
+            dockerhub_get_json(TAGS_URL)
+
+        assert raised.value.code == 401
+        assert [request.full_url for request in requests] == [TOKEN_URL]
+
+    def test_token_is_refreshed_at_most_once(self, monkeypatch: pytest.MonkeyPatch) -> None:
+        monkeypatch.setenv("DOCKERHUB_USERNAME", "inglp")
+        monkeypatch.setenv("DOCKERHUB_TOKEN", "dckr_pat_secret")
+        requests = record_urlopen(
+            monkeypatch,
+            [
+                {"access_token": "jwt-expired"},
+                http_error(401),
+                {"access_token": "jwt-fresh"},
+                http_error(401),
+            ],
+        )
+
+        with pytest.raises(urllib.error.HTTPError) as raised:
+            dockerhub_get_json(TAGS_URL)
+
+        assert raised.value.code == 401
+        assert len(requests) == 4
+
+    def test_forbidden_response_is_not_retried(self, monkeypatch: pytest.MonkeyPatch) -> None:
+        monkeypatch.setenv("DOCKERHUB_USERNAME", "inglp")
+        monkeypatch.setenv("DOCKERHUB_TOKEN", "dckr_pat_secret")
+        requests = record_urlopen(monkeypatch, [{"access_token": "jwt-first"}, http_error(403)])
+
+        with pytest.raises(urllib.error.HTTPError) as raised:
+            dockerhub_get_json(TAGS_URL)
+
+        assert raised.value.code == 403
+        assert len(requests) == 2
+
+    def test_repeated_calls_reuse_the_cached_token(self, monkeypatch: pytest.MonkeyPatch) -> None:
+        monkeypatch.setenv("DOCKERHUB_USERNAME", "inglp")
+        monkeypatch.setenv("DOCKERHUB_TOKEN", "dckr_pat_secret")
+        requests = record_urlopen(
+            monkeypatch,
+            [
+                {"access_token": "jwt-first"},
+                {"results": [], "next": None},
+                {"results": [], "next": None},
+            ],
+        )
+
+        dockerhub_get_json(TAGS_URL)
+        dockerhub_get_json(TAGS_URL)
+
+        assert [request.full_url for request in requests] == [
+            TOKEN_URL,
+            TAGS_URL,
+            TAGS_URL,
+        ]
+
+
+TOKEN_URL = "https://hub.docker.com/v2/auth/token"
+TAGS_URL = "https://hub.docker.com/v2/namespaces/bitnamichartssecure/repositories/redis/tags?page_size=100"
+
+
+def http_error(code: int, url: str = TAGS_URL) -> urllib.error.HTTPError:
+    reasons = {401: "Unauthorized", 403: "Forbidden"}
+    return urllib.error.HTTPError(url, code, reasons[code], {}, None)
+
+
+def record_urlopen(
+    monkeypatch: pytest.MonkeyPatch,
+    responses: list[dict[str, Any] | urllib.error.HTTPError],
+) -> list[urllib.request.Request]:
+    """Serve `responses` in order to the Docker Hub opener and collect its requests.
+
+    Wiring of the real opener is covered separately by
+    `test_opener_replaces_the_permissive_redirect_handler`.
+    """
+    remaining = list(responses)
+    requests: list[urllib.request.Request] = []
+
+    def fake_open(request: urllib.request.Request, timeout: int) -> AbstractContextManager[io.BytesIO]:
+        assert remaining, f"unexpected request to {request.full_url}"
+        assert timeout == 30
+        requests.append(request)
+        response = remaining.pop(0)
+        if isinstance(response, urllib.error.HTTPError):
+            raise response
+        return nullcontext(io.BytesIO(json.dumps(response).encode("utf-8")))
+
+    opener = urllib.request.build_opener(DockerHubRedirectHandler)
+    monkeypatch.setattr(opener, "open", fake_open)
+    monkeypatch.setattr("bitnami_secure_charts.cli.dockerhub_opener", lambda: opener)
+    return requests
 
 
 def mirrored(name: str, tag: str) -> MirroredImage:

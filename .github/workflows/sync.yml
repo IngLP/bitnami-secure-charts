@@ -67,6 +67,9 @@ jobs:
           uv run python -c 'import pathlib, yaml; print("HELM_REPOSITORY_URL=" + yaml.safe_load(pathlib.Path("charts.yaml").read_text(encoding="utf-8"))["chart_repository_url"])' >> "$GITHUB_ENV"
 
       - name: Sync charts
+        env:
+          DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+          DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
         run: |
           if [ -n "${{ inputs.chart }}" ]; then
             uv run bitnami-secure-charts sync --push --chart "${{ inputs.chart }}"

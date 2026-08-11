@@ -9,6 +9,8 @@ import shutil
 import subprocess
 import sys
 import tarfile
+import urllib.error
+import urllib.parse
 import urllib.request
 from dataclasses import asdict, dataclass
 from functools import lru_cache
@@ -20,6 +22,7 @@ import yaml
 
 SEMVER_TAG = re.compile(r"^\d+\.\d+\.\d+(?:[-+][0-9A-Za-z.-]+)?$")
 PACKAGE_MTIME = 946684800
+DOCKERHUB_API_ORIGIN = ("https", "hub.docker.com")
 
 
 class SyncError(RuntimeError):
@@ -908,7 +911,7 @@ def dockerhub_tags(namespace: str, repository: str) -> list[dict[str, Any]]:
     tags: list[dict[str, Any]] = []
     url = f"https://hub.docker.com/v2/namespaces/{namespace}/repositories/{repository}/tags?page_size=100"
     while url:
-        payload = get_json(url)
+        payload = dockerhub_get_json(url)
         tags.extend(payload["results"])
         url = payload["next"]
     return tags
@@ -918,7 +921,7 @@ def list_available_repositories(namespace: str, content_type: str | None = None)
     repositories: list[str] = []
     url = f"https://hub.docker.com/v2/namespaces/{namespace}/repositories?page_size=100"
     while url:
-        payload = get_json(url)
+        payload = dockerhub_get_json(url)
         for item in payload["results"]:
             if content_type is None or content_type in item.get("content_types", []):
                 repositories.append(item["name"])
@@ -955,8 +958,82 @@ def skopeo_config(image: str) -> dict[str, Any]:
     ]))
 
 
-def get_json(url: str) -> dict[str, Any]:
-    with urllib.request.urlopen(url, timeout=30) as response:
+def require_dockerhub_origin(url: str) -> None:
+    if urllib.parse.urlsplit(url)[:2] != DOCKERHUB_API_ORIGIN:
+        raise SyncError(f"Refusing to send Docker Hub credentials to {url!r}")
+
+
+class DockerHubRedirectHandler(urllib.request.HTTPRedirectHandler):
+    """Stop the bearer token from following a redirect off the Docker Hub API.
+
+    `HTTPRedirectHandler.redirect_request` rebuilds the request with every header
+    except content-length and content-type, so `Authorization` would otherwise be
+    replayed to whatever host a redirect names. It rebuilds without `data`, so a
+    request body never follows a redirect; guarding the token POST too is defence
+    in depth over a URL this module writes itself.
+    """
+
+    def redirect_request(
+        self,
+        req: urllib.request.Request,
+        fp: Any,
+        code: int,
+        msg: str,
+        headers: Any,
+        newurl: str,
+    ) -> urllib.request.Request | None:
+        require_dockerhub_origin(newurl)
+        return super().redirect_request(req, fp, code, msg, headers, newurl)
+
+
+@lru_cache(maxsize=1)
+def dockerhub_opener() -> urllib.request.OpenerDirector:
+    return urllib.request.build_opener(DockerHubRedirectHandler)
+
+
+@lru_cache(maxsize=1)
+def dockerhub_access_token() -> str:
+    """Create a bearer token for the Docker Hub API.
+
+    Listing repository tags requires a bearer token and the token expires after
+    10 minutes, so `dockerhub_get_json` refreshes it on 401. See
+    `AuthCreateAccessToken` and `ListRepositoryTags` in
+    https://docs.docker.com/reference/api/hub/latest.yaml -- that spec lists only
+    403 for a rejected tag listing, but an expired token is answered with 401
+    `unauthorized`, verified against the live API by reusing a token past its
+    10 minute lifetime.
+    """
+    username = os.environ.get("DOCKERHUB_USERNAME", "")
+    secret = os.environ.get("DOCKERHUB_TOKEN", "")
+    if not username or not secret:
+        raise SyncError(
+            "Docker Hub API requires authentication: set DOCKERHUB_USERNAME and DOCKERHUB_TOKEN"
+        )
+    request = urllib.request.Request(
+        "https://hub.docker.com/v2/auth/token",
+        data=json.dumps({"identifier": username, "secret": secret}).encode("utf-8"),
+        headers={"Content-Type": "application/json"},
+        method="POST",
+    )
+    with dockerhub_opener().open(request, timeout=30) as response:
+        return json.loads(response.read().decode("utf-8"))["access_token"]
+
+
+def dockerhub_get_json(url: str) -> dict[str, Any]:
+    token = dockerhub_access_token()
+    try:
+        return authenticated_get_json(url, token)
+    except urllib.error.HTTPError as error:
+        if error.code != 401:
+            raise
+    dockerhub_access_token.cache_clear()
+    return authenticated_get_json(url, dockerhub_access_token())
+
+
+def authenticated_get_json(url: str, token: str) -> dict[str, Any]:
+    require_dockerhub_origin(url)
+    request = urllib.request.Request(url, headers={"Authorization": f"Bearer {token}"})
+    with dockerhub_opener().open(request, timeout=30) as response:
         return json.loads(response.read().decode("utf-8"))
 
 
