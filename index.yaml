@@ -11,7 +11,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 2.41.0
-    created: "2026-08-12T05:06:59.296027133Z"
+    created: "2026-08-13T05:09:47.448595499Z"
     description: A Library Helm Chart for grouping common logic between bitnami charts.
       This chart is not deployable by itself.
     digest: d5d114417877fab5a55065be47ca6db291c49b0aa00c983e3062a1629e39d8d9
@@ -43,7 +43,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 2.39.0
-    created: "2026-08-12T05:06:59.294727937Z"
+    created: "2026-08-13T05:09:47.448045495Z"
     description: A Library Helm Chart for grouping common logic between bitnami charts.
       This chart is not deployable by itself.
     digest: e5afcdc57e314c5cfa38b8ed3cc29586ba06ebc4ea7ad4890adf169d3956334e
@@ -75,7 +75,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 2.39.0
-    created: "2026-08-12T05:06:59.293425113Z"
+    created: "2026-08-13T05:09:47.447473447Z"
     description: A Library Helm Chart for grouping common logic between bitnami charts.
       This chart is not deployable by itself.
     digest: 17417da17cf627694208313153fb4e20f2a44f480d2580234a89a8f4a5f17c99
@@ -104,6 +104,45 @@ entries:
         - name: haproxy
           version: 3.4.3
           image: registry-1.docker.io/bitnamisecure/haproxy:latest
+      inglp.bitnami-secure-mirror/source-chart: registry-1.docker.io/bitnamichartssecure/haproxy:4.1.0
+      inglp.bitnami-secure-mirror/source-digest: sha256:a22416880e06c00db0ff8e518c89f30768c14e045d4f33d2a6e4337b111c804c
+      inglp.bitnami-secure-mirror/upstream-version: 4.1.0
+      licenses: Apache-2.0
+      tanzuCategory: clusterUtility
+    apiVersion: v2
+    appVersion: 3.4.3
+    created: "2026-08-13T05:09:47.484970746Z"
+    dependencies:
+    - name: common
+      repository: https://inglp.github.io/bitnami-secure-charts
+      tags:
+      - bitnami-common
+      version: 2.41.0-inglp.r0
+    description: HAProxy is a TCP proxy and a HTTP reverse proxy. It supports SSL
+      termination and offloading, TCP and HTTP normalization, traffic regulation,
+      caching and protection against DDoS attacks.
+    digest: ca624ebd971cfdc051d400b653393692e3138e77405df664779aa5215521841c
+    home: https://bitnami.com
+    icon: https://dyltqmyl993wv.cloudfront.net/assets/stacks/haproxy/img/haproxy-stack-220x234.png
+    keywords:
+    - haproxy
+    - proxy
+    - infrastructure
+    maintainers:
+    - name: Broadcom, Inc. All Rights Reserved.
+      url: https://github.com/bitnami/charts
+    name: haproxy
+    sources:
+    - https://github.com/bitnami/charts/tree/main/bitnami/haproxy
+    urls:
+    - https://inglp.github.io/bitnami-secure-charts/haproxy-4.1.0-inglp.r0.tgz
+    version: 4.1.0-inglp.r0
+  - annotations:
+      fips: "true"
+      images: |
+        - name: haproxy
+          version: 3.4.3
+          image: registry-1.docker.io/bitnamisecure/haproxy:latest
       inglp.bitnami-secure-mirror/source-chart: registry-1.docker.io/bitnamichartssecure/haproxy:4.0.12
       inglp.bitnami-secure-mirror/source-digest: sha256:2c09947e0b82b0a947b6cbfd8333192979c4ebebc10f54765ddaa32b9a412444
       inglp.bitnami-secure-mirror/upstream-version: 4.0.12
@@ -111,7 +150,7 @@ entries:
       tanzuCategory: clusterUtility
     apiVersion: v2
     appVersion: 3.4.3
-    created: "2026-08-12T05:06:59.321916552Z"
+    created: "2026-08-13T05:09:47.46794359Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -150,7 +189,7 @@ entries:
       tanzuCategory: clusterUtility
     apiVersion: v2
     appVersion: 3.4.3
-    created: "2026-08-12T05:06:59.320072682Z"
+    created: "2026-08-13T05:09:47.466667213Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -189,7 +228,7 @@ entries:
       tanzuCategory: clusterUtility
     apiVersion: v2
     appVersion: 3.4.3
-    created: "2026-08-12T05:06:59.344339184Z"
+    created: "2026-08-13T05:09:47.483678938Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -228,7 +267,7 @@ entries:
       tanzuCategory: clusterUtility
     apiVersion: v2
     appVersion: 3.4.3
-    created: "2026-08-12T05:06:59.342597344Z"
+    created: "2026-08-13T05:09:47.482396754Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -267,7 +306,7 @@ entries:
       tanzuCategory: clusterUtility
     apiVersion: v2
     appVersion: 3.4.3
-    created: "2026-08-12T05:06:59.340877805Z"
+    created: "2026-08-13T05:09:47.480538716Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -306,7 +345,7 @@ entries:
       tanzuCategory: clusterUtility
     apiVersion: v2
     appVersion: 3.4.2
-    created: "2026-08-12T05:06:59.339135965Z"
+    created: "2026-08-13T05:09:47.479309511Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -345,7 +384,7 @@ entries:
       tanzuCategory: clusterUtility
     apiVersion: v2
     appVersion: 3.4.2
-    created: "2026-08-12T05:06:59.336167691Z"
+    created: "2026-08-13T05:09:47.478067545Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -384,7 +423,7 @@ entries:
       tanzuCategory: clusterUtility
     apiVersion: v2
     appVersion: 3.4.2
-    created: "2026-08-12T05:06:59.334441951Z"
+    created: "2026-08-13T05:09:47.476785832Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -423,7 +462,7 @@ entries:
       tanzuCategory: clusterUtility
     apiVersion: v2
     appVersion: 3.4.2
-    created: "2026-08-12T05:06:59.33269453Z"
+    created: "2026-08-13T05:09:47.474825761Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -462,7 +501,7 @@ entries:
       tanzuCategory: clusterUtility
     apiVersion: v2
     appVersion: 3.4.1
-    created: "2026-08-12T05:06:59.330013486Z"
+    created: "2026-08-13T05:09:47.473565075Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -501,7 +540,7 @@ entries:
       tanzuCategory: clusterUtility
     apiVersion: v2
     appVersion: 3.4.1
-    created: "2026-08-12T05:06:59.328320977Z"
+    created: "2026-08-13T05:09:47.472271062Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -540,7 +579,7 @@ entries:
       tanzuCategory: clusterUtility
     apiVersion: v2
     appVersion: 3.4.1
-    created: "2026-08-12T05:06:59.326559351Z"
+    created: "2026-08-13T05:09:47.470394717Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -579,7 +618,7 @@ entries:
       tanzuCategory: clusterUtility
     apiVersion: v2
     appVersion: 3.4.0
-    created: "2026-08-12T05:06:59.324776394Z"
+    created: "2026-08-13T05:09:47.469152231Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -618,7 +657,7 @@ entries:
       tanzuCategory: clusterUtility
     apiVersion: v2
     appVersion: 3.4.0
-    created: "2026-08-12T05:06:59.318367069Z"
+    created: "2026-08-13T05:09:47.464845096Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -657,7 +696,7 @@ entries:
       tanzuCategory: clusterUtility
     apiVersion: v2
     appVersion: 3.2.19
-    created: "2026-08-12T05:06:59.316166826Z"
+    created: "2026-08-13T05:09:47.46358803Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -696,7 +735,7 @@ entries:
       tanzuCategory: clusterUtility
     apiVersion: v2
     appVersion: 3.2.19
-    created: "2026-08-12T05:06:59.313960332Z"
+    created: "2026-08-13T05:09:47.462331625Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -735,7 +774,7 @@ entries:
       tanzuCategory: clusterUtility
     apiVersion: v2
     appVersion: 3.2.19
-    created: "2026-08-12T05:06:59.312251053Z"
+    created: "2026-08-13T05:09:47.46102737Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -774,7 +813,7 @@ entries:
       tanzuCategory: clusterUtility
     apiVersion: v2
     appVersion: 3.2.19
-    created: "2026-08-12T05:06:59.310488123Z"
+    created: "2026-08-13T05:09:47.459066282Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -813,7 +852,7 @@ entries:
       tanzuCategory: clusterUtility
     apiVersion: v2
     appVersion: 3.2.19
-    created: "2026-08-12T05:06:59.307800005Z"
+    created: "2026-08-13T05:09:47.457831118Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -852,7 +891,7 @@ entries:
       tanzuCategory: clusterUtility
     apiVersion: v2
     appVersion: 3.2.19
-    created: "2026-08-12T05:06:59.306103369Z"
+    created: "2026-08-13T05:09:47.456468842Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -891,7 +930,7 @@ entries:
       tanzuCategory: clusterUtility
     apiVersion: v2
     appVersion: 3.2.19
-    created: "2026-08-12T05:06:59.304329309Z"
+    created: "2026-08-13T05:09:47.454724102Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -930,7 +969,7 @@ entries:
       tanzuCategory: clusterUtility
     apiVersion: v2
     appVersion: 3.2.19
-    created: "2026-08-12T05:06:59.301657707Z"
+    created: "2026-08-13T05:09:47.453342958Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -969,7 +1008,7 @@ entries:
       tanzuCategory: clusterUtility
     apiVersion: v2
     appVersion: 3.2.18
-    created: "2026-08-12T05:06:59.299864932Z"
+    created: "2026-08-13T05:09:47.452097674Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -1008,7 +1047,7 @@ entries:
       tanzuCategory: clusterUtility
     apiVersion: v2
     appVersion: 3.2.18
-    created: "2026-08-12T05:06:59.297845035Z"
+    created: "2026-08-13T05:09:47.450797524Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -1054,7 +1093,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 13.0.1
-    created: "2026-08-12T05:06:59.45254395Z"
+    created: "2026-08-13T05:09:47.560225826Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -1101,7 +1140,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 13.0.1
-    created: "2026-08-12T05:06:59.448610704Z"
+    created: "2026-08-13T05:09:47.558052353Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -1148,7 +1187,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 13.0.1
-    created: "2026-08-12T05:06:59.445615643Z"
+    created: "2026-08-13T05:09:47.555195651Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -1195,7 +1234,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 13.0.1
-    created: "2026-08-12T05:06:59.441671218Z"
+    created: "2026-08-13T05:09:47.553030255Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -1242,7 +1281,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 13.0.1
-    created: "2026-08-12T05:06:59.438671838Z"
+    created: "2026-08-13T05:09:47.550120538Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -1289,7 +1328,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 13.0.1
-    created: "2026-08-12T05:06:59.434687848Z"
+    created: "2026-08-13T05:09:47.547980479Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -1336,7 +1375,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 12.3.2
-    created: "2026-08-12T05:06:59.431708095Z"
+    created: "2026-08-13T05:09:47.544960062Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -1383,7 +1422,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 12.3.2
-    created: "2026-08-12T05:06:59.427617633Z"
+    created: "2026-08-13T05:09:47.54279894Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -1430,7 +1469,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 12.3.2
-    created: "2026-08-12T05:06:59.424637099Z"
+    created: "2026-08-13T05:09:47.539807299Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -1477,7 +1516,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 12.3.2
-    created: "2026-08-12T05:06:59.420659352Z"
+    created: "2026-08-13T05:09:47.537650595Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -1524,7 +1563,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 12.3.2
-    created: "2026-08-12T05:06:59.417618646Z"
+    created: "2026-08-13T05:09:47.534695439Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -1571,7 +1610,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 12.3.2
-    created: "2026-08-12T05:06:59.413334434Z"
+    created: "2026-08-13T05:09:47.53253717Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -1618,7 +1657,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 12.3.2
-    created: "2026-08-12T05:06:59.410299529Z"
+    created: "2026-08-13T05:09:47.52970508Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -1665,7 +1704,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 12.3.2
-    created: "2026-08-12T05:06:59.406110008Z"
+    created: "2026-08-13T05:09:47.52751762Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -1712,7 +1751,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 12.3.2
-    created: "2026-08-12T05:06:59.403044065Z"
+    created: "2026-08-13T05:09:47.524657863Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -1759,7 +1798,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 12.3.2
-    created: "2026-08-12T05:06:59.398859098Z"
+    created: "2026-08-13T05:09:47.522470372Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -1806,7 +1845,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 12.3.2
-    created: "2026-08-12T05:06:59.395352946Z"
+    created: "2026-08-13T05:09:47.519837101Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -1853,7 +1892,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 12.3.2
-    created: "2026-08-12T05:06:59.39183802Z"
+    created: "2026-08-13T05:09:47.517661657Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -1900,7 +1939,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 12.3.2
-    created: "2026-08-12T05:06:59.388342966Z"
+    created: "2026-08-13T05:09:47.514939397Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -1947,7 +1986,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 12.3.2
-    created: "2026-08-12T05:06:59.384838347Z"
+    created: "2026-08-13T05:09:47.512779246Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -1994,7 +2033,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 12.3.2
-    created: "2026-08-12T05:06:59.38143698Z"
+    created: "2026-08-13T05:09:47.509994833Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -2041,7 +2080,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 12.3.2
-    created: "2026-08-12T05:06:59.377649895Z"
+    created: "2026-08-13T05:09:47.507791013Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -2088,7 +2127,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 12.3.2
-    created: "2026-08-12T05:06:59.374630819Z"
+    created: "2026-08-13T05:09:47.505039251Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -2135,7 +2174,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 12.3.2
-    created: "2026-08-12T05:06:59.370515624Z"
+    created: "2026-08-13T05:09:47.502825568Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -2182,7 +2221,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 12.2.2
-    created: "2026-08-12T05:06:59.367373189Z"
+    created: "2026-08-13T05:09:47.500051128Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -2229,7 +2268,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 12.2.2
-    created: "2026-08-12T05:06:59.363149725Z"
+    created: "2026-08-13T05:09:47.497858196Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -2276,7 +2315,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 12.2.2
-    created: "2026-08-12T05:06:59.360166906Z"
+    created: "2026-08-13T05:09:47.494991989Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -2323,7 +2362,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 12.2.2
-    created: "2026-08-12T05:06:59.35560624Z"
+    created: "2026-08-13T05:09:47.492869574Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -2370,7 +2409,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 12.2.2
-    created: "2026-08-12T05:06:59.352638941Z"
+    created: "2026-08-13T05:09:47.490034684Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -2417,7 +2456,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 12.2.2
-    created: "2026-08-12T05:06:59.348384719Z"
+    created: "2026-08-13T05:09:47.487857604Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -2465,7 +2504,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 1.6.45
-    created: "2026-08-12T05:06:59.535069431Z"
+    created: "2026-08-13T05:09:47.619279739Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -2509,7 +2548,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 1.6.45
-    created: "2026-08-12T05:06:59.53198308Z"
+    created: "2026-08-13T05:09:47.616873139Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -2553,7 +2592,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 1.6.45
-    created: "2026-08-12T05:06:59.529860893Z"
+    created: "2026-08-13T05:09:47.615314439Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -2597,7 +2636,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 1.6.45
-    created: "2026-08-12T05:06:59.527734888Z"
+    created: "2026-08-13T05:09:47.613230801Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -2641,7 +2680,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 1.6.45
-    created: "2026-08-12T05:06:59.524746762Z"
+    created: "2026-08-13T05:09:47.611730099Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -2685,7 +2724,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 1.6.45
-    created: "2026-08-12T05:06:59.522630966Z"
+    created: "2026-08-13T05:09:47.610191625Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -2729,7 +2768,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 1.6.45
-    created: "2026-08-12T05:06:59.520282297Z"
+    created: "2026-08-13T05:09:47.60845004Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -2773,7 +2812,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 1.6.45
-    created: "2026-08-12T05:06:59.517102189Z"
+    created: "2026-08-13T05:09:47.605986789Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -2817,7 +2856,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 1.6.45
-    created: "2026-08-12T05:06:59.514969863Z"
+    created: "2026-08-13T05:09:47.604461872Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -2861,7 +2900,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 1.6.45
-    created: "2026-08-12T05:06:59.512799025Z"
+    created: "2026-08-13T05:09:47.60292927Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -2905,7 +2944,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 1.6.45
-    created: "2026-08-12T05:06:59.479903905Z"
+    created: "2026-08-13T05:09:47.579845511Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -2949,7 +2988,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 1.6.44
-    created: "2026-08-12T05:06:59.50962471Z"
+    created: "2026-08-13T05:09:47.600817942Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -2993,7 +3032,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 1.6.44
-    created: "2026-08-12T05:06:59.507569457Z"
+    created: "2026-08-13T05:09:47.599389759Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -3037,7 +3076,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 1.6.44
-    created: "2026-08-12T05:06:59.504691065Z"
+    created: "2026-08-13T05:09:47.597921575Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -3081,7 +3120,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 1.6.43
-    created: "2026-08-12T05:06:59.50269387Z"
+    created: "2026-08-13T05:09:47.595917271Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -3125,7 +3164,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 1.6.43
-    created: "2026-08-12T05:06:59.500707435Z"
+    created: "2026-08-13T05:09:47.5944521Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -3169,7 +3208,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 1.6.43
-    created: "2026-08-12T05:06:59.49779762Z"
+    created: "2026-08-13T05:09:47.592994713Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -3213,7 +3252,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 1.6.43
-    created: "2026-08-12T05:06:59.495796628Z"
+    created: "2026-08-13T05:09:47.591012712Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -3257,7 +3296,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 1.6.42
-    created: "2026-08-12T05:06:59.493805353Z"
+    created: "2026-08-13T05:09:47.589617429Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -3301,7 +3340,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 1.6.42
-    created: "2026-08-12T05:06:59.490829951Z"
+    created: "2026-08-13T05:09:47.58816303Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -3345,7 +3384,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 1.6.42
-    created: "2026-08-12T05:06:59.488800917Z"
+    created: "2026-08-13T05:09:47.586147017Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -3389,7 +3428,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 1.6.42
-    created: "2026-08-12T05:06:59.486827225Z"
+    created: "2026-08-13T05:09:47.584740032Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -3433,7 +3472,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 1.6.42
-    created: "2026-08-12T05:06:59.483945342Z"
+    created: "2026-08-13T05:09:47.583284852Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -3477,7 +3516,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 1.6.42
-    created: "2026-08-12T05:06:59.4819496Z"
+    created: "2026-08-13T05:09:47.581264517Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -3521,7 +3560,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 1.6.42
-    created: "2026-08-12T05:06:59.477066088Z"
+    created: "2026-08-13T05:09:47.578402914Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -3565,7 +3604,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 1.6.42
-    created: "2026-08-12T05:06:59.475061479Z"
+    created: "2026-08-13T05:09:47.576365399Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -3609,7 +3648,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 1.6.42
-    created: "2026-08-12T05:06:59.473066187Z"
+    created: "2026-08-13T05:09:47.574958898Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -3653,7 +3692,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 1.6.42
-    created: "2026-08-12T05:06:59.470131869Z"
+    created: "2026-08-13T05:09:47.573521558Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -3697,7 +3736,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 1.6.42
-    created: "2026-08-12T05:06:59.468127872Z"
+    created: "2026-08-13T05:09:47.571408024Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -3741,7 +3780,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 1.6.42
-    created: "2026-08-12T05:06:59.466071777Z"
+    created: "2026-08-13T05:09:47.56997293Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -3785,7 +3824,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 1.6.42
-    created: "2026-08-12T05:06:59.463320967Z"
+    created: "2026-08-13T05:09:47.56851737Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -3829,7 +3868,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 1.6.41
-    created: "2026-08-12T05:06:59.461352726Z"
+    created: "2026-08-13T05:09:47.566479245Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -3873,7 +3912,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 1.6.41
-    created: "2026-08-12T05:06:59.45933376Z"
+    created: "2026-08-13T05:09:47.565058915Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -3917,7 +3956,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 1.6.41
-    created: "2026-08-12T05:06:59.456516911Z"
+    created: "2026-08-13T05:09:47.563611411Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -3961,7 +4000,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 1.6.41
-    created: "2026-08-12T05:06:59.454543209Z"
+    created: "2026-08-13T05:09:47.561737102Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -4011,6 +4050,66 @@ entries:
         - name: os-shell
           version: "5"
           image: registry-1.docker.io/bitnamisecure/os-shell:latest
+      inglp.bitnami-secure-mirror/source-chart: registry-1.docker.io/bitnamichartssecure/mongodb:19.1.29
+      inglp.bitnami-secure-mirror/source-digest: sha256:91867754549b7078c0783573b29516b23d3c740c8a067e0a38229c4cd8033b06
+      inglp.bitnami-secure-mirror/upstream-version: 19.1.29
+      licenses: Apache-2.0
+      tanzuCategory: service
+    apiVersion: v2
+    appVersion: 8.3.8
+    created: "2026-08-13T05:09:47.803208356Z"
+    dependencies:
+    - name: common
+      repository: https://inglp.github.io/bitnami-secure-charts
+      tags:
+      - bitnami-common
+      version: 2.41.0-inglp.r0
+    description: MongoDB(R) is a relational open source NoSQL database. Easy to use,
+      it stores data in JSON-like documents. Automated scalability and high-performance.
+      Ideal for developing cloud native applications.
+    digest: 8c1d68334a2c222a02479704235f28cbdc77bd2308bb7df1d877407188c39b63
+    home: https://bitnami.com
+    icon: https://dyltqmyl993wv.cloudfront.net/assets/stacks/mongodb/img/mongodb-stack-220x234.png
+    keywords:
+    - mongodb
+    - database
+    - nosql
+    - cluster
+    - replicaset
+    - replication
+    maintainers:
+    - name: Broadcom, Inc. All Rights Reserved.
+      url: https://github.com/bitnami/charts
+    name: mongodb
+    sources:
+    - https://github.com/bitnami/charts/tree/main/bitnami/mongodb
+    urls:
+    - https://inglp.github.io/bitnami-secure-charts/mongodb-19.1.29-inglp.r0.tgz
+    version: 19.1.29-inglp.r0
+  - annotations:
+      fips: "true"
+      images: |
+        - name: kube-rbac-proxy
+          version: 0.22.1
+          image: registry-1.docker.io/bitnamisecure/kube-rbac-proxy:latest
+        - name: kubectl
+          version: 1.36.3
+          image: registry-1.docker.io/bitnamisecure/kubectl:latest
+        - name: mcp-mongodb
+          version: 2.1.0
+          image: registry-1.docker.io/bitnamisecure/mcp-mongodb:latest
+        - name: mongodb
+          version: 8.3.8
+          image: registry-1.docker.io/bitnamisecure/mongodb:latest
+        - name: mongodb-exporter
+          version: 0.52.0
+          image: registry-1.docker.io/bitnamisecure/mongodb-exporter:latest
+        - name: nginx
+          version: 1.31.3
+          image: registry-1.docker.io/bitnamisecure/nginx:latest
+        - name: os-shell
+          version: "5"
+          image: registry-1.docker.io/bitnamisecure/os-shell:latest
       inglp.bitnami-secure-mirror/source-chart: registry-1.docker.io/bitnamichartssecure/mongodb:19.1.27
       inglp.bitnami-secure-mirror/source-digest: sha256:df26d51b8043c600f0d22c30c836918c3a94293b17de248e0c377b0a808e1885
       inglp.bitnami-secure-mirror/upstream-version: 19.1.27
@@ -4018,7 +4117,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 8.3.8
-    created: "2026-08-12T05:06:59.787797968Z"
+    created: "2026-08-13T05:09:47.798831442Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -4078,7 +4177,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 8.3.7
-    created: "2026-08-12T05:06:59.781731466Z"
+    created: "2026-08-13T05:09:47.794319114Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -4138,7 +4237,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 8.3.7
-    created: "2026-08-12T05:06:59.775537933Z"
+    created: "2026-08-13T05:09:47.790002624Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -4198,7 +4297,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 8.3.7
-    created: "2026-08-12T05:06:59.769598396Z"
+    created: "2026-08-13T05:09:47.786181632Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -4258,7 +4357,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 8.3.7
-    created: "2026-08-12T05:06:59.764549926Z"
+    created: "2026-08-13T05:09:47.781937389Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -4318,7 +4417,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 8.3.7
-    created: "2026-08-12T05:06:59.757993066Z"
+    created: "2026-08-13T05:09:47.777273516Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -4378,7 +4477,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 8.3.7
-    created: "2026-08-12T05:06:59.751747912Z"
+    created: "2026-08-13T05:09:47.772849356Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -4438,7 +4537,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 8.3.7
-    created: "2026-08-12T05:06:59.74542617Z"
+    created: "2026-08-13T05:09:47.768508525Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -4498,7 +4597,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 8.3.7
-    created: "2026-08-12T05:06:59.739355537Z"
+    created: "2026-08-13T05:09:47.764184395Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -4558,7 +4657,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 8.3.7
-    created: "2026-08-12T05:06:59.733389429Z"
+    created: "2026-08-13T05:09:47.760439777Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -4618,7 +4717,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 8.3.7
-    created: "2026-08-12T05:06:59.727049258Z"
+    created: "2026-08-13T05:09:47.755911395Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -4678,7 +4777,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 8.3.7
-    created: "2026-08-12T05:06:59.721970491Z"
+    created: "2026-08-13T05:09:47.751460497Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -4738,7 +4837,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 8.3.7
-    created: "2026-08-12T05:06:59.71551507Z"
+    created: "2026-08-13T05:09:47.747215759Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -4798,7 +4897,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 8.3.4
-    created: "2026-08-12T05:06:59.709410795Z"
+    created: "2026-08-13T05:09:47.743016894Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -4858,7 +4957,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 8.3.4
-    created: "2026-08-12T05:06:59.703424089Z"
+    created: "2026-08-13T05:09:47.738592539Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -4918,7 +5017,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 8.3.4
-    created: "2026-08-12T05:06:59.697662662Z"
+    created: "2026-08-13T05:09:47.734311737Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -4978,7 +5077,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 8.3.4
-    created: "2026-08-12T05:06:59.692360138Z"
+    created: "2026-08-13T05:09:47.730604177Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -5038,7 +5137,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 8.3.4
-    created: "2026-08-12T05:06:59.686097068Z"
+    created: "2026-08-13T05:09:47.726139338Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -5098,7 +5197,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 8.3.4
-    created: "2026-08-12T05:06:59.679634148Z"
+    created: "2026-08-13T05:09:47.721745139Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -5158,7 +5257,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 8.3.4
-    created: "2026-08-12T05:06:59.673062441Z"
+    created: "2026-08-13T05:09:47.717586694Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -5218,7 +5317,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 8.3.4
-    created: "2026-08-12T05:06:59.667217151Z"
+    created: "2026-08-13T05:09:47.713304293Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -5278,7 +5377,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 8.3.4
-    created: "2026-08-12T05:06:59.661157539Z"
+    created: "2026-08-13T05:09:47.708981081Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -5338,7 +5437,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 8.3.4
-    created: "2026-08-12T05:06:59.655130936Z"
+    created: "2026-08-13T05:09:47.705275806Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -5398,7 +5497,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 8.3.4
-    created: "2026-08-12T05:06:59.648889137Z"
+    created: "2026-08-13T05:09:47.700725558Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -5458,7 +5557,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 8.3.4
-    created: "2026-08-12T05:06:59.643752632Z"
+    created: "2026-08-13T05:09:47.696458023Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -5518,7 +5617,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 8.3.4
-    created: "2026-08-12T05:06:59.637293758Z"
+    created: "2026-08-13T05:09:47.691953489Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -5578,7 +5677,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 8.3.4
-    created: "2026-08-12T05:06:59.631014375Z"
+    created: "2026-08-13T05:09:47.687695777Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -5638,7 +5737,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 8.3.4
-    created: "2026-08-12T05:06:59.624927462Z"
+    created: "2026-08-13T05:09:47.683396419Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -5698,7 +5797,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 8.3.4
-    created: "2026-08-12T05:06:59.619208306Z"
+    created: "2026-08-13T05:09:47.679147713Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -5758,7 +5857,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 8.3.4
-    created: "2026-08-12T05:06:59.613712032Z"
+    created: "2026-08-13T05:09:47.675471516Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -5818,7 +5917,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 8.3.3
-    created: "2026-08-12T05:06:59.80670432Z"
+    created: "2026-08-13T05:09:47.815702255Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -5878,7 +5977,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 8.3.3
-    created: "2026-08-12T05:06:59.800257748Z"
+    created: "2026-08-13T05:09:47.811423587Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -5938,7 +6037,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 8.3.2
-    created: "2026-08-12T05:06:59.79383057Z"
+    created: "2026-08-13T05:09:47.807741003Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -5998,7 +6097,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 8.3.2
-    created: "2026-08-12T05:06:59.607445776Z"
+    created: "2026-08-13T05:09:47.670879235Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -6058,7 +6157,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 8.3.2
-    created: "2026-08-12T05:06:59.601517666Z"
+    created: "2026-08-13T05:09:47.666407675Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -6118,7 +6217,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 8.3.2
-    created: "2026-08-12T05:06:59.595370151Z"
+    created: "2026-08-13T05:09:47.662070201Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -6178,7 +6277,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 8.3.2
-    created: "2026-08-12T05:06:59.590245358Z"
+    created: "2026-08-13T05:09:47.657827156Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -6238,7 +6337,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 8.3.2
-    created: "2026-08-12T05:06:59.583751097Z"
+    created: "2026-08-13T05:09:47.653469391Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -6298,7 +6397,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 8.3.2
-    created: "2026-08-12T05:06:59.577388652Z"
+    created: "2026-08-13T05:09:47.64981894Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -6358,7 +6457,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 8.3.2
-    created: "2026-08-12T05:06:59.571105565Z"
+    created: "2026-08-13T05:09:47.644954479Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -6418,7 +6517,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 8.3.2
-    created: "2026-08-12T05:06:59.56503379Z"
+    created: "2026-08-13T05:09:47.640654665Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -6478,7 +6577,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 8.3.2
-    created: "2026-08-12T05:06:59.558996119Z"
+    created: "2026-08-13T05:09:47.636299861Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -6538,7 +6637,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 8.2.7
-    created: "2026-08-12T05:06:59.552948362Z"
+    created: "2026-08-13T05:09:47.632088291Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -6598,7 +6697,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 8.2.7
-    created: "2026-08-12T05:06:59.547875796Z"
+    created: "2026-08-13T05:09:47.627690337Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -6658,7 +6757,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 8.2.7
-    created: "2026-08-12T05:06:59.541467272Z"
+    created: "2026-08-13T05:09:47.62376564Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -6707,7 +6806,54 @@ entries:
       tanzuCategory: clusterUtility
     apiVersion: v2
     appVersion: 1.31.3
-    created: "2026-08-12T05:06:59.873344078Z"
+    created: "2026-08-13T05:09:47.86634502Z"
+    dependencies:
+    - name: common
+      repository: https://inglp.github.io/bitnami-secure-charts
+      tags:
+      - bitnami-common
+      version: 2.41.0-inglp.r0
+    description: NGINX Open Source is a web server that can be also used as a reverse
+      proxy, load balancer, and HTTP cache. Recommended for high-demanding sites due
+      to its ability to provide faster content.
+    digest: f6678622b67d6d92e5601f8bbc30529d1607ffbbffd0abf905b2da8dc8d3a361
+    home: https://bitnami.com
+    icon: https://dyltqmyl993wv.cloudfront.net/assets/stacks/nginx/img/nginx-stack-220x234.png
+    keywords:
+    - nginx
+    - http
+    - web
+    - www
+    - reverse proxy
+    maintainers:
+    - name: Broadcom, Inc. All Rights Reserved.
+      url: https://github.com/bitnami/charts
+    name: nginx
+    sources:
+    - https://github.com/bitnami/charts/tree/main/bitnami/nginx
+    urls:
+    - https://inglp.github.io/bitnami-secure-charts/nginx-25.0.20-inglp.r1.tgz
+    version: 25.0.20-inglp.r1
+  - annotations:
+      fips: "true"
+      images: |
+        - name: git
+          version: 2.55.0
+          image: registry-1.docker.io/bitnamisecure/git:latest
+        - name: nginx
+          version: 1.31.3
+          image: registry-1.docker.io/bitnamisecure/nginx:latest
+        - name: nginx-exporter
+          version: 1.5.1
+          image: registry-1.docker.io/bitnamisecure/nginx-exporter:latest
+      inglp.bitnami-secure-mirror/source-chart: registry-1.docker.io/bitnamichartssecure/nginx:25.0.20
+      inglp.bitnami-secure-mirror/source-digest: sha256:f65df4421b2cc28d925fd85d7d826ec375a2e8443e20afbeda976cd339004362
+      inglp.bitnami-secure-mirror/upstream-version: 25.0.20
+      licenses: Apache-2.0
+      tanzuCategory: clusterUtility
+    apiVersion: v2
+    appVersion: 1.31.3
+    created: "2026-08-13T05:09:47.864280648Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -6754,7 +6900,7 @@ entries:
       tanzuCategory: clusterUtility
     apiVersion: v2
     appVersion: 1.31.3
-    created: "2026-08-12T05:06:59.868719145Z"
+    created: "2026-08-13T05:09:47.860304774Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -6801,7 +6947,7 @@ entries:
       tanzuCategory: clusterUtility
     apiVersion: v2
     appVersion: 1.31.3
-    created: "2026-08-12T05:06:59.865504966Z"
+    created: "2026-08-13T05:09:47.858581765Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -6848,7 +6994,7 @@ entries:
       tanzuCategory: clusterUtility
     apiVersion: v2
     appVersion: 1.31.3
-    created: "2026-08-12T05:06:59.863122835Z"
+    created: "2026-08-13T05:09:47.856870339Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -6895,7 +7041,7 @@ entries:
       tanzuCategory: clusterUtility
     apiVersion: v2
     appVersion: 1.31.3
-    created: "2026-08-12T05:06:59.860711219Z"
+    created: "2026-08-13T05:09:47.854479171Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -6942,7 +7088,7 @@ entries:
       tanzuCategory: clusterUtility
     apiVersion: v2
     appVersion: 1.31.3
-    created: "2026-08-12T05:06:59.857413335Z"
+    created: "2026-08-13T05:09:47.852815026Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -6989,7 +7135,7 @@ entries:
       tanzuCategory: clusterUtility
     apiVersion: v2
     appVersion: 1.31.3
-    created: "2026-08-12T05:06:59.855028939Z"
+    created: "2026-08-13T05:09:47.851109954Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -7036,7 +7182,7 @@ entries:
       tanzuCategory: clusterUtility
     apiVersion: v2
     appVersion: 1.31.3
-    created: "2026-08-12T05:06:59.852680601Z"
+    created: "2026-08-13T05:09:47.848831428Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -7083,7 +7229,7 @@ entries:
       tanzuCategory: clusterUtility
     apiVersion: v2
     appVersion: 1.31.3
-    created: "2026-08-12T05:06:59.849273475Z"
+    created: "2026-08-13T05:09:47.847161163Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -7130,7 +7276,7 @@ entries:
       tanzuCategory: clusterUtility
     apiVersion: v2
     appVersion: 1.31.3
-    created: "2026-08-12T05:06:59.846922863Z"
+    created: "2026-08-13T05:09:47.845414121Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -7177,7 +7323,7 @@ entries:
       tanzuCategory: clusterUtility
     apiVersion: v2
     appVersion: 1.31.3
-    created: "2026-08-12T05:06:59.843601532Z"
+    created: "2026-08-13T05:09:47.84288789Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -7224,7 +7370,7 @@ entries:
       tanzuCategory: clusterUtility
     apiVersion: v2
     appVersion: 1.31.2
-    created: "2026-08-12T05:06:59.841279403Z"
+    created: "2026-08-13T05:09:47.841209145Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -7271,7 +7417,7 @@ entries:
       tanzuCategory: clusterUtility
     apiVersion: v2
     appVersion: 1.31.2
-    created: "2026-08-12T05:06:59.838939219Z"
+    created: "2026-08-13T05:09:47.839464943Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -7318,7 +7464,7 @@ entries:
       tanzuCategory: clusterUtility
     apiVersion: v2
     appVersion: 1.31.2
-    created: "2026-08-12T05:06:59.835742556Z"
+    created: "2026-08-13T05:09:47.836960049Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -7365,7 +7511,7 @@ entries:
       tanzuCategory: clusterUtility
     apiVersion: v2
     appVersion: 1.31.2
-    created: "2026-08-12T05:06:59.833384058Z"
+    created: "2026-08-13T05:09:47.83526523Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -7412,7 +7558,7 @@ entries:
       tanzuCategory: clusterUtility
     apiVersion: v2
     appVersion: 1.31.2
-    created: "2026-08-12T05:06:59.831016895Z"
+    created: "2026-08-13T05:09:47.833043074Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -7459,7 +7605,7 @@ entries:
       tanzuCategory: clusterUtility
     apiVersion: v2
     appVersion: 1.31.2
-    created: "2026-08-12T05:06:59.827833952Z"
+    created: "2026-08-13T05:09:47.83130043Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -7506,7 +7652,7 @@ entries:
       tanzuCategory: clusterUtility
     apiVersion: v2
     appVersion: 1.31.2
-    created: "2026-08-12T05:06:59.892438159Z"
+    created: "2026-08-13T05:09:47.880353691Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -7553,7 +7699,7 @@ entries:
       tanzuCategory: clusterUtility
     apiVersion: v2
     appVersion: 1.31.2
-    created: "2026-08-12T05:06:59.889110597Z"
+    created: "2026-08-13T05:09:47.87862217Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -7600,7 +7746,7 @@ entries:
       tanzuCategory: clusterUtility
     apiVersion: v2
     appVersion: 1.31.1
-    created: "2026-08-12T05:06:59.886773138Z"
+    created: "2026-08-13T05:09:47.876164519Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -7647,7 +7793,7 @@ entries:
       tanzuCategory: clusterUtility
     apiVersion: v2
     appVersion: 1.31.1
-    created: "2026-08-12T05:06:59.884418809Z"
+    created: "2026-08-13T05:09:47.874474792Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -7694,7 +7840,7 @@ entries:
       tanzuCategory: clusterUtility
     apiVersion: v2
     appVersion: 1.31.1
-    created: "2026-08-12T05:06:59.881201917Z"
+    created: "2026-08-13T05:09:47.872564925Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -7741,7 +7887,7 @@ entries:
       tanzuCategory: clusterUtility
     apiVersion: v2
     appVersion: 1.31.1
-    created: "2026-08-12T05:06:59.878882934Z"
+    created: "2026-08-13T05:09:47.870033822Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -7788,7 +7934,7 @@ entries:
       tanzuCategory: clusterUtility
     apiVersion: v2
     appVersion: 1.31.1
-    created: "2026-08-12T05:06:59.876565944Z"
+    created: "2026-08-13T05:09:47.868348919Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -7835,7 +7981,7 @@ entries:
       tanzuCategory: clusterUtility
     apiVersion: v2
     appVersion: 1.31.1
-    created: "2026-08-12T05:06:59.871010066Z"
+    created: "2026-08-13T05:09:47.862575613Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -7882,7 +8028,7 @@ entries:
       tanzuCategory: clusterUtility
     apiVersion: v2
     appVersion: 1.31.1
-    created: "2026-08-12T05:06:59.82548927Z"
+    created: "2026-08-13T05:09:47.829624956Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -7929,7 +8075,7 @@ entries:
       tanzuCategory: clusterUtility
     apiVersion: v2
     appVersion: 1.31.1
-    created: "2026-08-12T05:06:59.823131024Z"
+    created: "2026-08-13T05:09:47.827437582Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -7976,7 +8122,7 @@ entries:
       tanzuCategory: clusterUtility
     apiVersion: v2
     appVersion: 1.31.1
-    created: "2026-08-12T05:06:59.819706406Z"
+    created: "2026-08-13T05:09:47.825773971Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -8023,7 +8169,7 @@ entries:
       tanzuCategory: clusterUtility
     apiVersion: v2
     appVersion: 1.31.1
-    created: "2026-08-12T05:06:59.817439629Z"
+    created: "2026-08-13T05:09:47.824120155Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -8070,7 +8216,7 @@ entries:
       tanzuCategory: clusterUtility
     apiVersion: v2
     appVersion: 1.31.0
-    created: "2026-08-12T05:06:59.815127198Z"
+    created: "2026-08-13T05:09:47.821576908Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -8117,7 +8263,7 @@ entries:
       tanzuCategory: clusterUtility
     apiVersion: v2
     appVersion: 1.31.0
-    created: "2026-08-12T05:06:59.811430211Z"
+    created: "2026-08-13T05:09:47.819922733Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -8164,7 +8310,7 @@ entries:
       tanzuCategory: clusterUtility
     apiVersion: v2
     appVersion: 1.30.0
-    created: "2026-08-12T05:06:59.809012483Z"
+    created: "2026-08-13T05:09:47.818206831Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -8212,7 +8358,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 18.6.0
-    created: "2026-08-12T05:07:00.046455136Z"
+    created: "2026-08-13T05:09:47.989137379Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -8260,7 +8406,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 18.4.0
-    created: "2026-08-12T05:07:00.041828587Z"
+    created: "2026-08-13T05:09:47.985998314Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -8308,7 +8454,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 18.4.0
-    created: "2026-08-12T05:07:00.038286298Z"
+    created: "2026-08-13T05:09:47.983456072Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -8356,7 +8502,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 18.4.0
-    created: "2026-08-12T05:07:00.033258074Z"
+    created: "2026-08-13T05:09:47.980426828Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -8404,7 +8550,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 18.4.0
-    created: "2026-08-12T05:07:00.029639483Z"
+    created: "2026-08-13T05:09:47.977897332Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -8452,7 +8598,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 18.4.0
-    created: "2026-08-12T05:07:00.024974977Z"
+    created: "2026-08-13T05:09:47.97469462Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -8500,7 +8646,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 18.4.0
-    created: "2026-08-12T05:07:00.021321581Z"
+    created: "2026-08-13T05:09:47.972154029Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -8548,7 +8694,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 18.4.0
-    created: "2026-08-12T05:07:00.01685887Z"
+    created: "2026-08-13T05:09:47.96891327Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -8596,7 +8742,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 18.4.0
-    created: "2026-08-12T05:07:00.013223357Z"
+    created: "2026-08-13T05:09:47.966347285Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -8644,7 +8790,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 18.4.0
-    created: "2026-08-12T05:07:00.008740829Z"
+    created: "2026-08-13T05:09:47.963198881Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -8692,7 +8838,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 18.4.0
-    created: "2026-08-12T05:07:00.00512893Z"
+    created: "2026-08-13T05:09:47.960622304Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -8740,7 +8886,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 18.4.0
-    created: "2026-08-12T05:06:59.959336548Z"
+    created: "2026-08-13T05:09:47.928334058Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -8788,7 +8934,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 18.4.0
-    created: "2026-08-12T05:06:59.954670842Z"
+    created: "2026-08-13T05:09:47.925159021Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -8836,7 +8982,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 18.4.0
-    created: "2026-08-12T05:06:59.951106642Z"
+    created: "2026-08-13T05:09:47.922568708Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -8884,7 +9030,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 18.4.0
-    created: "2026-08-12T05:06:59.946373748Z"
+    created: "2026-08-13T05:09:47.91942485Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -8932,7 +9078,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 18.4.0
-    created: "2026-08-12T05:06:59.942798016Z"
+    created: "2026-08-13T05:09:47.916803185Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -8980,7 +9126,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 18.4.0
-    created: "2026-08-12T05:07:00.000710311Z"
+    created: "2026-08-13T05:09:47.957274472Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -9028,7 +9174,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 18.4.0
-    created: "2026-08-12T05:06:59.996995761Z"
+    created: "2026-08-13T05:09:47.954345826Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -9076,7 +9222,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 18.4.0
-    created: "2026-08-12T05:06:59.992035586Z"
+    created: "2026-08-13T05:09:47.951297181Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -9124,7 +9270,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 18.4.0
-    created: "2026-08-12T05:06:59.988055761Z"
+    created: "2026-08-13T05:09:47.948020398Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -9172,7 +9318,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 18.4.0
-    created: "2026-08-12T05:06:59.983886185Z"
+    created: "2026-08-13T05:09:47.94543106Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -9220,7 +9366,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 18.4.0
-    created: "2026-08-12T05:06:59.979363334Z"
+    created: "2026-08-13T05:09:47.94226161Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -9268,7 +9414,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 18.4.0
-    created: "2026-08-12T05:06:59.975757326Z"
+    created: "2026-08-13T05:09:47.939693558Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -9316,7 +9462,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 18.4.0
-    created: "2026-08-12T05:06:59.971174509Z"
+    created: "2026-08-13T05:09:47.936551421Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -9364,7 +9510,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 18.4.0
-    created: "2026-08-12T05:06:59.967541701Z"
+    created: "2026-08-13T05:09:47.933968942Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -9412,7 +9558,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 18.4.0
-    created: "2026-08-12T05:06:59.96284262Z"
+    created: "2026-08-13T05:09:47.930888639Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -9460,7 +9606,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 18.4.0
-    created: "2026-08-12T05:06:59.938131336Z"
+    created: "2026-08-13T05:09:47.913299187Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -9508,7 +9654,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 18.4.0
-    created: "2026-08-12T05:06:59.933472457Z"
+    created: "2026-08-13T05:09:47.910459874Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -9556,7 +9702,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 18.4.0
-    created: "2026-08-12T05:06:59.89612113Z"
+    created: "2026-08-13T05:09:47.883945826Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -9604,7 +9750,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 18.4.0
-    created: "2026-08-12T05:06:59.929935227Z"
+    created: "2026-08-13T05:09:47.907353221Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -9652,7 +9798,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 18.4.0
-    created: "2026-08-12T05:06:59.925533672Z"
+    created: "2026-08-13T05:09:47.904147491Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -9700,7 +9846,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 18.4.0
-    created: "2026-08-12T05:06:59.921967017Z"
+    created: "2026-08-13T05:09:47.90157867Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -9748,7 +9894,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 18.4.0
-    created: "2026-08-12T05:06:59.917289446Z"
+    created: "2026-08-13T05:09:47.898314752Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -9796,7 +9942,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 18.3.0
-    created: "2026-08-12T05:06:59.913702564Z"
+    created: "2026-08-13T05:09:47.895678632Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -9844,7 +9990,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 18.3.0
-    created: "2026-08-12T05:06:59.908909408Z"
+    created: "2026-08-13T05:09:47.892585692Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -9892,7 +10038,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 18.3.0
-    created: "2026-08-12T05:06:59.905335991Z"
+    created: "2026-08-13T05:09:47.889955043Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -9940,7 +10086,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 18.3.0
-    created: "2026-08-12T05:06:59.900386744Z"
+    created: "2026-08-13T05:09:47.886528732Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -9995,7 +10141,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 8.10.0
-    created: "2026-08-12T05:07:00.189218978Z"
+    created: "2026-08-13T05:09:48.090611519Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -10046,7 +10192,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 8.10.0
-    created: "2026-08-12T05:07:00.184076121Z"
+    created: "2026-08-13T05:09:48.087637306Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -10097,7 +10243,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 8.10.0
-    created: "2026-08-12T05:07:00.179528684Z"
+    created: "2026-08-13T05:09:48.083821727Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -10148,7 +10294,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 8.10.0
-    created: "2026-08-12T05:07:00.17499435Z"
+    created: "2026-08-13T05:09:48.080274536Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -10199,7 +10345,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 8.8.1
-    created: "2026-08-12T05:07:00.14216938Z"
+    created: "2026-08-13T05:09:48.056873335Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -10250,7 +10396,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 8.8.1
-    created: "2026-08-12T05:07:00.136975526Z"
+    created: "2026-08-13T05:09:48.053881957Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -10301,7 +10447,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 8.8.1
-    created: "2026-08-12T05:07:00.132171099Z"
+    created: "2026-08-13T05:09:48.05003661Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -10352,7 +10498,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 8.8.1
-    created: "2026-08-12T05:07:00.127584267Z"
+    created: "2026-08-13T05:09:48.046448331Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -10403,7 +10549,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 8.8.0
-    created: "2026-08-12T05:07:00.122560254Z"
+    created: "2026-08-13T05:09:48.043490297Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -10454,7 +10600,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 8.8.0
-    created: "2026-08-12T05:07:00.11840239Z"
+    created: "2026-08-13T05:09:48.039917961Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -10505,7 +10651,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 8.8.0
-    created: "2026-08-12T05:07:00.113001824Z"
+    created: "2026-08-13T05:09:48.036923274Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -10556,7 +10702,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 8.8.0
-    created: "2026-08-12T05:07:00.108570541Z"
+    created: "2026-08-13T05:09:48.033107673Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -10607,7 +10753,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 8.8.0
-    created: "2026-08-12T05:07:00.103818508Z"
+    created: "2026-08-13T05:09:48.029667047Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -10658,7 +10804,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 8.8.0
-    created: "2026-08-12T05:07:00.098666227Z"
+    created: "2026-08-13T05:09:48.026676994Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -10709,7 +10855,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 8.8.0
-    created: "2026-08-12T05:07:00.094386326Z"
+    created: "2026-08-13T05:09:48.023066911Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -10760,7 +10906,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 8.8.0
-    created: "2026-08-12T05:07:00.08879379Z"
+    created: "2026-08-13T05:09:48.020114598Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -10811,7 +10957,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 8.8.0
-    created: "2026-08-12T05:07:00.084070514Z"
+    created: "2026-08-13T05:09:48.016300894Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -10862,7 +11008,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 8.8.0
-    created: "2026-08-12T05:07:00.079454227Z"
+    created: "2026-08-13T05:09:48.012609644Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -10913,7 +11059,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 8.8.0
-    created: "2026-08-12T05:07:00.169832686Z"
+    created: "2026-08-13T05:09:48.077291834Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -10964,7 +11110,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 8.8.0
-    created: "2026-08-12T05:07:00.165698586Z"
+    created: "2026-08-13T05:09:48.073807867Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -11015,7 +11161,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 8.8.0
-    created: "2026-08-12T05:07:00.160312106Z"
+    created: "2026-08-13T05:09:48.07079959Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -11066,7 +11212,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 8.8.0
-    created: "2026-08-12T05:07:00.155233301Z"
+    created: "2026-08-13T05:09:48.066966224Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -11117,7 +11263,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 8.8.0
-    created: "2026-08-12T05:07:00.151147922Z"
+    created: "2026-08-13T05:09:48.06363669Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -11168,7 +11314,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 8.8.0
-    created: "2026-08-12T05:07:00.146314651Z"
+    created: "2026-08-13T05:09:48.060393907Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -11219,7 +11365,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 8.8.0
-    created: "2026-08-12T05:07:00.074333391Z"
+    created: "2026-08-13T05:09:48.00965295Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -11270,7 +11416,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 8.6.3
-    created: "2026-08-12T05:07:00.070208078Z"
+    created: "2026-08-13T05:09:48.005940827Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -11321,7 +11467,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 8.6.3
-    created: "2026-08-12T05:07:00.064791903Z"
+    created: "2026-08-13T05:09:48.002478487Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -11372,7 +11518,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 8.6.3
-    created: "2026-08-12T05:07:00.059874355Z"
+    created: "2026-08-13T05:09:47.999584578Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -11423,7 +11569,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 8.6.3
-    created: "2026-08-12T05:07:00.055621236Z"
+    created: "2026-08-13T05:09:47.996011899Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -11474,7 +11620,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 8.6.3
-    created: "2026-08-12T05:07:00.05056971Z"
+    created: "2026-08-13T05:09:47.993063134Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -11526,7 +11672,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 9.1.1
-    created: "2026-08-12T05:07:00.33405153Z"
+    created: "2026-08-13T05:09:48.195432231Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -11577,7 +11723,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 9.1.1
-    created: "2026-08-12T05:07:00.330330819Z"
+    created: "2026-08-13T05:09:48.192415786Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -11628,7 +11774,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 9.1.1
-    created: "2026-08-12T05:07:00.325554176Z"
+    created: "2026-08-13T05:09:48.189348629Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -11679,7 +11825,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 9.1.1
-    created: "2026-08-12T05:07:00.321859784Z"
+    created: "2026-08-13T05:09:48.186107351Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -11730,7 +11876,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 9.1.1
-    created: "2026-08-12T05:07:00.317286174Z"
+    created: "2026-08-13T05:09:48.183410951Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -11781,7 +11927,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 9.1.1
-    created: "2026-08-12T05:07:00.313541989Z"
+    created: "2026-08-13T05:09:48.180152231Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -11832,7 +11978,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 9.1.1
-    created: "2026-08-12T05:07:00.30863436Z"
+    created: "2026-08-13T05:09:48.177479573Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -11883,7 +12029,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 9.1.1
-    created: "2026-08-12T05:07:00.304897729Z"
+    created: "2026-08-13T05:09:48.174062745Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -11934,7 +12080,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 9.1.1
-    created: "2026-08-12T05:07:00.300274462Z"
+    created: "2026-08-13T05:09:48.171361829Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -11985,7 +12131,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 9.1.1
-    created: "2026-08-12T05:07:00.2965425Z"
+    created: "2026-08-13T05:09:48.16776519Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -12036,7 +12182,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 9.1.0
-    created: "2026-08-12T05:07:00.291653052Z"
+    created: "2026-08-13T05:09:48.164378292Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -12087,7 +12233,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 9.1.0
-    created: "2026-08-12T05:07:00.287912865Z"
+    created: "2026-08-13T05:09:48.161674111Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -12138,7 +12284,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 9.1.0
-    created: "2026-08-12T05:07:00.249416968Z"
+    created: "2026-08-13T05:09:48.134045948Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -12189,7 +12335,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 9.1.0
-    created: "2026-08-12T05:07:00.244489039Z"
+    created: "2026-08-13T05:09:48.131356261Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -12240,7 +12386,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 9.1.0
-    created: "2026-08-12T05:07:00.240463732Z"
+    created: "2026-08-13T05:09:48.127638996Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -12291,7 +12437,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 9.1.0
-    created: "2026-08-12T05:07:00.23605368Z"
+    created: "2026-08-13T05:09:48.1243793Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -12342,7 +12488,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 9.1.0
-    created: "2026-08-12T05:07:00.231446588Z"
+    created: "2026-08-13T05:09:48.12168808Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -12393,7 +12539,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 9.1.0
-    created: "2026-08-12T05:07:00.227719375Z"
+    created: "2026-08-13T05:09:48.118325641Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -12444,7 +12590,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 9.1.0
-    created: "2026-08-12T05:07:00.282847302Z"
+    created: "2026-08-13T05:09:48.158409896Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -12495,7 +12641,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 9.1.0
-    created: "2026-08-12T05:07:00.278149153Z"
+    created: "2026-08-13T05:09:48.155734312Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -12546,7 +12692,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 9.1.0
-    created: "2026-08-12T05:07:00.274448959Z"
+    created: "2026-08-13T05:09:48.152405759Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -12597,7 +12743,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 9.1.0
-    created: "2026-08-12T05:07:00.269901471Z"
+    created: "2026-08-13T05:09:48.14972395Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -12648,7 +12794,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 9.1.0
-    created: "2026-08-12T05:07:00.266104818Z"
+    created: "2026-08-13T05:09:48.146296976Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -12699,7 +12845,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 9.1.0
-    created: "2026-08-12T05:07:00.261334477Z"
+    created: "2026-08-13T05:09:48.143547378Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -12750,7 +12896,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 9.1.0
-    created: "2026-08-12T05:07:00.25765386Z"
+    created: "2026-08-13T05:09:48.140307186Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -12801,7 +12947,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 9.1.0
-    created: "2026-08-12T05:07:00.253114717Z"
+    created: "2026-08-13T05:09:48.137614356Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -12852,7 +12998,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 9.1.0
-    created: "2026-08-12T05:07:00.222900754Z"
+    created: "2026-08-13T05:09:48.11563629Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -12903,7 +13049,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 9.1.0
-    created: "2026-08-12T05:07:00.219199158Z"
+    created: "2026-08-13T05:09:48.112391187Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -12954,7 +13100,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 9.1.0
-    created: "2026-08-12T05:07:00.214298021Z"
+    created: "2026-08-13T05:09:48.109657166Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -13005,7 +13151,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 9.1.0
-    created: "2026-08-12T05:07:00.209705646Z"
+    created: "2026-08-13T05:09:48.106054664Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -13056,7 +13202,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 9.1.0
-    created: "2026-08-12T05:07:00.205927208Z"
+    created: "2026-08-13T05:09:48.103022999Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -13107,7 +13253,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 9.0.4
-    created: "2026-08-12T05:07:00.201312225Z"
+    created: "2026-08-13T05:09:48.099857189Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -13158,7 +13304,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 9.0.4
-    created: "2026-08-12T05:07:00.197536071Z"
+    created: "2026-08-13T05:09:48.096576856Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -13209,7 +13355,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 9.0.4
-    created: "2026-08-12T05:07:00.192897721Z"
+    created: "2026-08-13T05:09:48.093850021Z"
     dependencies:
     - name: common
       repository: https://inglp.github.io/bitnami-secure-charts
@@ -13246,6 +13392,63 @@ entries:
           version: "5"
           image: registry-1.docker.io/bitnamisecure/os-shell:latest
         - name: wordpress
+          version: 7.0.4
+          image: registry-1.docker.io/bitnamisecure/wordpress:latest
+      inglp.bitnami-secure-mirror/source-chart: registry-1.docker.io/bitnamichartssecure/wordpress:33.0.5
+      inglp.bitnami-secure-mirror/source-digest: sha256:7f7aec047ae9fcfa0f764a0a6c66b375757e80da44571585a6eeeaa9414ed95b
+      inglp.bitnami-secure-mirror/upstream-version: 33.0.5
+      licenses: Apache-2.0
+      tanzuCategory: application
+    apiVersion: v2
+    appVersion: 7.0.4
+    created: "2026-08-13T05:09:48.419887194Z"
+    dependencies:
+    - condition: memcached.enabled
+      name: memcached
+      repository: https://inglp.github.io/bitnami-secure-charts
+      version: 8.7.5-inglp.r0
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://inglp.github.io/bitnami-secure-charts
+      version: 27.0.4-inglp.r0
+    - name: common
+      repository: https://inglp.github.io/bitnami-secure-charts
+      tags:
+      - bitnami-common
+      version: 2.41.0-inglp.r0
+    description: WordPress is the world's most popular blogging and content management
+      platform. Powerful yet simple, everyone from students to global corporations
+      use it to build beautiful, functional websites.
+    digest: 3c10de65a7340f9c7f549474d24f647649d7b20290b1eebb332e07220896cca9
+    home: https://bitnami.com
+    icon: https://dyltqmyl993wv.cloudfront.net/assets/stacks/wordpress/img/wordpress-stack-220x234.png
+    keywords:
+    - application
+    - blog
+    - cms
+    - http
+    - php
+    - web
+    - wordpress
+    maintainers:
+    - name: Broadcom, Inc. All Rights Reserved.
+      url: https://github.com/bitnami/charts
+    name: wordpress
+    sources:
+    - https://github.com/bitnami/charts/tree/main/bitnami/wordpress
+    urls:
+    - https://inglp.github.io/bitnami-secure-charts/wordpress-33.0.5-inglp.r0.tgz
+    version: 33.0.5-inglp.r0
+  - annotations:
+      fips: "true"
+      images: |
+        - name: apache-exporter
+          version: 1.1.1
+          image: registry-1.docker.io/bitnamisecure/apache-exporter:latest
+        - name: os-shell
+          version: "5"
+          image: registry-1.docker.io/bitnamisecure/os-shell:latest
+        - name: wordpress
           version: 7.0.3
           image: registry-1.docker.io/bitnamisecure/wordpress:latest
       inglp.bitnami-secure-mirror/source-chart: registry-1.docker.io/bitnamichartssecure/wordpress:33.0.4
@@ -13255,7 +13458,7 @@ entries:
       tanzuCategory: application
     apiVersion: v2
     appVersion: 7.0.3
-    created: "2026-08-12T05:07:00.635350128Z"
+    created: "2026-08-13T05:09:48.413834048Z"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -13312,7 +13515,7 @@ entries:
       tanzuCategory: application
     apiVersion: v2
     appVersion: 7.0.3
-    created: "2026-08-12T05:07:00.627788652Z"
+    created: "2026-08-13T05:09:48.407656453Z"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -13369,7 +13572,7 @@ entries:
       tanzuCategory: application
     apiVersion: v2
     appVersion: 7.0.2
-    created: "2026-08-12T05:07:00.618946654Z"
+    created: "2026-08-13T05:09:48.401376759Z"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -13426,7 +13629,7 @@ entries:
       tanzuCategory: application
     apiVersion: v2
     appVersion: 7.0.2
-    created: "2026-08-12T05:07:00.6102781Z"
+    created: "2026-08-13T05:09:48.395166107Z"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -13483,7 +13686,7 @@ entries:
       tanzuCategory: application
     apiVersion: v2
     appVersion: 7.0.2
-    created: "2026-08-12T05:07:00.558423361Z"
+    created: "2026-08-13T05:09:48.357449397Z"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -13540,7 +13743,7 @@ entries:
       tanzuCategory: application
     apiVersion: v2
     appVersion: 7.0.2
-    created: "2026-08-12T05:07:00.549958936Z"
+    created: "2026-08-13T05:09:48.351551081Z"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -13597,7 +13800,7 @@ entries:
       tanzuCategory: application
     apiVersion: v2
     appVersion: 7.0.2
-    created: "2026-08-12T05:07:00.541371753Z"
+    created: "2026-08-13T05:09:48.344454676Z"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -13654,7 +13857,7 @@ entries:
       tanzuCategory: application
     apiVersion: v2
     appVersion: 7.0.2
-    created: "2026-08-12T05:07:00.533696342Z"
+    created: "2026-08-13T05:09:48.338194104Z"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -13711,7 +13914,7 @@ entries:
       tanzuCategory: application
     apiVersion: v2
     appVersion: 7.0.2
-    created: "2026-08-12T05:07:00.525029411Z"
+    created: "2026-08-13T05:09:48.331898491Z"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -13768,7 +13971,7 @@ entries:
       tanzuCategory: application
     apiVersion: v2
     appVersion: 7.0.1
-    created: "2026-08-12T05:07:00.516216229Z"
+    created: "2026-08-13T05:09:48.325661797Z"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -13825,7 +14028,7 @@ entries:
       tanzuCategory: application
     apiVersion: v2
     appVersion: 7.0.1
-    created: "2026-08-12T05:07:00.507125386Z"
+    created: "2026-08-13T05:09:48.319071146Z"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -13882,7 +14085,7 @@ entries:
       tanzuCategory: application
     apiVersion: v2
     appVersion: 7.0.0
-    created: "2026-08-12T05:07:00.498512447Z"
+    created: "2026-08-13T05:09:48.312887231Z"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -13939,7 +14142,7 @@ entries:
       tanzuCategory: application
     apiVersion: v2
     appVersion: 7.0.0
-    created: "2026-08-12T05:07:00.489662645Z"
+    created: "2026-08-13T05:09:48.307128911Z"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -13996,7 +14199,7 @@ entries:
       tanzuCategory: application
     apiVersion: v2
     appVersion: 7.0.0
-    created: "2026-08-12T05:07:00.481145452Z"
+    created: "2026-08-13T05:09:48.299794666Z"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -14053,7 +14256,7 @@ entries:
       tanzuCategory: application
     apiVersion: v2
     appVersion: 7.0.0
-    created: "2026-08-12T05:07:00.472760882Z"
+    created: "2026-08-13T05:09:48.294395863Z"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -14110,7 +14313,7 @@ entries:
       tanzuCategory: application
     apiVersion: v2
     appVersion: 7.0.0
-    created: "2026-08-12T05:07:00.464165243Z"
+    created: "2026-08-13T05:09:48.288007887Z"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -14167,7 +14370,7 @@ entries:
       tanzuCategory: application
     apiVersion: v2
     appVersion: 7.0.0
-    created: "2026-08-12T05:07:00.60147947Z"
+    created: "2026-08-13T05:09:48.38880115Z"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -14224,7 +14427,7 @@ entries:
       tanzuCategory: application
     apiVersion: v2
     appVersion: 7.0.0
-    created: "2026-08-12T05:07:00.592803995Z"
+    created: "2026-08-13T05:09:48.382882625Z"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -14281,7 +14484,7 @@ entries:
       tanzuCategory: application
     apiVersion: v2
     appVersion: 7.0.0
-    created: "2026-08-12T05:07:00.584044208Z"
+    created: "2026-08-13T05:09:48.376488808Z"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -14338,7 +14541,7 @@ entries:
       tanzuCategory: application
     apiVersion: v2
     appVersion: 7.0.0
-    created: "2026-08-12T05:07:00.575493174Z"
+    created: "2026-08-13T05:09:48.37085613Z"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -14395,7 +14598,7 @@ entries:
       tanzuCategory: application
     apiVersion: v2
     appVersion: 7.0.0
-    created: "2026-08-12T05:07:00.566906409Z"
+    created: "2026-08-13T05:09:48.363685746Z"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -14452,7 +14655,7 @@ entries:
       tanzuCategory: application
     apiVersion: v2
     appVersion: 7.0.0
-    created: "2026-08-12T05:07:00.455633705Z"
+    created: "2026-08-13T05:09:48.281670771Z"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -14509,7 +14712,7 @@ entries:
       tanzuCategory: application
     apiVersion: v2
     appVersion: 7.0.0
-    created: "2026-08-12T05:07:00.447107175Z"
+    created: "2026-08-13T05:09:48.275334849Z"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -14566,7 +14769,7 @@ entries:
       tanzuCategory: application
     apiVersion: v2
     appVersion: 7.0.0
-    created: "2026-08-12T05:07:00.43869271Z"
+    created: "2026-08-13T05:09:48.26923203Z"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -14623,7 +14826,7 @@ entries:
       tanzuCategory: application
     apiVersion: v2
     appVersion: 7.0.0
-    created: "2026-08-12T05:07:00.429900858Z"
+    created: "2026-08-13T05:09:48.263192895Z"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -14680,7 +14883,7 @@ entries:
       tanzuCategory: application
     apiVersion: v2
     appVersion: 7.0.0
-    created: "2026-08-12T05:07:00.421575331Z"
+    created: "2026-08-13T05:09:48.256642496Z"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -14737,7 +14940,7 @@ entries:
       tanzuCategory: application
     apiVersion: v2
     appVersion: 7.0.0
-    created: "2026-08-12T05:07:00.412680172Z"
+    created: "2026-08-13T05:09:48.250526811Z"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -14794,7 +14997,7 @@ entries:
       tanzuCategory: application
     apiVersion: v2
     appVersion: 7.0.0
-    created: "2026-08-12T05:07:00.404639668Z"
+    created: "2026-08-13T05:09:48.244390871Z"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -14851,7 +15054,7 @@ entries:
       tanzuCategory: application
     apiVersion: v2
     appVersion: 7.0.0
-    created: "2026-08-12T05:07:00.395166374Z"
+    created: "2026-08-13T05:09:48.239046657Z"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -14908,7 +15111,7 @@ entries:
       tanzuCategory: application
     apiVersion: v2
     appVersion: 7.0.0
-    created: "2026-08-12T05:07:00.387379439Z"
+    created: "2026-08-13T05:09:48.232771641Z"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -14965,7 +15168,7 @@ entries:
       tanzuCategory: application
     apiVersion: v2
     appVersion: 6.9.4
-    created: "2026-08-12T05:07:00.377907469Z"
+    created: "2026-08-13T05:09:48.226486298Z"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -15022,7 +15225,7 @@ entries:
       tanzuCategory: application
     apiVersion: v2
     appVersion: 6.9.4
-    created: "2026-08-12T05:07:00.370323903Z"
+    created: "2026-08-13T05:09:48.220189032Z"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -15079,7 +15282,7 @@ entries:
       tanzuCategory: application
     apiVersion: v2
     appVersion: 6.9.4
-    created: "2026-08-12T05:07:00.361304999Z"
+    created: "2026-08-13T05:09:48.21386771Z"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -15136,7 +15339,7 @@ entries:
       tanzuCategory: application
     apiVersion: v2
     appVersion: 6.9.4
-    created: "2026-08-12T05:07:00.351318502Z"
+    created: "2026-08-13T05:09:48.207744439Z"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -15193,7 +15396,7 @@ entries:
       tanzuCategory: application
     apiVersion: v2
     appVersion: 6.9.4
-    created: "2026-08-12T05:07:00.343308021Z"
+    created: "2026-08-13T05:09:48.201634135Z"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -15231,4 +15434,4 @@ entries:
     urls:
     - https://inglp.github.io/bitnami-secure-charts/wordpress-30.1.1-inglp.r0.tgz
     version: 30.1.1-inglp.r0
-generated: "2026-08-12T05:06:59.29250408Z"
+generated: "2026-08-13T05:09:47.44673837Z"
