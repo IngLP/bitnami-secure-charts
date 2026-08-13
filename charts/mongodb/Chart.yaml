@@ -9,9 +9,9 @@ annotations:
     - name: os-shell\n  version: \"5\"\n  image: registry-1.docker.io/bitnamisecure/os-shell:latest\n"
   licenses: Apache-2.0
   tanzuCategory: service
-  inglp.bitnami-secure-mirror/source-chart: registry-1.docker.io/bitnamichartssecure/mongodb:19.1.27
-  inglp.bitnami-secure-mirror/source-digest: sha256:df26d51b8043c600f0d22c30c836918c3a94293b17de248e0c377b0a808e1885
-  inglp.bitnami-secure-mirror/upstream-version: 19.1.27
+  inglp.bitnami-secure-mirror/source-chart: registry-1.docker.io/bitnamichartssecure/mongodb:19.1.29
+  inglp.bitnami-secure-mirror/source-digest: sha256:91867754549b7078c0783573b29516b23d3c740c8a067e0a38229c4cd8033b06
+  inglp.bitnami-secure-mirror/upstream-version: 19.1.29
 apiVersion: v2
 appVersion: 8.3.8
 dependencies:
@@ -38,4 +38,4 @@ maintainers:
 name: mongodb
 sources:
 - https://github.com/bitnami/charts/tree/main/bitnami/mongodb
-version: 19.1.27-inglp.r0
+version: 19.1.29-inglp.r0

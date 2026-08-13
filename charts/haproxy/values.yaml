@@ -8,7 +8,7 @@ global:
   compatibility:
     openshift:
       adaptSecurityContext: auto
-  defaultFips: restricted
+  defaultFips: false
 kubeVersion: ''
 nameOverride: ''
 fullnameOverride: ''
