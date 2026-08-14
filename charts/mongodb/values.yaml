@@ -72,8 +72,8 @@ tls:
   image:
     registry: docker.io
     repository: inglp/bitnami-secure-nginx
-    tag: 1.31.3-photon-5-r5
-    digest: sha256:a02b60c6ced3326221a8978d3e317f8a13f8a70959934d5b110b25b7c8ef1973
+    tag: 1.31.3-photon-5-r6
+    digest: sha256:8c9776722a637ac598e6441062967459c2f754a765a0d0e7c40a17002823429a
     pullPolicy: IfNotPresent
     pullSecrets: []
   extraDnsNames: []
@@ -215,8 +215,8 @@ externalAccess:
     image:
       registry: docker.io
       repository: inglp/bitnami-secure-kubectl
-      tag: 1.36.3-photon-5-r4
-      digest: sha256:1a86ba502f618724fd493f6a2b129f060454db04f06faa58d8ed94510280b17f
+      tag: 1.36.3-photon-5-r5
+      digest: sha256:42dc6fdc6f792013ceeef7f675782bbb7292a1c9bbc25b7ecf34f37e0803f28a
       pullPolicy: IfNotPresent
       pullSecrets: []
     resourcesPreset: nano
@@ -649,8 +649,8 @@ metrics:
   image:
     registry: docker.io
     repository: inglp/bitnami-secure-mongodb-exporter
-    tag: 0.52.0-photon-5-r2
-    digest: sha256:9d0aa68e69f5836a442a92d89e2bc1e9a9c4a62c76d421a2791f421dc7b345a4
+    tag: 0.52.0-photon-5-r3
+    digest: sha256:5906d61dc67b49ad01a20fb8eb18254e778781342a6a426ca2d5b33bf2299f01
     pullPolicy: IfNotPresent
     pullSecrets: []
   username: ''
@@ -734,8 +734,8 @@ mcp:
   image:
     registry: docker.io
     repository: inglp/bitnami-secure-mcp-mongodb
-    tag: 2.1.0-photon-5-r0
-    digest: sha256:b0b8ddd2990a0122c0d483613acbb84aee48a0848e1bfc32983205ea222ef6f5
+    tag: 2.1.0-photon-5-r1
+    digest: sha256:9637f3ecd353df6dda1ba6826e3055283dd354bfea7d7fdc4958a5cd3941f260
     pullPolicy: IfNotPresent
     pullSecrets: []
   containerPorts:
@@ -914,8 +914,8 @@ mcp:
     image:
       registry: docker.io
       repository: inglp/bitnami-secure-kube-rbac-proxy
-      tag: 0.22.1-linux-r1
-      digest: sha256:d94a9a6f355c6450154a0ede9ead70d2bf27392f81716f347d88a03ccbec0899
+      tag: 0.22.1-linux-r2
+      digest: sha256:8cf46286c6e3019ef5dd9ba7a7e1c64f1c259eee382ee856b9251ef1a5300062
       pullPolicy: IfNotPresent
       pullSecrets: []
     extraArgs: []

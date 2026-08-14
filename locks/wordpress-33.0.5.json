@@ -1,18 +1,18 @@
 {
   "chart": "wordpress",
-  "content_fingerprint": "sha256:186d7308b5bce4760319515890e5a4183d3c71e8c7e267431774298e4a3e1d7f",
+  "content_fingerprint": "sha256:66c18e50f61dcffe70b161ffbc237f4ad0230e444eb0dc539786c7b050eb7917",
   "dependencies": [
     {
       "name": "memcached",
       "repository": "https://inglp.github.io/bitnami-secure-charts",
       "upstream_version": "8.7.5",
-      "version": "8.7.5-inglp.r0"
+      "version": "8.7.5-inglp.r1"
     },
     {
       "name": "mariadb",
       "repository": "https://inglp.github.io/bitnami-secure-charts",
       "upstream_version": "27.0.4",
-      "version": "27.0.4-inglp.r0"
+      "version": "27.0.4-inglp.r1"
     },
     {
       "name": "common",
@@ -24,15 +24,15 @@
   "images": [
     {
       "app_version": "1.1.1",
-      "image_revision": "9",
+      "image_revision": "11",
       "name": "apache-exporter",
       "os_flavour": "photon-5",
-      "source_digest": "sha256:af5d90d77202a0b60656711c8f0d3a2235fb5b1ca0a0dd6e9e87226475985229",
+      "source_digest": "sha256:ed9d962c9106d1d9eeae60244129026e88e7fc0e6cbfeb5b023830c1b782290d",
       "source_image": "registry-1.docker.io/bitnamisecure/apache-exporter:latest",
-      "target_digest": "sha256:af5d90d77202a0b60656711c8f0d3a2235fb5b1ca0a0dd6e9e87226475985229",
+      "target_digest": "sha256:ed9d962c9106d1d9eeae60244129026e88e7fc0e6cbfeb5b023830c1b782290d",
       "target_registry": "docker.io",
       "target_repository": "inglp/bitnami-secure-apache-exporter",
-      "target_tag": "1.1.1-photon-5-r9"
+      "target_tag": "1.1.1-photon-5-r11"
     },
     {
       "app_version": "5",
@@ -59,9 +59,9 @@
       "target_tag": "7.0.4-photon-5-r0"
     }
   ],
-  "mirror_revision": 0,
+  "mirror_revision": 1,
   "published": true,
   "source_digest": "sha256:7f7aec047ae9fcfa0f764a0a6c66b375757e80da44571585a6eeeaa9414ed95b",
   "upstream_version": "33.0.5",
-  "version": "33.0.5-inglp.r0"
+  "version": "33.0.5-inglp.r1"
 }

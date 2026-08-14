@@ -25,8 +25,8 @@ diagnosticMode:
 image:
   registry: docker.io
   repository: inglp/bitnami-secure-memcached
-  tag: 1.6.45-photon-5-r5
-  digest: sha256:5b977f68b424cc2c3634ab9c9413879ffdf475502e52e39e106aeb83944b3c11
+  tag: 1.6.45-photon-5-r6
+  digest: sha256:db3a42f2dab6d0320fbe05fb8a89571c430feb62e40be7de1c23b5ec4d0eb60a
   pullPolicy: IfNotPresent
   pullSecrets: []
   debug: false
@@ -218,8 +218,8 @@ metrics:
   image:
     registry: docker.io
     repository: inglp/bitnami-secure-memcached-exporter
-    tag: 0.16.0-linux-r7
-    digest: sha256:66119c11de126f4bf20a1431c3e2093d3ecaf8803dfd9b796b36cac6f2ad5793
+    tag: 0.16.0-linux-r8
+    digest: sha256:c1a5b1fe7c5cb2401962e185323e8c9778f7443067043cc4949fcfb0006b8a3f
     pullPolicy: IfNotPresent
     pullSecrets: []
   containerPorts:
