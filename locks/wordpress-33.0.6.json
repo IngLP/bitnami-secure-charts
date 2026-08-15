@@ -1,0 +1,67 @@
+{
+  "chart": "wordpress",
+  "content_fingerprint": "sha256:37330f7c0a6123b22b3ae8cfe5590d59a9f6306a37ca496886899e2d9498b05e",
+  "dependencies": [
+    {
+      "name": "memcached",
+      "repository": "https://inglp.github.io/bitnami-secure-charts",
+      "upstream_version": "8.7.6",
+      "version": "8.7.6-inglp.r0"
+    },
+    {
+      "name": "mariadb",
+      "repository": "https://inglp.github.io/bitnami-secure-charts",
+      "upstream_version": "27.0.5",
+      "version": "27.0.5-inglp.r0"
+    },
+    {
+      "name": "common",
+      "repository": "https://inglp.github.io/bitnami-secure-charts",
+      "upstream_version": "2.41.0",
+      "version": "2.41.0-inglp.r0"
+    }
+  ],
+  "images": [
+    {
+      "app_version": "1.1.1",
+      "image_revision": "11",
+      "name": "apache-exporter",
+      "os_flavour": "photon-5",
+      "source_digest": "sha256:ed9d962c9106d1d9eeae60244129026e88e7fc0e6cbfeb5b023830c1b782290d",
+      "source_image": "registry-1.docker.io/bitnamisecure/apache-exporter:latest",
+      "target_digest": "sha256:ed9d962c9106d1d9eeae60244129026e88e7fc0e6cbfeb5b023830c1b782290d",
+      "target_registry": "docker.io",
+      "target_repository": "inglp/bitnami-secure-apache-exporter",
+      "target_tag": "1.1.1-photon-5-r11"
+    },
+    {
+      "app_version": "5",
+      "image_revision": "97",
+      "name": "os-shell",
+      "os_flavour": "photon-5",
+      "source_digest": "sha256:475531b83cc9e79b0bacbb7b899f949e634490ec88267e6803184f8f2d54a549",
+      "source_image": "registry-1.docker.io/bitnamisecure/os-shell:latest",
+      "target_digest": "sha256:475531b83cc9e79b0bacbb7b899f949e634490ec88267e6803184f8f2d54a549",
+      "target_registry": "docker.io",
+      "target_repository": "inglp/bitnami-secure-os-shell",
+      "target_tag": "5-photon-5-r97"
+    },
+    {
+      "app_version": "7.0.4",
+      "image_revision": "0",
+      "name": "wordpress",
+      "os_flavour": "photon-5",
+      "source_digest": "sha256:9f7c3494b6d74d58d5a51c5deca8ce84a2593529916d9d25c13fc7b2b363b2a5",
+      "source_image": "registry-1.docker.io/bitnamisecure/wordpress:latest",
+      "target_digest": "sha256:9f7c3494b6d74d58d5a51c5deca8ce84a2593529916d9d25c13fc7b2b363b2a5",
+      "target_registry": "docker.io",
+      "target_repository": "inglp/bitnami-secure-wordpress",
+      "target_tag": "7.0.4-photon-5-r0"
+    }
+  ],
+  "mirror_revision": 0,
+  "published": true,
+  "source_digest": "sha256:6b55fdfbcd27733a37b7710aa21221e48e209a0d7217a75907035ff8e2d26e5c",
+  "upstream_version": "33.0.6",
+  "version": "33.0.6-inglp.r0"
+}
