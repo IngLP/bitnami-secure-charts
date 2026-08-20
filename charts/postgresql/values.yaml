@@ -553,8 +553,8 @@ metrics:
   image:
     registry: docker.io
     repository: inglp/bitnami-secure-postgres-exporter
-    tag: 0.20.1-photon-5-r5
-    digest: sha256:2c6500c718ef4fdf3f4e51d613496c05afcab4497532218709391742df701384
+    tag: 0.20.1-photon-5-r6
+    digest: sha256:970927e0a6e68d93df95d50521f322161de80647c3d85f887a25c204c8ac16d1
     pullPolicy: IfNotPresent
     pullSecrets: []
   collectors: {}

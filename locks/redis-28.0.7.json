@@ -1,6 +1,6 @@
 {
   "chart": "redis",
-  "content_fingerprint": "sha256:5b940a5a0d2acf0984cac591902e029681ff745db2ae419cb941547dcbd58abe",
+  "content_fingerprint": "sha256:ec6b04c26773a073ddb6643d064cbbf7724fba1fff5dfcfe8ae724dc650dec67",
   "dependencies": [
     {
       "name": "common",
@@ -12,15 +12,15 @@
   "images": [
     {
       "app_version": "1.36.3",
-      "image_revision": "8",
+      "image_revision": "9",
       "name": "kubectl",
       "os_flavour": "photon-5",
-      "source_digest": "sha256:190ebe23a27084c9477b48cf9503472608197792456857ac8fdcf2eb877aa34e",
+      "source_digest": "sha256:4cab0102df3b978f1bbf6f15b3c06f56c6e885ea7c740d81268435a266dfe442",
       "source_image": "registry-1.docker.io/bitnamisecure/kubectl:latest",
-      "target_digest": "sha256:190ebe23a27084c9477b48cf9503472608197792456857ac8fdcf2eb877aa34e",
+      "target_digest": "sha256:4cab0102df3b978f1bbf6f15b3c06f56c6e885ea7c740d81268435a266dfe442",
       "target_registry": "docker.io",
       "target_repository": "inglp/bitnami-secure-kubectl",
-      "target_tag": "1.36.3-photon-5-r8"
+      "target_tag": "1.36.3-photon-5-r9"
     },
     {
       "app_version": "5",
@@ -48,15 +48,15 @@
     },
     {
       "app_version": "1.89.0",
-      "image_revision": "2",
+      "image_revision": "3",
       "name": "redis-exporter",
       "os_flavour": "photon-5",
-      "source_digest": "sha256:3e28bfe3b9088843c2ec351e2e5405d1a43be6abc9a8f419e232bbca900f15db",
+      "source_digest": "sha256:8ee4e29f917d5165da41f606808a3b709c343ecaae76618c3f044e1c3c117602",
       "source_image": "registry-1.docker.io/bitnamisecure/redis-exporter:latest",
-      "target_digest": "sha256:3e28bfe3b9088843c2ec351e2e5405d1a43be6abc9a8f419e232bbca900f15db",
+      "target_digest": "sha256:8ee4e29f917d5165da41f606808a3b709c343ecaae76618c3f044e1c3c117602",
       "target_registry": "docker.io",
       "target_repository": "inglp/bitnami-secure-redis-exporter",
-      "target_tag": "1.89.0-photon-5-r2"
+      "target_tag": "1.89.0-photon-5-r3"
     },
     {
       "app_version": "8.10.1",
@@ -71,9 +71,9 @@
       "target_tag": "8.10.1-photon-5-r2"
     }
   ],
-  "mirror_revision": 0,
+  "mirror_revision": 1,
   "published": true,
   "source_digest": "sha256:91cd1fd96cb2b488e40c7126ef05e75bffaf58ce154ce59df3835d2e1e78534b",
   "upstream_version": "28.0.7",
-  "version": "28.0.7-inglp.r0"
+  "version": "28.0.7-inglp.r1"
 }

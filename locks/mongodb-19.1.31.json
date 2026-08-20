@@ -1,6 +1,6 @@
 {
   "chart": "mongodb",
-  "content_fingerprint": "sha256:ec8b1ae33d60c2d1737e73a74f813c06b8511dd5c4902f38d24bd97ef057beea",
+  "content_fingerprint": "sha256:9c723f0ca5fea8deb69b43dc6a2e5cf957c351fe29180fb62b6d9a33a5ca0ae1",
   "dependencies": [
     {
       "name": "common",
@@ -12,27 +12,27 @@
   "images": [
     {
       "app_version": "0.22.1",
-      "image_revision": "3",
+      "image_revision": "4",
       "name": "kube-rbac-proxy",
       "os_flavour": "linux",
-      "source_digest": "sha256:bbd4c72f6acda2affd9d8d1d74e77e4fd50e81d5433b7196746eeb2a0a0ebc88",
+      "source_digest": "sha256:d692a724849fa9276a628c6e6c277d56d1929782c41547c4a2bc4987784c4fcc",
       "source_image": "registry-1.docker.io/bitnamisecure/kube-rbac-proxy:latest",
-      "target_digest": "sha256:bbd4c72f6acda2affd9d8d1d74e77e4fd50e81d5433b7196746eeb2a0a0ebc88",
+      "target_digest": "sha256:d692a724849fa9276a628c6e6c277d56d1929782c41547c4a2bc4987784c4fcc",
       "target_registry": "docker.io",
       "target_repository": "inglp/bitnami-secure-kube-rbac-proxy",
-      "target_tag": "0.22.1-linux-r3"
+      "target_tag": "0.22.1-linux-r4"
     },
     {
       "app_version": "1.36.3",
-      "image_revision": "8",
+      "image_revision": "9",
       "name": "kubectl",
       "os_flavour": "photon-5",
-      "source_digest": "sha256:190ebe23a27084c9477b48cf9503472608197792456857ac8fdcf2eb877aa34e",
+      "source_digest": "sha256:4cab0102df3b978f1bbf6f15b3c06f56c6e885ea7c740d81268435a266dfe442",
       "source_image": "registry-1.docker.io/bitnamisecure/kubectl:latest",
-      "target_digest": "sha256:190ebe23a27084c9477b48cf9503472608197792456857ac8fdcf2eb877aa34e",
+      "target_digest": "sha256:4cab0102df3b978f1bbf6f15b3c06f56c6e885ea7c740d81268435a266dfe442",
       "target_registry": "docker.io",
       "target_repository": "inglp/bitnami-secure-kubectl",
-      "target_tag": "1.36.3-photon-5-r8"
+      "target_tag": "1.36.3-photon-5-r9"
     },
     {
       "app_version": "2.1.0",
@@ -60,27 +60,27 @@
     },
     {
       "app_version": "0.52.0",
-      "image_revision": "5",
+      "image_revision": "6",
       "name": "mongodb-exporter",
       "os_flavour": "photon-5",
-      "source_digest": "sha256:6688ec123812891ba42aa1b6a72ba294b0bf98489e97b81d96fb1e9ca4ccc8bf",
+      "source_digest": "sha256:c04cb860d5405bd9612b05dc7f8da93b75c7319209c303422de3b0d08658efb7",
       "source_image": "registry-1.docker.io/bitnamisecure/mongodb-exporter:latest",
-      "target_digest": "sha256:6688ec123812891ba42aa1b6a72ba294b0bf98489e97b81d96fb1e9ca4ccc8bf",
+      "target_digest": "sha256:c04cb860d5405bd9612b05dc7f8da93b75c7319209c303422de3b0d08658efb7",
       "target_registry": "docker.io",
       "target_repository": "inglp/bitnami-secure-mongodb-exporter",
-      "target_tag": "0.52.0-photon-5-r5"
+      "target_tag": "0.52.0-photon-5-r6"
     },
     {
-      "app_version": "1.31.3",
-      "image_revision": "7",
+      "app_version": "1.31.4",
+      "image_revision": "0",
       "name": "nginx",
       "os_flavour": "photon-5",
-      "source_digest": "sha256:ea91addaa48bc1886adfba3901a69bd2b30937cba0b97487bd80e67c9eecd70c",
+      "source_digest": "sha256:e15d57fa2b0943ee864e4f81a560e94702dcb5cf985ac3d2a72bd28cd65c4a4c",
       "source_image": "registry-1.docker.io/bitnamisecure/nginx:latest",
-      "target_digest": "sha256:ea91addaa48bc1886adfba3901a69bd2b30937cba0b97487bd80e67c9eecd70c",
+      "target_digest": "sha256:e15d57fa2b0943ee864e4f81a560e94702dcb5cf985ac3d2a72bd28cd65c4a4c",
       "target_registry": "docker.io",
       "target_repository": "inglp/bitnami-secure-nginx",
-      "target_tag": "1.31.3-photon-5-r7"
+      "target_tag": "1.31.4-photon-5-r0"
     },
     {
       "app_version": "5",
@@ -95,9 +95,9 @@
       "target_tag": "5-photon-5-r98"
     }
   ],
-  "mirror_revision": 0,
+  "mirror_revision": 1,
   "published": true,
   "source_digest": "sha256:910f7a90f2ada9716227cbaaf3e0fbd01148956fcf79db6ed2a30d9339ba50c5",
   "upstream_version": "19.1.31",
-  "version": "19.1.31-inglp.r0"
+  "version": "19.1.31-inglp.r1"
 }
