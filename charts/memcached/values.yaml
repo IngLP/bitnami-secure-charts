@@ -218,8 +218,8 @@ metrics:
   image:
     registry: docker.io
     repository: inglp/bitnami-secure-memcached-exporter
-    tag: 0.17.0-linux-r1
-    digest: sha256:ae0d7876165fde37c4e021052b269d000325894c6819a5285799565bdefb2c23
+    tag: 0.17.0-linux-r2
+    digest: sha256:f73a36ce2b1cb6632584e0a0f721a6989539538b4c274471ca07b940def459bb
     pullPolicy: IfNotPresent
     pullSecrets: []
   containerPorts:
