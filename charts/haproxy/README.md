@@ -266,6 +266,8 @@ For more information on this new support, please refer to the [FIPS Compliance s
 | Name                                    | Description                                                                                                                      | Value                    |
 | --------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | ------------------------ |
 | `service.type`                          | haproxy service type                                                                                                             | `LoadBalancer`           |
+| `service.loadBalancerClass`             | haproxy service Load Balancer Class                                                                                              | `""`                     |
+| `service.trafficDistribution`           | haproxy service traffic distribution                                                                                             | `""`                     |
 | `service.ports`                         | List of haproxy service ports                                                                                                    | `[]`                     |
 | `service.clusterIP`                     | haproxy service Cluster IP                                                                                                       | `""`                     |
 | `service.loadBalancerIP`                | haproxy service Load Balancer IP                                                                                                 | `""`                     |

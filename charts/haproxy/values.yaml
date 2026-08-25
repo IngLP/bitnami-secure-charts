@@ -25,6 +25,8 @@ diagnosticMode:
   - infinity
 service:
   type: LoadBalancer
+  loadBalancerClass: ''
+  trafficDistribution: ''
   ports:
   - name: http
     protocol: TCP
