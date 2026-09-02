@@ -215,8 +215,8 @@ externalAccess:
     image:
       registry: docker.io
       repository: inglp/bitnami-secure-kubectl
-      tag: 1.37.0-photon-5-r0
-      digest: sha256:65447dcbb2813878e22265949a4ba4cca02f8d008ff3fe66a25354b511f28015
+      tag: 1.37.0-photon-5-r1
+      digest: sha256:e0fcb25c485a8ad0665d0dd4b4a67cefb6baee32b0e3b19f54f1b468c49c1ed5
       pullPolicy: IfNotPresent
       pullSecrets: []
     resourcesPreset: nano
@@ -649,8 +649,8 @@ metrics:
   image:
     registry: docker.io
     repository: inglp/bitnami-secure-mongodb-exporter
-    tag: 0.53.0-photon-5-r1
-    digest: sha256:ce342cf8bcc1c2dcfa85740c55e7da53cb98d3b77b290c1a7889a087d6245743
+    tag: 0.53.0-photon-5-r2
+    digest: sha256:524bead54587ab574f4b69dd221871930abcb315793cec311f7da28dec36d586
     pullPolicy: IfNotPresent
     pullSecrets: []
   username: ''
@@ -914,8 +914,8 @@ mcp:
     image:
       registry: docker.io
       repository: inglp/bitnami-secure-kube-rbac-proxy
-      tag: 0.22.1-linux-r4
-      digest: sha256:d692a724849fa9276a628c6e6c277d56d1929782c41547c4a2bc4987784c4fcc
+      tag: 0.22.1-linux-r5
+      digest: sha256:b44ff2676333434b220be1e8996e141d9be42a391c81e3b8d99c945404b1fbb5
       pullPolicy: IfNotPresent
       pullSecrets: []
     extraArgs: []

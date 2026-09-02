@@ -25,8 +25,8 @@ diagnosticMode:
 image:
   registry: docker.io
   repository: inglp/bitnami-secure-wordpress
-  tag: 7.1.0-photon-5-r1
-  digest: sha256:ad795d05958d5b848b8afb95e6e968033d09f2b8b042f6a8ecd1963fc4a504dd
+  tag: 7.1.0-photon-5-r2
+  digest: sha256:16ff7a181f1282b3e387e116aac16ac7bd90c2a0be10a052362472203ccbe61b
   pullPolicy: IfNotPresent
   pullSecrets: []
   debug: false
@@ -273,8 +273,8 @@ metrics:
   image:
     registry: docker.io
     repository: inglp/bitnami-secure-apache-exporter
-    tag: 1.1.1-photon-5-r16
-    digest: sha256:e8251cd0660f6a795d3fd5984a24e6b5734340611a69dee6b1fea371d6d9283d
+    tag: 1.1.1-photon-5-r17
+    digest: sha256:2fe9fdbf3fb771e7bf27d46a259671be6dfd9db0a52a41e46771e3f859d03a8b
     pullPolicy: IfNotPresent
     pullSecrets: []
   containerPorts:

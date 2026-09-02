@@ -1,6 +1,6 @@
 {
   "chart": "mariadb",
-  "content_fingerprint": "sha256:5f8c4098b4811975219bdf75b0ea9073216985828a1089ca1434d2bd38832d2f",
+  "content_fingerprint": "sha256:4800532411221c860fc635da6772197a9d5197c9f99aa4984fb7f798c43f69ee",
   "dependencies": [
     {
       "name": "common",
@@ -24,15 +24,15 @@
     },
     {
       "app_version": "0.20.0",
-      "image_revision": "4",
+      "image_revision": "5",
       "name": "mysqld-exporter",
       "os_flavour": "photon-5",
-      "source_digest": "sha256:e40cf454094ad1d6bd6a625ad1614ea317a26e5fb7f77d1b8fa122ad89f70292",
+      "source_digest": "sha256:49c0aaf26cabddfffe49063303972eefbcf5afdecc56a9973bc8edaf55afc28e",
       "source_image": "registry-1.docker.io/bitnamisecure/mysqld-exporter:latest",
-      "target_digest": "sha256:e40cf454094ad1d6bd6a625ad1614ea317a26e5fb7f77d1b8fa122ad89f70292",
+      "target_digest": "sha256:49c0aaf26cabddfffe49063303972eefbcf5afdecc56a9973bc8edaf55afc28e",
       "target_registry": "docker.io",
       "target_repository": "inglp/bitnami-secure-mysqld-exporter",
-      "target_tag": "0.20.0-photon-5-r4"
+      "target_tag": "0.20.0-photon-5-r5"
     },
     {
       "app_version": "5",
@@ -47,9 +47,9 @@
       "target_tag": "5-photon-5-r99"
     }
   ],
-  "mirror_revision": 0,
+  "mirror_revision": 1,
   "published": true,
   "source_digest": "sha256:2ba4177cf903ed970622be89bde51a897c1a372d29c6f7bb60979e8c69470221",
   "upstream_version": "27.0.7",
-  "version": "27.0.7-inglp.r0"
+  "version": "27.0.7-inglp.r1"
 }

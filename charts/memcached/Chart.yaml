@@ -5,9 +5,9 @@ annotations:
     - name: os-shell\n  version: \"5\"\n  image: registry-1.docker.io/bitnamisecure/os-shell:latest\n"
   licenses: Apache-2.0
   tanzuCategory: service
-  inglp.bitnami-secure-mirror/source-chart: registry-1.docker.io/bitnamichartssecure/memcached:8.7.8
-  inglp.bitnami-secure-mirror/source-digest: sha256:95960b1b78bd2264b752cf6f880a9a1245d2a695c083e05a538a2edbfcb5a456
-  inglp.bitnami-secure-mirror/upstream-version: 8.7.8
+  inglp.bitnami-secure-mirror/source-chart: registry-1.docker.io/bitnamichartssecure/memcached:8.7.9
+  inglp.bitnami-secure-mirror/source-digest: sha256:1eb65e378d774735b729f09e707dc2974d278f95d4497c9ebe319f3ce72ad428
+  inglp.bitnami-secure-mirror/upstream-version: 8.7.9
 apiVersion: v2
 appVersion: 1.6.45
 dependencies:
@@ -30,4 +30,4 @@ maintainers:
 name: memcached
 sources:
 - https://github.com/bitnami/charts/tree/main/bitnami/memcached
-version: 8.7.8-inglp.r1
+version: 8.7.9-inglp.r1
