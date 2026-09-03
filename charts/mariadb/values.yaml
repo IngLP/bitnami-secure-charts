@@ -28,8 +28,8 @@ serviceBindings:
 image:
   registry: docker.io
   repository: inglp/bitnami-secure-mariadb
-  tag: 13.0.1-photon-5-r7
-  digest: sha256:d8ad094dc757d2270a880f3a3aff73ef5998a64538f3c05ff93edaf5056b7852
+  tag: 13.0.1-photon-5-r8
+  digest: sha256:90aa6d60cbbac29106705a225bc33de2e97b1946afcd14b29b28bb800367eeb9
   pullPolicy: IfNotPresent
   pullSecrets: []
   debug: false
@@ -561,8 +561,8 @@ volumePermissions:
   image:
     registry: docker.io
     repository: inglp/bitnami-secure-os-shell
-    tag: 5-photon-5-r99
-    digest: sha256:52f04d8e29dc3d77929fca8d75890c4cabe6182f650e0e921057a744559a9736
+    tag: 5-photon-5-r100
+    digest: sha256:77c0d815b10d3dc280e9862ff207914ad6f9a2cd4578a5055c04d3beec69aef4
     pullPolicy: IfNotPresent
     pullSecrets: []
   resourcesPreset: nano

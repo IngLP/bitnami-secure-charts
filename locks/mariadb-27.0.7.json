@@ -1,6 +1,6 @@
 {
   "chart": "mariadb",
-  "content_fingerprint": "sha256:4800532411221c860fc635da6772197a9d5197c9f99aa4984fb7f798c43f69ee",
+  "content_fingerprint": "sha256:d358adc51992441258667746de76fd9f8bbc6dc68ce86131a7136b4741eb5890",
   "dependencies": [
     {
       "name": "common",
@@ -12,15 +12,15 @@
   "images": [
     {
       "app_version": "13.0.1",
-      "image_revision": "7",
+      "image_revision": "8",
       "name": "mariadb",
       "os_flavour": "photon-5",
-      "source_digest": "sha256:d8ad094dc757d2270a880f3a3aff73ef5998a64538f3c05ff93edaf5056b7852",
+      "source_digest": "sha256:90aa6d60cbbac29106705a225bc33de2e97b1946afcd14b29b28bb800367eeb9",
       "source_image": "registry-1.docker.io/bitnamisecure/mariadb:latest",
-      "target_digest": "sha256:d8ad094dc757d2270a880f3a3aff73ef5998a64538f3c05ff93edaf5056b7852",
+      "target_digest": "sha256:90aa6d60cbbac29106705a225bc33de2e97b1946afcd14b29b28bb800367eeb9",
       "target_registry": "docker.io",
       "target_repository": "inglp/bitnami-secure-mariadb",
-      "target_tag": "13.0.1-photon-5-r7"
+      "target_tag": "13.0.1-photon-5-r8"
     },
     {
       "app_version": "0.20.0",
@@ -36,20 +36,20 @@
     },
     {
       "app_version": "5",
-      "image_revision": "99",
+      "image_revision": "100",
       "name": "os-shell",
       "os_flavour": "photon-5",
-      "source_digest": "sha256:52f04d8e29dc3d77929fca8d75890c4cabe6182f650e0e921057a744559a9736",
+      "source_digest": "sha256:77c0d815b10d3dc280e9862ff207914ad6f9a2cd4578a5055c04d3beec69aef4",
       "source_image": "registry-1.docker.io/bitnamisecure/os-shell:latest",
-      "target_digest": "sha256:52f04d8e29dc3d77929fca8d75890c4cabe6182f650e0e921057a744559a9736",
+      "target_digest": "sha256:77c0d815b10d3dc280e9862ff207914ad6f9a2cd4578a5055c04d3beec69aef4",
       "target_registry": "docker.io",
       "target_repository": "inglp/bitnami-secure-os-shell",
-      "target_tag": "5-photon-5-r99"
+      "target_tag": "5-photon-5-r100"
     }
   ],
-  "mirror_revision": 1,
+  "mirror_revision": 2,
   "published": true,
   "source_digest": "sha256:2ba4177cf903ed970622be89bde51a897c1a372d29c6f7bb60979e8c69470221",
   "upstream_version": "27.0.7",
-  "version": "27.0.7-inglp.r1"
+  "version": "27.0.7-inglp.r2"
 }

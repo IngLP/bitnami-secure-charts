@@ -32,8 +32,8 @@ diagnosticMode:
 image:
   registry: docker.io
   repository: inglp/bitnami-secure-mongodb
-  tag: 8.3.8-photon-5-r5
-  digest: sha256:1b97815032d03904c324dea54e61c990a8ba3e6ae8d1074b525b6ea1d228f68a
+  tag: 8.3.8-photon-5-r6
+  digest: sha256:b77f866f746d0e684ea4d94d49c555959ffb965d41f8c279e760a250550e805a
   pullPolicy: IfNotPresent
   pullSecrets: []
   debug: false
@@ -72,8 +72,8 @@ tls:
   image:
     registry: docker.io
     repository: inglp/bitnami-secure-nginx
-    tag: 1.31.4-photon-5-r1
-    digest: sha256:14e3a7235f3cde1cd52e073e2eb152522167e6d893e339e42bda054cef6ff44a
+    tag: 1.31.5-photon-5-r0
+    digest: sha256:42091a975fab1fe0ea8d050a9e6753ac73c15a7094cb385e644d0a7f581507db
     pullPolicy: IfNotPresent
     pullSecrets: []
   extraDnsNames: []
@@ -227,8 +227,8 @@ externalAccess:
     image:
       registry: docker.io
       repository: inglp/bitnami-secure-os-shell
-      tag: 5-photon-5-r99
-      digest: sha256:52f04d8e29dc3d77929fca8d75890c4cabe6182f650e0e921057a744559a9736
+      tag: 5-photon-5-r100
+      digest: sha256:77c0d815b10d3dc280e9862ff207914ad6f9a2cd4578a5055c04d3beec69aef4
       pullPolicy: IfNotPresent
       pullSecrets: []
     resourcesPreset: nano
@@ -417,8 +417,8 @@ volumePermissions:
   image:
     registry: docker.io
     repository: inglp/bitnami-secure-os-shell
-    tag: 5-photon-5-r99
-    digest: sha256:52f04d8e29dc3d77929fca8d75890c4cabe6182f650e0e921057a744559a9736
+    tag: 5-photon-5-r100
+    digest: sha256:77c0d815b10d3dc280e9862ff207914ad6f9a2cd4578a5055c04d3beec69aef4
     pullPolicy: IfNotPresent
     pullSecrets: []
   resourcesPreset: nano
@@ -734,8 +734,8 @@ mcp:
   image:
     registry: docker.io
     repository: inglp/bitnami-secure-mcp-mongodb
-    tag: 2.1.0-photon-5-r4
-    digest: sha256:d25a4985655b3ea71ec81e661d8a7930186f38df602f50878216853bb02185b9
+    tag: 2.1.0-photon-5-r5
+    digest: sha256:63e14f8f013eec9f822affe6496e4a9f3c47402a8cb7d06d455de13fc169b6fc
     pullPolicy: IfNotPresent
     pullSecrets: []
   containerPorts:
