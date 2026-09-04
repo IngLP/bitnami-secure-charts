@@ -1,0 +1,55 @@
+{
+  "chart": "postgresql",
+  "content_fingerprint": "sha256:31785504678dc268ca98e885e98ba466ea41766d5391b8a0b745b51f2f52088b",
+  "dependencies": [
+    {
+      "name": "common",
+      "repository": "https://inglp.github.io/bitnami-secure-charts",
+      "upstream_version": "2.41.0",
+      "version": "2.41.0-inglp.r0"
+    }
+  ],
+  "images": [
+    {
+      "app_version": "5",
+      "image_revision": "101",
+      "name": "os-shell",
+      "os_flavour": "photon-5",
+      "source_digest": "sha256:481601c7f12a169eb8bfedbb6e434b8641abd5422eacf695e0c0823f15a00afc",
+      "source_image": "registry-1.docker.io/bitnamisecure/os-shell:latest",
+      "target_digest": "sha256:481601c7f12a169eb8bfedbb6e434b8641abd5422eacf695e0c0823f15a00afc",
+      "target_registry": "docker.io",
+      "target_repository": "inglp/bitnami-secure-os-shell",
+      "target_tag": "5-photon-5-r101"
+    },
+    {
+      "app_version": "0.20.1",
+      "image_revision": "10",
+      "name": "postgres-exporter",
+      "os_flavour": "photon-5",
+      "source_digest": "sha256:c6b5bd91427e5fad89c4995c198c9cf2851555cbc7d8f720d37f0ba201933a3b",
+      "source_image": "registry-1.docker.io/bitnamisecure/postgres-exporter:latest",
+      "target_digest": "sha256:c6b5bd91427e5fad89c4995c198c9cf2851555cbc7d8f720d37f0ba201933a3b",
+      "target_registry": "docker.io",
+      "target_repository": "inglp/bitnami-secure-postgres-exporter",
+      "target_tag": "0.20.1-photon-5-r10"
+    },
+    {
+      "app_version": "18.6.0",
+      "image_revision": "7",
+      "name": "postgresql",
+      "os_flavour": "photon-5",
+      "source_digest": "sha256:5614f19e4a5077217e53b3bd7e7f69d06af6a02919af4b90a9702e3648190c8c",
+      "source_image": "registry-1.docker.io/bitnamisecure/postgresql:latest",
+      "target_digest": "sha256:5614f19e4a5077217e53b3bd7e7f69d06af6a02919af4b90a9702e3648190c8c",
+      "target_registry": "docker.io",
+      "target_repository": "inglp/bitnami-secure-postgresql",
+      "target_tag": "18.6.0-photon-5-r7"
+    }
+  ],
+  "mirror_revision": 0,
+  "published": true,
+  "source_digest": "sha256:2b1d6023f9540c59686fce065889a496a47cd8df9a66f0dbb78affe13cdcedbc",
+  "upstream_version": "18.8.17",
+  "version": "18.8.17-inglp.r0"
+}
