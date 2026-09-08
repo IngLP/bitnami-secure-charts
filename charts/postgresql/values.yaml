@@ -113,6 +113,7 @@ tls:
   sslMode: verify-ca
 primary:
   name: primary
+  replicaCount: 1
   configuration: ''
   pgHbaConfiguration: ''
   existingConfigmap: ''
