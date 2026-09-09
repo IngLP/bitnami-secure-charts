@@ -177,6 +177,8 @@ primary:
     sysctls: []
     supplementalGroups: []
     fsGroup: 1001
+    seccompProfile:
+      type: RuntimeDefault
   containerSecurityContext:
     enabled: true
     seLinuxOptions: {}
@@ -314,6 +316,8 @@ readReplicas:
     sysctls: []
     supplementalGroups: []
     fsGroup: 1001
+    seccompProfile:
+      type: RuntimeDefault
   containerSecurityContext:
     enabled: true
     seLinuxOptions: {}
@@ -423,6 +427,8 @@ backup:
       sysctls: []
       supplementalGroups: []
       fsGroup: 1001
+      seccompProfile:
+        type: RuntimeDefault
     containerSecurityContext:
       enabled: true
       seLinuxOptions: {}
@@ -499,6 +505,8 @@ passwordUpdateJob:
     sysctls: []
     supplementalGroups: []
     fsGroup: 1001
+    seccompProfile:
+      type: RuntimeDefault
   extraEnvVars: []
   extraEnvVarsCM: ''
   extraEnvVarsSecret: ''
