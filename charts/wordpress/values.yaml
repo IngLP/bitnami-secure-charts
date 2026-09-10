@@ -367,6 +367,12 @@ mariadb:
     resources: {}
     fips:
       openssl: ''
+  networkPolicy:
+    enabled: true
+    allowExternal: false
+    addExternalClientAccess: false
+    ingressReleaseMatchLabels:
+      app.kubernetes.io/component: wordpress
 externalDatabase:
   host: localhost
   port: 3306

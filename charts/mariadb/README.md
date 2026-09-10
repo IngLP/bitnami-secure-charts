@@ -737,15 +737,16 @@ As an alternative, this chart supports using an initContainer to change the owne
 
 ### NetworkPolicy parameters
 
-| Name                                    | Description                                                     | Value  |
-| --------------------------------------- | --------------------------------------------------------------- | ------ |
-| `networkPolicy.enabled`                 | Enable creation of NetworkPolicy resources                      | `true` |
-| `networkPolicy.allowExternal`           | The Policy model to apply                                       | `true` |
-| `networkPolicy.allowExternalEgress`     | Allow the pod to access any range of port and all destinations. | `true` |
-| `networkPolicy.extraIngress`            | Add extra ingress rules to the NetworkPolicy                    | `[]`   |
-| `networkPolicy.extraEgress`             | Add extra egress rules to the NetworkPolicy                     | `[]`   |
-| `networkPolicy.ingressNSMatchLabels`    | Labels to match to allow traffic from other namespaces          | `{}`   |
-| `networkPolicy.ingressNSPodMatchLabels` | Pod labels to match to allow traffic from other namespaces      | `{}`   |
+| Name                                      | Description                                                                                                       | Value  |
+| ----------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ------ |
+| `networkPolicy.enabled`                   | Enable creation of NetworkPolicy resources                                                                        | `true` |
+| `networkPolicy.allowExternal`             | The Policy model to apply                                                                                         | `true` |
+| `networkPolicy.allowExternalEgress`       | Allow the pod to access any range of port and all destinations.                                                   | `true` |
+| `networkPolicy.extraIngress`              | Add extra ingress rules to the NetworkPolicy                                                                      | `[]`   |
+| `networkPolicy.extraEgress`               | Add extra egress rules to the NetworkPolicy                                                                       | `[]`   |
+| `networkPolicy.ingressNSMatchLabels`      | Labels to match to allow traffic from other namespaces                                                            | `{}`   |
+| `networkPolicy.ingressNSPodMatchLabels`   | Pod labels to match to allow traffic from other namespaces                                                        | `{}`   |
+| `networkPolicy.ingressReleaseMatchLabels` | Labels to match pods in the same release to allow traffic from. Ignored if `networkPolicy.allowExternal` is true. | `{}`   |
 
 The above parameters map to the env variables defined in [bitnami/mariadb](https://github.com/bitnami/containers/tree/main/bitnami/mariadb). For more information please refer to the [bitnami/mariadb](https://github.com/bitnami/containers/tree/main/bitnami/mariadb) image documentation.
 
