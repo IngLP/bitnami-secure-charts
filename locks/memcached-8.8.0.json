@@ -1,0 +1,55 @@
+{
+  "chart": "memcached",
+  "content_fingerprint": "sha256:abd2391315d47605b4d16bc5f969a622d9876d13117c16f8f8dd0c52ac34721a",
+  "dependencies": [
+    {
+      "name": "common",
+      "repository": "https://inglp.github.io/bitnami-secure-charts",
+      "upstream_version": "2.41.0",
+      "version": "2.41.0-inglp.r0"
+    }
+  ],
+  "images": [
+    {
+      "app_version": "1.6.45",
+      "image_revision": "10",
+      "name": "memcached",
+      "os_flavour": "photon-5",
+      "source_digest": "sha256:04f671e2cd4c3c8d65fd0dcc8852cc0718dfe969e5f8f19206df7e705e87e061",
+      "source_image": "registry-1.docker.io/bitnamisecure/memcached:latest",
+      "target_digest": "sha256:04f671e2cd4c3c8d65fd0dcc8852cc0718dfe969e5f8f19206df7e705e87e061",
+      "target_registry": "docker.io",
+      "target_repository": "inglp/bitnami-secure-memcached",
+      "target_tag": "1.6.45-photon-5-r10"
+    },
+    {
+      "app_version": "0.17.0",
+      "image_revision": "6",
+      "name": "memcached-exporter",
+      "os_flavour": "linux",
+      "source_digest": "sha256:5429b9f689f13f24a1c7cf6ffb1ded6281586eedf03cb39feec6774a232664b7",
+      "source_image": "registry-1.docker.io/bitnamisecure/memcached-exporter:latest",
+      "target_digest": "sha256:5429b9f689f13f24a1c7cf6ffb1ded6281586eedf03cb39feec6774a232664b7",
+      "target_registry": "docker.io",
+      "target_repository": "inglp/bitnami-secure-memcached-exporter",
+      "target_tag": "0.17.0-linux-r6"
+    },
+    {
+      "app_version": "5",
+      "image_revision": "101",
+      "name": "os-shell",
+      "os_flavour": "photon-5",
+      "source_digest": "sha256:481601c7f12a169eb8bfedbb6e434b8641abd5422eacf695e0c0823f15a00afc",
+      "source_image": "registry-1.docker.io/bitnamisecure/os-shell:latest",
+      "target_digest": "sha256:481601c7f12a169eb8bfedbb6e434b8641abd5422eacf695e0c0823f15a00afc",
+      "target_registry": "docker.io",
+      "target_repository": "inglp/bitnami-secure-os-shell",
+      "target_tag": "5-photon-5-r101"
+    }
+  ],
+  "mirror_revision": 0,
+  "published": true,
+  "source_digest": "sha256:498f73505649ca68fec1b1516576d9a636b3ee5fc9f799a5466161d9d9511ca6",
+  "upstream_version": "8.8.0",
+  "version": "8.8.0-inglp.r0"
+}

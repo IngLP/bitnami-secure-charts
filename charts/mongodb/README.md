@@ -948,6 +948,7 @@ If you encounter errors when working with persistent volumes, refer to our [trou
 | `networkPolicy.ingressPodMatchLabels`              | Labels to match to allow traffic from other pods. Ignored if `networkPolicy.allowExternal` is true.                                   | `{}`                |
 | `networkPolicy.ingressNSMatchLabels`               | Labels to match to allow traffic from other namespaces. Ignored if `networkPolicy.allowExternal` is true.                             | `{}`                |
 | `networkPolicy.ingressNSPodMatchLabels`            | Pod labels to match to allow traffic from other namespaces. Ignored if `networkPolicy.allowExternal` is true.                         | `{}`                |
+| `networkPolicy.ingressReleaseMatchLabels`          | Labels to match pods in the same release to allow traffic from. Ignored if `networkPolicy.allowExternal` is true.                     | `{}`                |
 | `persistence.enabled`                              | Enable MongoDB(&reg;) data persistence using PVC                                                                                      | `true`              |
 | `persistence.name`                                 | Name of the PVC and mounted volume                                                                                                    | `datadir`           |
 | `persistence.medium`                               | Provide a medium for `emptyDir` volumes.                                                                                              | `""`                |

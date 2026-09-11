@@ -43,8 +43,8 @@ diagnosticMode:
 image:
   registry: docker.io
   repository: inglp/bitnami-secure-postgresql
-  tag: 18.6.0-photon-5-r7
-  digest: sha256:5614f19e4a5077217e53b3bd7e7f69d06af6a02919af4b90a9702e3648190c8c
+  tag: 18.6.0-photon-5-r8
+  digest: sha256:65d7506622ce2649914947b698d822d56c208295ba7ee80c1b34e48b251ba0c1
   pullPolicy: IfNotPresent
   pullSecrets: []
   debug: false
@@ -233,8 +233,10 @@ primary:
     allowExternalEgress: true
     extraIngress: []
     extraEgress: []
+    addExternalClientAccess: true
     ingressNSMatchLabels: {}
     ingressNSPodMatchLabels: {}
+    ingressReleaseMatchLabels: {}
   service:
     enabled: true
     type: ClusterIP
@@ -372,8 +374,10 @@ readReplicas:
     allowExternalEgress: true
     extraIngress: []
     extraEgress: []
+    addExternalClientAccess: true
     ingressNSMatchLabels: {}
     ingressNSPodMatchLabels: {}
+    ingressReleaseMatchLabels: {}
   service:
     type: ClusterIP
     ports:

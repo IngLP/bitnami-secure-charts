@@ -53,11 +53,13 @@ spec:
         {{- end }}
       {{- if not .Values.readReplicas.networkPolicy.allowExternal }}
       from:
-        - podSelector:
-            matchLabels: {{- include "common.labels.matchLabels" ( dict "customLabels" $podLabels "context" $ ) | nindent 14 }}
+        {{- if .Values.readReplicas.networkPolicy.addExternalClientAccess }}
         - podSelector:
             matchLabels:
               {{ template "postgresql.v1.readReplica.fullname" . }}-client: "true"
+        {{- end }}
+        - podSelector:
+            matchLabels: {{- include "common.labels.matchLabels" ( dict "customLabels" $podLabels "context" $ ) | nindent 14 }}
         {{- if .Values.readReplicas.networkPolicy.ingressNSMatchLabels }}
         - namespaceSelector:
             matchLabels:
@@ -71,6 +73,14 @@ spec:
               {{ $key | quote }}: {{ $value | quote }}
               {{- end }}
           {{- end }}
+        {{- end }}
+        {{- if .Values.readReplicas.networkPolicy.ingressReleaseMatchLabels }}
+        - podSelector:
+            matchLabels:
+              app.kubernetes.io/instance: {{ .Release.Name | quote }}
+              {{- range $key, $value := .Values.readReplicas.networkPolicy.ingressReleaseMatchLabels }}
+              {{ $key }}: {{ tpl $value $ | quote }}
+              {{- end }}
         {{- end }}
       {{- end }}
     {{- if .Values.readReplicas.networkPolicy.extraIngress }}

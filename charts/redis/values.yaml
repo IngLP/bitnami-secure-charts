@@ -515,8 +515,10 @@ networkPolicy:
   allowExternalEgress: true
   extraIngress: []
   extraEgress: []
+  addExternalClientAccess: true
   ingressNSMatchLabels: {}
   ingressNSPodMatchLabels: {}
+  ingressReleaseMatchLabels: {}
   metrics:
     allowExternal: true
     ingressNSMatchLabels: {}

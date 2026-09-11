@@ -332,6 +332,7 @@ networkPolicy:
   ingressPodMatchLabels: {}
   ingressNSMatchLabels: {}
   ingressNSPodMatchLabels: {}
+  ingressReleaseMatchLabels: {}
 persistence:
   enabled: true
   name: datadir

@@ -88,6 +88,14 @@ spec:
             matchLabels: {{- include "common.tplvalues.render" (dict "value" $ingressNSPodMatchLabels "context" $ ) | nindent 14 }}
           {{- end }}
         {{- end }}
+        {{- if .Values.networkPolicy.ingressReleaseMatchLabels }}
+        - podSelector:
+            matchLabels:
+              app.kubernetes.io/instance: {{ .Release.Name | quote }}
+              {{- range $key, $value := .Values.networkPolicy.ingressReleaseMatchLabels }}
+              {{ $key }}: {{ tpl $value $ | quote }}
+              {{- end }}
+        {{- end }}
       {{- end }}
     {{- $extraIngress := coalesce .Values.networkPolicy.extraIngress .Values.networkPolicy.customRules }}
     {{- if $extraIngress }}

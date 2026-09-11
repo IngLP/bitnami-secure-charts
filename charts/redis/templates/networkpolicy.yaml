@@ -52,9 +52,11 @@ spec:
         {{- end }}
       {{- if not .Values.networkPolicy.allowExternal }}
       from:
+        {{- if .Values.networkPolicy.addExternalClientAccess }}
         - podSelector:
             matchLabels:
               {{ template "common.names.fullname" . }}-client: "true"
+        {{- end }}
         - podSelector:
             matchLabels: {{- include "common.labels.matchLabels" ( dict "customLabels" .Values.commonLabels "context" $ ) | nindent 14 }}
         {{- if or .Values.networkPolicy.ingressNSMatchLabels .Values.networkPolicy.ingressNSPodMatchLabels }}
@@ -74,6 +76,14 @@ spec:
               {{ $key | quote }}: {{ $value | quote }}
               {{- end }}
           {{- end }}
+        {{- end }}
+        {{- if .Values.networkPolicy.ingressReleaseMatchLabels }}
+        - podSelector:
+            matchLabels:
+              app.kubernetes.io/instance: {{ .Release.Name | quote }}
+              {{- range $key, $value := .Values.networkPolicy.ingressReleaseMatchLabels }}
+              {{ $key }}: {{ tpl $value $ | quote }}
+              {{- end }}
         {{- end }}
       {{- end }}
     {{- if .Values.metrics.enabled }}
