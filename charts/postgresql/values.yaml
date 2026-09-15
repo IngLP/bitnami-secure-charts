@@ -43,8 +43,8 @@ diagnosticMode:
 image:
   registry: docker.io
   repository: inglp/bitnami-secure-postgresql
-  tag: 18.6.0-photon-5-r8
-  digest: sha256:65d7506622ce2649914947b698d822d56c208295ba7ee80c1b34e48b251ba0c1
+  tag: 18.6.0-photon-5-r11
+  digest: sha256:b69d1fca390fb131639e86e820f248acfc5d911339dc884796f8009260c598d7
   pullPolicy: IfNotPresent
   pullSecrets: []
   debug: false
