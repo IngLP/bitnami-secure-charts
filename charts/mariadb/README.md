@@ -744,6 +744,7 @@ As an alternative, this chart supports using an initContainer to change the owne
 | `networkPolicy.allowExternalEgress`       | Allow the pod to access any range of port and all destinations.                                                   | `true` |
 | `networkPolicy.extraIngress`              | Add extra ingress rules to the NetworkPolicy                                                                      | `[]`   |
 | `networkPolicy.extraEgress`               | Add extra egress rules to the NetworkPolicy                                                                       | `[]`   |
+| `networkPolicy.addExternalClientAccess`   | Allow access from pods with client label set to "true". Ignored if `networkPolicy.allowExternal` is true.         | `true` |
 | `networkPolicy.ingressNSMatchLabels`      | Labels to match to allow traffic from other namespaces                                                            | `{}`   |
 | `networkPolicy.ingressNSPodMatchLabels`   | Pod labels to match to allow traffic from other namespaces                                                        | `{}`   |
 | `networkPolicy.ingressReleaseMatchLabels` | Labels to match pods in the same release to allow traffic from. Ignored if `networkPolicy.allowExternal` is true. | `{}`   |

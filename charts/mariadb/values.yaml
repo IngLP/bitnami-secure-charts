@@ -28,8 +28,8 @@ serviceBindings:
 image:
   registry: docker.io
   repository: inglp/bitnami-secure-mariadb
-  tag: 13.0.1-photon-5-r9
-  digest: sha256:16c4d59ca1e33e557e5003596d244aefac4dd03220c8967ae12e3cee2a4c7dd9
+  tag: 13.1.1-photon-5-r0
+  digest: sha256:c2cb0a98c3f71edc21ff7d03a4ae132156189adbc1d47442bc8b1ea51f017983
   pullPolicy: IfNotPresent
   pullSecrets: []
   debug: false
@@ -648,6 +648,7 @@ networkPolicy:
   allowExternalEgress: true
   extraIngress: []
   extraEgress: []
+  addExternalClientAccess: true
   ingressNSMatchLabels: {}
   ingressNSPodMatchLabels: {}
   ingressReleaseMatchLabels: {}

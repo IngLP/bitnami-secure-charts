@@ -183,6 +183,7 @@ networkPolicy:
   ingressPodMatchLabels: {}
   ingressNSMatchLabels: {}
   ingressNSPodMatchLabels: {}
+  ingressReleaseMatchLabels: {}
 serviceAccount:
   create: true
   name: ''

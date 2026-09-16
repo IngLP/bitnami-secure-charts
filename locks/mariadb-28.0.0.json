@@ -1,6 +1,6 @@
 {
   "chart": "mariadb",
-  "content_fingerprint": "sha256:e1646235d844fbc177742483fae9defb0b53e2cbc77f4fe43817d8cde6f97912",
+  "content_fingerprint": "sha256:bcc84ab5a5eadcc4d47badffe52171bb29750a9e25c764dec21e35cbe5fb4e53",
   "dependencies": [
     {
       "name": "common",
@@ -47,9 +47,9 @@
       "target_tag": "5-photon-5-r101"
     }
   ],
-  "mirror_revision": 1,
+  "mirror_revision": 0,
   "published": true,
-  "source_digest": "sha256:271345aaa71a4a9ecc9977e32fb6c5b1fa2050e8f9d93ab8005cf173ab36e1ca",
-  "upstream_version": "27.3.0",
-  "version": "27.3.0-inglp.r1"
+  "source_digest": "sha256:9f2cb690e1bf15ef0363587f27959f97177d2b55730a8cfda8465a55fd9da514",
+  "upstream_version": "28.0.0",
+  "version": "28.0.0-inglp.r0"
 }
