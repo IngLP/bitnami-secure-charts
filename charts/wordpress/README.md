@@ -732,6 +732,10 @@ To enable the new features, it is not possible to do it by upgrading an existing
 
 The following subsections describe notable changes when upgrading.
 
+### To 34.0.0
+
+This major release bumps the MariaDB version to 13.1. Follow the [upstream instructions](https://mariadb.com/docs/server/server-management/install-and-upgrade-mariadb/upgrading) for upgrading from MariaDB 13.0 to 13.1. No major issues are expected during the upgrade.
+
 ### To 33.0.0
 
 This major release bumps the MariaDB version to 13.0. Follow the [upstream instructions](https://mariadb.com/docs/server/server-management/install-and-upgrade-mariadb/upgrading) for upgrading from MariaDB 12.3 to 13.0. No major issues are expected during the upgrade.

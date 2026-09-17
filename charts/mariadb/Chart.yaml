@@ -1,15 +1,15 @@
 annotations:
   fips: 'true'
-  images: "- name: mariadb\n  version: 13.0.1\n  image: registry-1.docker.io/bitnamisecure/mariadb:latest\n\
+  images: "- name: mariadb\n  version: 13.1.1\n  image: registry-1.docker.io/bitnamisecure/mariadb:latest\n\
     - name: mysqld-exporter\n  version: 0.20.0\n  image: registry-1.docker.io/bitnamisecure/mysqld-exporter:latest\n\
     - name: os-shell\n  version: \"5\"\n  image: registry-1.docker.io/bitnamisecure/os-shell:latest\n"
   licenses: Apache-2.0
   tanzuCategory: service
-  inglp.bitnami-secure-mirror/source-chart: registry-1.docker.io/bitnamichartssecure/mariadb:27.3.0
-  inglp.bitnami-secure-mirror/source-digest: sha256:271345aaa71a4a9ecc9977e32fb6c5b1fa2050e8f9d93ab8005cf173ab36e1ca
-  inglp.bitnami-secure-mirror/upstream-version: 27.3.0
+  inglp.bitnami-secure-mirror/source-chart: registry-1.docker.io/bitnamichartssecure/mariadb:28.0.0
+  inglp.bitnami-secure-mirror/source-digest: sha256:9f2cb690e1bf15ef0363587f27959f97177d2b55730a8cfda8465a55fd9da514
+  inglp.bitnami-secure-mirror/upstream-version: 28.0.0
 apiVersion: v2
-appVersion: 13.0.1
+appVersion: 13.1.1
 dependencies:
 - name: common
   repository: https://inglp.github.io/bitnami-secure-charts
@@ -33,4 +33,4 @@ maintainers:
 name: mariadb
 sources:
 - https://github.com/bitnami/charts/tree/main/bitnami/mariadb
-version: 27.3.0-inglp.r1
+version: 28.0.0-inglp.r0
