@@ -1,6 +1,6 @@
 {
   "chart": "mongodb",
-  "content_fingerprint": "sha256:121898dcbd3239cc277b3c8780bd416efc4d0549d804938ef275561f9f84697e",
+  "content_fingerprint": "sha256:968e297a1ac470bd368678381a3e9074df3c4bac08453933a726a665cb855d27",
   "dependencies": [
     {
       "name": "common",
@@ -35,16 +35,16 @@
       "target_tag": "1.37.0-photon-5-r2"
     },
     {
-      "app_version": "2.1.1",
+      "app_version": "3.0.3",
       "image_revision": "0",
       "name": "mcp-mongodb",
       "os_flavour": "photon-5",
-      "source_digest": "sha256:fa955539629c964a962a109b2672de57697e800b407d9d783e1380c156cb6a28",
+      "source_digest": "sha256:d98ba6208b8c92bd07c08170fdd6d179ed28650df56c4d678dbad631802cb729",
       "source_image": "registry-1.docker.io/bitnamisecure/mcp-mongodb:latest",
-      "target_digest": "sha256:fa955539629c964a962a109b2672de57697e800b407d9d783e1380c156cb6a28",
+      "target_digest": "sha256:d98ba6208b8c92bd07c08170fdd6d179ed28650df56c4d678dbad631802cb729",
       "target_registry": "docker.io",
       "target_repository": "inglp/bitnami-secure-mcp-mongodb",
-      "target_tag": "2.1.1-photon-5-r0"
+      "target_tag": "3.0.3-photon-5-r0"
     },
     {
       "app_version": "8.3.11",
@@ -95,9 +95,9 @@
       "target_tag": "5-photon-5-r101"
     }
   ],
-  "mirror_revision": 2,
+  "mirror_revision": 3,
   "published": true,
   "source_digest": "sha256:0949bd55ded647fe0b023d77f782272790f4c9c6236a3768a318c6440459f824",
   "upstream_version": "19.2.1",
-  "version": "19.2.1-inglp.r2"
+  "version": "19.2.1-inglp.r3"
 }
