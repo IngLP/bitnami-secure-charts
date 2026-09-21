@@ -28,8 +28,8 @@ serviceBindings:
 image:
   registry: docker.io
   repository: inglp/bitnami-secure-mariadb
-  tag: 13.1.1-photon-5-r0
-  digest: sha256:c2cb0a98c3f71edc21ff7d03a4ae132156189adbc1d47442bc8b1ea51f017983
+  tag: 13.1.1-photon-5-r1
+  digest: sha256:c12340aa3504ba0df3e198a5d2375528761e7ddcaa1935f28d34d844f5e14f75
   pullPolicy: IfNotPresent
   pullSecrets: []
   debug: false
