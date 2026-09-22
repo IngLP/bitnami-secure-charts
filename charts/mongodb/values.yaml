@@ -735,8 +735,8 @@ mcp:
   image:
     registry: docker.io
     repository: inglp/bitnami-secure-mcp-mongodb
-    tag: 3.0.3-photon-5-r0
-    digest: sha256:d98ba6208b8c92bd07c08170fdd6d179ed28650df56c4d678dbad631802cb729
+    tag: 3.0.4-photon-5-r0
+    digest: sha256:61875845a0ea5387e0b6a9d9195cdce34a35d519cd1136db7b9bffbc14b1dba2
     pullPolicy: IfNotPresent
     pullSecrets: []
   containerPorts:
