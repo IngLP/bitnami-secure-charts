@@ -113,6 +113,9 @@ spec:
                 --httpHost {{ ternary "127.0.0.1" "0.0.0.0" .Values.mcp.auth.enabled }} \
                 --httpPort {{ .Values.mcp.containerPorts.http }} \
                 --loggers stderr \
+                {{- if not .Values.mcp.auth.enabled }}
+                --dangerousHostBinding \
+                {{- end }}
                 {{- if .Values.mcp.readOnly }}
                 --readOnly \
                 {{- end }}
