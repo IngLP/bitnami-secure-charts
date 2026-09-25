@@ -43,8 +43,8 @@ diagnosticMode:
 image:
   registry: docker.io
   repository: inglp/bitnami-secure-postgresql
-  tag: 18.6.0-photon-5-r13
-  digest: sha256:7d77a46bbf200709237318c27dec0eaeae2520e403dd18fdebde2be7a6b04993
+  tag: 18.6.0-photon-5-r15
+  digest: sha256:21b97a850d7417940e58d929b8d0ebb0fc9b9f44bc1b6cd8f128d1b4ce6988e5
   pullPolicy: IfNotPresent
   pullSecrets: []
   debug: false
@@ -215,6 +215,7 @@ primary:
   schedulerName: ''
   runtimeClassName: ''
   terminationGracePeriodSeconds: ''
+  enableServiceLinks: true
   updateStrategy:
     type: RollingUpdate
     rollingUpdate: {}
@@ -356,6 +357,7 @@ readReplicas:
   schedulerName: ''
   runtimeClassName: ''
   terminationGracePeriodSeconds: ''
+  enableServiceLinks: true
   updateStrategy:
     type: RollingUpdate
     rollingUpdate: {}

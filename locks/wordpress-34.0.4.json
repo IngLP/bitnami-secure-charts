@@ -1,6 +1,6 @@
 {
   "chart": "wordpress",
-  "content_fingerprint": "sha256:eea15b53588ac37298b76ca57c7673eaf767f351b147cd7d219f19dc4572650b",
+  "content_fingerprint": "sha256:94cc40f6acd01c858371bd07eda5d48b2baba9aed41b150d42e6cb926fa77d63",
   "dependencies": [
     {
       "name": "memcached",
@@ -24,15 +24,15 @@
   "images": [
     {
       "app_version": "1.1.1",
-      "image_revision": "19",
+      "image_revision": "20",
       "name": "apache-exporter",
       "os_flavour": "photon-5",
-      "source_digest": "sha256:e83930e202c05dd8b385d2f933108dbe32d9e5b4835c0549ed3499621b1e98a0",
+      "source_digest": "sha256:74e695f827434fd6a99ca62ea08f828461abe51015cb3406691cc187b4cb2664",
       "source_image": "registry-1.docker.io/bitnamisecure/apache-exporter:latest",
-      "target_digest": "sha256:e83930e202c05dd8b385d2f933108dbe32d9e5b4835c0549ed3499621b1e98a0",
+      "target_digest": "sha256:74e695f827434fd6a99ca62ea08f828461abe51015cb3406691cc187b4cb2664",
       "target_registry": "docker.io",
       "target_repository": "inglp/bitnami-secure-apache-exporter",
-      "target_tag": "1.1.1-photon-5-r19"
+      "target_tag": "1.1.1-photon-5-r20"
     },
     {
       "app_version": "5",
@@ -59,9 +59,9 @@
       "target_tag": "7.1.2-photon-5-r0"
     }
   ],
-  "mirror_revision": 0,
+  "mirror_revision": 1,
   "published": true,
   "source_digest": "sha256:066cb25bd5694ef8894e4b65aeaf70e22928dc595c1274562860c4c4bd773d9c",
   "upstream_version": "34.0.4",
-  "version": "34.0.4-inglp.r0"
+  "version": "34.0.4-inglp.r1"
 }

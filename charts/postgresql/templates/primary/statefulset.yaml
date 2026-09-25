@@ -82,6 +82,7 @@ spec:
       {{- if .Values.primary.schedulerName }}
       schedulerName: {{ .Values.primary.schedulerName | quote }}
       {{- end }}
+      enableServiceLinks: {{ .Values.primary.enableServiceLinks }}
       {{- if .Values.primary.terminationGracePeriodSeconds }}
       terminationGracePeriodSeconds: {{ .Values.primary.terminationGracePeriodSeconds }}
       {{- end }}
