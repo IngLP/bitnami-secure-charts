@@ -1,6 +1,6 @@
 {
   "chart": "mongodb",
-  "content_fingerprint": "sha256:091e699fb95cc5dcd4a5db6685e4322a1fe652ecfb21a463d72aa92c380fb843",
+  "content_fingerprint": "sha256:ca059eef6e0a08daddaf3c023e475bfd55d91cd81f0b807261b4a12f5d33ca21",
   "dependencies": [
     {
       "name": "common",
@@ -11,16 +11,16 @@
   ],
   "images": [
     {
-      "app_version": "0.22.1",
-      "image_revision": "6",
+      "app_version": "0.23.0",
+      "image_revision": "0",
       "name": "kube-rbac-proxy",
       "os_flavour": "linux",
-      "source_digest": "sha256:99ac4089dccabbcaf8be23f14492e69175e9a33f54e53ac2440ba2be4ab6f778",
+      "source_digest": "sha256:896c22b42c655260f9e6f57b9b3c9acec21c6368c45d4cddc33b50e355157bde",
       "source_image": "registry-1.docker.io/bitnamisecure/kube-rbac-proxy:latest",
-      "target_digest": "sha256:99ac4089dccabbcaf8be23f14492e69175e9a33f54e53ac2440ba2be4ab6f778",
+      "target_digest": "sha256:896c22b42c655260f9e6f57b9b3c9acec21c6368c45d4cddc33b50e355157bde",
       "target_registry": "docker.io",
       "target_repository": "inglp/bitnami-secure-kube-rbac-proxy",
-      "target_tag": "0.22.1-linux-r6"
+      "target_tag": "0.23.0-linux-r0"
     },
     {
       "app_version": "1.37.1",
@@ -95,9 +95,9 @@
       "target_tag": "5-photon-5-r103"
     }
   ],
-  "mirror_revision": 0,
+  "mirror_revision": 1,
   "published": true,
   "source_digest": "sha256:6402195fb81436e5096446b5f22504b40878e12d25204abf557d07b7d991a879",
   "upstream_version": "19.3.1",
-  "version": "19.3.1-inglp.r0"
+  "version": "19.3.1-inglp.r1"
 }
