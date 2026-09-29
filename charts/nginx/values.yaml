@@ -40,6 +40,7 @@ extraEnvVarsCM: ''
 extraEnvVarsSecret: ''
 replicaCount: 1
 revisionHistoryLimit: 10
+enableServiceLinks: true
 updateStrategy:
   type: RollingUpdate
   rollingUpdate: {}
@@ -152,8 +153,8 @@ cloneStaticSiteFromGit:
   image:
     registry: docker.io
     repository: inglp/bitnami-secure-git
-    tag: 2.55.0-photon-5-r16
-    digest: sha256:1316462e269135135ae2aeea6d955b76aa7b76438b9bf54aab511a4176bcd6f7
+    tag: 2.56.0-photon-5-r0
+    digest: sha256:39148e56bc1109bc20853b556cc886e2f0d691d5a347a59a16d6a5b9741e5f6e
     pullPolicy: IfNotPresent
     pullSecrets: []
   repository: ''

@@ -204,6 +204,7 @@ primary:
 
     pid-file=/opt/bitnami/mariadb/tmp/mysqld.pid'
   existingConfigmap: ''
+  enableServiceLinks: true
   updateStrategy:
     type: RollingUpdate
   podAnnotations: {}
@@ -394,6 +395,7 @@ secondary:
 
     pid-file=/opt/bitnami/mariadb/tmp/mysqld.pid'
   existingConfigmap: ''
+  enableServiceLinks: true
   updateStrategy:
     type: RollingUpdate
   podAnnotations: {}

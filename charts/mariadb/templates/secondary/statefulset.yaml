@@ -52,6 +52,7 @@ spec:
       {{- end }}
       serviceAccountName: {{ template "mariadb.serviceAccountName" . }}
       automountServiceAccountToken: {{ .Values.secondary.automountServiceAccountToken }}
+      enableServiceLinks: {{ .Values.secondary.enableServiceLinks }}
       {{- if .Values.secondary.hostAliases }}
       hostAliases: {{- include "common.tplvalues.render" (dict "value" .Values.secondary.hostAliases "context" $) | nindent 8 }}
       {{- end }}

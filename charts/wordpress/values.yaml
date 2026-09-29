@@ -73,6 +73,7 @@ multisite:
   networkType: subdomain
   enableNipIoRedirect: false
 replicaCount: 1
+enableServiceLinks: true
 updateStrategy:
   type: RollingUpdate
 schedulerName: ''
