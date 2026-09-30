@@ -28,8 +28,8 @@ serviceBindings:
 image:
   registry: docker.io
   repository: inglp/bitnami-secure-mariadb
-  tag: 13.1.1-photon-5-r2
-  digest: sha256:7f9727e5fe4fdad4ee22298c63a6d42e31237389b31917b58a8b6cf6e7a44dd6
+  tag: 13.1.1-photon-5-r3
+  digest: sha256:354e5aec20455bce931a05fa791c51e4a45879015bee09591295c76fe88c037e
   pullPolicy: IfNotPresent
   pullSecrets: []
   debug: false
@@ -563,8 +563,8 @@ volumePermissions:
   image:
     registry: docker.io
     repository: inglp/bitnami-secure-os-shell
-    tag: 5-photon-5-r103
-    digest: sha256:bf242f3121902063e79d54b0fd9ae81f84c31c65bbddf9b3302c48a74208ad30
+    tag: 5-photon-5-r104
+    digest: sha256:c596a0cd6054322dc6ff09f192cfd3d3b619bbe649444c2522340d3739108b3d
     pullPolicy: IfNotPresent
     pullSecrets: []
   resourcesPreset: nano
@@ -580,8 +580,8 @@ metrics:
   image:
     registry: docker.io
     repository: inglp/bitnami-secure-mysqld-exporter
-    tag: 0.20.0-photon-5-r8
-    digest: sha256:d1a090d1ac45be58aa600b0e196ff93cf368150c5bd461952dc6f4c1c5362b3f
+    tag: 0.20.0-photon-5-r9
+    digest: sha256:4960928f55c4d2d587310776e5b2cf1b5def4aebd87b93e4baa5546d95bab256
     pullPolicy: IfNotPresent
     pullSecrets: []
   annotations:

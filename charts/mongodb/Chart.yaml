@@ -1,6 +1,6 @@
 annotations:
   fips: 'true'
-  images: "- name: kube-rbac-proxy\n  version: 0.22.1\n  image: registry-1.docker.io/bitnamisecure/kube-rbac-proxy:latest\n\
+  images: "- name: kube-rbac-proxy\n  version: 0.23.0\n  image: registry-1.docker.io/bitnamisecure/kube-rbac-proxy:latest\n\
     - name: kubectl\n  version: 1.37.1\n  image: registry-1.docker.io/bitnamisecure/kubectl:latest\n\
     - name: mcp-mongodb\n  version: 3.0.4\n  image: registry-1.docker.io/bitnamisecure/mcp-mongodb:latest\n\
     - name: mongodb\n  version: 8.3.11\n  image: registry-1.docker.io/bitnamisecure/mongodb:latest\n\
@@ -9,9 +9,9 @@ annotations:
     - name: os-shell\n  version: \"5\"\n  image: registry-1.docker.io/bitnamisecure/os-shell:latest\n"
   licenses: Apache-2.0
   tanzuCategory: service
-  inglp.bitnami-secure-mirror/source-chart: registry-1.docker.io/bitnamichartssecure/mongodb:19.3.1
-  inglp.bitnami-secure-mirror/source-digest: sha256:6402195fb81436e5096446b5f22504b40878e12d25204abf557d07b7d991a879
-  inglp.bitnami-secure-mirror/upstream-version: 19.3.1
+  inglp.bitnami-secure-mirror/source-chart: registry-1.docker.io/bitnamichartssecure/mongodb:19.3.2
+  inglp.bitnami-secure-mirror/source-digest: sha256:53eb48dc2a832f947095ee284c1bf156d2e438bc76112431992ce12259ee4f29
+  inglp.bitnami-secure-mirror/upstream-version: 19.3.2
 apiVersion: v2
 appVersion: 8.3.11
 dependencies:
@@ -38,4 +38,4 @@ maintainers:
 name: mongodb
 sources:
 - https://github.com/bitnami/charts/tree/main/bitnami/mongodb
-version: 19.3.1-inglp.r1
+version: 19.3.2-inglp.r0
