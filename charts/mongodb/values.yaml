@@ -32,8 +32,8 @@ diagnosticMode:
 image:
   registry: docker.io
   repository: inglp/bitnami-secure-mongodb
-  tag: 8.3.11-photon-5-r6
-  digest: sha256:aae5b10044348b8b1c279ebdfb0abffd325955ef8790c294964191a69f9c8df6
+  tag: 9.0.2-photon-5-r0
+  digest: sha256:ad05bb9a19fa7c91844b43b3f35a3552696c18fe118bdcf5d3f45e3e08175772
   pullPolicy: IfNotPresent
   pullSecrets: []
   debug: false
@@ -215,8 +215,8 @@ externalAccess:
     image:
       registry: docker.io
       repository: inglp/bitnami-secure-kubectl
-      tag: 1.37.1-photon-5-r1
-      digest: sha256:f7f9e4f64d9e114650c115a4ac6fd383394b3d494061a8f17b1a0f6c8d55bc25
+      tag: 1.37.1-photon-5-r2
+      digest: sha256:999d5eb28f404b45f15117f2a110ff23c6164f76edac261d75d783b6e88252b7
       pullPolicy: IfNotPresent
       pullSecrets: []
     resourcesPreset: nano
@@ -650,8 +650,8 @@ metrics:
   image:
     registry: docker.io
     repository: inglp/bitnami-secure-mongodb-exporter
-    tag: 0.53.0-photon-5-r6
-    digest: sha256:f1b5929bff9ea6aca15577497661320974aad0a20bda59f1b0d9803a97e9add6
+    tag: 0.53.0-photon-5-r7
+    digest: sha256:fb4874bb3d07a9cc4a6865b6d289b2fec581b14574591b405f4217924e832a1a
     pullPolicy: IfNotPresent
     pullSecrets: []
   username: ''
@@ -735,8 +735,8 @@ mcp:
   image:
     registry: docker.io
     repository: inglp/bitnami-secure-mcp-mongodb
-    tag: 3.0.4-photon-5-r1
-    digest: sha256:63d51c4d49cdb79876fe2b68dbfded6d70903a9f459160beba618168bd21a9ec
+    tag: 3.0.5-photon-5-r0
+    digest: sha256:444bcdaaf45c8c6883b74616da62558f269a3b74aac9c014aa0482c0a9bd6834
     pullPolicy: IfNotPresent
     pullSecrets: []
   containerPorts:
@@ -915,8 +915,8 @@ mcp:
     image:
       registry: docker.io
       repository: inglp/bitnami-secure-kube-rbac-proxy
-      tag: 0.23.0-linux-r0
-      digest: sha256:896c22b42c655260f9e6f57b9b3c9acec21c6368c45d4cddc33b50e355157bde
+      tag: 0.23.0-linux-r1
+      digest: sha256:ae84d4f8b82885acb50a9c05ea36563b6f100d3127b65a5ab6645914db5a7c4a
       pullPolicy: IfNotPresent
       pullSecrets: []
     extraArgs: []

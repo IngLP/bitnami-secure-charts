@@ -580,8 +580,8 @@ metrics:
   image:
     registry: docker.io
     repository: inglp/bitnami-secure-mysqld-exporter
-    tag: 0.20.0-photon-5-r9
-    digest: sha256:4960928f55c4d2d587310776e5b2cf1b5def4aebd87b93e4baa5546d95bab256
+    tag: 0.20.0-photon-5-r10
+    digest: sha256:389ccc1a8661857e34770432c9c737b1cc59351d13be91b93df03db817d0a7db
     pullPolicy: IfNotPresent
     pullSecrets: []
   annotations:
