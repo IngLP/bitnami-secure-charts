@@ -1,0 +1,35 @@
+annotations:
+  fips: 'true'
+  images: "- name: git\n  version: 2.56.0\n  image: registry-1.docker.io/bitnamisecure/git:latest\n\
+    - name: os-shell\n  version: \"5\"\n  image: registry-1.docker.io/bitnamisecure/os-shell:latest\n\
+    - name: pytorch\n  version: 2.14.1\n  image: registry-1.docker.io/bitnamisecure/pytorch:latest\n"
+  licenses: Apache-2.0
+  tanzuCategory: application
+  inglp.bitnami-secure-mirror/source-chart: registry-1.docker.io/bitnamichartssecure/pytorch:5.10.3
+  inglp.bitnami-secure-mirror/source-digest: sha256:7cf631bce2cb0192dcd7a40fb660ecea81312c99531b5a8459de143ddd57be8c
+  inglp.bitnami-secure-mirror/upstream-version: 5.10.3
+apiVersion: v2
+appVersion: 2.14.1
+dependencies:
+- name: common
+  repository: https://inglp.github.io/bitnami-secure-charts
+  tags:
+  - bitnami-common
+  version: 2.41.0-inglp.r0
+description: PyTorch is a deep learning platform that accelerates the transition from
+  research prototyping to production deployment. Bitnami image includes Torchvision
+  for specific computer vision support.
+home: https://bitnami.com
+icon: https://dyltqmyl993wv.cloudfront.net/assets/stacks/pytorch/img/pytorch-stack-220x234.png
+keywords:
+- pytorch
+- python
+- machine
+- learning
+maintainers:
+- name: Broadcom, Inc. All Rights Reserved.
+  url: https://github.com/bitnami/charts
+name: pytorch
+sources:
+- https://github.com/bitnami/charts/tree/main/bitnami/pytorch
+version: 5.10.3-inglp.r0

@@ -1,0 +1,219 @@
+global:
+  imageRegistry: ''
+  imagePullSecrets: []
+  defaultStorageClass: ''
+  storageClass: ''
+  security:
+    allowInsecureImages: true
+  compatibility:
+    openshift:
+      adaptSecurityContext: auto
+  defaultFips: restricted
+kubeVersion: ''
+nameOverride: ''
+commonLabels: {}
+commonAnnotations: {}
+fullnameOverride: ''
+extraDeploy: []
+diagnosticMode:
+  enabled: false
+  command:
+  - sleep
+  args:
+  - infinity
+image:
+  registry: docker.io
+  repository: inglp/bitnami-secure-pytorch
+  tag: 2.14.1-photon-5-r0
+  digest: sha256:882b9d7962d76bab33b57db76da7839215c9acf046fe67760bff3b6c4b003c45
+  pullPolicy: IfNotPresent
+  pullSecrets: []
+worldSize: 1
+containerPorts:
+  pytorch: 49875
+livenessProbe:
+  enabled: true
+  initialDelaySeconds: 5
+  periodSeconds: 60
+  timeoutSeconds: 45
+  successThreshold: 1
+  failureThreshold: 5
+readinessProbe:
+  enabled: true
+  initialDelaySeconds: 5
+  periodSeconds: 5
+  timeoutSeconds: 40
+  successThreshold: 1
+  failureThreshold: 5
+startupProbe:
+  enabled: true
+  initialDelaySeconds: 5
+  periodSeconds: 5
+  timeoutSeconds: 20
+  successThreshold: 1
+  failureThreshold: 5
+customLivenessProbe: {}
+customReadinessProbe: {}
+customStartupProbe: {}
+podSecurityContext:
+  enabled: true
+  fsGroupChangePolicy: Always
+  sysctls: []
+  supplementalGroups: []
+  fsGroup: 1001
+containerSecurityContext:
+  enabled: true
+  seLinuxOptions: {}
+  runAsUser: 1001
+  runAsGroup: 1001
+  runAsNonRoot: true
+  privileged: false
+  readOnlyRootFilesystem: true
+  allowPrivilegeEscalation: false
+  capabilities:
+    drop:
+    - ALL
+  seccompProfile:
+    type: RuntimeDefault
+resourcesPreset: small
+resources: {}
+fips:
+  openssl: ''
+entrypoint:
+  file: ''
+  args: []
+architecture: standalone
+automountServiceAccountToken: false
+hostAliases: []
+command: []
+args: []
+podLabels: {}
+podAnnotations: {}
+files: {}
+existingConfigmap: ''
+cloneFilesFromGit:
+  enabled: false
+  repository: ''
+  revision: ''
+  extraVolumeMounts: []
+podAffinityPreset: ''
+podAntiAffinityPreset: soft
+nodeAffinityPreset:
+  type: ''
+  key: ''
+  values: []
+affinity: {}
+nodeSelector: {}
+tolerations: []
+enableServiceLinks: true
+updateStrategy:
+  type: RollingUpdate
+podManagementPolicy: OrderedReady
+priorityClassName: ''
+topologySpreadConstraints: []
+schedulerName: ''
+runtimeClassName: ''
+terminationGracePeriodSeconds: ''
+lifecycleHooks: {}
+extraEnvVars: []
+extraEnvVarsCM: ''
+extraEnvVarsSecret: ''
+extraVolumes: []
+extraVolumeMounts: []
+sidecars: []
+initContainers: []
+pdb:
+  create: true
+  minAvailable: ''
+  maxUnavailable: ''
+serviceAccount:
+  create: true
+  name: ''
+  automountServiceAccountToken: false
+  annotations: {}
+service:
+  type: ClusterIP
+  ports:
+    pytorch: 49875
+  nodePorts:
+    pytorch: ''
+  clusterIP: ''
+  loadBalancerIP: ''
+  loadBalancerSourceRanges: []
+  externalTrafficPolicy: Cluster
+  annotations: {}
+  extraPorts: []
+  sessionAffinity: None
+  sessionAffinityConfig: {}
+  headless:
+    annotations: {}
+networkPolicy:
+  enabled: true
+  allowExternal: true
+  allowExternalEgress: true
+  extraIngress: []
+  extraEgress: []
+  ingressNSMatchLabels: {}
+  ingressNSPodMatchLabels: {}
+git:
+  registry: docker.io
+  repository: inglp/bitnami-secure-git
+  tag: 2.56.0-photon-5-r2
+  digest: sha256:9dff8a55575b64fba6b3d0c4be529312f9583b8e14a7c578ed2d98d8df0f16d7
+  pullPolicy: IfNotPresent
+  pullSecrets: []
+  resourcesPreset: nano
+  resources: {}
+  fips:
+    openssl: ''
+  containerSecurityContext:
+    enabled: true
+    seLinuxOptions: {}
+    runAsUser: 1001
+    runAsGroup: 1001
+    runAsNonRoot: true
+    privileged: false
+    readOnlyRootFilesystem: true
+    allowPrivilegeEscalation: false
+    capabilities:
+      drop:
+      - ALL
+    seccompProfile:
+      type: RuntimeDefault
+volumePermissions:
+  enabled: false
+  image:
+    registry: docker.io
+    repository: inglp/bitnami-secure-os-shell
+    tag: 5-photon-5-r104
+    digest: sha256:c596a0cd6054322dc6ff09f192cfd3d3b619bbe649444c2522340d3739108b3d
+    pullPolicy: IfNotPresent
+    pullSecrets: []
+  resourcesPreset: nano
+  resources: {}
+  containerSecurityContext:
+    enabled: true
+    seLinuxOptions: {}
+    runAsUser: 0
+    privileged: false
+    allowPrivilegeEscalation: false
+    capabilities:
+      add: []
+      drop:
+      - ALL
+    seccompProfile:
+      type: RuntimeDefault
+  fips:
+    openssl: ''
+persistence:
+  enabled: true
+  mountPath: /bitnami/pytorch
+  subPath: ''
+  storageClass: ''
+  annotations: {}
+  accessModes:
+  - ReadWriteOnce
+  size: 8Gi
+  existingClaim: ''
+  selector: {}
+  dataSource: {}
