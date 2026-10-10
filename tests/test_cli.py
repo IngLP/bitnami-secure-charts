@@ -47,6 +47,7 @@ from bitnami_secure_charts.cli import (
     resolve_mirrored_dependencies,
     should_publish_chart,
     strip_tag,
+    sync,
     sync_chart,
     vendor_dependencies,
 )
@@ -425,6 +426,108 @@ class TestMirrorVersion:
 class TestLocks:
     def test_chart_lock_path_includes_upstream_version(self, tmp_path) -> None:
         assert chart_lock_path(tmp_path, "mariadb", "25.1.1") == tmp_path / "mariadb-25.1.1.json"
+
+
+class TestSyncSkipsChartsWithMissingUpstreamDependency:
+    def test_other_charts_are_synced_and_blocked_chart_is_reported(
+        self,
+        tmp_path,
+        monkeypatch: pytest.MonkeyPatch,
+        capsys: pytest.CaptureFixture[str],
+    ) -> None:
+        config = mirror_config(("common", "mariadb", "redis", "wordpress"))
+        upstream_tags = {
+            "common": ["2.41.0"],
+            "mariadb": ["28.1.0"],
+            "redis": ["28.3.1"],
+            "wordpress": ["34.1.3"],
+        }
+        upstream_dependencies = {
+            ("common", "2.41.0"): [],
+            ("mariadb", "28.1.0"): [{"name": "common", "version": "2.41.0"}],
+            ("redis", "28.3.1"): [{"name": "common", "version": "2.41.0"}],
+            ("wordpress", "34.1.3"): [
+                {"name": "mariadb", "version": "28.1.1"},
+                {"name": "common", "version": "2.41.0"},
+            ],
+        }
+        synced: list[tuple[str, str]] = []
+        monkeypatch.chdir(tmp_path)
+        monkeypatch.setattr(
+            "bitnami_secure_charts.cli.dockerhub_tags",
+            lambda namespace, repository: [
+                {"name": tag, "content_type": "helm", "digest": f"sha256:{repository}-{tag}"}
+                for tag in upstream_tags[repository]
+            ],
+        )
+        monkeypatch.setattr(
+            "bitnami_secure_charts.cli.upstream_chart_metadata",
+            lambda config, chart_name, version: {"dependencies": upstream_dependencies[(chart_name, version)]},
+        )
+        monkeypatch.setattr(
+            "bitnami_secure_charts.cli.sync_chart",
+            lambda config, chart_name, version, *args: synced.append((chart_name, version)),
+        )
+
+        sync(config=config, requested_charts=(), push=False)
+
+        assert synced == [("common", "2.41.0"), ("mariadb", "28.1.0"), ("redis", "28.3.1")]
+        skipped_line = "wordpress 34.1.3: Docker Hub tag not found: bitnamichartssecure/mariadb:28.1.1\n"
+        assert (tmp_path / "dist" / "skipped-charts.txt").read_text(encoding="utf-8") == skipped_line
+        assert capsys.readouterr().err == f"Skipped chart {skipped_line}"
+
+    def test_other_dependency_resolution_errors_abort_the_whole_sync(
+        self,
+        tmp_path,
+        monkeypatch: pytest.MonkeyPatch,
+    ) -> None:
+        config = mirror_config(("common", "redis"))
+        synced: list[str] = []
+
+        def failing_metadata(config: MirrorConfig, chart_name: str, version: str) -> dict[str, Any]:
+            if chart_name == "redis":
+                raise SyncError("helm show chart failed")
+            return {}
+
+        monkeypatch.chdir(tmp_path)
+        monkeypatch.setattr(
+            "bitnami_secure_charts.cli.dockerhub_tags",
+            lambda namespace, repository: [{"name": "1.0.0", "content_type": "helm", "digest": "sha256:chart"}],
+        )
+        monkeypatch.setattr("bitnami_secure_charts.cli.upstream_chart_metadata", failing_metadata)
+        monkeypatch.setattr(
+            "bitnami_secure_charts.cli.sync_chart",
+            lambda config, chart_name, *args: synced.append(chart_name),
+        )
+
+        with pytest.raises(SyncError, match="helm show chart failed"):
+            sync(config=config, requested_charts=(), push=False)
+
+        assert synced == []
+
+    def test_stale_report_is_removed_when_every_chart_resolves(
+        self,
+        tmp_path,
+        monkeypatch: pytest.MonkeyPatch,
+    ) -> None:
+        config = mirror_config(("common",))
+        report_path = tmp_path / "dist" / "skipped-charts.txt"
+        report_path.parent.mkdir()
+        report_path.write_text("wordpress 34.1.3: stale\n", encoding="utf-8")
+        monkeypatch.chdir(tmp_path)
+        monkeypatch.setattr(
+            "bitnami_secure_charts.cli.dockerhub_tags",
+            lambda namespace, repository: [{"name": "2.41.0", "content_type": "helm", "digest": "sha256:common"}],
+        )
+        monkeypatch.setattr(
+            "bitnami_secure_charts.cli.upstream_chart_metadata",
+            lambda config, chart_name, version: {},
+        )
+        monkeypatch.setattr("bitnami_secure_charts.cli.sync_chart", lambda *args: None)
+
+        sync(config=config, requested_charts=(), push=False)
+
+        assert not report_path.exists()
 
 
 class TestSyncOrdering:

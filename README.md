@@ -72,6 +72,8 @@ If Bitnami changes an image digest without changing the upstream chart version, 
 - same upstream chart version with changed image digest -> `25.5.2-inglp.r1`
 - next upstream chart version `25.5.3` -> `25.5.3-inglp.r0`
 
+If a chart pins a dependency version that upstream has not published, only that chart is skipped: the other charts are synced and published as usual, the skipped chart is listed in `dist/skipped-charts.txt`, and the workflow fails in its last step so the gap stays visible. The mirror keeps serving the last version of the skipped chart until upstream publishes a consistent release.
+
 The lock file keeps `upstream_version`, the published mirror `version`, mirrored dependency versions, and a content fingerprint built from the upstream chart digest, mirrored dependency versions, and referenced image digests.
 
 ## Required GitHub Secrets

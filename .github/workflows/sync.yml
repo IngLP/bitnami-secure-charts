@@ -144,3 +144,14 @@ jobs:
 
           git commit -m "Chore: Sync Bitnami Secure charts"
           git push
+
+      - name: Fail on skipped charts
+        run: |
+          if [ ! -s dist/skipped-charts.txt ]; then
+            exit 0
+          fi
+
+          while IFS= read -r line; do
+            echo "::error::Skipped chart $line"
+          done < dist/skipped-charts.txt
+          exit 1

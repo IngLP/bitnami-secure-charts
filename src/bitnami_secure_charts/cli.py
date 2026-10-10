@@ -23,10 +23,15 @@ import yaml
 SEMVER_TAG = re.compile(r"^\d+\.\d+\.\d+(?:[-+][0-9A-Za-z.-]+)?$")
 PACKAGE_MTIME = 946684800
 DOCKERHUB_API_ORIGIN = ("https", "hub.docker.com")
+SKIPPED_CHARTS_REPORT = "skipped-charts.txt"
 
 
 class SyncError(RuntimeError):
     """Raised when an external chart or image contract is not as expected."""
+
+
+class UpstreamChartTagNotFound(SyncError):
+    """Raised when a chart version is not published in the upstream registry."""
 
 
 @dataclass(frozen=True)
@@ -158,6 +163,8 @@ def sync(config: MirrorConfig, requested_charts: tuple[str, ...], push: bool) ->
     publish_dir = package_dir / "publish"
     if publish_dir.exists():
         shutil.rmtree(publish_dir)
+    skipped_report_path = package_dir / SKIPPED_CHARTS_REPORT
+    skipped_report_path.unlink(missing_ok=True)
 
     versions: dict[str, str] = {}
 
@@ -166,12 +173,27 @@ def sync(config: MirrorConfig, requested_charts: tuple[str, ...], push: bool) ->
             versions[chart_name] = latest_chart_version(config, chart_name)
         return versions[chart_name]
 
-    initial_selection = tuple(ChartSelection(name, chart_version(name)) for name in selected_names)
-    selected = dependency_closure_order(
-        config,
-        initial_selection,
-        lambda selection: load_chart_dependency_selections(config, selection, charts_dir, locks_dir),
-    )
+    # Upstream sometimes publishes a chart that pins a dependency version it never released:
+    # only that chart is skipped, so the remaining charts keep receiving updates.
+    selected: dict[ChartSelection, None] = {}
+    skipped: list[str] = []
+    for name in selected_names:
+        requested = ChartSelection(name, chart_version(name))
+        try:
+            closure = dependency_closure_order(
+                config,
+                (requested,),
+                lambda selection: load_chart_dependency_selections(config, selection, charts_dir, locks_dir),
+            )
+        except UpstreamChartTagNotFound as error:
+            skipped.append(f"{requested.name} {requested.version}: {error}")
+            continue
+        selected.update(dict.fromkeys(closure))
+    if skipped:
+        for line in skipped:
+            print(f"Skipped chart {line}", file=sys.stderr)
+        skipped_report_path.write_text("".join(f"{line}\n" for line in skipped), encoding="utf-8")
+
     copied_images: set[str] = set()
     for selection in selected:
         sync_chart(config, selection.name, selection.version, charts_dir, locks_dir, package_dir, push, copied_images)
@@ -903,7 +925,7 @@ def dockerhub_tag_digest(namespace: str, repository: str, tag: str) -> str:
     for item in dockerhub_tags(namespace, repository):
         if item["name"] == tag:
             return item["digest"]
-    raise SyncError(f"Docker Hub tag not found: {namespace}/{repository}:{tag}")
+    raise UpstreamChartTagNotFound(f"Docker Hub tag not found: {namespace}/{repository}:{tag}")
 
 
 @lru_cache(maxsize=None)
