@@ -15,6 +15,7 @@ Configured in `charts.yaml`:
 - `mongodb`
 - `nginx`
 - `postgresql`
+- `pytorch`
 - `redis`
 - `valkey`
 - `wordpress`
