@@ -158,8 +158,8 @@ networkPolicy:
 git:
   registry: docker.io
   repository: inglp/bitnami-secure-git
-  tag: 2.56.0-photon-5-r2
-  digest: sha256:9dff8a55575b64fba6b3d0c4be529312f9583b8e14a7c578ed2d98d8df0f16d7
+  tag: 2.56.0-photon-5-r3
+  digest: sha256:381747741f3aba9e1818d6e1f16acd267391957efc7fbd0db55c59da4854885b
   pullPolicy: IfNotPresent
   pullSecrets: []
   resourcesPreset: nano
