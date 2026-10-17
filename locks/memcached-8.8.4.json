@@ -1,6 +1,6 @@
 {
   "chart": "memcached",
-  "content_fingerprint": "sha256:3d136eeb55cbc298adc0b08761247e20b6776b277fc4cf9566da4b568d2e1cfe",
+  "content_fingerprint": "sha256:724f34e52a1d665d4e2bae6be8c7cd07bc8412dc93e9d7bd5406fdd1c6575072",
   "dependencies": [
     {
       "name": "common",
@@ -36,20 +36,20 @@
     },
     {
       "app_version": "5",
-      "image_revision": "105",
+      "image_revision": "106",
       "name": "os-shell",
       "os_flavour": "photon-5",
-      "source_digest": "sha256:91e3e29a6b2e693cb0c4b8f850057d9837b62ece3a42c3db71bbfbc1e3e54431",
+      "source_digest": "sha256:6436696b36877cf68e0a28f0ca241deadd409d36110187850813903398942ba7",
       "source_image": "registry-1.docker.io/bitnamisecure/os-shell:latest",
-      "target_digest": "sha256:91e3e29a6b2e693cb0c4b8f850057d9837b62ece3a42c3db71bbfbc1e3e54431",
+      "target_digest": "sha256:6436696b36877cf68e0a28f0ca241deadd409d36110187850813903398942ba7",
       "target_registry": "docker.io",
       "target_repository": "inglp/bitnami-secure-os-shell",
-      "target_tag": "5-photon-5-r105"
+      "target_tag": "5-photon-5-r106"
     }
   ],
-  "mirror_revision": 0,
+  "mirror_revision": 1,
   "published": true,
   "source_digest": "sha256:116f370b59ad5f8f37c22d83c8aa4125df541bffd5f17b3dc07f54e9f3901f78",
   "upstream_version": "8.8.4",
-  "version": "8.8.4-inglp.r0"
+  "version": "8.8.4-inglp.r1"
 }
