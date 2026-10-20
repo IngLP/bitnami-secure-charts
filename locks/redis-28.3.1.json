@@ -1,6 +1,6 @@
 {
   "chart": "redis",
-  "content_fingerprint": "sha256:a2241418e9ab4a83cfd43e62b3556259db2351f88c19988b0c89f18263e7cd0c",
+  "content_fingerprint": "sha256:a9a5dea72787cc2cdddc30c08032267aa97473238c81e32d60f7034f7748d74c",
   "dependencies": [
     {
       "name": "common",
@@ -12,27 +12,27 @@
   "images": [
     {
       "app_version": "1.37.1",
-      "image_revision": "5",
+      "image_revision": "6",
       "name": "kubectl",
       "os_flavour": "photon-5",
-      "source_digest": "sha256:26837860fa038ce221416ee0fd211a0ee300f67e24e88faecca0423088400b99",
+      "source_digest": "sha256:599e67d36ff511e071ffe9a002347e58cf395e9fbd5f4992c233fd5e089e333e",
       "source_image": "registry-1.docker.io/bitnamisecure/kubectl:latest",
-      "target_digest": "sha256:26837860fa038ce221416ee0fd211a0ee300f67e24e88faecca0423088400b99",
+      "target_digest": "sha256:599e67d36ff511e071ffe9a002347e58cf395e9fbd5f4992c233fd5e089e333e",
       "target_registry": "docker.io",
       "target_repository": "inglp/bitnami-secure-kubectl",
-      "target_tag": "1.37.1-photon-5-r5"
+      "target_tag": "1.37.1-photon-5-r6"
     },
     {
       "app_version": "5",
-      "image_revision": "106",
+      "image_revision": "107",
       "name": "os-shell",
       "os_flavour": "photon-5",
-      "source_digest": "sha256:6436696b36877cf68e0a28f0ca241deadd409d36110187850813903398942ba7",
+      "source_digest": "sha256:07d6111b908889a61c21e8d9c103785fe792e3b84f67043e6b025cd094141a7f",
       "source_image": "registry-1.docker.io/bitnamisecure/os-shell:latest",
-      "target_digest": "sha256:6436696b36877cf68e0a28f0ca241deadd409d36110187850813903398942ba7",
+      "target_digest": "sha256:07d6111b908889a61c21e8d9c103785fe792e3b84f67043e6b025cd094141a7f",
       "target_registry": "docker.io",
       "target_repository": "inglp/bitnami-secure-os-shell",
-      "target_tag": "5-photon-5-r106"
+      "target_tag": "5-photon-5-r107"
     },
     {
       "app_version": "8.10.2",
@@ -71,9 +71,9 @@
       "target_tag": "8.10.2-photon-5-r3"
     }
   ],
-  "mirror_revision": 4,
+  "mirror_revision": 5,
   "published": true,
   "source_digest": "sha256:5865ba684008a937bac2e67d15a800c61e40eb2cfdad9796f4f7f60444268717",
   "upstream_version": "28.3.1",
-  "version": "28.3.1-inglp.r4"
+  "version": "28.3.1-inglp.r5"
 }
