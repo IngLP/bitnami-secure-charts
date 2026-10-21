@@ -1,6 +1,6 @@
 {
   "chart": "nginx",
-  "content_fingerprint": "sha256:6e1eebe50d30c63c7cc224b525e3edddc849c430c8d35dd1a0866e91035e157a",
+  "content_fingerprint": "sha256:82cd7ea0ae38586a27353793ec9233dcaa6331a0c396a03b35fae0b8a0c8e41e",
   "dependencies": [
     {
       "name": "common",
@@ -36,20 +36,20 @@
     },
     {
       "app_version": "1.5.3",
-      "image_revision": "11",
+      "image_revision": "12",
       "name": "nginx-exporter",
       "os_flavour": "photon-5",
-      "source_digest": "sha256:a76b53000a2098b65457851e1b1d190a8beecd0d296deabd6d5c96493babf1c0",
+      "source_digest": "sha256:6b7350449b3a07f0b1b356cbb729a2b9f2ae91239b5ad13fadcf40e9f4dfd12d",
       "source_image": "registry-1.docker.io/bitnamisecure/nginx-exporter:latest",
-      "target_digest": "sha256:a76b53000a2098b65457851e1b1d190a8beecd0d296deabd6d5c96493babf1c0",
+      "target_digest": "sha256:6b7350449b3a07f0b1b356cbb729a2b9f2ae91239b5ad13fadcf40e9f4dfd12d",
       "target_registry": "docker.io",
       "target_repository": "inglp/bitnami-secure-nginx-exporter",
-      "target_tag": "1.5.3-photon-5-r11"
+      "target_tag": "1.5.3-photon-5-r12"
     }
   ],
-  "mirror_revision": 1,
+  "mirror_revision": 2,
   "published": true,
   "source_digest": "sha256:30cd09fe6d30a9c04904a439f968dce95da72413151c88618b1d4ee21bc7c183",
   "upstream_version": "25.2.5",
-  "version": "25.2.5-inglp.r1"
+  "version": "25.2.5-inglp.r2"
 }
