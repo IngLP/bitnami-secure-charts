@@ -21,9 +21,10 @@ import yaml
 
 
 SEMVER_TAG = re.compile(r"^\d+\.\d+\.\d+(?:[-+][0-9A-Za-z.-]+)?$")
+RELEASE_VERSION = re.compile(r"^(\d+)\.(\d+)\.(\d+)$")
 PACKAGE_MTIME = 946684800
 DOCKERHUB_API_ORIGIN = ("https", "hub.docker.com")
-SKIPPED_CHARTS_REPORT = "skipped-charts.txt"
+UPSTREAM_ANOMALIES_REPORT = "upstream-anomalies.txt"
 
 
 class SyncError(RuntimeError):
@@ -163,8 +164,8 @@ def sync(config: MirrorConfig, requested_charts: tuple[str, ...], push: bool) ->
     publish_dir = package_dir / "publish"
     if publish_dir.exists():
         shutil.rmtree(publish_dir)
-    skipped_report_path = package_dir / SKIPPED_CHARTS_REPORT
-    skipped_report_path.unlink(missing_ok=True)
+    anomalies_report_path = package_dir / UPSTREAM_ANOMALIES_REPORT
+    anomalies_report_path.unlink(missing_ok=True)
 
     versions: dict[str, str] = {}
 
@@ -174,29 +175,51 @@ def sync(config: MirrorConfig, requested_charts: tuple[str, ...], push: bool) ->
         return versions[chart_name]
 
     # Upstream sometimes publishes a chart that pins a dependency version it never released:
+    # the highest published lower patch of the same minor stands in for it; when there is none,
     # only that chart is skipped, so the remaining charts keep receiving updates.
+    substitutions: dict[ChartSelection, ChartSelection] = {}
+    anomalies: dict[str, None] = {}
+
+    def load_published_dependencies(selection: ChartSelection) -> tuple[ChartSelection, ...]:
+        dependencies: list[ChartSelection] = []
+        for dependency in load_chart_dependency_selections(config, selection, charts_dir, locks_dir):
+            published = published_patch_selection(config, dependency)
+            if published != dependency:
+                substitutions[dependency] = published
+                anomalies[
+                    f"Substituted dependency of {selection.name} {selection.version}: "
+                    f"{dependency.name} {dependency.version} is not published upstream, using {published.version}"
+                ] = None
+            dependencies.append(published)
+        return tuple(dependencies)
+
     selected: dict[ChartSelection, None] = {}
-    skipped: list[str] = []
     for name in selected_names:
         requested = ChartSelection(name, chart_version(name))
         try:
-            closure = dependency_closure_order(
-                config,
-                (requested,),
-                lambda selection: load_chart_dependency_selections(config, selection, charts_dir, locks_dir),
-            )
+            closure = dependency_closure_order(config, (requested,), load_published_dependencies)
         except UpstreamChartTagNotFound as error:
-            skipped.append(f"{requested.name} {requested.version}: {error}")
+            anomalies[f"Skipped chart {requested.name} {requested.version}: {error}"] = None
             continue
         selected.update(dict.fromkeys(closure))
-    if skipped:
-        for line in skipped:
-            print(f"Skipped chart {line}", file=sys.stderr)
-        skipped_report_path.write_text("".join(f"{line}\n" for line in skipped), encoding="utf-8")
+    if anomalies:
+        for line in anomalies:
+            print(line, file=sys.stderr)
+        anomalies_report_path.write_text("".join(f"{line}\n" for line in anomalies), encoding="utf-8")
 
     copied_images: set[str] = set()
     for selection in selected:
-        sync_chart(config, selection.name, selection.version, charts_dir, locks_dir, package_dir, push, copied_images)
+        sync_chart(
+            config,
+            selection.name,
+            selection.version,
+            charts_dir,
+            locks_dir,
+            package_dir,
+            push,
+            copied_images,
+            dependency_substitutions=substitutions,
+        )
 
 
 def sync_chart(
@@ -208,6 +231,7 @@ def sync_chart(
     package_dir: Path,
     push: bool,
     copied_images: set[str],
+    dependency_substitutions: dict[ChartSelection, ChartSelection],
 ) -> None:
     chart_ref = f"oci://{config.upstream_chart_registry}/{config.upstream_chart_namespace}/{chart_name}"
     source_digest = dockerhub_tag_digest(config.upstream_chart_namespace, chart_name, version)
@@ -223,6 +247,7 @@ def sync_chart(
     chart_yaml_path = chart_dir / "Chart.yaml"
     values_yaml_path = chart_dir / "values.yaml"
     chart_yaml = read_yaml(chart_yaml_path)
+    substitute_dependency_versions(chart_yaml, dependency_substitutions)
     values_yaml = read_yaml(values_yaml_path) if values_yaml_path.exists() else {}
 
     lock_path = chart_lock_path(locks_dir, chart_name, version)
@@ -378,6 +403,38 @@ def chart_metadata_dependency_selections(
         for dependency in metadata.get("dependencies", [])
         if dependency.get("name") in config.chart_names and "version" in dependency
     )
+
+
+def published_patch_selection(config: MirrorConfig, selection: ChartSelection) -> ChartSelection:
+    try:
+        dockerhub_tag_digest(config.upstream_chart_namespace, selection.name, selection.version)
+        return selection
+    except UpstreamChartTagNotFound:
+        pinned = RELEASE_VERSION.match(selection.version)
+        if pinned is None:
+            raise
+        major, minor, patch = (int(part) for part in pinned.groups())
+        lower_patches: list[tuple[int, str]] = []
+        for tag in dockerhub_tags(config.upstream_chart_namespace, selection.name):
+            release = RELEASE_VERSION.match(tag["name"])
+            if tag["content_type"] != "helm" or release is None:
+                continue
+            release_major, release_minor, release_patch = (int(part) for part in release.groups())
+            if (release_major, release_minor) == (major, minor) and release_patch < patch:
+                lower_patches.append((release_patch, tag["name"]))
+        if not lower_patches:
+            raise
+        return ChartSelection(selection.name, max(lower_patches)[1])
+
+
+def substitute_dependency_versions(
+    chart_yaml: dict[str, Any],
+    dependency_substitutions: dict[ChartSelection, ChartSelection],
+) -> None:
+    for dependency in chart_yaml.get("dependencies", []):
+        substitute = dependency_substitutions.get(ChartSelection(dependency.get("name"), str(dependency.get("version"))))
+        if substitute is not None:
+            dependency["version"] = substitute.version
 
 
 def dependency_closure_order(
