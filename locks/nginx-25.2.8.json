@@ -1,6 +1,6 @@
 {
   "chart": "nginx",
-  "content_fingerprint": "sha256:25cf226946bc1c1c6d85b9dfea269f586b3156d6db37e6ba36b834a8e99270e8",
+  "content_fingerprint": "sha256:90176d0a68efcef4e03cf20b48de31c55eb5cea8babeabda252b6274d0d95340",
   "dependencies": [
     {
       "name": "common",
@@ -24,15 +24,15 @@
     },
     {
       "app_version": "1.31.8",
-      "image_revision": "0",
+      "image_revision": "1",
       "name": "nginx",
       "os_flavour": "photon-5",
-      "source_digest": "sha256:a50daac07c639e30525e4ce8ab8b0da8d4a9d4c9efb740aa2440495fbb8c51c8",
+      "source_digest": "sha256:919ed2c318216690d31e21d5408576c5171fb323c72de31c30cdca385060ee90",
       "source_image": "registry-1.docker.io/bitnamisecure/nginx:latest",
-      "target_digest": "sha256:a50daac07c639e30525e4ce8ab8b0da8d4a9d4c9efb740aa2440495fbb8c51c8",
+      "target_digest": "sha256:919ed2c318216690d31e21d5408576c5171fb323c72de31c30cdca385060ee90",
       "target_registry": "docker.io",
       "target_repository": "inglp/bitnami-secure-nginx",
-      "target_tag": "1.31.8-photon-5-r0"
+      "target_tag": "1.31.8-photon-5-r1"
     },
     {
       "app_version": "1.5.3",
@@ -47,9 +47,9 @@
       "target_tag": "1.5.3-photon-5-r12"
     }
   ],
-  "mirror_revision": 0,
+  "mirror_revision": 1,
   "published": true,
   "source_digest": "sha256:d89c7dc42af385304f91ec6ba4d74394148d8f9c713792e05b03e91097b9fd8c",
   "upstream_version": "25.2.8",
-  "version": "25.2.8-inglp.r0"
+  "version": "25.2.8-inglp.r1"
 }
