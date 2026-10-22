@@ -1,6 +1,6 @@
 {
   "chart": "mongodb",
-  "content_fingerprint": "sha256:0c9b7b053f21eaecd57090c31dfc9851315c7dbac616a1bcad23819603acecc3",
+  "content_fingerprint": "sha256:57899bdeef860f2d10214c10c2f1dfd8e3cc539adc40b601ef2431002bed398f",
   "dependencies": [
     {
       "name": "common",
@@ -35,16 +35,16 @@
       "target_tag": "1.37.1-photon-5-r7"
     },
     {
-      "app_version": "3.0.5",
-      "image_revision": "3",
+      "app_version": "3.1.0",
+      "image_revision": "1",
       "name": "mcp-mongodb",
       "os_flavour": "photon-5",
-      "source_digest": "sha256:10789e097a281a5a2d8ba5412a1488e52b4e7bff0cd5031e0744fb789697369f",
+      "source_digest": "sha256:828510fe7eb8c402a58d706c28c1105243cbc09a910fdb3678319c139e212772",
       "source_image": "registry-1.docker.io/bitnamisecure/mcp-mongodb:latest",
-      "target_digest": "sha256:10789e097a281a5a2d8ba5412a1488e52b4e7bff0cd5031e0744fb789697369f",
+      "target_digest": "sha256:828510fe7eb8c402a58d706c28c1105243cbc09a910fdb3678319c139e212772",
       "target_registry": "docker.io",
       "target_repository": "inglp/bitnami-secure-mcp-mongodb",
-      "target_tag": "3.0.5-photon-5-r3"
+      "target_tag": "3.1.0-photon-5-r1"
     },
     {
       "app_version": "9.0.4",
@@ -71,16 +71,16 @@
       "target_tag": "0.53.0-photon-5-r12"
     },
     {
-      "app_version": "1.31.7",
+      "app_version": "1.31.8",
       "image_revision": "0",
       "name": "nginx",
       "os_flavour": "photon-5",
-      "source_digest": "sha256:fb69e7a082a5e90c42650ee5bfedec42628f0dd1fd89a354906eac2fb86e409b",
+      "source_digest": "sha256:a50daac07c639e30525e4ce8ab8b0da8d4a9d4c9efb740aa2440495fbb8c51c8",
       "source_image": "registry-1.docker.io/bitnamisecure/nginx:latest",
-      "target_digest": "sha256:fb69e7a082a5e90c42650ee5bfedec42628f0dd1fd89a354906eac2fb86e409b",
+      "target_digest": "sha256:a50daac07c639e30525e4ce8ab8b0da8d4a9d4c9efb740aa2440495fbb8c51c8",
       "target_registry": "docker.io",
       "target_repository": "inglp/bitnami-secure-nginx",
-      "target_tag": "1.31.7-photon-5-r0"
+      "target_tag": "1.31.8-photon-5-r0"
     },
     {
       "app_version": "5",
@@ -95,9 +95,9 @@
       "target_tag": "5-photon-5-r107"
     }
   ],
-  "mirror_revision": 5,
+  "mirror_revision": 6,
   "published": true,
   "source_digest": "sha256:b5400762f34fce217652237d00ce52cb2e376d892a4d98c6d8235e03d03c91e7",
   "upstream_version": "20.0.5",
-  "version": "20.0.5-inglp.r5"
+  "version": "20.0.5-inglp.r6"
 }
