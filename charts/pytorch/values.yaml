@@ -24,8 +24,8 @@ diagnosticMode:
 image:
   registry: docker.io
   repository: inglp/bitnami-secure-pytorch
-  tag: 2.14.1-photon-5-r0
-  digest: sha256:882b9d7962d76bab33b57db76da7839215c9acf046fe67760bff3b6c4b003c45
+  tag: 2.14.1-photon-5-r1
+  digest: sha256:73ae0c5699cdd2eb904bc65b332857fb2925dc68e82c8b13166e3d40626cf6b4
   pullPolicy: IfNotPresent
   pullSecrets: []
 worldSize: 1
@@ -158,8 +158,8 @@ networkPolicy:
 git:
   registry: docker.io
   repository: inglp/bitnami-secure-git
-  tag: 2.56.0-photon-5-r5
-  digest: sha256:41095a84e9114b74a3ad0e2a53781ad7a2a1c35e7c7add36a59807d28ec1d235
+  tag: 2.56.0-photon-5-r6
+  digest: sha256:01a35f517671d968e5de695c03699222f7b26c4c24f24fa7840c8ed50d984c36
   pullPolicy: IfNotPresent
   pullSecrets: []
   resourcesPreset: nano
@@ -185,8 +185,8 @@ volumePermissions:
   image:
     registry: docker.io
     repository: inglp/bitnami-secure-os-shell
-    tag: 5-photon-5-r107
-    digest: sha256:07d6111b908889a61c21e8d9c103785fe792e3b84f67043e6b025cd094141a7f
+    tag: 5-photon-5-r108
+    digest: sha256:3f93a40e9cfead5252f1fe4913cfab231e33381765f42dc525e52fec7afdeeaf
     pullPolicy: IfNotPresent
     pullSecrets: []
   resourcesPreset: nano

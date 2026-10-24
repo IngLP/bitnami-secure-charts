@@ -266,7 +266,7 @@ This chart also supports creating a `BackendTLSPolicy` to define the SNI the Gat
 
 ### Ingress
 
-This chart provides support for ingress resources. If you have an ingress controller installed on your cluster, such as [nginx-ingress-controller](https://github.com/bitnami/charts/tree/main/bitnami/nginx-ingress-controller) or [contour](https://github.com/bitnami/charts/tree/main/bitnami/contour) you can utilize the ingress controller to serve your application.
+This chart provides support for ingress resources. If you have an ingress controller installed on your cluster, such as [contour](https://github.com/bitnami/charts/tree/main/bitnami/contour) you can utilize the ingress controller to serve your application.
 
 To enable ingress integration, please set `ingress.enabled` to `true`.
 
@@ -669,7 +669,7 @@ This major release no longer uses the bitnami/nginx-ldap-auth-daemon container a
 
 [Bitnami's reference implementation](https://www.nginx.com/blog/nginx-plus-authenticate-users/).
 
-On 9 April 2022, security vulnerabilities in the [NGINX LDAP reference implementation](https://github.com/nginxinc/nginx-ldap-auth) were publicly shared. **Although the deprecation of this container from the Bitnami catalog was not related to this security issue, [here](https://docs.bitnami.com/general/security/) you can find more information from the Bitnami security team.**
+On 9 April 2022, security vulnerabilities in the [NGINX LDAP reference implementation](https://github.com/nginxinc/nginx-ldap-auth) were publicly shared. **The deprecation of this container from the Bitnami catalog was not related to this security issue.** For general security guidance, see [Bitnami security best practices](https://techdocs.broadcom.com/us/en/vmware-tanzu/bitnami-secure-images/bitnami-secure-images/services/bsi-doc/security-frameworks-security-frameworks-industry-best-practices-in-tac.html).
 
 ### To 8.0.0
 

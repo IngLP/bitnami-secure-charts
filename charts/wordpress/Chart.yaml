@@ -5,20 +5,20 @@ annotations:
     - name: wordpress\n  version: 7.1.3\n  image: registry-1.docker.io/bitnamisecure/wordpress:latest\n"
   licenses: Apache-2.0
   tanzuCategory: application
-  inglp.bitnami-secure-mirror/source-chart: registry-1.docker.io/bitnamichartssecure/wordpress:34.2.2
-  inglp.bitnami-secure-mirror/source-digest: sha256:04f6ee252a2770ccaeea2e95f22657c23d4b26158d402e3393d14a0a66d91e34
-  inglp.bitnami-secure-mirror/upstream-version: 34.2.2
+  inglp.bitnami-secure-mirror/source-chart: registry-1.docker.io/bitnamichartssecure/wordpress:34.2.3
+  inglp.bitnami-secure-mirror/source-digest: sha256:2f5eeb2be25fc1ea61da9de8fbc353c1212ca6901ae27b25ebff3c6d83722c1d
+  inglp.bitnami-secure-mirror/upstream-version: 34.2.3
 apiVersion: v2
 appVersion: 7.1.3
 dependencies:
 - condition: memcached.enabled
   name: memcached
   repository: https://inglp.github.io/bitnami-secure-charts
-  version: 8.8.4-inglp.r4
+  version: 8.8.5-inglp.r0
 - condition: mariadb.enabled
   name: mariadb
   repository: https://inglp.github.io/bitnami-secure-charts
-  version: 28.1.0-inglp.r8
+  version: 28.1.4-inglp.r0
 - name: common
   repository: https://inglp.github.io/bitnami-secure-charts
   tags:
@@ -43,4 +43,4 @@ maintainers:
 name: wordpress
 sources:
 - https://github.com/bitnami/charts/tree/main/bitnami/wordpress
-version: 34.2.2-inglp.r1
+version: 34.2.3-inglp.r0
