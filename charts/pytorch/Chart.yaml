@@ -5,9 +5,9 @@ annotations:
     - name: pytorch\n  version: 2.14.1\n  image: registry-1.docker.io/bitnamisecure/pytorch:latest\n"
   licenses: Apache-2.0
   tanzuCategory: application
-  inglp.bitnami-secure-mirror/source-chart: registry-1.docker.io/bitnamichartssecure/pytorch:5.10.6
-  inglp.bitnami-secure-mirror/source-digest: sha256:28dbf2ec04229110f237f6f598aac1e3e71dcac4e18cbf4faaee7232cb2ba56b
-  inglp.bitnami-secure-mirror/upstream-version: 5.10.6
+  inglp.bitnami-secure-mirror/source-chart: registry-1.docker.io/bitnamichartssecure/pytorch:5.10.7
+  inglp.bitnami-secure-mirror/source-digest: sha256:04f413563e0b3d963bcadafe7d110a17bb102e7a9a11edd30b11736f19d7f367
+  inglp.bitnami-secure-mirror/upstream-version: 5.10.7
 apiVersion: v2
 appVersion: 2.14.1
 dependencies:
@@ -32,4 +32,4 @@ maintainers:
 name: pytorch
 sources:
 - https://github.com/bitnami/charts/tree/main/bitnami/pytorch
-version: 5.10.6-inglp.r0
+version: 5.10.7-inglp.r0

@@ -2,14 +2,14 @@ annotations:
   fips: 'true'
   images: "- name: kubectl\n  version: 1.37.1\n  image: registry-1.docker.io/bitnamisecure/kubectl:latest\n\
     - name: os-shell\n  version: \"5\"\n  image: registry-1.docker.io/bitnamisecure/os-shell:latest\n\
-    - name: redis-exporter\n  version: 1.95.0\n  image: registry-1.docker.io/bitnamisecure/redis-exporter:latest\n\
+    - name: redis-exporter\n  version: 1.96.0\n  image: registry-1.docker.io/bitnamisecure/redis-exporter:latest\n\
     - name: valkey\n  version: 9.1.2\n  image: registry-1.docker.io/bitnamisecure/valkey:latest\n\
     - name: valkey-sentinel\n  version: 9.1.2\n  image: registry-1.docker.io/bitnamisecure/valkey-sentinel:latest\n"
   licenses: Apache-2.0
   tanzuCategory: service
-  inglp.bitnami-secure-mirror/source-chart: registry-1.docker.io/bitnamichartssecure/valkey:6.3.12
-  inglp.bitnami-secure-mirror/source-digest: sha256:1de4af1b1a2542aca65342a6f1fbeb5d9dbe9a06105fbcb5ea294606e81c3369
-  inglp.bitnami-secure-mirror/upstream-version: 6.3.12
+  inglp.bitnami-secure-mirror/source-chart: registry-1.docker.io/bitnamichartssecure/valkey:6.3.13
+  inglp.bitnami-secure-mirror/source-digest: sha256:1df570f700fdad273ae2672bdf62e95c50583fd287df692cd250be08f753ea43
+  inglp.bitnami-secure-mirror/upstream-version: 6.3.13
 apiVersion: v2
 appVersion: 9.1.2
 dependencies:
@@ -33,4 +33,4 @@ maintainers:
 name: valkey
 sources:
 - https://github.com/bitnami/charts/tree/main/bitnami/valkey
-version: 6.3.12-inglp.r0
+version: 6.3.13-inglp.r0
