@@ -628,8 +628,8 @@ kubectl:
   image:
     registry: docker.io
     repository: inglp/bitnami-secure-kubectl
-    tag: 1.37.1-photon-5-r9
-    digest: sha256:eaf442416e6f6b37ea76cc03dbdacc1d85f4c061670df7974dd1387288a11e50
+    tag: 1.37.2-photon-5-r0
+    digest: sha256:bedd34c910e2a5ce9836813d16444af449d7fe07a29136d59f34e861e8e660c5
     pullPolicy: IfNotPresent
     pullSecrets: []
   command:

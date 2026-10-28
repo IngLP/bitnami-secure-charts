@@ -264,7 +264,7 @@ externalAccess.service.nodePorts[1]='NODE-PORT-2'
 
 > NOTE: This option requires knowing the node ports that will be exposed, so each MongoDB&reg; node's advertised hostname is configured with it.
 
-The pod will try to get the external IP address of the node using the command `curl -s https://ipinfo.io/IP-ADDRESS` unless the `externalAccess.service.domain` parameter is set.
+Unless `externalAccess.service.domain` is set, the pod advertises its node IP address. For information about a public IP address, see [IPinfo](https://ipinfo.io/).
 
 ### Bootstrapping with an External Cluster
 
@@ -518,7 +518,7 @@ For more information on this new support, please refer to the [FIPS Compliance s
 
 ### MCP (Model Context Protocol) Component
 
-This chart includes an optional MCP (Model Context Protocol) component that provides a standardized interface for AI assistants and LLMs to interact with MongoDB. When enabled, it deploys a separate service that exposes MongoDB functionality through the MCP protocol. The upstream project is available at [mongodb-js/mongodb-mcp](https://github.com/mongodb-js/mongodb-mcp). To enable the MCP component, set `mcp.enabled=true`:
+This chart includes an optional MCP (Model Context Protocol) component that provides a standardized interface for AI assistants and LLMs to interact with MongoDB. When enabled, it deploys a separate service that exposes MongoDB functionality through the MCP protocol. See the [MongoDB JavaScript organization](https://github.com/mongodb-js/) for upstream projects. To enable the MCP component, set `mcp.enabled=true`:
 
 #### MCP Configuration
 
