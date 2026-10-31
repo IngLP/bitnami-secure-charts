@@ -24,8 +24,8 @@ diagnosticMode:
 image:
   registry: docker.io
   repository: inglp/bitnami-secure-pytorch
-  tag: 2.14.1-photon-5-r1
-  digest: sha256:73ae0c5699cdd2eb904bc65b332857fb2925dc68e82c8b13166e3d40626cf6b4
+  tag: 2.14.1-photon-5-r2
+  digest: sha256:4fa21b9b39d81d458886b7037a37f30d206e2056386183da95438a1b2c99f171
   pullPolicy: IfNotPresent
   pullSecrets: []
 worldSize: 1
