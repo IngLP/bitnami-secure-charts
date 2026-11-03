@@ -32,8 +32,8 @@ diagnosticMode:
 image:
   registry: docker.io
   repository: inglp/bitnami-secure-mongodb
-  tag: 9.0.4-photon-5-r6
-  digest: sha256:ae3045b80e9640a1833da94864688733a04d536f611bc8aeee60f89f8be388e9
+  tag: 9.0.4-photon-5-r7
+  digest: sha256:81b555bdf58927279f289a4fc1d9b27b14890cdebc1667290ff4c5fd2b79361c
   pullPolicy: IfNotPresent
   pullSecrets: []
   debug: false
