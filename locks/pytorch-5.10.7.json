@@ -1,6 +1,6 @@
 {
   "chart": "pytorch",
-  "content_fingerprint": "sha256:120dd752ae15fa3d94995f2d726e92af6b02a06f455a109b1322dc67d75eb5a1",
+  "content_fingerprint": "sha256:29f3c272ecc1d5296075cb57bfdc220cb9025b5f0999ba4bd89007794aad330f",
   "dependencies": [
     {
       "name": "common",
@@ -12,27 +12,27 @@
   "images": [
     {
       "app_version": "2.56.0",
-      "image_revision": "7",
+      "image_revision": "8",
       "name": "git",
       "os_flavour": "photon-5",
-      "source_digest": "sha256:9a50a1012091e0f8bc437477a38a834d435bfe6c9c499e85f3286bd82ac2765f",
+      "source_digest": "sha256:5dfdb7d8e1a3d495201d5387cbea512e259e95800f46b1e10c05269f4400ba77",
       "source_image": "registry-1.docker.io/bitnamisecure/git:latest",
-      "target_digest": "sha256:9a50a1012091e0f8bc437477a38a834d435bfe6c9c499e85f3286bd82ac2765f",
+      "target_digest": "sha256:5dfdb7d8e1a3d495201d5387cbea512e259e95800f46b1e10c05269f4400ba77",
       "target_registry": "docker.io",
       "target_repository": "inglp/bitnami-secure-git",
-      "target_tag": "2.56.0-photon-5-r7"
+      "target_tag": "2.56.0-photon-5-r8"
     },
     {
       "app_version": "5",
-      "image_revision": "109",
+      "image_revision": "110",
       "name": "os-shell",
       "os_flavour": "photon-5",
-      "source_digest": "sha256:a12ca1c68bc9b8807e1f0f70363043edaf099bb569834df2a348091cbc5d0064",
+      "source_digest": "sha256:5e77f6a00c416967070a080f6a9092c5cb8cff7ff05a33b1f1bd01e6c79a7236",
       "source_image": "registry-1.docker.io/bitnamisecure/os-shell:latest",
-      "target_digest": "sha256:a12ca1c68bc9b8807e1f0f70363043edaf099bb569834df2a348091cbc5d0064",
+      "target_digest": "sha256:5e77f6a00c416967070a080f6a9092c5cb8cff7ff05a33b1f1bd01e6c79a7236",
       "target_registry": "docker.io",
       "target_repository": "inglp/bitnami-secure-os-shell",
-      "target_tag": "5-photon-5-r109"
+      "target_tag": "5-photon-5-r110"
     },
     {
       "app_version": "2.14.1",
@@ -47,9 +47,9 @@
       "target_tag": "2.14.1-photon-5-r2"
     }
   ],
-  "mirror_revision": 1,
+  "mirror_revision": 2,
   "published": true,
   "source_digest": "sha256:04f413563e0b3d963bcadafe7d110a17bb102e7a9a11edd30b11736f19d7f367",
   "upstream_version": "5.10.7",
-  "version": "5.10.7-inglp.r1"
+  "version": "5.10.7-inglp.r2"
 }

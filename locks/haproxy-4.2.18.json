@@ -1,6 +1,6 @@
 {
   "chart": "haproxy",
-  "content_fingerprint": "sha256:4d17f33b6f89c89de0cab372f23c44a67f056bbc7178cb92ce85ab1d1a4ab9fa",
+  "content_fingerprint": "sha256:248d9dacf48e3d8b0ac549d031c6010ad4288a364c3a8a69f5e93b4e4c489066",
   "dependencies": [
     {
       "name": "common",
@@ -12,20 +12,20 @@
   "images": [
     {
       "app_version": "3.4.7",
-      "image_revision": "5",
+      "image_revision": "6",
       "name": "haproxy",
       "os_flavour": "photon-5",
-      "source_digest": "sha256:bee26f06e11432b1a5ae780e80e50a6982874cf8c8e5fd3a1148704c7107dd5e",
+      "source_digest": "sha256:a6959eaadb06164804db775fb2943770c99e5dd6e412e3f4ac975053e8dc0453",
       "source_image": "registry-1.docker.io/bitnamisecure/haproxy:latest",
-      "target_digest": "sha256:bee26f06e11432b1a5ae780e80e50a6982874cf8c8e5fd3a1148704c7107dd5e",
+      "target_digest": "sha256:a6959eaadb06164804db775fb2943770c99e5dd6e412e3f4ac975053e8dc0453",
       "target_registry": "docker.io",
       "target_repository": "inglp/bitnami-secure-haproxy",
-      "target_tag": "3.4.7-photon-5-r5"
+      "target_tag": "3.4.7-photon-5-r6"
     }
   ],
-  "mirror_revision": 0,
+  "mirror_revision": 1,
   "published": true,
   "source_digest": "sha256:2fd0f216aa609450f7b5fe52c9607a3801e83cf0f24d954d1f5c1bf7a7f2132e",
   "upstream_version": "4.2.18",
-  "version": "4.2.18-inglp.r0"
+  "version": "4.2.18-inglp.r1"
 }
