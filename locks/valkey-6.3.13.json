@@ -1,6 +1,6 @@
 {
   "chart": "valkey",
-  "content_fingerprint": "sha256:4a047d452d790e6fbf614d42e4e878a10be53610563774dc70c2adf02943951c",
+  "content_fingerprint": "sha256:66a183e9f64c043258fe2bef19daee188cf23a742559b22ab9005945e767e196",
   "dependencies": [
     {
       "name": "common",
@@ -48,32 +48,32 @@
     },
     {
       "app_version": "9.1.2",
-      "image_revision": "7",
+      "image_revision": "8",
       "name": "valkey",
       "os_flavour": "photon-5",
-      "source_digest": "sha256:4dc6511a8a9d4d4cbf3ccf1270ddcc6929819a1e0f4005462cf782cc96d1c3b6",
+      "source_digest": "sha256:3b340a0ca883e7305756cd0ed29fc4a52099343920e022a459a4a0e0cf975ce0",
       "source_image": "registry-1.docker.io/bitnamisecure/valkey:latest",
-      "target_digest": "sha256:4dc6511a8a9d4d4cbf3ccf1270ddcc6929819a1e0f4005462cf782cc96d1c3b6",
+      "target_digest": "sha256:3b340a0ca883e7305756cd0ed29fc4a52099343920e022a459a4a0e0cf975ce0",
       "target_registry": "docker.io",
       "target_repository": "inglp/bitnami-secure-valkey",
-      "target_tag": "9.1.2-photon-5-r7"
+      "target_tag": "9.1.2-photon-5-r8"
     },
     {
       "app_version": "9.1.3",
-      "image_revision": "0",
+      "image_revision": "1",
       "name": "valkey-sentinel",
       "os_flavour": "photon-5",
-      "source_digest": "sha256:f3e4e5d7496abb72b4af312e25b606c53d59373818d6959d006a9d7b3e1c4fe4",
+      "source_digest": "sha256:4fc3aaf5cbd2e85107a440f8edadd11148f021a54a15c8d560484ddfa0d56d20",
       "source_image": "registry-1.docker.io/bitnamisecure/valkey-sentinel:latest",
-      "target_digest": "sha256:f3e4e5d7496abb72b4af312e25b606c53d59373818d6959d006a9d7b3e1c4fe4",
+      "target_digest": "sha256:4fc3aaf5cbd2e85107a440f8edadd11148f021a54a15c8d560484ddfa0d56d20",
       "target_registry": "docker.io",
       "target_repository": "inglp/bitnami-secure-valkey-sentinel",
-      "target_tag": "9.1.3-photon-5-r0"
+      "target_tag": "9.1.3-photon-5-r1"
     }
   ],
-  "mirror_revision": 2,
+  "mirror_revision": 3,
   "published": true,
   "source_digest": "sha256:1df570f700fdad273ae2672bdf62e95c50583fd287df692cd250be08f753ea43",
   "upstream_version": "6.3.13",
-  "version": "6.3.13-inglp.r2"
+  "version": "6.3.13-inglp.r3"
 }

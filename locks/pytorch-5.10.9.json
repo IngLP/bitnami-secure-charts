@@ -1,0 +1,55 @@
+{
+  "chart": "pytorch",
+  "content_fingerprint": "sha256:a7fbff1e4e68700526166ba0b9f2dd05d4c49ec0bd58ceb1a28967f144ece797",
+  "dependencies": [
+    {
+      "name": "common",
+      "repository": "https://inglp.github.io/bitnami-secure-charts",
+      "upstream_version": "2.41.0",
+      "version": "2.41.0-inglp.r0"
+    }
+  ],
+  "images": [
+    {
+      "app_version": "2.56.0",
+      "image_revision": "8",
+      "name": "git",
+      "os_flavour": "photon-5",
+      "source_digest": "sha256:5dfdb7d8e1a3d495201d5387cbea512e259e95800f46b1e10c05269f4400ba77",
+      "source_image": "registry-1.docker.io/bitnamisecure/git:latest",
+      "target_digest": "sha256:5dfdb7d8e1a3d495201d5387cbea512e259e95800f46b1e10c05269f4400ba77",
+      "target_registry": "docker.io",
+      "target_repository": "inglp/bitnami-secure-git",
+      "target_tag": "2.56.0-photon-5-r8"
+    },
+    {
+      "app_version": "5",
+      "image_revision": "110",
+      "name": "os-shell",
+      "os_flavour": "photon-5",
+      "source_digest": "sha256:5e77f6a00c416967070a080f6a9092c5cb8cff7ff05a33b1f1bd01e6c79a7236",
+      "source_image": "registry-1.docker.io/bitnamisecure/os-shell:latest",
+      "target_digest": "sha256:5e77f6a00c416967070a080f6a9092c5cb8cff7ff05a33b1f1bd01e6c79a7236",
+      "target_registry": "docker.io",
+      "target_repository": "inglp/bitnami-secure-os-shell",
+      "target_tag": "5-photon-5-r110"
+    },
+    {
+      "app_version": "2.15.0",
+      "image_revision": "0",
+      "name": "pytorch",
+      "os_flavour": "photon-5",
+      "source_digest": "sha256:4aa1500f45e4b6ead55d05f64158dafaaf4e57df61a93faab6f8382f54afb096",
+      "source_image": "registry-1.docker.io/bitnamisecure/pytorch:latest",
+      "target_digest": "sha256:4aa1500f45e4b6ead55d05f64158dafaaf4e57df61a93faab6f8382f54afb096",
+      "target_registry": "docker.io",
+      "target_repository": "inglp/bitnami-secure-pytorch",
+      "target_tag": "2.15.0-photon-5-r0"
+    }
+  ],
+  "mirror_revision": 0,
+  "published": true,
+  "source_digest": "sha256:480cc6e61851cd589b979cd74763dc17b594b4e248a85954daa681b6fc5c347d",
+  "upstream_version": "5.10.9",
+  "version": "5.10.9-inglp.r0"
+}
