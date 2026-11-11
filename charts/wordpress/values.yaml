@@ -280,8 +280,8 @@ metrics:
   image:
     registry: docker.io
     repository: inglp/bitnami-secure-apache-exporter
-    tag: 1.1.3-photon-5-r0
-    digest: sha256:a380d73b140ecbb638fffff6eed42b41d48d089f3ead803ed3a3bb5383d6a26f
+    tag: 1.1.3-photon-5-r1
+    digest: sha256:0f0fca68e6d30bdce583080c1b0c587b3804bb017bdb785557e40845ffea8bb4
     pullPolicy: IfNotPresent
     pullSecrets: []
   containerPorts:

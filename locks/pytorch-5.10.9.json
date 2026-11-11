@@ -1,6 +1,6 @@
 {
   "chart": "pytorch",
-  "content_fingerprint": "sha256:a7fbff1e4e68700526166ba0b9f2dd05d4c49ec0bd58ceb1a28967f144ece797",
+  "content_fingerprint": "sha256:b4883f863250796fb32fb727a39e199563890a4c2152531303c1fc02eb707091",
   "dependencies": [
     {
       "name": "common",
@@ -11,16 +11,16 @@
   ],
   "images": [
     {
-      "app_version": "2.56.0",
-      "image_revision": "8",
+      "app_version": "2.56.1",
+      "image_revision": "0",
       "name": "git",
       "os_flavour": "photon-5",
-      "source_digest": "sha256:5dfdb7d8e1a3d495201d5387cbea512e259e95800f46b1e10c05269f4400ba77",
+      "source_digest": "sha256:dc62f8644aed95ddf12f8142399e1dbdc76f14f42a744030f8c57824c607b3aa",
       "source_image": "registry-1.docker.io/bitnamisecure/git:latest",
-      "target_digest": "sha256:5dfdb7d8e1a3d495201d5387cbea512e259e95800f46b1e10c05269f4400ba77",
+      "target_digest": "sha256:dc62f8644aed95ddf12f8142399e1dbdc76f14f42a744030f8c57824c607b3aa",
       "target_registry": "docker.io",
       "target_repository": "inglp/bitnami-secure-git",
-      "target_tag": "2.56.0-photon-5-r8"
+      "target_tag": "2.56.1-photon-5-r0"
     },
     {
       "app_version": "5",
@@ -47,9 +47,9 @@
       "target_tag": "2.15.0-photon-5-r0"
     }
   ],
-  "mirror_revision": 0,
+  "mirror_revision": 1,
   "published": true,
   "source_digest": "sha256:480cc6e61851cd589b979cd74763dc17b594b4e248a85954daa681b6fc5c347d",
   "upstream_version": "5.10.9",
-  "version": "5.10.9-inglp.r0"
+  "version": "5.10.9-inglp.r1"
 }

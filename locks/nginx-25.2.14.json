@@ -1,6 +1,6 @@
 {
   "chart": "nginx",
-  "content_fingerprint": "sha256:50126a4dc262eec6fc09e3bd33bb8abe8c66cf34d79375d48b6e401511d43083",
+  "content_fingerprint": "sha256:c7898cf67773cd341556062bd942bd17251f3c3a57f7faef3d9e85ce3e3b9e81",
   "dependencies": [
     {
       "name": "common",
@@ -11,16 +11,16 @@
   ],
   "images": [
     {
-      "app_version": "2.56.0",
-      "image_revision": "8",
+      "app_version": "2.56.1",
+      "image_revision": "0",
       "name": "git",
       "os_flavour": "photon-5",
-      "source_digest": "sha256:5dfdb7d8e1a3d495201d5387cbea512e259e95800f46b1e10c05269f4400ba77",
+      "source_digest": "sha256:dc62f8644aed95ddf12f8142399e1dbdc76f14f42a744030f8c57824c607b3aa",
       "source_image": "registry-1.docker.io/bitnamisecure/git:latest",
-      "target_digest": "sha256:5dfdb7d8e1a3d495201d5387cbea512e259e95800f46b1e10c05269f4400ba77",
+      "target_digest": "sha256:dc62f8644aed95ddf12f8142399e1dbdc76f14f42a744030f8c57824c607b3aa",
       "target_registry": "docker.io",
       "target_repository": "inglp/bitnami-secure-git",
-      "target_tag": "2.56.0-photon-5-r8"
+      "target_tag": "2.56.1-photon-5-r0"
     },
     {
       "app_version": "1.31.8",
@@ -36,20 +36,20 @@
     },
     {
       "app_version": "1.5.3",
-      "image_revision": "15",
+      "image_revision": "16",
       "name": "nginx-exporter",
       "os_flavour": "photon-5",
-      "source_digest": "sha256:1ae2adcb54eb73b83ff627e48dfef844aab0c43c578c9047b10b51f388a8640e",
+      "source_digest": "sha256:f5713a8b465a36b0d83fd9d3cc0927c52f17327c5e55c0386cc830f5987639f1",
       "source_image": "registry-1.docker.io/bitnamisecure/nginx-exporter:latest",
-      "target_digest": "sha256:1ae2adcb54eb73b83ff627e48dfef844aab0c43c578c9047b10b51f388a8640e",
+      "target_digest": "sha256:f5713a8b465a36b0d83fd9d3cc0927c52f17327c5e55c0386cc830f5987639f1",
       "target_registry": "docker.io",
       "target_repository": "inglp/bitnami-secure-nginx-exporter",
-      "target_tag": "1.5.3-photon-5-r15"
+      "target_tag": "1.5.3-photon-5-r16"
     }
   ],
-  "mirror_revision": 0,
+  "mirror_revision": 1,
   "published": true,
   "source_digest": "sha256:0682df9366e16ab3879ca9b45b2d17d1c94b7532c12b370d63048a06e8f703f1",
   "upstream_version": "25.2.14",
-  "version": "25.2.14-inglp.r0"
+  "version": "25.2.14-inglp.r1"
 }
