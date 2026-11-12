@@ -1,6 +1,6 @@
 {
   "chart": "valkey",
-  "content_fingerprint": "sha256:fa1aef32a003aca7ee7a29d0a26587e1ddad688453bc63369e477dec8028f334",
+  "content_fingerprint": "sha256:d48f3c203ac612fcf6c6c0f888feb6cbdce6372d89581441c6f77be581b72e3a",
   "dependencies": [
     {
       "name": "common",
@@ -12,15 +12,15 @@
   "images": [
     {
       "app_version": "1.37.2",
-      "image_revision": "1",
+      "image_revision": "2",
       "name": "kubectl",
       "os_flavour": "photon-5",
-      "source_digest": "sha256:8f59408f9e896fc8992a0660a56687545bd06751f26531b4a26fca6d5dc7562d",
+      "source_digest": "sha256:8919c149c2e3d6860e0143c117900e64d71395172aaef0e01e604bb98c8e7ce0",
       "source_image": "registry-1.docker.io/bitnamisecure/kubectl:latest",
-      "target_digest": "sha256:8f59408f9e896fc8992a0660a56687545bd06751f26531b4a26fca6d5dc7562d",
+      "target_digest": "sha256:8919c149c2e3d6860e0143c117900e64d71395172aaef0e01e604bb98c8e7ce0",
       "target_registry": "docker.io",
       "target_repository": "inglp/bitnami-secure-kubectl",
-      "target_tag": "1.37.2-photon-5-r1"
+      "target_tag": "1.37.2-photon-5-r2"
     },
     {
       "app_version": "5",
@@ -71,9 +71,9 @@
       "target_tag": "9.1.3-photon-5-r1"
     }
   ],
-  "mirror_revision": 0,
+  "mirror_revision": 1,
   "published": true,
   "source_digest": "sha256:194b54bd4a18b1404288e5a2e9c5e9725277ea0007ce07e53d017f188f80044b",
   "upstream_version": "6.3.14",
-  "version": "6.3.14-inglp.r0"
+  "version": "6.3.14-inglp.r1"
 }
