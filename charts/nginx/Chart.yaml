@@ -1,15 +1,15 @@
 annotations:
   fips: 'true'
-  images: "- name: git\n  version: 2.56.0\n  image: registry-1.docker.io/bitnamisecure/git:latest\n\
-    - name: nginx\n  version: 1.31.8\n  image: registry-1.docker.io/bitnamisecure/nginx:latest\n\
+  images: "- name: git\n  version: 2.56.1\n  image: registry-1.docker.io/bitnamisecure/git:latest\n\
+    - name: nginx\n  version: 1.31.9\n  image: registry-1.docker.io/bitnamisecure/nginx:latest\n\
     - name: nginx-exporter\n  version: 1.5.3\n  image: registry-1.docker.io/bitnamisecure/nginx-exporter:latest\n"
   licenses: Apache-2.0
   tanzuCategory: clusterUtility
-  inglp.bitnami-secure-mirror/source-chart: registry-1.docker.io/bitnamichartssecure/nginx:25.2.14
-  inglp.bitnami-secure-mirror/source-digest: sha256:0682df9366e16ab3879ca9b45b2d17d1c94b7532c12b370d63048a06e8f703f1
-  inglp.bitnami-secure-mirror/upstream-version: 25.2.14
+  inglp.bitnami-secure-mirror/source-chart: registry-1.docker.io/bitnamichartssecure/nginx:25.2.15
+  inglp.bitnami-secure-mirror/source-digest: sha256:a17bc559e6710b45825a42ae757ad19ad168cc3e2a7f0f0cb9178f12d66bd529
+  inglp.bitnami-secure-mirror/upstream-version: 25.2.15
 apiVersion: v2
-appVersion: 1.31.8
+appVersion: 1.31.9
 dependencies:
 - name: common
   repository: https://inglp.github.io/bitnami-secure-charts
@@ -33,4 +33,4 @@ maintainers:
 name: nginx
 sources:
 - https://github.com/bitnami/charts/tree/main/bitnami/nginx
-version: 25.2.14-inglp.r1
+version: 25.2.15-inglp.r0

@@ -1,0 +1,55 @@
+{
+  "chart": "postgresql",
+  "content_fingerprint": "sha256:9467a4e38d2264e3c61b1ce2913f145ad6a9b778dc5a4ddbfca917ae43568793",
+  "dependencies": [
+    {
+      "name": "common",
+      "repository": "https://inglp.github.io/bitnami-secure-charts",
+      "upstream_version": "2.41.0",
+      "version": "2.41.0-inglp.r0"
+    }
+  ],
+  "images": [
+    {
+      "app_version": "5",
+      "image_revision": "110",
+      "name": "os-shell",
+      "os_flavour": "photon-5",
+      "source_digest": "sha256:5e77f6a00c416967070a080f6a9092c5cb8cff7ff05a33b1f1bd01e6c79a7236",
+      "source_image": "registry-1.docker.io/bitnamisecure/os-shell:latest",
+      "target_digest": "sha256:5e77f6a00c416967070a080f6a9092c5cb8cff7ff05a33b1f1bd01e6c79a7236",
+      "target_registry": "docker.io",
+      "target_repository": "inglp/bitnami-secure-os-shell",
+      "target_tag": "5-photon-5-r110"
+    },
+    {
+      "app_version": "0.21.1",
+      "image_revision": "0",
+      "name": "postgres-exporter",
+      "os_flavour": "photon-5",
+      "source_digest": "sha256:25771a8ecb033d355c48b7aa2308357d4f56bc22e47971df502b9316eb55abc2",
+      "source_image": "registry-1.docker.io/bitnamisecure/postgres-exporter:latest",
+      "target_digest": "sha256:25771a8ecb033d355c48b7aa2308357d4f56bc22e47971df502b9316eb55abc2",
+      "target_registry": "docker.io",
+      "target_repository": "inglp/bitnami-secure-postgres-exporter",
+      "target_tag": "0.21.1-photon-5-r0"
+    },
+    {
+      "app_version": "18.7.0",
+      "image_revision": "2",
+      "name": "postgresql",
+      "os_flavour": "photon-5",
+      "source_digest": "sha256:f6165e04250e7db79db6f7edaf894710573d12bd2310cac85b1c8109f79e0fdb",
+      "source_image": "registry-1.docker.io/bitnamisecure/postgresql:latest",
+      "target_digest": "sha256:f6165e04250e7db79db6f7edaf894710573d12bd2310cac85b1c8109f79e0fdb",
+      "target_registry": "docker.io",
+      "target_repository": "inglp/bitnami-secure-postgresql",
+      "target_tag": "18.7.0-photon-5-r2"
+    }
+  ],
+  "mirror_revision": 0,
+  "published": true,
+  "source_digest": "sha256:3707a55ba50c4142fb8b4fb7811a8d5da42b0353b295bc4b74e6fac60fedd0a0",
+  "upstream_version": "18.12.23",
+  "version": "18.12.23-inglp.r0"
+}
