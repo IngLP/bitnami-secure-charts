@@ -72,8 +72,8 @@ tls:
   image:
     registry: docker.io
     repository: inglp/bitnami-secure-nginx
-    tag: 1.31.9-photon-5-r0
-    digest: sha256:7b60e24d7f8f7b8fd1e3cd5e5f34330d1b506f1ac8ad520e36d33d33ab80547d
+    tag: 1.31.9-photon-5-r1
+    digest: sha256:e26e34b9d132a9e6402059c5fd251428298669b351c8f89c4a3cb78c86d0c472
     pullPolicy: IfNotPresent
     pullSecrets: []
   extraDnsNames: []
