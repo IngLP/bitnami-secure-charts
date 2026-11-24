@@ -1,6 +1,6 @@
 {
   "chart": "redis",
-  "content_fingerprint": "sha256:1d458c06a59fbac657d48b4d913df95653a07a3b43e3b3d165edbf9566a23d48",
+  "content_fingerprint": "sha256:78b2c25c06bfd269a311005702a13ac80965485535fb191b4376fa6cf77f39db",
   "dependencies": [
     {
       "name": "common",
@@ -47,16 +47,16 @@
       "target_tag": "8.10.3-photon-5-r2"
     },
     {
-      "app_version": "1.98.0",
+      "app_version": "1.99.0",
       "image_revision": "0",
       "name": "redis-exporter",
       "os_flavour": "photon-5",
-      "source_digest": "sha256:5f475f283dbce0ae1513a7a4e9afed51ffa7fdacfb19e9d248468a09971c60f9",
+      "source_digest": "sha256:0438a00ed4312e0a6d4918a5810ea40e90065b88c73cc403d2eae1d8ea69e927",
       "source_image": "registry-1.docker.io/bitnamisecure/redis-exporter:latest",
-      "target_digest": "sha256:5f475f283dbce0ae1513a7a4e9afed51ffa7fdacfb19e9d248468a09971c60f9",
+      "target_digest": "sha256:0438a00ed4312e0a6d4918a5810ea40e90065b88c73cc403d2eae1d8ea69e927",
       "target_registry": "docker.io",
       "target_repository": "inglp/bitnami-secure-redis-exporter",
-      "target_tag": "1.98.0-photon-5-r0"
+      "target_tag": "1.99.0-photon-5-r0"
     },
     {
       "app_version": "8.10.3",
@@ -71,9 +71,9 @@
       "target_tag": "8.10.3-photon-5-r2"
     }
   ],
-  "mirror_revision": 0,
+  "mirror_revision": 1,
   "published": true,
   "source_digest": "sha256:0b9f7a04a941cd9fb4ed6b1110d105171bb29e19e3676187719f31b8dd78aecf",
   "upstream_version": "28.3.16",
-  "version": "28.3.16-inglp.r0"
+  "version": "28.3.16-inglp.r1"
 }
