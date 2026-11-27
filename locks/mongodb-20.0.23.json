@@ -1,6 +1,6 @@
 {
   "chart": "mongodb",
-  "content_fingerprint": "sha256:ca409f6e5c5992cea4e6a0908554252ce6792088d1b17fd67f8d8b7e61644188",
+  "content_fingerprint": "sha256:eecbef86d1127853dba08bbc43a977667b69691127a8af8e97aa2df6e4efa0b9",
   "dependencies": [
     {
       "name": "common",
@@ -59,16 +59,16 @@
       "target_tag": "9.0.8-photon-5-r1"
     },
     {
-      "app_version": "0.54.0",
-      "image_revision": "3",
+      "app_version": "0.55.0",
+      "image_revision": "0",
       "name": "mongodb-exporter",
       "os_flavour": "photon-5",
-      "source_digest": "sha256:f94eb549543623cc4eb8e464176aab710b0a83ce0edd4bf5acb21047b3bb610e",
+      "source_digest": "sha256:e9bfa42c1c81f8a3931e9130a658909899b42b7905fd40a645d61a4cd2f52180",
       "source_image": "registry-1.docker.io/bitnamisecure/mongodb-exporter:latest",
-      "target_digest": "sha256:f94eb549543623cc4eb8e464176aab710b0a83ce0edd4bf5acb21047b3bb610e",
+      "target_digest": "sha256:e9bfa42c1c81f8a3931e9130a658909899b42b7905fd40a645d61a4cd2f52180",
       "target_registry": "docker.io",
       "target_repository": "inglp/bitnami-secure-mongodb-exporter",
-      "target_tag": "0.54.0-photon-5-r3"
+      "target_tag": "0.55.0-photon-5-r0"
     },
     {
       "app_version": "1.31.10",
@@ -95,9 +95,9 @@
       "target_tag": "5-photon-5-r111"
     }
   ],
-  "mirror_revision": 2,
+  "mirror_revision": 3,
   "published": true,
   "source_digest": "sha256:8255080f80028e2a9cca680516044a345d26b0fae7b38910229171fc3cee0775",
   "upstream_version": "20.0.23",
-  "version": "20.0.23-inglp.r2"
+  "version": "20.0.23-inglp.r3"
 }
